@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/mybatis/CommonMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/mybatis/MybatisPlusConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/redis/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/redis/RedisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/SpringSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/exception/CustomerAuthenticationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/filter/CheckTokenFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/AnonymousAuthenticationHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/CustomerAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/web/CORSConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/DepartmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/EmpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SysUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/DepartmentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/EmpMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PermissionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/RoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Emp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/run/GeneratorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/DepartmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/EmpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/PermissionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/EmpServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/DepartmentTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/LoginResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/MenuTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/ResultCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/RouterVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/TokenVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/DepartmentQueryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/Application.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/CommonMetaObjectHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/MybatisPlusConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/SpringSecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/exception/CustomerAuthenticationException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/filter/CheckTokenFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/AnonymousAuthenticationHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/CustomerAccessDeniedHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginFailureHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginSuccessHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/web/CORSConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/DepartmentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/EmpController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/PermissionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/RoleController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/SysUserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/DepartmentMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/EmpMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/PermissionMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/RoleMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/Department.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/Emp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/Permission.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/Role.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/UserInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/run/GeneratorCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/DepartmentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/EmpService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/PermissionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/RoleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/DepartmentServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/EmpServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/PermissionServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/RoleServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/utils/JwtUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/utils/LoginResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/utils/MenuTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/utils/Result.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/utils/ResultCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo$Meta.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/TokenVo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/DepartmentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/EmpMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/trkj/TestUser.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\jar" />
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.3-bin\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2EpeDWH2T1afdNZs5KiVNDsuccM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config\security" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.trkj.controller" />
+      <recent name="com.trkj.utils" />
+      <recent name="com.trkj.vo" />
+      <recent name="com.trkj.entity" />
+      <recent name="com.trkj" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="GeneratorCode (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.trkj.run.GeneratorCode" />
+      <module name="Fitness-Projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trkj.run.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GeneratorCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="run.GeneratorCode" />
+      <module name="Fitness-Projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="run.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="Fitness-Projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trkj.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.trkj.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Application.GeneratorCode (1)" />
+        <item itemvalue="Application.GeneratorCode" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="" />
+      <created>1663296833682</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663296833682</updated>
+      <workItem from="1663296838789" duration="8104000" />
+      <workItem from="1663385831394" duration="14019000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1663401952761">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1663401952761" />
+    <state x="496" y="105" key="FileChooserDialogImpl" timestamp="1663402800975">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="496" y="105" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1663402800975" />
+    <state x="601" y="282" key="Github.ShareDialog" timestamp="1663403302326">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="601" y="282" key="Github.ShareDialog/0.0.1536.816@0.0.1536.816" timestamp="1663403302326" />
+    <state x="487" y="35" key="Github.UntrackedFilesDialog" timestamp="1663403361035">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="487" y="35" key="Github.UntrackedFilesDialog/0.0.1536.816@0.0.1536.816" timestamp="1663403361034" />
+    <state width="1483" height="284" key="GridCell.Tab.0.bottom" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state width="1483" height="284" key="GridCell.Tab.0.center" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state width="1483" height="284" key="GridCell.Tab.0.left" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state width="1483" height="284" key="GridCell.Tab.0.right" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state width="1483" height="284" key="GridCell.Tab.1.bottom" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state width="1483" height="284" key="GridCell.Tab.1.center" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state width="1483" height="284" key="GridCell.Tab.1.left" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state width="1483" height="284" key="GridCell.Tab.1.right" timestamp="1663399932559">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="284" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1663399932559" />
+    <state x="153" y="0" key="SettingsEditor" timestamp="1663403182311">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="153" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1663403182311" />
+    <state x="0" y="0" key="new project wizard" timestamp="1663308426584">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="0" y="0" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1663308426584" />
+    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1663389133306">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1663389133306" />
+  </component>
+</project>

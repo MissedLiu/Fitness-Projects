@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.EmpMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.trkj.entity.Emp">
+        <id column="emp_id" property="empId" />
+        <result column="emp_name" property="empName" />
+        <result column="emp_age" property="empAge" />
+        <result column="emp_sex" property="empSex" />
+        <result column="emp_address" property="empAddress" />
+        <result column="emp_phone" property="empPhone" />
+        <result column="avatar" property="avatar" />
+        <result column="emil" property="emil" />
+        <result column="qq" property="qq" />
+        <result column="weix" property="weix" />
+        <result column="department_id" property="departmentId" />
+        <result column="department_name" property="departmentName" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="station" property="station" />
+        <result column="synopsis" property="synopsis" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        emp_id, emp_name, emp_age, emp_sex, emp_address, emp_phone, avatar, emil, qq, weix, department_id, department_name, create_time, update_time, station, synopsis
+    </sql>
+
+</mapper>
