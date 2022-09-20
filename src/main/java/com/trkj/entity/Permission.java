@@ -38,7 +38,7 @@ public class Permission implements Serializable {
     /**
      * 权限名称
      */
-    private String label;
+        private String label;
 
     /**
      * 父权限ID
