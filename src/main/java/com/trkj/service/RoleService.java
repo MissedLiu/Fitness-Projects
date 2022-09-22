@@ -1,7 +1,11 @@
 package com.trkj.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.Role;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.trkj.vo.query.RoleQueryVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-09-17
  */
 public interface RoleService extends IService<Role> {
-
+    /*
+    * 根据账号id查询角色列表
+    * */
+    IPage<Role> findRoleListById(IPage<Role> page, RoleQueryVo roleQueryVo);
+    //检查角色是否分配账号
+    boolean hashRoleCount(Long id);
+    //保存分配好的权限数据
+    boolean saveRolePermission(Long roleId, List<Long> permissionIds);
 }

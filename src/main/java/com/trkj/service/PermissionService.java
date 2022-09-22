@@ -3,6 +3,7 @@ package com.trkj.service;
 import com.trkj.entity.Permission;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.query.PermissionQueryVo;
+import com.trkj.vo.query.RolePermissionVo;
 
 import java.util.List;
 
@@ -23,8 +24,10 @@ public interface PermissionService extends IService<Permission> {
     List<Permission> findParentPermissionList();
     //检查菜单是否有子菜单
     boolean hasChildrenOfPermission(Long id);
-    //修改菜单
 
-
+    /*
+     * 查询分配权限菜单列表
+     * */
+    RolePermissionVo findPermissionTree(Long userId,Long roleId);
 
 }

@@ -1,17 +1,21 @@
 package com.trkj.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.trkj.dao.UserMapper;
 import com.trkj.entity.Permission;
 import com.trkj.dao.PermissionMapper;
+import com.trkj.entity.User;
 import com.trkj.service.PermissionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.utils.MenuTree;
 import com.trkj.vo.query.PermissionQueryVo;
+import com.trkj.vo.query.RolePermissionVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
-import java.util.Arrays;
-import java.util.List;
+import javax.annotation.Resource;
+import java.util.*;
 
 /**
  * <p>
@@ -24,6 +28,8 @@ import java.util.List;
 @Service
 @Transactional
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
+    @Resource
+    private UserMapper userMapper;
     //根据用户ID查询权限菜单列表
     @Override
     public List<Permission> findPermissionListByUserId(Long id) {
@@ -75,5 +81,47 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
                 return true;
         }
          return false;
+    }
+    /*
+     * 查询分配权限菜单列表
+     * */
+    @Override
+    public RolePermissionVo findPermissionTree(Long userId, Long roleId) {
+        //根据账户id查询出当前的登录用户信息
+        User user=userMapper.selectById(userId);
+        List<Permission> permissionList=null;
+        //判断当前用户角色是否是超级管理员,则查询所有权限,如果不是管理员则只查询自己所拥有的权限
+        if(user !=null && ObjectUtils.isEmpty(user) && user.getIsAdmin() == 1){
+            //当前为超级管理员,拥有所有的权限
+            permissionList=baseMapper.selectList(null);
+        }else {
+            //不为超级管理员,根据账户id查询 则只拥有自己账户下自己的权限
+            permissionList=baseMapper.findPermissionListByUserId(userId);
+        }
+        //组装成树数据
+        List<Permission> permissions=MenuTree.makeMenuTree(permissionList,0L);
+        //查询要分配角色的原有的权限
+        List<Permission>  rolePermission=baseMapper.findPermissionListByRoleId(roleId);
+        //5.找出该角色存在的数据
+        List<Long> listIds = new ArrayList<Long>();
+        Optional.ofNullable(permissionList).orElse(new ArrayList<>())
+                .stream()
+                .filter(Objects::nonNull) //等同于 obj -> obj!=null
+                .forEach(item -> {
+                    Optional.ofNullable(rolePermission).orElse(new ArrayList<>())
+                            .stream()
+                            .filter(Objects::nonNull)
+                            .forEach(obj -> {
+                                if (item.getId().equals(obj.getId())) {
+                                    listIds.add(obj.getId());
+                                    return;
+                                }
+                            });
+                });
+        //创建
+        RolePermissionVo vo=new RolePermissionVo();
+        vo.setPermissionList(permissions);
+        vo.setCheckList(listIds.toArray());
+         return vo;
     }
 }
