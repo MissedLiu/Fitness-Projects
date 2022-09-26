@@ -10,6 +10,8 @@ import com.trkj.vo.query.PoQueryVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import javax.annotation.Resource;
+
 /**
 * @author oyzz
 * @description 针对表【po(物品已购表)】的数据库操作Service实现
@@ -19,6 +21,8 @@ import org.springframework.util.ObjectUtils;
 public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
     implements PoService{
 
+    @Resource
+    private PoMapper poMapper;
     @Override
     public IPage<Po> findAllPo(IPage page, PoQueryVo poQueryVo) {
         //创建条件构造器对象
@@ -28,6 +32,11 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
         //获取store列表
         return  baseMapper.selectPage(page,queryWrapper);
 
+    }
+
+    @Override
+    public boolean updatePoState(PoQueryVo poQueryVo) {
+        return poMapper.updatePoState(poQueryVo);
     }
 
 }

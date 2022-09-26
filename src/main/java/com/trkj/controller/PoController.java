@@ -52,25 +52,28 @@ public class PoController {
         }else if (!ObjectUtils.isEmpty(poQueryVo.getChangeMore())){
             ChangeNum=poQueryVo.getChangeMore();
         }
-        //插入报损报溢表
-        changenumService.toChangenum(poQueryVo);
         //如果改物品报损或报溢，则修改其入库数
         poQueryVo.setPoNum(poQueryVo.getPoNum()+ChangeNum);
         //如果库存中不存在相同物品名和品牌的物品，则直接入库
-        if (storeService.CountSameNameAndBrand(poQueryVo) == 0) {
-            //入库记录
+        if ("未入库".equals(poQueryVo.getPoState())){
+            if (storeService.CountSameNameAndBrand(poQueryVo) == 0) {
+                //库存表
+                storeService.toStore(poQueryVo);
+                //如果库存中存在相同物品名和品牌的物品，则查询该物品的库存数，然后修改其库存数、修改时间。
+            } else {
+                Long StoreNum = storeService.FindStoreNum(poQueryVo);
+                Date date = new Date();
+                storeService.updateStoreNum(date, storeService.FindStoreId(poQueryVo),
+                        poQueryVo.getPoNum() + StoreNum);
+                poService.updatePoState(poQueryVo);
+            }
+            //插入报损报溢表
+            changenumService.toChangenum(poQueryVo);
+            poService.updatePoState(poQueryVo);
             stockInService.toStock(poQueryVo);
-            //库存表
-            storeService.toStore(poQueryVo);
-            //如果库存中存在相同物品名和品牌的物品，则查询 该物品的库存数，然后修改其库存数、修改时间。
-        } else {
-            Long StoreNum = storeService.FindStoreNum(poQueryVo);
-            Date date=new Date();
-            storeService.updateStoreNum(date,storeService.FindStoreId(poQueryVo),
-                    poQueryVo.getPoNum()+storeService.FindStoreNum(poQueryVo));
-        }
+            return Result.ok().message("成功入库！");
+        }return Result.error().message("该物品也已经入库了！");
 
-        return Result.ok().message("操作完成");
     }
 
     @DeleteMapping("/delete/{id}")

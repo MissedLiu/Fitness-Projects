@@ -18,8 +18,7 @@ public interface ChangenumMapper extends BaseMapper<Changenum> {
     @Insert(value = "insert into changenum(shopping_id, change_lose, change_more) value (#{poId},#{changeLose},#{changeMore})")
     public Boolean toChangeNum(PoQueryVo poQueryVo);
 
-    @Select(value = "select change_lose,change_more from changenum where shopping_id=#{id}")
-    List<Changenum> getChangeNumByPoId(Long id);
+
 }
 
 

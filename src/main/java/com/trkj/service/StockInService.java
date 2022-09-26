@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.query.PoQueryVo;
 import com.trkj.vo.query.StockInQueryVo;
 
+import java.util.List;
+
 /**
 * @author oyzz
 * @description 针对表【stock_in(物品入库表)】的数据库操作Service
@@ -14,5 +16,6 @@ import com.trkj.vo.query.StockInQueryVo;
 */
 public interface StockInService extends IService<StockIn> {
     boolean toStock(PoQueryVo poQueryVo);
-    IPage <StockIn> findAllStockIn(IPage page, StockInQueryVo stockInQueryVo);
+    IPage <StockInQueryVo> findAllStockIn( StockInQueryVo stockInQueryVo);
+
 }

@@ -1,13 +1,10 @@
 package com.trkj.vo.query;
 
-import com.trkj.entity.StockIn;
+import com.trkj.entity.Store;
 import lombok.Data;
 
 @Data
-public class StockInQueryVo extends StockIn {
+public class StoreQueryVo extends Store {
     private Long pageNo = 1L;//当前页码
     private Long pageSize = 10L;//每页显示数量
-    private Long changeLose = 0L;
-    private Long changeMore = 0L;
-
 }

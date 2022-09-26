@@ -14,9 +14,5 @@
             <result property="brand" column="brand" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="Base_Column_List">
-        store_id,po_id,stockIn_name,
-        stockIn_num,store_num,stockIn_type,
-        brand
-    </sql>
+
 </mapper>

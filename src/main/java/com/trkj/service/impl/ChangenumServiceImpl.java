@@ -26,10 +26,6 @@ public class ChangenumServiceImpl extends ServiceImpl<ChangenumMapper, Changenum
         return changenumMapper.toChangeNum(poQueryVo);
     }
 
-    @Override
-    public List<Changenum> getChangeNumById(Long poId) {
-        return changenumMapper.getChangeNumByPoId(poId);
-    }
 }
 
 

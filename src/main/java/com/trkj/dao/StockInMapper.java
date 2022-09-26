@@ -1,12 +1,18 @@
 package com.trkj.dao;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.StockIn;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.trkj.vo.query.PoQueryVo;
+import com.trkj.vo.query.StockInQueryVo;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.Date;
+import java.util.List;
 
 /**
 * @author oyzz
@@ -17,8 +23,7 @@ import java.util.Date;
 public interface StockInMapper extends BaseMapper<StockIn> {
     @Insert(value = "insert into stock_in(po_id,in_name,in_num,in_type,brand)" +
             "VALUES (#{poId},#{poName},#{poNum},#{poType},#{brand})")
-    public Boolean toInStock(PoQueryVo poQueryVo);
-
+    Boolean toInStock(PoQueryVo poQueryVo);
 
 }
 

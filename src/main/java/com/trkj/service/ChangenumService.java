@@ -13,5 +13,4 @@ import java.util.List;
 */
 public interface ChangenumService extends IService<Changenum> {
     Boolean toChangenum(PoQueryVo poQueryVo);
-    List<Changenum> getChangeNumById(Long poId);
 }

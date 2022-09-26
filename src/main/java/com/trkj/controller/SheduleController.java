@@ -38,17 +38,16 @@ public class SheduleController {
     //修改采购计划
     @PutMapping("/update")
     private Result updatePlan(@RequestBody Schedule schedule) {
-        if (scheduleService.updateById(schedule)) {
-            return Result.ok().message("恭喜您修改成功");
-        }
-        return Result.ok().message("修改失败");
+        if ("未执行".equals(schedule.getScheduleState())) {
+            if (scheduleService.updatePlanState(schedule)){
+                return Result.ok().message("修改成功");
+            }
+        }return Result.error().message("该计划已执行，不能再编辑！");
     }
 
     //删除采购计划记录
     @DeleteMapping("/delete/{id}")
     private Result daletePlan(@PathVariable Long id) {
-        System.out.println("-------------------------------------------------------");
-        System.out.println(id);
         if (scheduleService.removeById(id)) {
             return Result.ok().message("恭喜您删除成功");
         }
@@ -58,8 +57,6 @@ public class SheduleController {
     //采购完成，将数据插入已购物品表
     @PostMapping("/toPo")
     private Result toPo(@RequestBody Schedule schedule) {
-        System.out.println("------------------------------------------------");
-        System.out.println(schedule.getScheduleState());
         if ("未执行".equals(schedule.getScheduleState())){
             if (scheduleService.toPo(schedule)) {
                 if (scheduleService.updatePlanState(schedule)) {

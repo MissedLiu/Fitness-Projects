@@ -4,46 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="欧阳0922">
-      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ChangeNumController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Po.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/ScheduleQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/PoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ScheduleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trkj/test1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/query/PermissionQueryVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="欧阳0926">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInVoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/StockInVoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StroeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Store.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/RoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/RoleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/PermissionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/PermissionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/RoleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/RoleMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/PermissionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/PermissionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/RoleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/PermissionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/PermissionServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/RoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/RoleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ChangeNumController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ChangenumMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ChangenumMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ChangenumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/ChangenumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockInService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockInService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ChangenumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ChangenumServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockInServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockInServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trkj/test1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +81,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mapper" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -115,22 +99,22 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config" />
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config\security" />
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.trkj.dao" />
       <recent name="com.trkj.controller" />
       <recent name="com.trkj.utils" />
       <recent name="com.trkj.vo" />
       <recent name="com.trkj.entity" />
-      <recent name="com.trkj" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -173,6 +157,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test1.name" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Fitness-Projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.trkj.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.trkj" />
+      <option name="MAIN_CLASS_NAME" value="com.trkj.test1" />
+      <option name="METHOD_NAME" value="name(com.trkj.vo.query.StockInQueryVo)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="Fitness-Projects" />
       <extension name="coverage">
@@ -190,6 +190,7 @@
       <list>
         <item itemvalue="Spring Boot.Application" />
         <item itemvalue="应用程序.test1" />
+        <item itemvalue="JUnit.test1.name" />
         <item itemvalue="应用程序.GeneratorCode" />
         <item itemvalue="应用程序.GeneratorCode (1)" />
       </list>
@@ -214,7 +215,7 @@
       <workItem from="1663721418386" duration="15721000" />
       <workItem from="1663758723709" duration="26119000" />
       <workItem from="1663852077677" duration="18136000" />
-      <workItem from="1664111831201" duration="20754000" />
+      <workItem from="1664111831201" duration="37187000" />
     </task>
     <task id="LOCAL-00001" summary="欧阳test1">
       <created>1663671260386</created>
@@ -223,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663671260386</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="欧阳0926">
+      <created>1664163190957</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664163190957</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +252,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="欧阳test1" />
     <MESSAGE value="欧阳0922" />
-    <option name="LAST_COMMIT_MESSAGE" value="欧阳0922" />
+    <MESSAGE value="欧阳0926" />
+    <option name="LAST_COMMIT_MESSAGE" value="欧阳0926" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

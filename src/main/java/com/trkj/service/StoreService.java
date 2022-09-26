@@ -1,8 +1,10 @@
 package com.trkj.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.Store;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.query.PoQueryVo;
+import com.trkj.vo.query.StoreQueryVo;
 
 import java.util.Date;
 
@@ -22,4 +24,7 @@ public interface StoreService extends IService<Store> {
     Boolean updateStoreNum(Date date,Long id,Long storeNum);
     //查询库存数
     Long FindStoreNum(PoQueryVo poQueryVo);
+
+    //查询库存表
+    IPage <Store> findStoreList(IPage <Store>page,StoreQueryVo storeQueryVo);
 }
