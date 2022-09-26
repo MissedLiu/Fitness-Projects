@@ -5,8 +5,9 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * 物品库存表
@@ -18,7 +19,7 @@ public class Store implements Serializable {
     /**
      * 库存编号
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long storeId;
 
     /**
@@ -51,8 +52,9 @@ public class Store implements Serializable {
      */
     private String brand;
 
+    //最后修改时间
+    private Date stockinTime;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
-
-
 }

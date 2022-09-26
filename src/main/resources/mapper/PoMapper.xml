@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.PoMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.Po">
+            <id property="poId" column="po_id" jdbcType="BIGINT"/>
+            <result property="scheduleId" column="schedule_id" jdbcType="BIGINT"/>
+            <result property="poName" column="po_name" jdbcType="VARCHAR"/>
+            <result property="poNum" column="po_num" jdbcType="BIGINT"/>
+            <result property="poPrice" column="po_price" jdbcType="BIGINT"/>
+            <result property="brand" column="brand" jdbcType="VARCHAR"/>
+            <result property="scheduleAddress" column="schedule_address" jdbcType="VARCHAR"/>
+            <result property="scheduleSupplier" column="schedule_supplier" jdbcType="VARCHAR"/>
+            <result property="poTime" column="po_time" jdbcType="TIMESTAMP"/>
+            <result property="poType" column="po_type" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+</mapper>
