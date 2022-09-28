@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.MemberMapper">
+
+    <!-- 普通会员封装 -->
+    <resultMap id="commentMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <id column="member_id" property="memberId" />
+        <result column="member_name" property="memberName" />
+        <result column="member_sex" property="memberSex" />
+        <result column="member_date" property="memberDate" />
+        <result column="member_phone" property="memberPhone" />
+        <result column="member_age" property="memberAge" />
+        <result column="member_address" property="memberAddress" />
+        <result column="member_state" property="memberState" />
+        <result column="member_type" property="memberType" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="meal_id" property="mealId" />
+        <result column="cm_name" property="mealName"/>
+        <result column="meal_type" property="mealType" />
+        <result column="mm_time" property="mmTime" />
+        <result column="mm_date" property="mmDate" />
+        <result column="mm_id" property="mmId" />
+    </resultMap>
+
+    <!-- 私教会员封装 -->
+    <resultMap id="PtMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <id column="member_id" property="memberId" />
+        <result column="member_name" property="memberName" />
+        <result column="member_sex" property="memberSex" />
+        <result column="member_date" property="memberDate" />
+        <result column="member_phone" property="memberPhone" />
+        <result column="member_age" property="memberAge" />
+        <result column="member_address" property="memberAddress" />
+        <result column="member_state" property="memberState" />
+        <result column="member_type" property="memberType" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType" />
+        <result column="mm_time" property="mmTime" />
+        <result column="mm_date" property="mmDate" />
+        <result column="mm_id" property="mmId" />
+        <result column="pt_name" property="mealName" />
+        <result column="ptp_name" property="projectName" />
+        <result column="emp_name" property="empName" />
+    </resultMap>
+
+    <!-- 团操会员封装 -->
+    <resultMap id="teamMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <id column="member_id" property="memberId" />
+        <result column="member_name" property="memberName" />
+        <result column="member_sex" property="memberSex" />
+        <result column="member_date" property="memberDate" />
+        <result column="member_phone" property="memberPhone" />
+        <result column="member_age" property="memberAge" />
+        <result column="member_address" property="memberAddress" />
+        <result column="member_state" property="memberState" />
+        <result column="member_type" property="memberType" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="meal_id" property="mealId" />
+        <result column="pt_name" property="mealName"/>
+        <result column="meal_type" property="mealType" />
+        <result column="mm_time" property="mmTime" />
+        <result column="mm_date" property="mmDate" />
+        <result column="mm_id" property="mmId" />
+        <result column="team_name" property="mealName" />
+        <result column="tp_name" property="projectName" />
+        <result column="emp_name" property="empName" />
+    </resultMap>
+
+
+    <!-- 团操套餐详情封装 -->
+    <resultMap id="PtMealAndEmpMap" type="com.trkj.vo.queryTqw.PtMealAndEmpQueryVo">
+        <id column="pt_id" property="ptId" />
+        <result column="pt_time" property="ptTime" />
+        <result column="pt_name" property="ptName" />
+        <result column="pt_price" property="ptPrice" />
+        <result column="emp_name" property="empName" />
+        <result column="emp_age" property="empAge" />
+        <result column="emp_sex" property="empSex" />
+        <result column="emp_phone" property="empPhone" />
+        <result column="weix" property="weix" />
+        <result column="emil" property="emil" />
+    </resultMap>
+
+    <!-- 团操套餐详情封装 -->
+    <resultMap id="TeamMealAndEmpMap" type="com.trkj.vo.queryTqw.PtMealAndEmpQueryVo">
+        <id column="team_id" property="ptId" />
+        <result column="team_id" property="ptTime" />
+        <result column="team_name" property="ptName" />
+        <result column="team_price" property="ptPrice" />
+        <result column="emp_name" property="empName" />
+        <result column="emp_age" property="empAge" />
+        <result column="emp_sex" property="empSex" />
+        <result column="emp_phone" property="empPhone" />
+        <result column="weix" property="weix" />
+        <result column="emil" property="emil" />
+    </resultMap>
+
+    <!--通过电话或套餐类型或套餐id查询普通会员-->
+    <select id="findMemberByPhoneOrMealTypeOrMealId" resultMap="commentMap" >
+        select * from member_meal mm,`member` m,common_meal cm
+        <where>
+            <if test="mealType != null">
+                and mm.meal_type=#{mealType}
+            </if>
+            <if test="memberPhone != null">
+                and m.member_phone=#{memberPhone}
+            </if>
+            <if test="mealId != null">
+                and mm.meal_id=#{mealId}
+            </if>
+        </where>
+        and m.member_state != 1
+        and mm.member_id=m.member_id
+        and cm.cm_id=mm.meal_id
+    </select>
+
+
+    <!--通过电话和套餐类型和套餐id查询普通会员-->
+    <select id="findMemberByPhoneAndMealTypeAndMealId" resultMap="commentMap">
+        select * from member_meal mm,`member` m
+        where mm.meal_type=#{mealType}
+        and m.member_phone=#{memberPhone}
+        and mm.meal_Id=#{mealId}
+        and m.member_state != 1
+        and mm.member_id=m.member_id
+    </select>
+
+<!-- ++++++++++++++++++++++++++++++++++ -->
+
+<!--    通过电话或类型或套餐编号查私教会员-->
+    <select id="findPtMemberByPhoneOrMealTypeOrMealId" resultMap="PtMap" >
+        select * from member_meal mm,`member` m,pt_meal pm,choose_projectname cp,pt_projectname pp,sys_emp se
+        <where>
+            <if test="mealType != null">
+                and mm.meal_type=#{mealType}
+            </if>
+            <if test="memberPhone != null">
+                and m.member_phone=#{memberPhone}
+            </if>
+            <if test="mealId != null">
+                and mm.meal_id=#{mealId}
+            </if>
+        </where>
+        and m.member_state != 1
+        and mm.member_id=m.member_id
+        and mm.mm_id=cp.mm_id
+        and cp.ptp_id=pp.ptp_id
+        and cp.emp_id=se.emp_id
+        and pm.pt_id=mm.meal_id
+    </select>
+
+
+
+<!--  通过电话和类型和套餐编号和项目编号和教练编号查私教会员-->
+    <select id="findMemberByPtAll" resultMap="PtMap">
+        select * from member_meal mm,`member` m,pt_meal pm,choose_projectname cp,pt_projectname pp,sys_emp se
+            where  mm.meal_type=#{mealType}
+                and m.member_phone=#{memberPhone}
+                and mm.meal_id=#{mealId}
+                and cp.ptp_id=#{ptpId}
+                and cp.emp_id=#{empId}
+                and m.member_state != 1
+                and mm.member_id=m.member_id
+                and mm.mm_id=cp.mm_id
+                and cp.ptp_id=pp.ptp_id
+                and cp.emp_id=se.emp_id
+                and pm.pt_id=mm.meal_id
+    </select>
+
+<!--    根据所选项目表套餐办理编号查询教练，套餐信息(私教)-->
+    <select id="selectPtMealAndEmpByMmId" resultMap="PtMealAndEmpMap">
+        select * from choose_projectname cp,sys_emp se,pt_meal pm
+        where cp.mm_id=#{mmid}
+        and cp.emp_id=se.emp_id
+        and cp.choose_id= pm.pt_id
+    </select>
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!-- 通过电话或类型或套餐编号查团操会员-->
+    <select id="findTeamMemberByPhoneOrMealTypeOrMealId" resultMap="teamMap" >
+        select * from member_meal mm,`member` m,team_meal tm,choose_projectname cp,team_projectname tp,sys_emp se
+        <where>
+            <if test="mealType != null">
+                and mm.meal_type=#{mealType}
+            </if>
+            <if test="memberPhone != null">
+                and m.member_phone=#{memberPhone}
+            </if>
+            <if test="mealId != null">
+                and mm.meal_id=#{mealId}
+            </if>
+        </where>
+        and m.member_state != 1
+        and mm.member_id=m.member_id
+        and mm.mm_id=cp.mm_id
+        and cp.ptp_id=tp.tp_id
+        and cp.emp_id=se.emp_id
+        and tm.team_id=mm.meal_id
+    </select>
+
+    <!--  通过电话和类型和套餐编号和项目编号和教练编号查团操会员-->
+    <select id="findMemberByTeamAll" resultMap="teamMap">
+        select * from member_meal mm,`member` m,team_meal tm,choose_projectname cp,team_projectname tp,sys_emp se
+            where  mm.meal_type=#{mealType}
+                and m.member_phone=#{memberPhone}
+                and mm.meal_id=#{mealId}
+                and cp.ptp_id=#{tpId}
+                and cp.emp_id=#{empId}
+                and m.member_state != 1
+                and mm.member_id=m.member_id
+                and mm.mm_id=cp.mm_id
+                and cp.ptp_id=tp.tp_id
+                and cp.emp_id=se.emp_id
+                and tm.team_id=mm.meal_id
+    </select>
+
+    <!--    根据所选项目表套餐办理编号查询教练，套餐信息(团操)-->
+    <select id="selectTeamMealAndEmpByMmId" resultMap="TeamMealAndEmpMap">
+        select * from choose_projectname cp,sys_emp se,team_meal tm
+        where cp.mm_id=#{mmid}
+        and cp.emp_id=se.emp_id
+        and cp.choose_id= tm.team_id
+    </select>
+</mapper>
