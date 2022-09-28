@@ -18,11 +18,72 @@
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
         <result column="is_delete" property="isDelete" />
+        <association property="emp" column="emp_id" resultMap="empBaseResultMap"/>
+    </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="empBaseResultMap" type="com.trkj.entity.Emp">
+        <result column="emp_name" property="empName" />
+        <result column="emp_age" property="empAge" />
+        <result column="emp_sex" property="empSex" />
+        <result column="emp_address" property="empAddress" />
+        <result column="emp_phone" property="empPhone" />
+        <result column="avatar" property="avatar" />
+        <result column="emil" property="emil" />
+        <result column="qq" property="qq" />
+        <result column="weix" property="weix" />
+        <result column="department_id" property="departmentId" />
+        <result column="department_name" property="departmentName" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="station" property="station" />
+        <result column="synopsis" property="synopsis" />
+
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, emp_id, username, password, is_account_non_expired, is_account_non_locked, is_credentials_non_expired, is_enabled, department_id, department_name, is_admin, create_time, update_time, is_delete
     </sql>
+    <update id="UpdateUserByUserId">
+        update sys_user set username=#{username} , password=#{password} where id=#{id};
+    </update>
+
+    <select id="selectXmlPage3" resultMap="BaseResultMap">
+        select u.emp_id,u.id,u.username,u.department_name,e.emp_name  from sys_user u left join sys_emp e on u.emp_id=e.emp_id where 1=1
+        <!-- 条件参数 -->
+        <if test="query.username != '' and query.username != null">
+            and u.username like "%"#{query.username}"%"
+        </if>
+
+    </select>
+    <select id="checkEmp" resultMap="BaseResultMap">
+        select u.emp_id,u.id,u.username,u.department_name,e.emp_name,u.password  from sys_user u left join sys_emp e on u.emp_id=e.emp_id where id=#{id}
+    </select>
+
+    <insert id="saveUserRole">
+        insert into sys_user_role (user_id,role_id) values
+        <foreach collection="roleIds" item="item" index="index" separator=",">
+            (#{userId},#{item})
+        </foreach>
+    </insert>
+    <select id="findUserByUserName" resultType="com.trkj.entity.User">
+        select * from sys_user where username=#{username}
+    </select>
+    <select id="findUserByUserId" resultType="com.trkj.entity.User">
+          select * from sys_user where id=#{id}
+    </select>
+    <select id="findUserByEmpId" resultType="com.trkj.entity.User">
+          select * from sys_user where emp_id =#{id}
+    </select>
+
+    <update id="updateUser">
+        update sys_user set emp_id=#{empId}  where id=#{userId};
+    </update>
+<!--    <select id="EmpcheckUser" resultMap="BaseResultMap">-->
+<!--       select u.id from sys_user u right join sys_emp e on u.emp_id=e.emp_id where e.emp_id=#{EmpId};-->
+<!--    </select>-->
+    <select id="EmpcheckUser2" resultMap="BaseResultMap">
+         select * from sys_user  where emp_id=#{empId};
+    </select>
 
 </mapper>

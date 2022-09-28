@@ -1,15 +1,6 @@
-package com.trkj.entity;
-
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
-import java.util.Date;
+package com.trkj.vo.query;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * <p>
@@ -20,16 +11,10 @@ import lombok.EqualsAndHashCode;
  * @since 2022-09-17
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@TableName("sys_emp")
-public class Emp implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+public class EmpAndUserQueryVo extends PageVo{
     /**
      * 员工编号
      */
-      @TableId(value = "emp_id", type = IdType.AUTO)
     private Long empId;
 
     /**
@@ -87,15 +72,6 @@ public class Emp implements Serializable {
      */
     private String departmentName;
 
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
 
     /**
      * 岗位
@@ -106,9 +82,9 @@ public class Emp implements Serializable {
      * 简介
      */
     private String synopsis;
-    @TableField(exist = false)
-    private User user;
-
-
+/*
+* 账户名
+* */
+    private String username;
 
 }

@@ -10,6 +10,7 @@ import com.trkj.service.RoleService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.RolePermissionVo;
 import com.trkj.vo.query.RoleQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,31 +45,43 @@ public class RoleController {
         //返回数据
         return Result.ok(page);
     }
-    //添加角色
+    /*
+    * 添加角色
+    * */
     @PostMapping("/add")
+    @PreAuthorize("hasAuthority('sys:role:add')")
     public Result add(@RequestBody Role role){
+        System.out.println("role=="+role);
         if(roleService.save(role)){
             return Result.ok().message("角色添加成功");
         }
         return Result.ok().message("角色添加失败");
     }
-    //修改角色信息
+    /*
+    * 修改角色信息
+    * */
     @PutMapping("/update")
+    @PreAuthorize("hasAuthority('sys:role:edit')")
     public Result update(@RequestBody Role role){
         if(roleService.updateById(role)){
             return Result.ok().message("角色修改成功");
         }
         return Result.ok().message("角色修改失败");
     }
-    //删除角色
+    /*
+    * 删除角色
+    * */
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasAuthority('sys:role:delete')")
     public Result delete(@PathVariable Long id){
         if(roleService.removeById(id)){
             return Result.ok().message("角色删除成功");
         }
         return Result.ok().message("角色删除失败");
     }
-    //查询该角色下是否有账号
+    /*
+    * 查询该角色下是否有账号
+    * */
     @GetMapping("/check/{id}")
     public Result check(@PathVariable Long id){
         if(roleService.hashRoleCount(id)){
@@ -83,11 +96,13 @@ public class RoleController {
     public Result getRolePermisson(Long userId,Long roleId){
         //调用查询权限树数据的方法
         RolePermissionVo permissionVo=permissionService.findPermissionTree(userId,roleId);
+        System.out.println("1111111111111==="+permissionVo);
         return Result.ok(permissionVo);
     }
     /*
      *保存权限添加
      * */@PostMapping("/saveRoleAssign")
+    @PreAuthorize("hasAuthority('sys:role:assign')")
     public Result saveRoleAssign(@RequestBody RolePermissionDTO rolePermissionDTO) {
         //调用保存角色权限关系方法
         if (roleService.saveRolePermission(rolePermissionDTO.getRoleId(), rolePermissionDTO.getList())) {

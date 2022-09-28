@@ -30,11 +30,18 @@ import java.util.*;
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
     @Resource
     private UserMapper userMapper;
-    //根据用户ID查询权限菜单列表
+    @Resource
+    private PermissionMapper permissionMapper;
+    /*
+    * 根据用户ID查询权限菜单列表
+    * */
     @Override
     public List<Permission> findPermissionListByUserId(Long id) {
         return baseMapper.findPermissionListByUserId(id);
     }
+    /*
+     * 查询菜单列表
+     * */
 
     @Override
     public List<Permission> findPermissionList(PermissionQueryVo permissionQueryVo) {
@@ -48,7 +55,9 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         List<Permission> menuTree= MenuTree.makeMenuTree(permissionList,0L);
         return menuTree;
     }
-    //查询上级菜单列表
+    /*
+    * 查询上级菜单列表
+    * */
     @Override
     public List<Permission> findParentPermissionList() {
         //创建条件构造器
@@ -69,7 +78,9 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         List<Permission> permissions=MenuTree.makeMenuTree(permissionList,-1L);
         return permissions;
     }
-    //检查菜单是否有子菜单
+    /*
+    * 检查菜单是否有子菜单
+    * */
     @Override
     public boolean hasChildrenOfPermission(Long id) {
         //创建条件构造器
@@ -82,6 +93,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         }
          return false;
     }
+
     /*
      * 查询分配权限菜单列表
      * */
@@ -91,9 +103,9 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         User user=userMapper.selectById(userId);
         List<Permission> permissionList=null;
         //判断当前用户角色是否是超级管理员,则查询所有权限,如果不是管理员则只查询自己所拥有的权限
-        if(user !=null && ObjectUtils.isEmpty(user) && user.getIsAdmin() == 1){
+        if( user.getIsAdmin() == 1){
             //当前为超级管理员,拥有所有的权限
-            permissionList=baseMapper.selectList(null);
+            permissionList=permissionMapper.findPermissionAll();
         }else {
             //不为超级管理员,根据账户id查询 则只拥有自己账户下自己的权限
             permissionList=baseMapper.findPermissionListByUserId(userId);
@@ -124,4 +136,50 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         vo.setCheckList(listIds.toArray());
          return vo;
     }
+//    /*
+//     * 查询分配权限菜单列表    测试
+//     * */
+//    //  菜单树实现
+//    @Override
+//    public List<Permission> menuTree(Long userId, Long roleId ) {
+//        //根据账户id查询出当前的登录用户信息
+//        User user=userMapper.selectById(userId);
+//        //  获取该用户的权限集合
+//        List<Permission> menus = userMapper.getMenuList(user.getId());
+//        List<Permission> results = getTreeMenu(menus);
+//        return results;
+//    }
+//
+//    /**
+//     * 获取菜单树
+//     * @param menus
+//     * @return
+//     */
+//    private List<Permission> getTreeMenu(List<Permission> menus) {
+//        List<Permission> parents = new ArrayList<>();
+//        for (Permission sysMenu : menus) {
+//            if (sysMenu.getMenuParentId() == 0) {
+//                parents.add(sysMenu);
+//            }
+//        }
+//        for (Permission parent : parents) {
+//            childMenu(parent, menus);
+//        }
+//        return parents;
+//    }
+//
+//    /**
+//     * 获取子菜单
+//     * @param parent
+//     * @param menus
+//     */
+//    private void childMenu(Permission parent, List<Permission> menus) {
+//        for (Permission menu : menus) {
+//            if (menu.getMenuParentId().equals(parent.getId())) {
+//                parent.getChildMenu().add(menu);
+//                childMenu(menu, menus);
+//            }
+//        }
+//    }
+
 }

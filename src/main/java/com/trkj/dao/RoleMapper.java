@@ -16,7 +16,13 @@ import java.util.List;
  * @since 2022-09-17
  */
 public interface RoleMapper extends BaseMapper<Role> {
-//查询角色数量
+    /*
+    * 根据账户Id出拥有的角色id
+    *
+    * */
+    @Select("select role_id from `sys_user_role` where user_id = #{userId}")
+    List<Long> findRoleIdByUserId(Long userId);
+    //查询角色数量
     @Select("select count(1) from sys_user_role where role_Id = #{roleId}")
     int getRoleCountByRoleId(Long id);
     /*

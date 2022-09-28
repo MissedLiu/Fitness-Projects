@@ -1,13 +1,23 @@
 package com.trkj.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.dao.EmpAndUserMapper;
 import com.trkj.entity.Emp;
 import com.trkj.dao.EmpMapper;
+import com.trkj.entity.EmpAndUser;
 import com.trkj.entity.User;
 import com.trkj.service.EmpService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.trkj.service.FileService;
 import com.trkj.service.UserService;
+import com.trkj.utils.SystemConstants;
+import com.trkj.vo.query.EmpAndUserQueryVo;
+import com.trkj.vo.query.EmpQueryVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
 
@@ -24,11 +34,58 @@ import javax.annotation.Resource;
 public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpService {
     @Resource
     private UserService userService;
+   @Resource
+   private EmpMapper empMapper;
+    @Resource
+    private FileService fileService;
+    @Resource
+    private EmpAndUserMapper empAndUserMapper;
     //获取员工信息根据账户id获取员工信息
     @Override
-    public Emp findEmpByUserid(String username) {
-        User user=userService.findUserByUserName(username);
-        Emp emp=baseMapper.selectById(user.getId());
+    public Emp findEmpByEmpId(Long id) {
+        Emp emp=baseMapper.selectById(id);
         return emp;
     }
+
+    /*
+     * 分页查询员工信息2
+     * */
+    @Override
+    public IPage<Emp> findEmpListByPage2( EmpQueryVo empQueryVo) {
+        Page<Emp> pageStr=new Page<Emp>(empQueryVo.getPageNo(),empQueryVo.getPageSize());
+        IPage<Emp> iPage = empMapper.selectEmpUserNamePage(pageStr, empQueryVo);
+        System.out.println("211111111111111 "+iPage.getRecords());
+        return iPage;
+    }
+    /*
+     * 分页查询员工信息3
+     * */
+    @Override
+    public IPage<EmpAndUser> findEmpListByPage3(EmpAndUserQueryVo empAndUserQueryVo) {
+        Page<EmpAndUser> pageStr=new Page<EmpAndUser>(empAndUserQueryVo.getPageNo(),empAndUserQueryVo.getPageSize());
+        IPage<EmpAndUser> iPage =empAndUserMapper.selectEmpUserNamePage3(pageStr, empAndUserQueryVo);
+        System.out.println("211111111111111 "+iPage.getRecords());
+        return iPage;
+    }
+    /*
+     * 根据员工id删除员工文件
+     * */
+    @Override
+    public boolean deleteById(Long id) {
+        //查询
+        Emp emp = baseMapper.selectById(id);
+        //删除用户
+        if (baseMapper.deleteById(id) > 0) {
+            //判断用户是否存在
+            if (emp != null && !ObjectUtils.isEmpty(emp.getAvatar())
+                    && !emp.getAvatar().equals(SystemConstants.DEFAULT_AVATAR)) {
+                //删除文件
+                fileService.deleteFile(emp.getAvatar());
+            }
+            return true;
+
+        }
+        return false;
+    }
+
 }

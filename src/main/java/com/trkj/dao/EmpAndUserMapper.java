@@ -1,11 +1,11 @@
 package com.trkj.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.Emp;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.trkj.entity.User;
+import com.trkj.entity.EmpAndUser;
+import com.trkj.vo.query.EmpAndUserQueryVo;
 import com.trkj.vo.query.EmpQueryVo;
-import com.trkj.vo.query.UserQueryVo;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -16,10 +16,10 @@ import org.apache.ibatis.annotations.Param;
  * @author liucz
  * @since 2022-09-17
  */
-public interface EmpMapper extends BaseMapper<Emp> {
+public interface EmpAndUserMapper  {
     /*
     * 根据员工id查询账户名,并按条件查询
     * */
 
-    IPage<Emp> selectEmpUserNamePage(IPage<Emp> page, @Param("query") EmpQueryVo query);
+    IPage<EmpAndUser> selectEmpUserNamePage3(IPage<EmpAndUser> page, @Param("query") EmpAndUserQueryVo query);
 }

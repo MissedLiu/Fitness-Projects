@@ -1,9 +1,11 @@
 package com.trkj.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.trkj.dao.EmpMapper;
 import com.trkj.dao.UserMapper;
 import com.trkj.entity.Department;
 import com.trkj.dao.DepartmentMapper;
+import com.trkj.entity.Emp;
 import com.trkj.entity.User;
 import com.trkj.service.DepartmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -29,7 +31,7 @@ import java.util.List;
 @Transactional
 public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Department> implements DepartmentService {
     @Resource
-    private UserMapper userMapper;
+    private EmpMapper empMapper;
 
     /**
      * 查询部门列表
@@ -106,11 +108,12 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
      */
     @Override
     public boolean hasUserOfDepartment(Long id) {
+
         //创建条件构造器对象
-        QueryWrapper<User> queryWrapper = new QueryWrapper<User>();
+        QueryWrapper<Emp> queryWrapper = new QueryWrapper<Emp>();
         queryWrapper.eq("department_id", id);
         //如果数量大于0，表示存在
-        if (userMapper.selectCount(queryWrapper) > 0) {
+        if (empMapper.selectCount(queryWrapper) > 0) {
             return true;
         }
         return false;

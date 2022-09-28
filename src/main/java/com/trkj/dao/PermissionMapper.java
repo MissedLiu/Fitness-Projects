@@ -15,8 +15,16 @@ import java.util.List;
  * @since 2022-09-17
  */
 public interface PermissionMapper extends BaseMapper<Permission> {
-    //根据用户ID查询权限菜单列表
+    /*
+    * 根据用户ID查询权限菜单列表
+    * */
     List<Permission> findPermissionListByUserId(Long id);
-    //根据角色id查询权限列表
+    /*
+    * 根据角色id查询权限列表
+    * */
     List<Permission> findPermissionListByRoleId(Long roleId);
+    /*
+    * 查询所有的权限字段
+    * */
+    List<Permission> findPermissionAll();
 }

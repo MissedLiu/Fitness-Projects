@@ -112,4 +112,7 @@ public class User implements Serializable , UserDetails {
     @TableField(exist = false)
     private List<Permission> permissionList;
 
+    @TableField(exist = false)
+    private Emp emp;
+
 }
