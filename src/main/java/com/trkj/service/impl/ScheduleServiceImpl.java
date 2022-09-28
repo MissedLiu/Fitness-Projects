@@ -14,47 +14,59 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* @author oyzz
-* @description 针对表【schedule(物品采购计划表)】的数据库操作Service实现
-* @createDate 2022-09-21 15:55:23
-*/
+ * @author oyzz
+ * @description 针对表【schedule(物品采购计划表)】的数据库操作Service实现
+ * @createDate 2022-09-21 15:55:23
+ */
 @Service
 public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
-    implements ScheduleService{
+        implements ScheduleService {
 
     @Resource
-    private ScheduleMapper mapper;
+    private ScheduleMapper scheduleMapper;
 
     @Override
     public IPage<Schedule> findPlanList(IPage<Schedule> page, ScheduleQueryVo scheduleQueryVo) {
         //创建条件构造器对象
         QueryWrapper<Schedule> queryWrapper = new QueryWrapper<Schedule>();
         //添加条件
-        queryWrapper.like(!ObjectUtils.isEmpty(scheduleQueryVo.getScheduleName()),"schedule_name",scheduleQueryVo.getScheduleName());
+        queryWrapper.like(!ObjectUtils.isEmpty(scheduleQueryVo.getScheduleName()), "schedule_name", scheduleQueryVo.getScheduleName());
         //获取store列表
-        return  baseMapper.selectPage(page,queryWrapper);
+        return baseMapper.selectPage(page, queryWrapper);
 
 
     }
 
     @Override
     public boolean addPlan(Schedule schedule) {
-        Boolean a=mapper.addPlan(schedule);
-        if (a=true){
+        Boolean a = scheduleMapper.addPlan(schedule);
+        if (a = true) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
     @Override
     public boolean toPo(Schedule schedule) {
-        return mapper.toPo(schedule);
+        return scheduleMapper.toPo(schedule);
     }
 
     @Override
     public boolean updatePlanState(Schedule schedule) {
-        return mapper.updatePlanState(schedule);
+        return scheduleMapper.updatePlanState(schedule);
+    }
+
+    @Override
+    public IPage<Schedule> getNotExecuted(IPage<Schedule> page,ScheduleQueryVo scheduleQueryVo) {
+        QueryWrapper<Schedule> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("schedule_state","未执行");
+        return baseMapper.selectPage(page,queryWrapper);
+    }
+
+    @Override
+    public Long getPlanNum(Schedule schedule) {
+        return scheduleMapper.getPlanNum(schedule);
     }
 
 

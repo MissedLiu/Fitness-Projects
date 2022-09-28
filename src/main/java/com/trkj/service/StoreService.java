@@ -21,10 +21,20 @@ public interface StoreService extends IService<Store> {
     //查询已存在的库存id
     Long FindStoreId(PoQueryVo poQueryVo);
     //通过库存id修改库存条目最后操作时间和库存数
-    Boolean updateStoreNum(Date date,Long id,Long storeNum);
+    Boolean updateStoreNum(Long stockinNum,Long id,Long storeNum);
     //查询库存数
     Long FindStoreNum(PoQueryVo poQueryVo);
 
     //查询库存表
     IPage <Store> findStoreList(IPage <Store>page,StoreQueryVo storeQueryVo);
+
+    //通过库存id查询库存数
+    long FindStoreNumByID(long id);
+
+    //出库
+    boolean toOutStock(StoreQueryVo storeQueryVo);
+    //修改库存
+    boolean updateStroeNumChu(StoreQueryVo storeQueryVo);
+    //通过id查询库存数
+    Long getStoreNumByStoreId(StoreQueryVo storeQueryVo);
 }

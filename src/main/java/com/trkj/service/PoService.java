@@ -13,4 +13,5 @@ import com.trkj.vo.query.PoQueryVo;
 public interface PoService extends IService<Po> {
     IPage<Po> findAllPo(IPage page, PoQueryVo poQueryVo);
     boolean updatePoState(PoQueryVo poQueryVo);
+    IPage<Po> getNotExecuted(IPage<Po> page,PoQueryVo poQueryVo);
 }

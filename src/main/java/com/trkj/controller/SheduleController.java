@@ -2,7 +2,6 @@ package com.trkj.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.trkj.entity.Role;
 import com.trkj.entity.Schedule;
 import com.trkj.service.ScheduleService;
 import com.trkj.utils.Result;
@@ -57,15 +56,25 @@ public class SheduleController {
     //采购完成，将数据插入已购物品表
     @PostMapping("/toPo")
     private Result toPo(@RequestBody Schedule schedule) {
-        if ("未执行".equals(schedule.getScheduleState())){
-            if (scheduleService.toPo(schedule)) {
-                if (scheduleService.updatePlanState(schedule)) {
-                    return Result.ok().message("成功执行该采购计划！");
-                } else {
-                    return Result.error();
+        if (scheduleService.getPlanNum(schedule)>=schedule.getScheduleNum()){
+            if ("未执行".equals(schedule.getScheduleState())){
+                if (scheduleService.toPo(schedule)) {
+                    if (scheduleService.updatePlanState(schedule)) {
+                        return Result.ok().message("成功执行该采购计划！");
+                    } else {
+                        return Result.error();
+                    }
                 }
-            }
-            return Result.error().message("采购计划执行失败");
-        }return Result.error().message("该采购计划已经完成了！");
+                return Result.error().message("采购计划执行失败");
+            }return Result.error().message("该采购计划已经完成了！");
+        }return Result.error().message("采购数量不可多于计划数量！");
+
+    }
+
+    @GetMapping("/getNotExecuted")
+    public Result getNotExecuted(ScheduleQueryVo scheduleQueryVo){
+        IPage<Schedule> page =new Page<>(scheduleQueryVo.getPageNo(),scheduleQueryVo.getPageSize());
+        scheduleService.getNotExecuted(page,scheduleQueryVo);
+        return Result.ok(page);
     }
 }

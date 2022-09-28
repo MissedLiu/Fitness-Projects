@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.entity.Po;
+import com.trkj.entity.Schedule;
 import com.trkj.service.PoService;
 import com.trkj.dao.PoMapper;
 import com.trkj.vo.query.PoQueryVo;
@@ -37,6 +38,13 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
     @Override
     public boolean updatePoState(PoQueryVo poQueryVo) {
         return poMapper.updatePoState(poQueryVo);
+    }
+
+    @Override
+    public IPage<Po> getNotExecuted(IPage<Po> page, PoQueryVo poQueryVo) {
+        QueryWrapper<Po> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("po_state","未入库");
+        return baseMapper.selectPage(page,queryWrapper);
     }
 
 }

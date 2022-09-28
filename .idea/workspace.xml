@@ -4,30 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="欧阳0926">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInVoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/StockInVoMapper.xml" afterDir="false" />
+    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="欧阳0926晚上">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StockOutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockOutQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ChangeNumController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ChangenumMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ChangenumMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ChangenumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/ChangenumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockInService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockInService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ChangenumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ChangenumServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockInServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockInServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trkj/test1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,11 +105,11 @@
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.trkj.vo.query" />
       <recent name="com.trkj.dao" />
       <recent name="com.trkj.controller" />
       <recent name="com.trkj.utils" />
       <recent name="com.trkj.vo" />
-      <recent name="com.trkj.entity" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -215,7 +210,9 @@
       <workItem from="1663721418386" duration="15721000" />
       <workItem from="1663758723709" duration="26119000" />
       <workItem from="1663852077677" duration="18136000" />
-      <workItem from="1664111831201" duration="37187000" />
+      <workItem from="1664111831201" duration="37214000" />
+      <workItem from="1664239620204" duration="24836000" />
+      <workItem from="1664326447153" duration="5413000" />
     </task>
     <task id="LOCAL-00001" summary="欧阳test1">
       <created>1663671260386</created>
@@ -231,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664163190957</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="欧阳0926晚上">
+      <created>1664197284272</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664197284272</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +257,8 @@
     <MESSAGE value="欧阳test1" />
     <MESSAGE value="欧阳0922" />
     <MESSAGE value="欧阳0926" />
-    <option name="LAST_COMMIT_MESSAGE" value="欧阳0926" />
+    <MESSAGE value="欧阳0926晚上" />
+    <option name="LAST_COMMIT_MESSAGE" value="欧阳0926晚上" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

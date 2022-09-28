@@ -4,11 +4,11 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.trkj.entity.Store;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.trkj.vo.query.PoQueryVo;
+import com.trkj.vo.query.StoreQueryVo;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-
-import java.util.Date;
 
 /**
 * @author oyzz
@@ -25,14 +25,27 @@ public interface StoreMapper extends BaseMapper<Store> {
     public Long CountSameNameAndBrand(PoQueryVo poQueryVo);
 
 
-    @Update(value = "update store set stockin_time=#{date},store_num=#{storeNum} where store_id=#{id}")
-    public Boolean updateStoreNum(Date date,Long id,Long storeNum);
+    @Update(value = "update store set store_num=#{storeNum},stockIn_num=#{stockinNum} where store_id=#{id}")
+    public Boolean updateStoreNum(@Param("stockinNum") Long stockinNum,@Param("id") Long id, @Param("storeNum") Long storeNum);
 
-    @Select(value = "select sum(store_num) from store where stockin_name=#{poName} AND brand=#{brand}")
+    @Select(value = "select store_num from store where stockin_name=#{poName} AND brand=#{brand} ")
     public Long FindStoreNum(PoQueryVo poQueryVo);
 
     @Select(value = "select store_id from store where stockin_name=#{poName} AND brand=#{brand}")
     public Long FindStoreIdByNameAndBrand(PoQueryVo poQueryVo);
+
+    @Select(value = "select store_num from store where store_id=#{id}")
+    public Long FindStoreNumByID(Long id);
+
+    @Insert(value = "insert into stock_out (store_id, stockin_id, stockin_name, store_num, out_num,stockin_type)" +
+            " VALUES (#{storeId},#{poId},#{stockinName},#{storeNum}-#{outStockNum},#{outStockNum},#{stockinType})")
+    public boolean toOutStock(StoreQueryVo storeQueryVo);
+
+    @Update(value ="update store set store_num=#{storeNum}-#{outStockNum} where store_id=#{storeId}")
+    public boolean updateStoreNumChu(StoreQueryVo storeQueryVo);
+
+    @Select(value = "select store_num from store  where store_id=#{storeId}")
+    public Long getStoreNumByStoreId(StoreQueryVo StoreQueryVo);
 }
 
 

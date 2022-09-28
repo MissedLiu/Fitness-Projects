@@ -31,6 +31,9 @@ public interface ScheduleMapper extends BaseMapper<Schedule> {
 
     @Update("update schedule set schedule_state='已执行' where schedule_id = #{scheduleId}")
     public Boolean updatePlanState(Schedule schedule);
+
+    @Select(value = "select schedule_num from schedule where schedule_id=#{scheduleId}")
+    public Long getPlanNum(Schedule schedule);
 }
 
 
