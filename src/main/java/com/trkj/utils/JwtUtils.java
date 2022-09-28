@@ -1,6 +1,6 @@
 package com.trkj.utils;
 
-import com.trkj.entity.User;
+import com.trkj.entity.liucz.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

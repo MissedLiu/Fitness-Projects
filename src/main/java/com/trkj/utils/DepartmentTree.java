@@ -1,6 +1,6 @@
 package com.trkj.utils;
 
-import com.trkj.entity.Department;
+import com.trkj.entity.liucz.Department;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;

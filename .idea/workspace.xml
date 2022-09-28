@@ -3,26 +3,187 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Fitness-Projects" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="欧阳0926晚上">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StockOutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockOutQueryVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="liucz0928  Commit2">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/EmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/EmpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/OSSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/OSSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/PermissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/PoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/SheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StockOutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StockOutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/SysUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/stockInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ChangenumMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ChangenumMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/DepartmentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/EmpAndUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpAndUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/EmpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/PermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/PoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ScheduleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInVoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInVoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockOutMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockOutMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StoreMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/UserAndEmpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserAndEmpMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/UserRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserRoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Changenum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Changenum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Emp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/EmpAndUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/EmpAndUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Po.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Po.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/StockIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/StockOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/UserAndEmp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/UserAndEmp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/UserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ChangenumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ChangenumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/EmpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/PoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockInService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockInService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockOutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockOutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ChangenumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ChangenumServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/EmpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/EmpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/FileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/PoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockInServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockOutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockOutServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StoreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/utils/DepartmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/DepartmentTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/utils/MenuTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/MenuTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/DepartmentQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/DepartmentQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/EmpAndUserQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpAndUserQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/EmpQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PermissionQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/PermissionQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/PoQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/RolePermissionVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/RolePermissionVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/RoleQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/RoleQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/ScheduleQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/ScheduleQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StockInQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockOutQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StockOutQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StoreQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserRoleQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserRoleQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ChangenumMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ChangenumMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/DepartmentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmpAndUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpAndUserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/PermissionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/PoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ScheduleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ScheduleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StockInMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StockInVoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInVoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StockOutMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockOutMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StoreMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserAndEmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserAndEmpMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserRoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/CommonMetaObjectHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/MybatisPlusConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/SpringSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/exception/CustomerAuthenticationException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/filter/CheckTokenFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/AnonymousAuthenticationHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/CustomerAccessDeniedHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginFailureHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginSuccessHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/web/CORSConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/DepartmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/EmpController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/PermissionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/RoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/SysUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/DepartmentMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/EmpMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/PermissionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/Department.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/Emp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/Permission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/UserInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/run/GeneratorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/DepartmentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/EmpService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/PermissionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/RoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/DepartmentServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/EmpServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/PermissionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/RoleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/MenuTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/ResultCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo$Meta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/TokenVo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/query/PermissionQueryVo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DepartmentMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EmpMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/RoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/trkj/TestUser.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,14 +254,9 @@
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config\security" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\liucz" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\ouyang" />
       <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
     </key>
@@ -110,6 +266,13 @@
       <recent name="com.trkj.controller" />
       <recent name="com.trkj.utils" />
       <recent name="com.trkj.vo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\vo" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\service" />
+      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -184,14 +347,11 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application" />
-        <item itemvalue="应用程序.test1" />
         <item itemvalue="JUnit.test1.name" />
-        <item itemvalue="应用程序.GeneratorCode" />
-        <item itemvalue="应用程序.GeneratorCode (1)" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="应用程序级" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -259,6 +419,52 @@
     <MESSAGE value="欧阳0926" />
     <MESSAGE value="欧阳0926晚上" />
     <option name="LAST_COMMIT_MESSAGE" value="欧阳0926晚上" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1664338731837">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1664338731837" />
+    <state x="313" y="319" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1664352428161">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="313" y="319" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.816@0.0.1536.816" timestamp="1664352428161" />
+    <state x="499" y="254" width="537" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1664348902220">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="499" y="254" width="537" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.816@0.0.1536.816" timestamp="1664348902220" />
+    <state width="1483" height="334" key="GridCell.Tab.0.bottom" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1483" height="334" key="GridCell.Tab.0.center" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1483" height="334" key="GridCell.Tab.0.left" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1483" height="334" key="GridCell.Tab.0.right" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1483" height="334" key="GridCell.Tab.1.bottom" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1483" height="334" key="GridCell.Tab.1.center" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1483" height="334" key="GridCell.Tab.1.left" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1483" height="334" key="GridCell.Tab.1.right" timestamp="1664350604141">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="334" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,13 +1,7 @@
 package com.trkj;
 
-import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.trkj.dao.UserAndEmpMapper;
-import com.trkj.entity.User;
-import com.trkj.entity.UserAndEmp;
-import com.trkj.service.UserService;
-import com.trkj.vo.query.UserQueryVo;
+import com.trkj.dao.liucz.UserAndEmpMapper;
+import com.trkj.service.implLiucz.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

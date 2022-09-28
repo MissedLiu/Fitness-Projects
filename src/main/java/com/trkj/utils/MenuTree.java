@@ -1,6 +1,6 @@
 package com.trkj.utils;
 
-import com.trkj.entity.Permission;
+import com.trkj.entity.liucz.Permission;
 import com.trkj.vo.RouterVo;
 import org.springframework.beans.BeanUtils;
 

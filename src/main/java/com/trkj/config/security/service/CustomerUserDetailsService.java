@@ -1,9 +1,9 @@
 package com.trkj.config.security.service;
 
-import com.trkj.entity.Permission;
-import com.trkj.entity.User;
-import com.trkj.service.PermissionService;
-import com.trkj.service.UserService;
+import com.trkj.entity.liucz.Permission;
+import com.trkj.entity.liucz.User;
+import com.trkj.service.implLiucz.PermissionService;
+import com.trkj.service.implLiucz.UserService;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
