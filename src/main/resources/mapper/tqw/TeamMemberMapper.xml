@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.TeamMemberMapper">
+
+
+    <!-- 团操会员封装 -->
+    <resultMap id="teamMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <id column="member_id" property="memberId" />
+        <result column="member_name" property="memberName" />
+        <result column="member_sex" property="memberSex" />
+        <result column="member_date" property="memberDate" />
+        <result column="member_phone" property="memberPhone" />
+        <result column="member_age" property="memberAge" />
+        <result column="member_address" property="memberAddress" />
+        <result column="member_state" property="memberState" />
+        <result column="member_type" property="memberType" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="meal_id" property="mealId" />
+        <result column="pt_name" property="mealName"/>
+        <result column="meal_type" property="mealType" />
+        <result column="mm_time" property="mmTime" />
+        <result column="mm_date" property="mmDate" />
+        <result column="mm_id" property="mmId" />
+        <result column="team_name" property="mealName" />
+        <result column="tp_name" property="projectName" />
+        <result column="emp_name" property="empName" />
+    </resultMap>
+
+    <!-- 团操套餐详情封装 -->
+    <resultMap id="TeamMealAndEmpMap" type="com.trkj.vo.queryTqw.PtMealAndEmpQueryVo">
+        <id column="team_id" property="ptId" />
+        <result column="team_id" property="ptTime" />
+        <result column="team_name" property="ptName" />
+        <result column="team_price" property="ptPrice" />
+        <result column="emp_name" property="empName" />
+        <result column="emp_age" property="empAge" />
+        <result column="emp_sex" property="empSex" />
+        <result column="emp_phone" property="empPhone" />
+        <result column="weix" property="weix" />
+        <result column="emil" property="emil" />
+    </resultMap>
+
+    <!-- 查团操会员列表-->
+    <select id="findTeamMember" resultMap="teamMap" >
+        select * from member_meal mm,`member` m,team_meal tm,choose_projectname cp,team_projectname tp,sys_emp se
+        where 1=1
+            <if test="query.memberPhone != null and query.memberPhone != '' " >
+                and m.member_phone=#{query.memberPhone}
+            </if>
+        and mm.meal_type='团操'
+        and m.member_state != 1
+        and mm.member_id=m.member_id
+        and mm.mm_id=cp.mm_id
+        and cp.ptp_id=tp.tp_id
+        and cp.emp_id=se.emp_id
+        and tm.team_id=mm.meal_id
+    </select>
+
+    <!--  通过电话和类型和套餐编号和项目编号和教练编号查团操会员-->
+    <select id="findMemberByTeamAll" resultMap="teamMap">
+        select * from member_meal mm,`member` m,team_meal tm,choose_projectname cp,team_projectname tp,sys_emp se
+            where  mm.meal_type=#{mealType}
+                and m.member_phone=#{memberPhone}
+                and mm.meal_id=#{mealId}
+                and cp.ptp_id=#{tpId}
+                and cp.emp_id=#{empId}
+                and m.member_state != 1
+                and mm.member_id=m.member_id
+                and mm.mm_id=cp.mm_id
+                and cp.ptp_id=tp.tp_id
+                and cp.emp_id=se.emp_id
+                and tm.team_id=mm.meal_id
+    </select>
+
+    <!--    根据所选项目表套餐办理编号查询教练，套餐信息(团操)-->
+    <select id="selectTeamMealAndEmpByMmId" resultMap="TeamMealAndEmpMap">
+        select * from choose_projectname cp,sys_emp se,team_meal tm
+        where cp.mm_id=#{mmid}
+        and cp.emp_id=se.emp_id
+        and cp.choose_id= tm.team_id
+    </select>
+
+</mapper>

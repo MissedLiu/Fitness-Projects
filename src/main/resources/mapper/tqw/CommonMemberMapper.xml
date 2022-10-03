@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.trkj.dao.tqw.CommonMemberMapper">
+
+    <!-- 普通会员封装 -->
+    <resultMap id="commentMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <id column="member_id" property="memberId" />
+        <result column="member_name" property="memberName" />
+        <result column="member_sex" property="memberSex" />
+        <result column="member_date" property="memberDate" />
+        <result column="member_phone" property="memberPhone" />
+        <result column="member_age" property="memberAge" />
+        <result column="member_address" property="memberAddress" />
+        <result column="member_state" property="memberState" />
+        <result column="member_type" property="memberType" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="meal_id" property="mealId" />
+        <result column="cm_name" property="mealName"/>
+        <result column="meal_type" property="mealType" />
+        <result column="mm_time" property="mmTime" />
+        <result column="mm_date" property="mmDate" />
+        <result column="mm_id" property="mmId" />
+    </resultMap>
+<!--    查询普通会员列表-->
+    <select id="findCommonMemberAll" resultMap="commentMap">
+        select * from member_meal mm,`member` m,common_meal cm
+            where 1=1
+            <if test="query.memberPhone != null and query.memberPhone !=''">
+                and m.member_phone=#{query.memberPhone}
+            </if>
+        and mm.meal_type='普通'
+        and m.member_state != 1
+        and mm.member_id=m.member_id
+        and cm.cm_id=mm.meal_id
+    </select>
+
+    <!--通过电话和套餐类型和套餐id查询普通会员-->
+    <select id="findMemberByPhoneAndMealTypeAndMealId" resultMap="commentMap">
+        select * from member_meal mm,`member` m
+        where mm.meal_type=#{mealType}
+        and m.member_phone=#{memberPhone}
+        and mm.meal_Id=#{mealId}
+        and m.member_state != 1
+        and mm.member_id=m.member_id
+    </select>
     
 </mapper>

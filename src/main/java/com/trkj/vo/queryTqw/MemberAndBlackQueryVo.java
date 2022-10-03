@@ -2,6 +2,7 @@ package com.trkj.vo.queryTqw;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.tqw.Member;
 import com.trkj.vo.query.PageVo;
 import lombok.Data;
@@ -10,32 +11,14 @@ import java.util.Date;
 
 /*
 *
-*添加会员vo对象
+*会员和黑名单
 *
 */
 @Data
-public class MemberQueryVo extends PageVo {
-    //套餐办理编号
-    private long mmId;
-    //所选套餐编号
-    private long mealId;
-    //套餐名字
-    private String mealName;
-    //所选套餐类型(私教,团操,普通)
-    private String mealType;
-    //套餐办理时间
-    private Date mmTime;
-    //套餐到期时间
-    private Date mmDate;
-    //项目编号
-    private Long projectId;
-    //项目名称
-    private String projectName;
-    //教练编号
-    private Long empId;
-    //教练名字
-    private String empName;
-
+public class MemberAndBlackQueryVo extends PageVo {
+    private long id;//黑名单编号
+    private Date createTime;//拉黑时间
+    private String why;//原因
     /*
      *
      *会员编号
@@ -92,18 +75,8 @@ public class MemberQueryVo extends PageVo {
     private int memberType;
     /*
      *
-     *创建时间
-     *
-     */
-    private Date createTime;
-    /*
-     *
      *更新时间
      *
      */
     private Date updateTime;
-
-
-
-
 }

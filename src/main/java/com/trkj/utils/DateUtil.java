@@ -15,7 +15,6 @@ public class DateUtil {
      *
      */
     public Date time(String mealTime,Date time) throws ParseException {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
         Calendar rightNow = Calendar.getInstance();
         rightNow.setTime(time);
         switch (mealTime)

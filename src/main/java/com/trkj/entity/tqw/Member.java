@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.trkj.vo.query.PageVo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,7 +20,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("`member`")
-public class Member {
+public class Member{
     private static final long serialVersionUID = 1L;
     /*
     *
@@ -87,11 +89,5 @@ public class Member {
     *
     */
     private Date updateTime;
-    /*
-    *
-    *会员办理套餐集合
-    *
-    */
-    @TableField(exist = false)
-    private List<MemberMeal> memberMeals;
+
 }

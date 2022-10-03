@@ -2,6 +2,7 @@ package com.trkj.controller.tqw;
 
 import com.trkj.service.ipmlTqw.MemberService;
 import com.trkj.service.ipmlTqw.PtMealService;
+import com.trkj.service.ipmlTqw.PtMemberService;
 import com.trkj.service.ipmlTqw.PtProjectnameService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
@@ -19,7 +20,7 @@ import javax.annotation.Resource;
 @RequestMapping("/api/ptMember")
 public class PtMemberController {
     @Resource
-    MemberService memberService;
+    PtMemberService ptmemberService;
     @Resource
     PtMealService ptMealService;
     @Resource
@@ -30,21 +31,8 @@ public class PtMemberController {
      *
      */
     @GetMapping("/PtMemberList")
-    public Result PtMemberList(){
-        String memberType="私教";
-        return Result.ok(memberService.findPtMember(memberType));
-    }
-
-
-    /*
-     *
-     * 通过电话查询私教会员套餐
-     *
-     */
-    @GetMapping("/findPtMemberByPhone")
-    public Result findPtMemberByPhone(String memberPhone){
-        String mealType="私教";
-        return Result.ok(memberService.findPtMemberByPhone(mealType,memberPhone));
+    public Result PtMemberList(MemberQueryVo memberQueryVo){
+        return Result.ok(ptmemberService.findPtMember(memberQueryVo));
     }
 
 
@@ -55,17 +43,21 @@ public class PtMemberController {
      */
     @PostMapping("/addPtMember")
     public Result addPtMember(@RequestBody MemberQueryVo memberQueryVo){
-        memberQueryVo.setMealType("私教");
-        System.out.println(memberQueryVo);
-        int res=memberService.addPtMember(memberQueryVo);
-        if(res==1){
-            return Result.ok().message("会员注册成功，套餐添加成功");
+        int res=ptmemberService.addPtMember(memberQueryVo);
+        if(res==0){
+            return Result.ok().message("套餐添加成功");
+        }else if(res==1){
+            return Result.error().message("会员未注册");
         }else if(res==2){
-            return Result.ok().message("会员已注册,套餐添加成功");
+            return Result.error().message("电话号码填写错误");
         }else if(res==3){
-            return Result.ok().message("会员已注册,套餐已拥有，续费成功");
+            return Result.error().message("姓名填写错误");
+        }else if(res==4){
+            return Result.error().message("此会员已拉黑");
+        }else if(res==5){
+            return Result.ok().message("套餐已拥有，续费成功");
         }
-        return Result.error().message("会员套餐添加失败");
+        return Result.error().message("系统错误");
     }
 
 
@@ -77,10 +69,10 @@ public class PtMemberController {
     @DeleteMapping("/delPtMealById/{mmId}")
     public Result delPtMealById(@PathVariable long mmId){
 
-        if(memberService.delPtMemberById(mmId)){
-            return Result.ok().message("会员删除成功");
+        if(ptmemberService.delPtMemberById(mmId)){
+            return Result.ok().message("会员套餐删除成功");
         }
-        return Result.error().message("会员删除失败");
+        return Result.error().message("会员套餐删除失败");
     }
 
 
@@ -126,6 +118,6 @@ public class PtMemberController {
      */
     @GetMapping("/selectPtMealByMealId/{mmId}")
     public Result selectCommonMealByMealId(@PathVariable Long mmId){
-        return Result.ok(memberService.selectPtMealAndEmpByMmId(mmId));
+        return Result.ok(ptmemberService.selectPtMealAndEmpByMmId(mmId));
     }
 }

@@ -13,6 +13,7 @@ import com.trkj.vo.queryOuyang.StockInQueryVo;
 */
 public interface StockInService extends IService<StockIn> {
     boolean toStock(PoQueryVo poQueryVo);
+
     IPage <StockInQueryVo> findAllStockIn( StockInQueryVo stockInQueryVo);
 
 }

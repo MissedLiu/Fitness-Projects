@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.BlackMapper">
+
+<!--   //查询黑名单列表-->
+    <select id="findBlackMemberAll" resultType="com.trkj.vo.queryTqw.MemberAndBlackQueryVo">
+        select * from `member` m inner join blacklist b
+            on m.member_id=b.member_id
+            where m.member_state=1
+        <if test="query.memberPhone !=null and query.memberPhone !='' ">
+            and member_phone=#{query.memberPhone}
+        </if>
+    </select>
+    <!--   //查询黑名单列表-->
+    <select id="findMemberByPhone" resultType="com.trkj.vo.queryTqw.MemberAndBlackQueryVo">
+        select * from `member` m inner join blacklist b
+        on m.member_id=b.member_id
+        where m.member_state=1
+            and m.member_phone=#{memberPhone}
+    </select>
+
+</mapper>

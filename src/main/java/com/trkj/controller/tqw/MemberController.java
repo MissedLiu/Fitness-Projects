@@ -2,9 +2,12 @@ package com.trkj.controller.tqw;
 
 
 import com.trkj.entity.tqw.Member;
+import com.trkj.service.ipmlTqw.BlackService;
 import com.trkj.service.ipmlTqw.MemberService;
 import com.trkj.service.ipmlTqw.PtProjectnameService;
 import com.trkj.utils.Result;
+import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
+import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,30 +24,19 @@ public class MemberController {
     @Resource
     private MemberService memberService;
     @Resource
-    private PtProjectnameService ptProjectnameService;
+    private BlackService blackService;
     /**
-     * 查询会员列表OK
+     * 查询会员列表(phone)
      *
      */
     @GetMapping("/listAll")
-    public Result listAll() {
-        return Result.ok(memberService.list());
+    public Result listAll(MemberQueryVo memberQueryVo) {
+        return Result.ok(memberService.findAllMemberByState(memberQueryVo));
     }
-
-
-    /**
-     * 通过电话查询会员信息OK
-     *
-     */
-    @GetMapping("/findMemberByMemberPhone")
-    public Result findMemberByMemberPhone(String memberPhone) {
-        return Result.ok(memberService.findMemberByMemberPhone(memberPhone));
-    }
-
 
     /*
      *
-     *新增会员ok
+     *新增会员
      *
      */
     @PostMapping("/addMember")
@@ -58,7 +50,7 @@ public class MemberController {
 
     /*
     *
-    *通过会员id删除会员ok
+    *通过会员id删除会员
     *
     */
     @DeleteMapping("/delMemberByMemberId/{memberId}")
@@ -68,7 +60,6 @@ public class MemberController {
         }
         return Result.error().message("会员删除失败");
     }
-
 
     /*
      *
@@ -80,7 +71,22 @@ public class MemberController {
         if(memberService.updataMemberByMemberPhone(member)){
             return Result.ok().message("修改成功");
         }
-        return Result.error().message("修改失败");
+        return Result.error().message("会员电话已注册");
     }
+
+    /*
+    *
+    *加入黑名单
+    *
+    */
+    @PutMapping("/goUpdMemberState")
+    public Result goUpdMemberState(@RequestBody MemberAndBlackQueryVo memberAndBlackQueryVo){
+        if(blackService.goUpdMemberState(memberAndBlackQueryVo.getMemberId(),memberAndBlackQueryVo.getWhy())){
+            return Result.ok().message("拉黑成功");
+        }
+        return Result.error().message("拉黑失败");
+    }
+
+
 }
 
