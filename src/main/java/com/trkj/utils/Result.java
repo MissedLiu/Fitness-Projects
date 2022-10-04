@@ -1,5 +1,7 @@
 package com.trkj.utils;
 
+import com.trkj.config.exception.CustomError;
+
 import lombok.Data;
 
 /**
@@ -103,6 +105,47 @@ public class Result<T> {
         result.setSuccess(false);//存在该数据
         result.setCode(ResultCode.SUCCESS);//执行成功但是存在该数据
         result.setMessage("该数据存在");
+        return result;
+    }
+
+    /**
+     * 请求出现异常时的响应数据封装
+     * @param e:异常
+     * @return AjaxResponse 封闭后的响应对象
+     */
+    public static Result error(CustomError e) {
+        Result result = new Result();
+        result.setSuccess(false);
+        result.setCode(e.getCode());
+        result.setMessage(e.getMessage());
+        return result;
+    }
+
+    /**
+     * 请求出现异常时的响应数据封装
+     * @param e:异常
+     * @return AjaxResponse 封闭后的响应对象
+     */
+    public static Result error(CustomError e, Object data) {
+        Result result = new Result();
+        result.setSuccess(false);
+        result.setCode(e.getCode());
+        result.setMessage(e.getMessage());
+        result.setData(data);
+        return result;
+    }
+
+    /**
+     * @Description //请求错误的响 返回响应消息
+     * @Param msg
+     * @return com.trkj.vo.AjaxResponse
+     **/
+    public static Result error(String msg) {
+        Result result = new Result();
+        result.setSuccess(true);
+        result.setCode(200);
+        result.setMessage(msg);
+        result.setData(null);
         return result;
     }
 }

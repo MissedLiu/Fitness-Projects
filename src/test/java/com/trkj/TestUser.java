@@ -1,13 +1,22 @@
 package com.trkj;
 
 import com.trkj.dao.liucz.UserAndEmpMapper;
+import com.trkj.dao.liucz2.PtProjectMapper;
+import com.trkj.dao.liucz2.SalesArticleMapper;
+import com.trkj.entity.liucz2.Invoice;
+import com.trkj.entity.liucz2.PtProject;
+import com.trkj.entity.liucz2.SalesArticle;
 import com.trkj.service.implLiucz.UserService;
+import com.trkj.service.implLiucz2.InvoiceService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class TestUser {
@@ -23,32 +32,25 @@ public class TestUser {
         System.out.println(bCryptPasswordEncoder.encode("123456"));
     }
 
-
-
+    @Resource
+    private PtProjectMapper ptProjectMapper;
+    @Resource
+    private InvoiceService invoiceService;
+    @Resource
+    private SalesArticleMapper salesArticleMapper;
     @Autowired
     private UserService userService;
 //    @Test
 //    public void testXmlQuery3Service(){
-//        //模拟前端传输数据：
-//        UserQueryVo userQueryVo = new UserQueryVo();
-//        //当前页
-//        userQueryVo.setPageNo(1L);
-//        //每页数量
-//        userQueryVo.setPageSize(4L);
-////        Page<UserAndEmp> page=new Page<>(userQueryVo.getPageNo(),userQueryVo.());
-//        IPage<UserQueryVo> userAndEmp = userService.findUserAndEmp(userQueryVo);
-//        System.out.println(userAndEmp.getRecords());
+//        List<SalesArticle> salesArticles = salesArticleMapper.findInvoiceAndSalesAll();
+//        salesArticles.forEach(System.out::println);
 //    }
 //    @Test
 //    public void testXmlQuery4Service(){
-//        //模拟前端传输数据：
-//        UserQueryVo userQueryVo = new UserQueryVo();
-//        //当前页
-//        userQueryVo.setPageNo(1L);
-//        //每页数量
-//        userQueryVo.setPageSize(4L);
-////        Page<UserAndEmp> page=new Page<>(userQueryVo.getPageNo(),userQueryVo.());
-//        IPage<User> userAndEmp = userService.findUserAndEmp2(userQueryVo);
-//        System.out.println(userAndEmp.getRecords());
+//
+//        List<Long> list=new ArrayList<>();
+//        list.add(4L);
+//        Long[] x =new  [4,6];
+//       ptProjectMapper.findAllName(List);
 //    }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.InvoiceMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.Invoice">
+            <id property="invoiceId" column="invoice_id" jdbcType="BIGINT"/>
+            <result property="salesId" column="sales_id" jdbcType="BIGINT"/>
+            <result property="invoiceName" column="invoice_name" jdbcType="VARCHAR"/>
+            <result property="stockinName" column="stockIn_name" jdbcType="VARCHAR"/>
+            <result property="stockinNum" column="stockIn_num" jdbcType="BIGINT"/>
+            <result property="price" column="price" jdbcType="BIGINT"/>
+            <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="brand" column="brand" />
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        invoice_id,sales_id,invoice_name,
+        stockIn_name,stockIn_num,price,
+        emp_id,create_time
+    </sql>
+    <insert id="addInvoice">
+        insert into invoice (sales_id,invoice_name,stockIn_name,stockIn_num,price,emp_id,create_time,brand)
+         values (#{salesId},#{invoiceName},#{stockinName},#{stockinNum},#{price},#{empId},#{createTime},#{brand})
+    </insert>
+    <update id="updateInvoice">
+        update invoice set invoice_name=#{invoicedName} ,stockIn_num=#{stockInNum} ,price=#{salesPrice} where sales_id=#{saId}
+    </update>
+
+
+</mapper>

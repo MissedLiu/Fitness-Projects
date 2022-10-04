@@ -36,8 +36,8 @@ public interface StoreMapper extends BaseMapper<Store> {
     @Select(value = "select store_num from store where store_id=#{id}")
     public Long FindStoreNumByID(Long id);
 
-    @Insert(value = "insert into stock_out (store_id, stockin_id, stockin_name, store_num, out_num,stockin_type)" +
-            " VALUES (#{storeId},#{poId},#{stockinName},#{storeNum}-#{outStockNum},#{outStockNum},#{stockinType})")
+    @Insert(value = "insert into stock_out (store_id, stockin_id, stockin_name, store_num, out_num,stockin_type,brand)" +
+            " VALUES (#{storeId},#{poId},#{stockinName},#{outStockNum},#{outStockNum},#{stockinType},#{brand})")
     public boolean toOutStock(StoreQueryVo storeQueryVo);
 
     @Update(value ="update store set store_num=#{storeNum}-#{outStockNum} where store_id=#{storeId}")

@@ -13,6 +13,15 @@
             <result property="stockoutTime" column="stockout_time" jdbcType="TIMESTAMP"/>
             <result property="outIs" column="out_is" jdbcType="TINYINT"/>
             <result property="stockinType" column="stockin_type" jdbcType="VARCHAR"/>
+        <result property="brand" column="brand" />
     </resultMap>
-
+    <update id="updateOutNumInt">
+        update stock_out set out_num=#{outNum} ,store_num=#{storeNum} where stockin_id=#{stockinId}
+    </update>
+    <update id="updateOutNum">
+        update stock_out set store_num=#{storeNum} where stockin_id=#{stockinId}
+    </update>
+    <update id="updateOutNum2">
+        update stock_out set store_num=#{storeNum} where out_id=#{outId}
+    </update>
 </mapper>

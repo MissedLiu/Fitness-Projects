@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.PtMealMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.PtMeal">
+            <id property="ptId" column="pt_id" jdbcType="BIGINT"/>
+            <result property="ptTime" column="pt_time" jdbcType="VARCHAR"/>
+            <result property="ptDate" column="pt_date" jdbcType="TIMESTAMP"/>
+            <result property="ptPrice" column="pt_price" jdbcType="BIGINT"/>
+            <result property="ptIs" column="pt_is" jdbcType="TINYINT"/>
+            <result property="ptName" column="pt_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        pt_id,pt_time,pt_date,
+        pt_price,pt_is,pt_name
+    </sql>
+    <select id="findPtMealAll" resultMap="BaseResultMap">
+        select	*  from pt_meal  where 1=1
+        <if test="query.ptName !=null and query.ptName !=''">
+            and pt_name like "%"#{query.ptName}"%"
+        </if>
+    </select>
+    <insert id="savePtMealPtProject">
+        insert into pt_choose (pt_id,ptp_id) values
+        <foreach collection="ptpId" item="item" index="index" separator=",">
+            (#{ptId},#{item})
+        </foreach>
+    </insert>
+    <select id="findPtMealAllSteta" resultType="com.trkj.entity.liucz2.PtMeal">
+        select	*  from pt_meal  where pt_is=1
+        <if test="query.ptName !=null and query.ptName !=''">
+            and pt_name like "%"#{query.ptName}"%"
+        </if>
+    </select>
+</mapper>

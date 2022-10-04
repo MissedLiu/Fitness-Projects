@@ -26,7 +26,7 @@ import java.util.*;
  */
 @Service
 @Transactional
-public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
+public class    PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
     @Resource
     private UserMapper userMapper;
     @Resource
@@ -100,12 +100,15 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     public RolePermissionVo findPermissionTree(Long userId, Long roleId) {
         //根据账户id查询出当前的登录用户信息
         User user=userMapper.selectById(userId);
+        System.out.println("user==========="+user);
         List<Permission> permissionList=null;
         //判断当前用户角色是否是超级管理员,则查询所有权限,如果不是管理员则只查询自己所拥有的权限
         if( user.getIsAdmin() == 1){
             //当前为超级管理员,拥有所有的权限
+            System.out.println("user1==========="+user);
             permissionList=permissionMapper.findPermissionAll();
         }else {
+            System.out.println("user2==========="+user);
             //不为超级管理员,根据账户id查询 则只拥有自己账户下自己的权限
             permissionList=baseMapper.findPermissionListByUserId(userId);
         }
@@ -135,50 +138,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         vo.setCheckList(listIds.toArray());
          return vo;
     }
-//    /*
-//     * 查询分配权限菜单列表    测试
-//     * */
-//    //  菜单树实现
-//    @Override
-//    public List<Permission> menuTree(Long userId, Long roleId ) {
-//        //根据账户id查询出当前的登录用户信息
-//        User user=userMapper.selectById(userId);
-//        //  获取该用户的权限集合
-//        List<Permission> menus = userMapper.getMenuList(user.getId());
-//        List<Permission> results = getTreeMenu(menus);
-//        return results;
-//    }
-//
-//    /**
-//     * 获取菜单树
-//     * @param menus
-//     * @return
-//     */
-//    private List<Permission> getTreeMenu(List<Permission> menus) {
-//        List<Permission> parents = new ArrayList<>();
-//        for (Permission sysMenu : menus) {
-//            if (sysMenu.getMenuParentId() == 0) {
-//                parents.add(sysMenu);
-//            }
-//        }
-//        for (Permission parent : parents) {
-//            childMenu(parent, menus);
-//        }
-//        return parents;
-//    }
-//
-//    /**
-//     * 获取子菜单
-//     * @param parent
-//     * @param menus
-//     */
-//    private void childMenu(Permission parent, List<Permission> menus) {
-//        for (Permission menu : menus) {
-//            if (menu.getMenuParentId().equals(parent.getId())) {
-//                parent.getChildMenu().add(menu);
-//                childMenu(menu, menus);
-//            }
-//        }
-//    }
+
 
 }

@@ -11,6 +11,8 @@ import java.util.Date;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.Pattern;
+
 /**
  * <p>
  * 员工
@@ -70,6 +72,10 @@ public class Emp implements Serializable {
     /**
      * qq
      */
+    @Pattern(
+            regexp = "^[1-9][0-9]{4,9}$",
+            message = "输入的QQ格式错误，长度不能超过10个字符"
+    )
     private String qq;
 
     /**

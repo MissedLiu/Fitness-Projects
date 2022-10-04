@@ -61,6 +61,10 @@ public class StockOut implements Serializable {
      */
     private String stockinName;
 
+    /**
+     * 品牌
+     */
+    private String brand;
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

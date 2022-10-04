@@ -47,12 +47,6 @@ public interface PermissionService extends IService<Permission> {
     RolePermissionVo findPermissionTree(Long userId,Long roleId);
 
 
-//    =============
-//  菜单树实现
 
-//public List<Permission> menuTree(Long userId, Long roleId );
-    /*
-    * 查询所有的权限字段
-    * */
 
 }

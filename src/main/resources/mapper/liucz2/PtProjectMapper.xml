@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.PtProjectMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.PtProject">
+            <id property="ptpId" column="ptp_id" jdbcType="BIGINT"/>
+            <result property="ptpName" column="ptp_name" jdbcType="VARCHAR"/>
+            <result property="ptpIs" column="ptp_is" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ptp_id,ptp_name,ptp_is,
+        create_time,update_time
+    </sql>
+    <select id="findPtProject" resultType="com.trkj.entity.liucz2.PtProject">
+        select ptp_id,ptp_name,ptp_is,create_time,update_time from  pt_projectname where 1=1
+        <if test="query.ptpName !=null and query.ptpName !=''">
+            and ptp_name=#{query.ptpName}
+        </if>
+    </select>
+    <select id="findPtAllByPtpName" resultType="com.trkj.entity.liucz2.PtProject">
+        select  * from pt_projectname where ptp_name=#{name}
+    </select>
+<!--    /*-->
+<!--    * 根据条件分页查询所有私教项目并且状态为启用-->
+<!--    * */-->
+    <select id="findPtProjectState" resultType="com.trkj.entity.liucz2.PtProject">
+         select ptp_id,ptp_name,ptp_is,create_time,update_time from  pt_projectname where ptp_is=1
+    </select>
+    <select id="findAllName" resultType="com.trkj.entity.liucz2.PtProject">
+        select * from pt_projectname where ptp_id=#{ptpId};
+
+    </select>
+</mapper>

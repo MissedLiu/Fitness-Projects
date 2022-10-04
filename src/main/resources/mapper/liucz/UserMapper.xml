@@ -79,9 +79,6 @@
     <update id="updateUser">
         update sys_user set emp_id=#{empId}  where id=#{userId};
     </update>
-<!--    <select id="EmpcheckUser" resultMap="BaseResultMap">-->
-<!--       select u.id from sys_user u right join sys_emp e on u.emp_id=e.emp_id where e.emp_id=#{EmpId};-->
-<!--    </select>-->
     <select id="EmpcheckUser2" resultMap="BaseResultMap">
          select * from sys_user  where emp_id=#{empId};
     </select>

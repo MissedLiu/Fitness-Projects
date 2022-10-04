@@ -12,6 +12,7 @@ import com.trkj.vo.queryLiucz.EmpQueryVo;
 import com.trkj.vo.queryLiucz.UserQueryVo;
 import com.trkj.vo.queryLiucz.UserRoleQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.trkj.utils.Result;
 
@@ -58,7 +59,7 @@ public class EmpController {
      * */
     @PostMapping("/add")
     @PreAuthorize("hasAuthority('sys:emp:add')")
-    public Result add(@RequestBody Emp emp) {
+    public Result add(@Validated @RequestBody Emp emp) {
         System.out.println("emp===" + emp);
         if (empService.save(emp)) {
             return Result.ok().message("添加成功");

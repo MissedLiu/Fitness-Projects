@@ -37,9 +37,17 @@ public class StoreController {
         }
         return Result.error().message("库存数不为0，无法删除！");
     }
-
+  /**
+   * @description:
+   *
+   * @author: Liucz
+   * @date: 2022/9/30 15:03
+   * @param: [storeQueryVo]
+   * @return: com.trkj.utils.Result
+   **/
     @PostMapping("/toOutStock")
     public Result toOutStock(@RequestBody StoreQueryVo storeQueryVo) {
+
         if (storeService.getStoreNumByStoreId(storeQueryVo) >= storeQueryVo.getOutStockNum()) {
             if (storeService.toOutStock(storeQueryVo)) {
                 if (storeService.updateStroeNumChu(storeQueryVo)) {
@@ -48,7 +56,8 @@ public class StoreController {
                 return Result.error().message("修改库存失败！");
             }
             return Result.error().message("出库失败！");
-        }return Result.error().message("出库数不可多于库存数！");
+        }
+        return Result.error().message("出库数不可多于库存数！");
         }
 
 }

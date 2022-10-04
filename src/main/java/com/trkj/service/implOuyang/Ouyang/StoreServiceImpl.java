@@ -3,6 +3,8 @@ package com.trkj.service.implOuyang.Ouyang;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.trkj.dao.ouyang.StockOutMapper;
+import com.trkj.entity.ouyang.StockOut;
 import com.trkj.entity.ouyang.Store;
 import com.trkj.service.implOuyang.StoreService;
 import com.trkj.dao.ouyang.StoreMapper;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
 * @author oyzz
@@ -24,6 +28,8 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store>
 
     @Resource
     private StoreMapper storeMapper;
+@Resource
+private StockOutMapper stockOutMapper;
     @Override
     public boolean toStore(PoQueryVo poQueryVo) {
         return storeMapper.toStore(poQueryVo);
@@ -68,6 +74,26 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store>
 
     @Override
     public boolean toOutStock(StoreQueryVo storeQueryVo) {
+        //当出库物品名,类型,品牌都相同时,则修改出库数量
+        QueryWrapper<StockOut > queryWrapper=new QueryWrapper<>();
+        Map<String, Object> queryParamsMap = new HashMap<>();
+        queryParamsMap.put("stockin_type", storeQueryVo.getStockinType());
+        queryParamsMap.put("brand", storeQueryVo.getBrand());
+        queryWrapper.allEq(queryParamsMap);
+        StockOut stockOut = stockOutMapper.selectOne(queryWrapper);
+        System.out.println("stockOut="+stockOut);
+        //当查询出结果不为空时,修改出库商品的数量
+        if (stockOut!=null){
+
+            StockOut stockOut1=new StockOut();
+            stockOut1.setStoreNum(stockOut.getStoreNum()+storeQueryVo.getOutStockNum());
+            stockOut1.setOutNum(stockOut.getOutNum()+storeQueryVo.getOutStockNum());
+            int i = stockOutMapper.updateOutNumInt(stockOut.getStockinId(), stockOut1.getOutNum(), stockOut1.getStoreNum());
+            if (i==1){
+                return true;
+            }
+
+        }
         return storeMapper.toOutStock(storeQueryVo);
     }
 
@@ -75,6 +101,7 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store>
     public boolean updateStroeNumChu(StoreQueryVo storeQueryVo) {
         return storeMapper.updateStoreNumChu(storeQueryVo);
     }
+
 
     @Override
     public Long getStoreNumByStoreId(StoreQueryVo storeQueryVo) {
