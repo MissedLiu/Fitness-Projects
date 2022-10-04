@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.PtChooseMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.PtChoose">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="ptId" column="pt_id" jdbcType="BIGINT"/>
+            <result property="ptpId" column="ptp_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+
+</mapper>

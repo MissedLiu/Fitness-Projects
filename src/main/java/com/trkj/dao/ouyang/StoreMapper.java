@@ -1,5 +1,6 @@
 package com.trkj.dao.ouyang;
 
+import com.trkj.entity.ouyang.Store;
 import com.trkj.entity.ouyang.Edetails;
 import com.trkj.entity.ouyang.Store;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -14,6 +15,7 @@ import org.apache.ibatis.annotations.Update;
 * @author oyzz
 * @description 针对表【store(物品库存表)】的数据库操作Mapper
 * @createDate 2022-09-23 20:36:05
+* @Entity com.trkj.entity.ouyang.Store
 * @Entity com.trkj.entity.oy.Store
 */
 public interface StoreMapper extends BaseMapper<Store> {
@@ -36,7 +38,7 @@ public interface StoreMapper extends BaseMapper<Store> {
     //通过id
     @Select(value = "select store_num from store where store_id=#{id}")
     public Long FindStoreNumByID(Long id);
-    //出库
+
     @Insert(value = "insert into stock_out (store_id, stockin_id, stockin_name, store_num, out_num,stockin_type,brand)" +
             " VALUES (#{storeId},#{poId},#{stockinName},#{outStockNum},#{outStockNum},#{stockinType},#{brand})")
     public boolean toOutStock(StoreQueryVo storeQueryVo);

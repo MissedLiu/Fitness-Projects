@@ -16,18 +16,37 @@ import java.util.List;
  * @since 2022-09-17
  */
 public interface PermissionService extends IService<Permission> {
-    //根据用户ID查询权限菜单列表
+    /*
+    * 根据用户ID查询权限菜单列表
+    * */
+
     List<Permission> findPermissionListByUserId(Long id);
-    //查询菜单列表
+
+    /*
+    * 查询菜单列表
+    * */
+
     List<Permission> findPermissionList(PermissionQueryVo permissionQueryVo);
-    //查询上级菜单列表
+
+    /*
+    * 查询上级菜单列表
+    * */
+
     List<Permission> findParentPermissionList();
-    //检查菜单是否有子菜单
+
+    /*
+    * 检查菜单是否有子菜单
+    * */
+
     boolean hasChildrenOfPermission(Long id);
 
     /*
      * 查询分配权限菜单列表
      * */
+
     RolePermissionVo findPermissionTree(Long userId,Long roleId);
+
+
+
 
 }

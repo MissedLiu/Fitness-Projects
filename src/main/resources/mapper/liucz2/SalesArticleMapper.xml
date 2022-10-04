@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.SalesArticleMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.SalesArticle">
+            <id property="saId" column="sa_id" jdbcType="BIGINT"/>
+            <result property="saempId" column="saemp_id" jdbcType="BIGINT"/>
+            <result property="stockoutId" column="stockout_id" jdbcType="BIGINT"/>
+            <result property="stockinName" column="stockIn_name" jdbcType="VARCHAR"/>
+            <result property="stockinNum" column="stockIn_num" jdbcType="BIGINT"/>
+            <result property="salesPrice" column="sales_price" jdbcType="BIGINT"/>
+            <result property="salesTime" column="sales_time" jdbcType="TIMESTAMP"/>
+        <result property="brand" column="brand" />
+        <association property="invoice" column="invoice_id" resultMap="BaseResultMap2"/>
+    </resultMap>
+    <resultMap id="BaseResultMap2" type="com.trkj.entity.liucz2.Invoice">
+        <id property="invoiceId" column="invoice_id" jdbcType="BIGINT"/>
+        <result property="salesId" column="sales_id" jdbcType="BIGINT"/>
+        <result property="invoiceName" column="invoice_name" jdbcType="VARCHAR"/>
+        <result property="stockinName" column="stockIn_name" jdbcType="VARCHAR"/>
+        <result property="stockinNum" column="stockIn_num" jdbcType="BIGINT"/>
+        <result property="price" column="price" jdbcType="BIGINT"/>
+        <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="brand" column="brand" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        sa_id,saemp_id,stockout_id,
+        stockIn_name,stockIn_num,sales_price,
+        sales_time
+    </sql>
+    <insert id="addinsert" useGeneratedKeys="true"  keyProperty="saId" keyColumn="saId">
+        insert into sales_article (saemp_id,stockout_id,stockIn_name,stockIn_num,sales_price,sales_time,brand)
+        values(#{saempId},#{stockoutId},#{stockinName},#{stockinNum},#{salesPrice},now(), #{brand})
+    </insert>
+    <select id="findInvoiceAndSalesAll" resultMap="BaseResultMap">
+        select s.*,i.invoice_id,i.sales_id,i.invoice_name,
+        i.stockIn_name as "iname",i.stockIn_num as "inum",i.price,
+        i.emp_id,i.create_time
+        from sales_article s inner join invoice i on s.sa_id=i.sales_id where s.saemp_id=#{query.saempId}
+        <if test="query.stockingName !=null and query.stockingName!='' ">
+            and s.stockIn_name like  "%"#{query.stockingName}"%"
+        </if>
+        <if test="query.invoicedName !=null and query.invoicedName!='' ">
+            and i.invoice_name like  "%"#{query.invoicedName}"%"
+        </if>
+    </select>
+    <update id="updateBySaId">
+        update sales_article set  stockIn_num=#{stockinNum},sales_price=#{salesPrice} where sa_id=#{saId}
+    </update>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.ouyang.EeamageMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.ouyang.Eeamage">
+            <id property="eeId" column="ed_id" jdbcType="BIGINT"/>
+            <result property="stockinId" column="stockIn_id" jdbcType="VARCHAR"/>
+            <result property="eeName" column="ed_name" jdbcType="VARCHAR"/>
+            <result property="eeTime" column="ed_time" jdbcType="TIMESTAMP"/>
+            <result property="eeContent" column="ed_content" jdbcType="VARCHAR"/>
+            <result property="beizhu" column="beizhu" jdbcType="VARCHAR"/>
+            <result property="sname" column="sname" jdbcType="VARCHAR"/>
+    </resultMap>
+
+</mapper>

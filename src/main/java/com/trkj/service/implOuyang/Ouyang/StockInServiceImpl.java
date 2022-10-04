@@ -37,6 +37,7 @@ public class StockInServiceImpl extends ServiceImpl<StockInMapper, StockIn>
     @Override
     public IPage<StockInQueryVo> findAllStockIn( StockInQueryVo stockInQueryVo) {
         Page<StockInQueryVo> page=new Page<>(stockInQueryVo.getPageNo(),stockInQueryVo.getPageSize());
+
         return stockInVoMapper.findStockInAllAndLoseOrMore(page,stockInQueryVo);
     }
 

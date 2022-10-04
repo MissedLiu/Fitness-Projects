@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 * @author oyzz
 * @description 针对表【schedule(物品采购计划表)】的数据库操作Mapper
 * @createDate 2022-09-21 15:55:23
-* @Entity com.trkj.entity.oy.Schedule
+* @Entity com.trkj.entity.ouyang.Schedule
 */
 public interface ScheduleMapper extends BaseMapper<Schedule> {
     @Insert(value = "insert into schedule (schedule_name,schedule_type,schedule_supplier," +

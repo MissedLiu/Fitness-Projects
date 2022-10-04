@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.CommonMealMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.CommonMeal">
+            <id property="cmId" column="cm_id" jdbcType="BIGINT"/>
+            <result property="cmTime" column="cm_time" jdbcType="VARCHAR"/>
+            <result property="cmDate" column="cm_date" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="cmPrice" column="cm_price" jdbcType="BIGINT"/>
+            <result property="cmIs" column="cm_is" jdbcType="TINYINT"/>
+            <result property="cmName" column="cm_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cm_id,cm_time,cm_date,
+        update_time,cm_price,cm_is,
+        cm_name
+    </sql>
+    <select id="findAllByCmNameCommonMealIPage" resultType="com.trkj.entity.liucz2.CommonMeal">
+        select  * from  common_meal where 1=1
+        <if test="query.cmName !=null and query.cmName !=''">
+            and cm_name like  "%"#{query.cmName}"%"
+        </if>
+    </select>
+    <select id="findAllByCmNameCommonMealIPageState" resultType="com.trkj.entity.liucz2.CommonMeal">
+        select  * from  common_meal where cm_is=1
+        <if test="query.cmName !=null and query.cmName !=''">
+            and cm_name like  "%"#{query.cmName}"%"
+        </if>
+    </select>
+</mapper>

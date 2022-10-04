@@ -1,14 +1,17 @@
 package com.trkj.entity.liucz;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
+
 import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import javax.validation.constraints.Pattern;
 
 /**
  * <p>
@@ -69,6 +72,10 @@ public class Emp implements Serializable {
     /**
      * qq
      */
+    @Pattern(
+            regexp = "^[1-9][0-9]{4,9}$",
+            message = "输入的QQ格式错误，长度不能超过10个字符"
+    )
     private String qq;
 
     /**
@@ -105,6 +112,9 @@ public class Emp implements Serializable {
      * 简介
      */
     private String synopsis;
+    @TableField(exist = false)
+    private User user;
+
 
 
 }

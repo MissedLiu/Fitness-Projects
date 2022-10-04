@@ -42,8 +42,6 @@ public class SysUserController {
     /**
      * 刷新token
      *
-     * @param request
-     * @return
      */
     @PostMapping("/refreshToken")
     public Result refreshToken(HttpServletRequest request) {
@@ -83,8 +81,6 @@ public class SysUserController {
 
     /**
      * 获取用户信息
-     *
-     * @return
      */
     @GetMapping("/getInfo")
     public Result getInfo() {
@@ -97,15 +93,28 @@ public class SysUserController {
         }
         //获取用户信息
         User user = (User) authentication.getPrincipal();
+        System.out.println("11111"+user);
         //用户权限集合
         List<Permission> permissionList = user.getPermissionList();
+        permissionList.forEach(System.out::println);
         //获取角色权限编码字段
         Object[] roles =
                 permissionList.stream()
                         .filter(Objects::nonNull)
                         .map(Permission::getCode).toArray();
-        //获取员工信息
-        Emp emp=empService.findEmpByUserid(user.getUsername());
+        //根据账户中的员工id获取员工信息
+        Emp emp=empService.findEmpByEmpId(user.getEmpId());
+        //判断员工信息是否存在
+        if(emp==null){
+            //返回数据
+            return Result.error().message("该账号未分配给员工,请联系部门经理");
+        }
+
+        //判断该员工是否分配了权限
+        if(roles.length==0){
+            //返回数据
+            return Result.error().message("该账号未分配相关权限,请联系部门经理");
+        }
         //创建用户信息对象
         UserInfo userInfo = new UserInfo(user.getId(),emp.getEmpName(), emp.getAvatar(), null, roles);
         //返回数据
@@ -114,8 +123,6 @@ public class SysUserController {
 
     /**
      * 获取菜单数据
-     *
-     * @return
      */
     @GetMapping("/getMenuList")
     public Result getMenuList() {
@@ -132,16 +139,13 @@ public class SysUserController {
                 .collect(Collectors.toList());
         //生成路由数据
         List<RouterVo> routerVoList = MenuTree.makeRouter(collect, 0L);
+
         //返回数据
         return Result.ok(routerVoList).message("菜单数据获取成功");
     }
 
     /**
      * 用户退出
-     *
-     * @param request
-     * @param response
-     * @return
      */
     @PostMapping("/logout")
     public Result logout(HttpServletRequest request, HttpServletResponse response) {

@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Insert;
 * @description 针对表【changenum(报损报溢表)】的数据库操作Mapper
 * @createDate 2022-09-23 19:43:53
 * @Entity com.trkj.entity.oy.Changenum
+* @Entity com.trkj.entity.ouyang.Changenum
 */
 public interface ChangenumMapper extends BaseMapper<Changenum> {
     @Insert(value = "insert into changenum(shopping_id, change_lose, change_more) value (#{poId},#{changeLose},#{changeMore})")

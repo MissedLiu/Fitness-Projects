@@ -23,12 +23,15 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
 
     @Resource
     private PoMapper poMapper;
+
     @Override
     public IPage<Po> findAllPo(IPage page, PoQueryVo poQueryVo) {
         //创建条件构造器对象
         QueryWrapper<Po> queryWrapper = new QueryWrapper<Po>();
         //添加条件
         queryWrapper.like(!ObjectUtils.isEmpty(poQueryVo.getPoName()),"po_name", poQueryVo.getPoName());
+        //通过时间排序
+        queryWrapper.orderByDesc("po_time");
         //获取store列表
         return  baseMapper.selectPage(page,queryWrapper);
 

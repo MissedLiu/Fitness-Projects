@@ -23,6 +23,7 @@ public class DepartmentController {
      * @return
      */
     @GetMapping("/list")
+
     public Result list(DepartmentQueryVo departmentQueryVo) {
         //调用查询部门列表方法
         List<Department> departmentList =
@@ -86,13 +87,13 @@ public class DepartmentController {
      * @return
      */
     @GetMapping("/check/{id}")
-    @PreAuthorize("hasAuthority('sys:department:delete')")
     public Result check(@PathVariable Long id) {
         //调用查询部门下是否存在子部门的方法
         if (departmentService.hasChildrenOfDepartment(id)) {
             return Result.exist().message("该部门下存在子部门，无法删除");
         }
         //调用查询部门下是否存在用户的方法
+
         if (departmentService.hasUserOfDepartment(id)) {
             return Result.exist().message("该部门下存在用户，无法删除");
         }

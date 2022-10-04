@@ -20,8 +20,26 @@ public interface RoleService extends IService<Role> {
     * 根据账号id查询角色列表
     * */
     IPage<Role> findRoleListById(IPage<Role> page, RoleQueryVo roleQueryVo);
-    //检查角色是否分配账号
+
+
+    /*
+    * 检查角色是否分配账号
+    * */
+
     boolean hashRoleCount(Long id);
-    //保存分配好的权限数据
+
+
+    /*
+    * 保存分配好的权限数据
+    * */
+
     boolean saveRolePermission(Long roleId, List<Long> permissionIds);
+
+
+    /**
+     * 根据用户ID查询该用户拥有的角色ID
+     *
+     */
+
+    List<Long> findRoleIdByUserId(Long userId);
 }
