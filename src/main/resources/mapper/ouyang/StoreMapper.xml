@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.ouyang.StoreMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.ouyang.Store">
+            <id property="storeId" column="store_id" jdbcType="BIGINT"/>
+            <result property="poId" column="po_id" jdbcType="BIGINT"/>
+            <result property="stockinName" column="stockIn_name" jdbcType="VARCHAR"/>
+            <result property="stockinNum" column="stockIn_num" jdbcType="BIGINT"/>
+            <result property="storeNum" column="store_num" jdbcType="BIGINT"/>
+            <result property="stockinType" column="stockIn_type" jdbcType="VARCHAR"/>
+            <result property="brand" column="brand" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+</mapper>

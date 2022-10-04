@@ -26,7 +26,7 @@
                   <option name="fileName" value="${domain.fileName}Mapper" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
                   <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="com.trkj.dao" />
+                  <option name="packageName" value="${domain.basePackage}.mapper" />
                 </ModuleInfoGo>
                 <ModuleInfoGo>
                   <option name="basePath" value="src/main/resources" />
@@ -58,7 +58,7 @@
               </list>
             </option>
             <option name="needsComment" value="true" />
-            <option name="relativePackage" value="entity" />
+            <option name="relativePackage" value="ouyang.entity.ouyang" />
             <option name="superClass" value="" />
             <option name="tableUIInfoList">
               <list>

@@ -3,7 +3,7 @@ package com.trkj.config.security.handler;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.trkj.config.redis.RedisService;
-import com.trkj.entity.User;
+import com.trkj.entity.liucz.User;
 import com.trkj.utils.JwtUtils;
 import com.trkj.utils.LoginResult;
 import com.trkj.utils.ResultCode;
