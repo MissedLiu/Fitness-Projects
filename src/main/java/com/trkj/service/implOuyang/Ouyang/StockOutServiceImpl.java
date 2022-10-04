@@ -3,6 +3,7 @@ package com.trkj.service.implOuyang.Ouyang;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.trkj.entity.ouyang.Edetails;
 import com.trkj.entity.ouyang.StockOut;
 import com.trkj.service.implOuyang.StockOutService;
 import com.trkj.dao.ouyang.StockOutMapper;
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
 @Service
 public class StockOutServiceImpl extends ServiceImpl<StockOutMapper, StockOut>
     implements StockOutService{
+
     @Resource
     private StockOutMapper stockOutMapper;
     @Override
@@ -28,6 +30,8 @@ public class StockOutServiceImpl extends ServiceImpl<StockOutMapper, StockOut>
         QueryWrapper<StockOut> queryWrapper = new QueryWrapper<StockOut>();
         //添加条件
         queryWrapper.like(!ObjectUtils.isEmpty(stockOutQueryVo.getStockinName()), "stockin_name", stockOutQueryVo.getStockinName());
+        //通过时间排序
+        queryWrapper.orderByDesc("stockout_time");
         //获取store列表
         return baseMapper.selectPage(page, queryWrapper);
     }
@@ -111,6 +115,13 @@ public class StockOutServiceImpl extends ServiceImpl<StockOutMapper, StockOut>
         return i;
 
     }
+
+    @Override
+    public Long getOutNum(Edetails edetails) {
+        return stockOutMapper.getOutNumByNameAndBrand(edetails);
+    }
+
+
 }
 
 

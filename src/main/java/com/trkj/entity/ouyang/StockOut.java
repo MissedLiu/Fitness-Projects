@@ -32,6 +32,11 @@ public class StockOut implements Serializable {
     private Long stockinId;
 
     /**
+     * 
+     */
+    private String stockinName;
+
+    /**
      * 物品数量
      */
     private Long storeNum;
@@ -40,11 +45,6 @@ public class StockOut implements Serializable {
      * 物品出库数量
      */
     private Long outNum;
-
-    /**
-     * 出库时间
-     */
-    private Date stockoutTime;
 
     /**
      * 是否出库(0-否,1-是)
@@ -57,14 +57,16 @@ public class StockOut implements Serializable {
     private String stockinType;
 
     /**
-     * 物品名
+     * 出库时间
      */
-    private String stockinName;
+    private Date stockoutTime;
 
     /**
      * 品牌
      */
     private String brand;
+
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

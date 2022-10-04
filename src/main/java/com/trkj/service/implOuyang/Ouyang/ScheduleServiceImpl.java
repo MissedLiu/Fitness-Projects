@@ -24,38 +24,66 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
     @Resource
     private ScheduleMapper scheduleMapper;
 
+    /**
+     * 分页查询采购计划
+     * @param page
+     * @param scheduleQueryVo
+     * @return
+     */
     @Override
     public IPage<Schedule> findPlanList(IPage<Schedule> page, ScheduleQueryVo scheduleQueryVo) {
         //创建条件构造器对象
         QueryWrapper<Schedule> queryWrapper = new QueryWrapper<Schedule>();
         //添加条件
         queryWrapper.like(!ObjectUtils.isEmpty(scheduleQueryVo.getScheduleName()), "schedule_name", scheduleQueryVo.getScheduleName());
+        //根据日期降序
+        queryWrapper.orderByDesc("schedule_time");
         //获取store列表
         return baseMapper.selectPage(page, queryWrapper);
 
 
     }
 
+    /**
+     * 添加采购计划
+     * @param schedule
+     * @return
+     */
     @Override
     public boolean addPlan(Schedule schedule) {
-        Boolean a = scheduleMapper.addPlan(schedule);
-        if (a = true) {
+        if (scheduleMapper.addPlan(schedule)) {
             return true;
         } else {
             return false;
         }
     }
 
+    /**
+     * 完成采购计划，把数据插入已购物品表
+     * @param schedule
+     * @return
+     */
     @Override
     public boolean toPo(Schedule schedule) {
         return scheduleMapper.toPo(schedule);
     }
 
+    /**
+     * 修改采购计划状态
+     * @param schedule
+     * @return
+     */
     @Override
     public boolean updatePlanState(Schedule schedule) {
         return scheduleMapper.updatePlanState(schedule);
     }
 
+    /**
+     * 获取所有未执行的计划
+     * @param page
+     * @param scheduleQueryVo
+     * @return
+     */
     @Override
     public IPage<Schedule> getNotExecuted(IPage<Schedule> page,ScheduleQueryVo scheduleQueryVo) {
         QueryWrapper<Schedule> queryWrapper = new QueryWrapper();
@@ -63,6 +91,11 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
         return baseMapper.selectPage(page,queryWrapper);
     }
 
+    /**
+     * 根据ID查询计划采购的数量
+     * @param schedule
+     * @return
+     */
     @Override
     public Long getPlanNum(Schedule schedule) {
         return scheduleMapper.getPlanNum(schedule);

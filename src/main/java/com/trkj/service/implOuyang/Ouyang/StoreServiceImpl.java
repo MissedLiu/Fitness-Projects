@@ -10,6 +10,12 @@ import com.trkj.service.implOuyang.StoreService;
 import com.trkj.dao.ouyang.StoreMapper;
 import com.trkj.vo.queryOuyang.PoQueryVo;
 import com.trkj.vo.queryOuyang.StoreQueryVo;
+import com.trkj.entity.ouyang.Edetails;
+import com.trkj.entity.ouyang.Store;
+import com.trkj.service.implOuyang.StoreService;
+import com.trkj.dao.ouyang.StoreMapper;
+import com.trkj.vo.queryOuyang.PoQueryVo;
+import com.trkj.vo.queryOuyang.StoreQueryVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -63,7 +69,7 @@ private StockOutMapper stockOutMapper;
         QueryWrapper <Store>queryWrapper=new QueryWrapper();
         queryWrapper.like(!ObjectUtils.isEmpty(storeQueryVo.getStockinName()),
                 "stockin_name",storeQueryVo.getStockinName());
-
+        queryWrapper.orderByDesc("stockin_time");
         return baseMapper.selectPage(page,queryWrapper);
     }
 
@@ -106,6 +112,11 @@ private StockOutMapper stockOutMapper;
     @Override
     public Long getStoreNumByStoreId(StoreQueryVo storeQueryVo) {
         return storeMapper.getStoreNumByStoreId(storeQueryVo);
+    }
+
+    @Override
+    public Long getPoidByEdetails(Edetails edetails) {
+        return storeMapper.getStockinIdByStockinNameAndBrand(edetails);
     }
 }
 

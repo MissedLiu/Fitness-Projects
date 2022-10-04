@@ -3,6 +3,7 @@ package com.trkj.controller.ouyang;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.ouyang.Schedule;
+import com.trkj.service.implOuyang.DisburseService;
 import com.trkj.service.implOuyang.ScheduleService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.ScheduleQueryVo;
@@ -16,6 +17,9 @@ public class SheduleController {
 
     @Resource
     private ScheduleService scheduleService;
+
+    @Resource
+    private DisburseService disburseService;
 
     @GetMapping("/list")
     public Result findPlanList(ScheduleQueryVo scheduleQueryVo) {
@@ -37,7 +41,7 @@ public class SheduleController {
     @PutMapping("/update")
     private Result updatePlan(@RequestBody Schedule schedule) {
         if ("未执行".equals(schedule.getScheduleState())) {
-            if (scheduleService.updatePlanState(schedule)){
+            if (scheduleService.updateById(schedule)){
                 return Result.ok().message("修改成功");
             }
         }return Result.error().message("该计划已执行，不能再编辑！");
@@ -54,10 +58,10 @@ public class SheduleController {
 
     //采购完成，将数据插入已购物品表
     @PostMapping("/toPo")
-    private Result toPo(@RequestBody Schedule schedule) {
+    private Result toPo(@RequestBody ScheduleQueryVo schedule) {
         if (scheduleService.getPlanNum(schedule)>=schedule.getScheduleNum()){
             if ("未执行".equals(schedule.getScheduleState())){
-                if (scheduleService.toPo(schedule)) {
+                if (scheduleService.toPo(schedule) && disburseService.toDisburse(schedule)) {
                     if (scheduleService.updatePlanState(schedule)) {
                         return Result.ok().message("成功执行该采购计划！");
                     } else {

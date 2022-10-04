@@ -1,6 +1,7 @@
 package com.trkj.service.implOuyang;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.trkj.entity.ouyang.Edetails;
 import com.trkj.entity.ouyang.Store;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.queryOuyang.PoQueryVo;
@@ -35,4 +36,6 @@ public interface StoreService extends IService<Store> {
     boolean updateStroeNumChu(StoreQueryVo storeQueryVo);
     //通过id查询库存数
     Long getStoreNumByStoreId(StoreQueryVo storeQueryVo);
+
+    Long getPoidByEdetails(Edetails edetails);
 }

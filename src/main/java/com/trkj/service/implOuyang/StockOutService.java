@@ -5,6 +5,13 @@ import com.trkj.entity.ouyang.StockOut;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.queryOuyang.StockOutQueryVo;
 
+import com.trkj.entity.ouyang.Edetails;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.trkj.entity.ouyang.StockOut;
+import com.trkj.vo.queryOuyang.StockOutQueryVo;
+
+import java.util.List;
+
 /**
 * @author oyzz
 * @description 针对表【stock_out(物品出库表)】的数据库操作Service
@@ -57,4 +64,5 @@ public interface StockOutService extends IService<StockOut> {
      * @return:
      **/
     Long findStockNum(Long id);
+    Long getOutNum(Edetails edetails);
 }

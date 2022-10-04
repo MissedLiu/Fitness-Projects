@@ -23,7 +23,7 @@
               <if test='query.inName !=" " and query.inName !=null'>
                     and s.in_name like  "%"#{query.inName}"%"
              </if>
-
+                order by in_time Desc
     </select>
 
 

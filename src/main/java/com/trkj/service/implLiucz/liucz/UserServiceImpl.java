@@ -31,7 +31,7 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
-    @Autowired
+    @Resource
     private UserMapper  userMapper;
     @Resource
     private UserAndEmpMapper userAndEmpMapper;

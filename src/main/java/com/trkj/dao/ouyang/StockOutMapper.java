@@ -3,6 +3,10 @@ package com.trkj.dao.ouyang;
 import com.trkj.entity.ouyang.StockOut;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
+import com.trkj.entity.ouyang.Edetails;
+import com.trkj.entity.ouyang.Eeamage;
+
+import org.apache.ibatis.annotations.Select;
 
 /**
 * @author oyzz
@@ -38,6 +42,12 @@ public interface StockOutMapper extends BaseMapper<StockOut> {
      * @return:
      **/
     int updateOutNum2(@Param("outId") Long id,@Param("storeNum") Long storeNum);
+
+
+
+    @Select(value = "select sum(out_num) from stock_out where stockin_name=#{edName} and brand=#{brand}")
+    Long getOutNumByNameAndBrand(Edetails edetails);
+
 }
 
 
