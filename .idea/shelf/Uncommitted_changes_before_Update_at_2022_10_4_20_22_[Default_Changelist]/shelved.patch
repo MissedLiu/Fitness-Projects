@@ -1,0 +1,838 @@
+Index: target/classes/mapper/StoreMapper.xml
+===================================================================
+--- target/classes/mapper/StoreMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ target/classes/mapper/StoreMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
+@@ -1,18 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper
+-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<mapper namespace="com.trkj.dao.StoreMapper">
+-
+-    <resultMap id="BaseResultMap" type="com.trkj.entity.Store">
+-            <id property="storeId" column="store_id" jdbcType="BIGINT"/>
+-            <result property="poId" column="po_id" jdbcType="BIGINT"/>
+-            <result property="stockinName" column="stockIn_name" jdbcType="VARCHAR"/>
+-            <result property="stockinNum" column="stockIn_num" jdbcType="BIGINT"/>
+-            <result property="storeNum" column="store_num" jdbcType="BIGINT"/>
+-            <result property="stockinType" column="stockIn_type" jdbcType="VARCHAR"/>
+-            <result property="brand" column="brand" jdbcType="VARCHAR"/>
+-    </resultMap>
+-
+-
+-</mapper>
+Index: target/classes/mapper/DepartmentMapper.xml
+===================================================================
+--- target/classes/mapper/DepartmentMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ target/classes/mapper/DepartmentMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
+@@ -1,21 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<mapper namespace="com.trkj.dao.DepartmentMapper">
+-
+-    <!-- 通用查询映射结果 -->
+-    <resultMap id="BaseResultMap" type="com.trkj.entity.Department">
+-        <id column="id" property="id" />
+-        <result column="department_name" property="departmentName" />
+-        <result column="phone" property="phone" />
+-        <result column="pid" property="pid" />
+-        <result column="parent_name" property="parentName" />
+-        <result column="order_num" property="orderNum" />
+-        <result column="is_delete" property="isDelete" />
+-    </resultMap>
+-
+-    <!-- 通用查询结果列 -->
+-    <sql id="Base_Column_List">
+-        id, department_name, phone, pid, parent_name, order_num, is_delete
+-    </sql>
+-
+-</mapper>
+Index: target/classes/mapper/UserMapper.xml
+===================================================================
+--- target/classes/mapper/UserMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ target/classes/mapper/UserMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
+@@ -1,28 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<mapper namespace="com.trkj.dao.UserMapper">
+-
+-    <!-- 通用查询映射结果 -->
+-    <resultMap id="BaseResultMap" type="com.trkj.entity.User">
+-        <id column="id" property="id" />
+-        <result column="emp_id" property="empId" />
+-        <result column="username" property="username" />
+-        <result column="password" property="password" />
+-        <result column="is_account_non_expired" property="isAccountNonExpired" />
+-        <result column="is_account_non_locked" property="isAccountNonLocked" />
+-        <result column="is_credentials_non_expired" property="isCredentialsNonExpired" />
+-        <result column="is_enabled" property="isEnabled" />
+-        <result column="department_id" property="departmentId" />
+-        <result column="department_name" property="departmentName" />
+-        <result column="is_admin" property="isAdmin" />
+-        <result column="create_time" property="createTime" />
+-        <result column="update_time" property="updateTime" />
+-        <result column="is_delete" property="isDelete" />
+-    </resultMap>
+-
+-    <!-- 通用查询结果列 -->
+-    <sql id="Base_Column_List">
+-        id, emp_id, username, password, is_account_non_expired, is_account_non_locked, is_credentials_non_expired, is_enabled, department_id, department_name, is_admin, create_time, update_time, is_delete
+-    </sql>
+-
+-</mapper>
+Index: target/classes/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/application.properties	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ target/classes/application.properties	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
+@@ -1,58 +0,0 @@
+-#设置端口号
+-server.port=8888
+-#数据库驱动
+-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+-#数据库连接地址
+-spring.datasource.url=jdbc:mysql://localhost:3308/db_Test4?
+-useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+-#数据库用户名
+-spring.datasource.username=root
+-#数据库密码
+-spring.datasource.password=root
+-spring.datasource.sql-script-encoding=utf-8
+-#加载映射文件
+-mybatis-plus.mapper-locations=classpath*:/mapper/**/*.xml
+-#设置别名
+-mybatis-plus.type-aliases-package=com.trkj.entity
+-#全局逻辑删除的实体字段名
+-mybatis-plus.global-config.db-config.logic-delete-field=isDelete
+-#逻辑删除值，默认为1
+-mybatis-plus.global-config.db-config.logic-delete-value=1
+-#逻辑未删除值，默认为0
+-mybatis-plus.global-config.db-config.logic-not-delete-value=0
+-#关闭驼峰命名映射
+-#mybatis-plus.configuration.map-underscore-to-camel-case=false
+-#显示日志
+-mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+-logging.level.com.manong.dao=debug
+-#JSON日期格式化
+-spring.jackson.date-format=yyyy-MM-dd
+-#JSON日期格式化设置时区为上海
+-spring.jackson.time-zone=Asia/Shanghai
+-#日期格式化
+-spring.mvc.format.date=yyyy-MM-dd
+-spring.mvc.format.date-time=yyyy-MM-dd HH:mm:ss
+-#jwt配置
+-#密钥
+-jwt.secret=com.trkj
+-#过期时间(30分钟,单位毫秒)
+-jwt.expiration=1800000
+-################################# Redis相关配置 #################################
+-spring.redis.host=localhost
+-spring.redis.port=6379
+-spring.redis.database=0
+-spring.redis.timeout=10000
+-spring.redis.password=redis2020
+-#自定义属性
+-#redis过期时间
+-spring.redis.expire=60000
+-#登录请求地址(自定义)
+-request.login.url=/api/user/login
+-#阿里云OSS配置
+-aliyun.oss.file.endpoint=oss-cn-hangzhou.aliyuncs.com
+-aliyun.oss.file.keyid=LTAI5tG8TpwCeYDMgPKrqYyV
+-aliyun.oss.file.keysecret=3miMjshrWmUzgJHiabQE8Irj1714mD
+-#bucket名称
+-aliyun.oss.file.bucketname=liucz-bucket
+-
+-
+Index: target/classes/mapper/EmpMapper.xml
+===================================================================
+--- target/classes/mapper/EmpMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ target/classes/mapper/EmpMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
+@@ -1,30 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<mapper namespace="com.trkj.dao.EmpMapper">
+-
+-    <!-- 通用查询映射结果 -->
+-    <resultMap id="BaseResultMap" type="com.trkj.entity.Emp">
+-        <id column="emp_id" property="empId" />
+-        <result column="emp_name" property="empName" />
+-        <result column="emp_age" property="empAge" />
+-        <result column="emp_sex" property="empSex" />
+-        <result column="emp_address" property="empAddress" />
+-        <result column="emp_phone" property="empPhone" />
+-        <result column="avatar" property="avatar" />
+-        <result column="emil" property="emil" />
+-        <result column="qq" property="qq" />
+-        <result column="weix" property="weix" />
+-        <result column="department_id" property="departmentId" />
+-        <result column="department_name" property="departmentName" />
+-        <result column="create_time" property="createTime" />
+-        <result column="update_time" property="updateTime" />
+-        <result column="station" property="station" />
+-        <result column="synopsis" property="synopsis" />
+-    </resultMap>
+-
+-    <!-- 通用查询结果列 -->
+-    <sql id="Base_Column_List">
+-        emp_id, emp_name, emp_age, emp_sex, emp_address, emp_phone, avatar, emil, qq, weix, department_id, department_name, create_time, update_time, station, synopsis
+-    </sql>
+-
+-</mapper>
+Index: target/classes/mapper/PermissionMapper.xml
+===================================================================
+--- target/classes/mapper/PermissionMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ target/classes/mapper/PermissionMapper.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
+@@ -1,46 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<mapper namespace="com.trkj.dao.PermissionMapper">
+-
+-    <!-- 通用查询映射结果 -->
+-    <resultMap id="BaseResultMap" type="com.trkj.entity.Permission">
+-        <id column="id" property="id" />
+-        <result column="label" property="label" />
+-        <result column="parent_id" property="parentId" />
+-        <result column="parent_name" property="parentName" />
+-        <result column="code" property="code" />
+-        <result column="path" property="path" />
+-        <result column="name" property="name" />
+-        <result column="url" property="url" />
+-        <result column="type" property="type" />
+-        <result column="icon" property="icon" />
+-        <result column="create_time" property="createTime" />
+-        <result column="update_time" property="updateTime" />
+-        <result column="remark" property="remark" />
+-        <result column="order_num" property="orderNum" />
+-        <result column="is_delete" property="isDelete" />
+-    </resultMap>
+-
+-    <!-- 通用查询结果列 -->
+-    <sql id="Base_Column_List">
+-        id, label, parent_id, parent_name, code, path, name, url, type, icon, create_time, update_time, remark, order_num, is_delete
+-    </sql>
+-    <select id="findPermissionListByUserId" resultType="com.trkj.entity.Permission">
+-     select
+-        DISTINCT
+-        p.id,p.parent_id,p.label,p.`code`,p.url,p.type,p.icon,p.remark,p.path,p.name
+-        from
+-        sys_user as u
+-        left join sys_user_role as ur on u.id = ur.user_id
+-        left join sys_role as r on ur.role_id = r.id
+-        left join sys_role_permission as rp on rp.role_id = r.id
+-        left join sys_permission as p on rp.permission_id = p.id
+-        where u.id =#{userId}
+-        order by p.id asc
+-    </select>
+-    <select id="findPermissionListByRoleId" resultType="com.trkj.entity.Permission">
+-         select t1.* from sys_permission t1 inner join sys_role_permission t2 on t1.id = t2.permission_id
+-        where t2.role_id = #{roleId}
+-    </select>
+-
+-</mapper>
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"RemoteRepositoriesConfiguration\">\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"central\" />\r\n      <option name=\"name\" value=\"Central Repository\" />\r\n      <option name=\"url\" value=\"https://repo.maven.apache.org/maven2\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"central\" />\r\n      <option name=\"name\" value=\"Maven Central repository\" />\r\n      <option name=\"url\" value=\"https://repo1.maven.org/maven2\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"jboss.community\" />\r\n      <option name=\"name\" value=\"JBoss Community repository\" />\r\n      <option name=\"url\" value=\"https://repository.jboss.org/nexus/content/repositories/public/\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"central\" />\r\n      <option name=\"name\" value=\"Central Repository\" />\r\n      <option name=\"url\" value=\"https://maven.aliyun.com/repository/public\" />\r\n    </remote-repository>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/jarRepositories.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ .idea/jarRepositories.xml	(date 1664375881574)
+@@ -4,6 +4,11 @@
+     <remote-repository>
+       <option name="id" value="central" />
+       <option name="name" value="Central Repository" />
++      <option name="url" value="https://maven.aliyun.com/repository/public" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
+       <option name="url" value="https://repo.maven.apache.org/maven2" />
+     </remote-repository>
+     <remote-repository>
+@@ -15,11 +20,6 @@
+       <option name="id" value="jboss.community" />
+       <option name="name" value="JBoss Community repository" />
+       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+-    </remote-repository>
+-    <remote-repository>
+-      <option name="id" value="central" />
+-      <option name="name" value="Central Repository" />
+-      <option name="url" value="https://maven.aliyun.com/repository/public" />
+     </remote-repository>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DataSourceManagerImpl\" format=\"xml\" multifile-model=\"true\">\r\n    <data-source source=\"LOCAL\" name=\"db_test4\" uuid=\"f8455f6a-9799-433d-b7aa-329b763aed82\">\r\n      <driver-ref>mysql.8</driver-ref>\r\n      <synchronize>true</synchronize>\r\n      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>\r\n      <jdbc-url>jdbc:mysql://localhost:3308/db_test4</jdbc-url>\r\n      <working-dir>$ProjectFileDir$</working-dir>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/dataSources.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ .idea/dataSources.xml	(date 1664338732611)
+@@ -1,12 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+-    <data-source source="LOCAL" name="db_test4" uuid="f8455f6a-9799-433d-b7aa-329b763aed82">
++    <data-source source="LOCAL" name="db_Test" uuid="c81f200a-c32f-4adb-88b2-4e897d1bffba">
+       <driver-ref>mysql.8</driver-ref>
+       <synchronize>true</synchronize>
+       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+-      <jdbc-url>jdbc:mysql://localhost:3308/db_test4</jdbc-url>
+-      <working-dir>$ProjectFileDir$</working-dir>
++      <jdbc-url>jdbc:mysql://localhost:3306/db_Test3</jdbc-url>
+     </data-source>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:Fitness-Projects\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d1428a1c-c775-4204-8a0b-b2b3b3d171d6\" name=\"Default Changelist\" comment=\"liucz0928  Commit2\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginSuccessHandler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginSuccessHandler.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/DepartmentController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/DepartmentController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/EmpController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/EmpController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/OSSController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/OSSController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/PermissionController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/PermissionController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/PoController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/RoleController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/RoleController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/SheduleController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/StockOutController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StockOutController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StoreController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/SysUserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/SysUserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/UserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/UserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/stockInController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ChangenumMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ChangenumMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/DepartmentMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/DepartmentMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/EmpAndUserMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpAndUserMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/EmpMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/PermissionMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/PermissionMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/PoMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/RoleMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/RoleMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ScheduleMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInVoMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInVoMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/StockOutMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockOutMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StoreMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/UserAndEmpMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserAndEmpMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/UserMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/UserRoleMapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserRoleMapper.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Changenum.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Changenum.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Department.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Department.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Emp.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Emp.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/EmpAndUser.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/EmpAndUser.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Permission.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Permission.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Po.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Po.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Role.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Role.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Schedule.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Schedule.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/StockIn.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockIn.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/StockOut.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockOut.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/Store.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Store.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/User.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/UserAndEmp.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/UserAndEmp.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/UserInfo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/UserInfo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/ChangenumService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ChangenumService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/DepartmentService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/DepartmentService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/EmpService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/EmpService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/FileService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/FileService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/PermissionService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/PermissionService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/PoService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/RoleService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/RoleService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ScheduleService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/StockInService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockInService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/StockOutService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockOutService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StoreService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/UserService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/UserService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ChangenumServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ChangenumServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/DepartmentServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/DepartmentServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/EmpServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/EmpServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/FileServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/FileServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PermissionServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/PoServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/RoleServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/RoleServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockInServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockOutServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockOutServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StoreServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/impl/UserServiceImpl.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/UserServiceImpl.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/utils/DepartmentTree.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/utils/DepartmentTree.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/utils/JwtUtils.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/utils/JwtUtils.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/utils/MenuTree.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/utils/MenuTree.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/DepartmentQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/DepartmentQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/EmpAndUserQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpAndUserQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/EmpQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PermissionQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/PermissionQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/PoQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/RolePermissionVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/RolePermissionVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/RoleQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/RoleQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/ScheduleQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/ScheduleQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StockInQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockOutQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StockOutQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StoreQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserRoleQueryVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserRoleQueryVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserVo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserVo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/application.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/application.properties\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/ChangenumMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/ouyang/ChangenumMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/DepartmentMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/EmpAndUserMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpAndUserMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/PermissionMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/PoMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/ouyang/PoMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/ScheduleMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/ouyang/ScheduleMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/StockInMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/StockInVoMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInVoMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/StockOutMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockOutMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/StoreMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/ouyang/StoreMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/UserAndEmpMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/UserAndEmpMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/UserMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/mapper/UserRoleMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/UserRoleMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/application.properties\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/Application.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/CommonMetaObjectHandler.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/MybatisPlusConfig.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisConfig.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisService.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/SpringSecurityConfig.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/exception/CustomerAuthenticationException.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/filter/CheckTokenFilter.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/AnonymousAuthenticationHandler.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/CustomerAccessDeniedHandler.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginFailureHandler.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginSuccessHandler.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/config/web/CORSConfig.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/controller/DepartmentController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/controller/EmpController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/controller/PermissionController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/controller/RoleController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/controller/SysUserController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/controller/UserController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/dao/DepartmentMapper.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/dao/EmpMapper.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/dao/PermissionMapper.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/dao/RoleMapper.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/dao/UserMapper.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/entity/Department.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/entity/Emp.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/entity/Permission.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/entity/Role.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/entity/User.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/entity/UserInfo.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/run/GeneratorCode.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/DepartmentService.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/EmpService.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/PermissionService.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/RoleService.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/UserService.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/impl/DepartmentServiceImpl.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/impl/EmpServiceImpl.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/impl/PermissionServiceImpl.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/impl/RoleServiceImpl.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/service/impl/UserServiceImpl.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/utils/JwtUtils.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/utils/MenuTree.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/utils/Result.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/utils/ResultCode.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo$Meta.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/vo/TokenVo.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/trkj/vo/query/PermissionQueryVo.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/mapper/DepartmentMapper.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/mapper/EmpMapper.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/mapper/liucz/RoleMapper.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/mapper/UserMapper.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/trkj/TestUser.class\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"$PROJECT_DIR$/../../../environment/apache-maven-3.6.3\" />\r\n        <option name=\"userSettingsFile\" value=\"D:\\maven\\apache-maven-3.6.3-bin\\apache-maven-3.6.3\\conf\\settings.xml\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2EpeDWH2T1afdNZs5KiVNDsuccM\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\r\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\r\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\r\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\r\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言\" value=\"MySQL\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/main/resources/mapper\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"project.structure.last.edited\" value=\"项目\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ReactorSettings\">\r\n    <option name=\"notificationShown\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\IdeaProjects\\Fitness-Projects\\src\\main\\resources\\mapper\\liucz\" />\r\n      <recent name=\"D:\\IdeaProjects\\Fitness-Projects\\src\\main\\resources\\mapper\\ouyang\" />\r\n      <recent name=\"D:\\Users\\jsf\\Fitness-Projects\\src\\main\\resources\\mapper\" />\r\n      <recent name=\"D:\\IdeaProjects\\Fitness-Projects\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"com.trkj.vo.query\" />\r\n      <recent name=\"com.trkj.dao\" />\r\n      <recent name=\"com.trkj.controller\" />\r\n      <recent name=\"com.trkj.utils\" />\r\n      <recent name=\"com.trkj.vo\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\IdeaProjects\\Fitness-Projects\\src\\main\\resources\\mapper\" />\r\n      <recent name=\"D:\\IdeaProjects\\Fitness-Projects\\src\\main\\java\\com\\trkj\\vo\" />\r\n      <recent name=\"D:\\IdeaProjects\\Fitness-Projects\\src\\main\\java\\com\\trkj\\service\" />\r\n      <recent name=\"D:\\Users\\jsf\\Fitness-Projects\\src\\main\\resources\\mapper\" />\r\n      <recent name=\"D:\\IdeaProjects\\Fitness-Projects\\src\\main\\java\\com\\trkj\\config\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.Application\">\r\n    <configuration name=\"GeneratorCode (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.trkj.run.GeneratorCode\" />\r\n      <module name=\"Fitness-Projects\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.trkj.run.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"GeneratorCode\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"run.GeneratorCode\" />\r\n      <module name=\"Fitness-Projects\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"run.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test1\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.trkj.test1\" />\r\n      <module name=\"Fitness-Projects\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.trkj.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test1.name\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Fitness-Projects\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.trkj.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.trkj\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.trkj.test1\" />\r\n      <option name=\"METHOD_NAME\" value=\"name(com.trkj.vo.query.StockInQueryVo)\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Application\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Fitness-Projects\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.trkj.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.trkj.Application\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Spring Boot.Application\" />\r\n        <item itemvalue=\"JUnit.test1.name\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" BundledDictionaries=\"0\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" Dictionaries=\"0\" CorrectionsLimit=\"5\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" />\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d1428a1c-c775-4204-8a0b-b2b3b3d171d6\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1663296833682</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1663296833682</updated>\r\n      <workItem from=\"1663296838789\" duration=\"8104000\" />\r\n      <workItem from=\"1663385831394\" duration=\"14019000\" />\r\n      <workItem from=\"1663638753085\" duration=\"7067000\" />\r\n      <workItem from=\"1663671029382\" duration=\"118000\" />\r\n      <workItem from=\"1663671162077\" duration=\"3700000\" />\r\n      <workItem from=\"1663721418386\" duration=\"15721000\" />\r\n      <workItem from=\"1663758723709\" duration=\"26119000\" />\r\n      <workItem from=\"1663852077677\" duration=\"18136000\" />\r\n      <workItem from=\"1664111831201\" duration=\"37214000\" />\r\n      <workItem from=\"1664239620204\" duration=\"24836000\" />\r\n      <workItem from=\"1664326447153\" duration=\"5413000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"欧阳test1\">\r\n      <created>1663671260386</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1663671260386</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"欧阳0926\">\r\n      <created>1664163190957</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664163190957</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"欧阳0926晚上\">\r\n      <created>1664197284272</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1664197284272</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"欧阳test1\" />\r\n    <MESSAGE value=\"欧阳0922\" />\r\n    <MESSAGE value=\"欧阳0926\" />\r\n    <MESSAGE value=\"欧阳0926晚上\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"欧阳0926晚上\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"361\" y=\"59\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1664338731837\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state x=\"361\" y=\"59\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816\" timestamp=\"1664338731837\" />\r\n    <state x=\"313\" y=\"319\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog\" timestamp=\"1664352428161\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state x=\"313\" y=\"319\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.816@0.0.1536.816\" timestamp=\"1664352428161\" />\r\n    <state x=\"499\" y=\"254\" width=\"537\" height=\"319\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes\" timestamp=\"1664348902220\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state x=\"499\" y=\"254\" width=\"537\" height=\"319\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.816@0.0.1536.816\" timestamp=\"1664348902220\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.center\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.left\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.right\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.center\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.left\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.right\" timestamp=\"1664350604141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"816\" />\r\n    </state>\r\n    <state width=\"1483\" height=\"334\" key=\"GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816\" timestamp=\"1664350604141\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ .idea/workspace.xml	(date 1664886169763)
+@@ -22,110 +22,12 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="liucz0928  Commit2">
++    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="liucz1003  Commit">
+       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/handler/LoginSuccessHandler.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/DepartmentController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/EmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/EmpController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/OSSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/OSSController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/PermissionController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/PoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/PoController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/RoleController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/SheduleController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StockOutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StockOutController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StoreController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/SysUserController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/UserController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/stockInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/stockInController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ChangenumMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ChangenumMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/DepartmentMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/EmpAndUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpAndUserMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/EmpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/PermissionMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/PoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/PoMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/RoleMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ScheduleMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockInVoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInVoMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StockOutMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockOutMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/StoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StoreMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/UserAndEmpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserAndEmpMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/UserRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserRoleMapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Changenum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Changenum.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Department.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Emp.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/EmpAndUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/EmpAndUser.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Permission.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Po.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Po.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Role.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Schedule.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/StockIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockIn.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/StockOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockOut.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Store.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/User.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/UserAndEmp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/UserAndEmp.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/UserInfo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ChangenumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ChangenumService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/DepartmentService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/EmpService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/FileService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/PermissionService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/PoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/PoService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/RoleService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ScheduleService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockInService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockInService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StockOutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockOutService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StoreService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/UserService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ChangenumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ChangenumServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/DepartmentServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/EmpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/EmpServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/FileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/FileServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/PoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/PoServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/RoleServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockInServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StockOutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockOutServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StoreServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/UserServiceImpl.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/utils/DepartmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/DepartmentTree.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/JwtUtils.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/utils/MenuTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/MenuTree.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/DepartmentQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/DepartmentQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/EmpAndUserQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpAndUserQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/EmpQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PermissionQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/PermissionQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PoQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/PoQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/RolePermissionVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/RolePermissionVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/RoleQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/RoleQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/ScheduleQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/ScheduleQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockInQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StockInQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StockOutQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StockOutQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/StoreQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/StoreQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserRoleQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserRoleQueryVo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserVo.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ChangenumMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ChangenumMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/DepartmentMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmpAndUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpAndUserMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/PermissionMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/PoMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ScheduleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ScheduleMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StockInMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StockInVoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInVoMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StockOutMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockOutMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StoreMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserAndEmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserAndEmpMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserRoleMapper.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/Application.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/CommonMetaObjectHandler.class" beforeDir="false" />
+@@ -151,7 +53,6 @@
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/EmpMapper.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/PermissionMapper.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/RoleMapper.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/UserMapper.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/Department.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/Emp.class" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/Permission.class" beforeDir="false" />
+@@ -180,7 +81,6 @@
+       <change beforePath="$PROJECT_DIR$/target/classes/mapper/DepartmentMapper.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/mapper/EmpMapper.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/mapper/PermissionMapper.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/RoleMapper.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/mapper/StoreMapper.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/trkj/TestUser.class" beforeDir="false" />
+@@ -237,17 +137,17 @@
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言" value="MySQL" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mapper" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mapper/liucz2" />
+     <property name="node.js.detected.package.eslint" value="true" />
+     <property name="node.js.detected.package.tslint" value="true" />
+     <property name="node.js.path.for.package.eslint" value="project" />
+     <property name="node.js.path.for.package.tslint" value="project" />
+     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+-    <property name="project.structure.last.edited" value="项目" />
+-    <property name="project.structure.proportion" value="0.0" />
+-    <property name="project.structure.side.proportion" value="0.0" />
+-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
++    <property name="project.structure.last.edited" value="Modules" />
++    <property name="project.structure.proportion" value="0.1546875" />
++    <property name="project.structure.side.proportion" value="0.1933395" />
++    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+     <property name="vue.rearranger.settings.migration" value="true" />
+   </component>
+   <component name="ReactorSettings">
+@@ -255,24 +155,28 @@
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\liucz2" />
+       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\liucz" />
+       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\ouyang" />
+       <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
+       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
+-    </key>
+-    <key name="CopyClassDialog.RECENTS_KEY">
+-      <recent name="com.trkj.vo.query" />
+-      <recent name="com.trkj.dao" />
+-      <recent name="com.trkj.controller" />
+-      <recent name="com.trkj.utils" />
+-      <recent name="com.trkj.vo" />
+     </key>
+     <key name="CopyFile.RECENT_KEYS">
+-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper" />
++      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\liucz2" />
+       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\vo" />
+-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\service" />
+-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
++      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config\exception" />
+       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config" />
++      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper" />
++    </key>
++    <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="com.trkj.vo.queryLiucz2" />
++      <recent name="com.trkj.dto" />
++      <recent name="com.trkj.service.implLiucz2" />
++      <recent name="com.trkj.service.implLiucz2.liucz2" />
++      <recent name="com.trkj.entity.liucz2" />
++    </key>
++    <key name="CreateClassDialog.RecentsKey">
++      <recent name="com.trkj.service.implLiucz2" />
+     </key>
+   </component>
+   <component name="RunManager" selected="Spring Boot.Application">
+@@ -289,12 +193,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="GeneratorCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="run.GeneratorCode" />
++    <configuration name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.trkj.test1" />
+       <module name="Fitness-Projects" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="run.*" />
++          <option name="PATTERN" value="com.trkj.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -302,8 +206,7 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="com.trkj.test1" />
++    <configuration name="TestUser.testXmlQuery3Service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="Fitness-Projects" />
+       <extension name="coverage">
+         <pattern>
+@@ -311,6 +214,10 @@
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="com.trkj" />
++      <option name="MAIN_CLASS_NAME" value="com.trkj.TestUser" />
++      <option name="METHOD_NAME" value="testXmlQuery3Service" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -347,6 +254,7 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Spring Boot.Application" />
++        <item itemvalue="JUnit.TestUser.testXmlQuery3Service" />
+         <item itemvalue="JUnit.test1.name" />
+       </list>
+     </recent_temporary>
+@@ -373,6 +281,9 @@
+       <workItem from="1664111831201" duration="37214000" />
+       <workItem from="1664239620204" duration="24836000" />
+       <workItem from="1664326447153" duration="5413000" />
++      <workItem from="1664504078216" duration="72110000" />
++      <workItem from="1664768611103" duration="29709000" />
++      <workItem from="1664846811341" duration="3507000" />
+     </task>
+     <task id="LOCAL-00001" summary="欧阳test1">
+       <created>1663671260386</created>
+@@ -395,11 +306,25 @@
+       <option name="project" value="LOCAL" />
+       <updated>1664197284272</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="liucz0928  Commit3">
++      <created>1664353495287</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1664353495287</updated>
++    </task>
++    <task id="LOCAL-00005" summary="liucz1003  Commit">
++      <created>1664849125067</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1664849125067</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
++    <option name="version" value="2" />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+@@ -418,13 +343,23 @@
+     <MESSAGE value="欧阳0922" />
+     <MESSAGE value="欧阳0926" />
+     <MESSAGE value="欧阳0926晚上" />
+-    <option name="LAST_COMMIT_MESSAGE" value="欧阳0926晚上" />
++    <MESSAGE value="liucz0928  Commit3" />
++    <MESSAGE value="liucz1003  Commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="liucz1003  Commit" />
+   </component>
+   <component name="WindowStateProjectService">
++    <state x="417" y="194" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1664451151242">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="417" y="194" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/0.0.1536.816@0.0.1536.816" timestamp="1664451151242" />
+     <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1664338731837">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+     <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1664338731837" />
++    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1664808017172">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1664808017172" />
+     <state x="313" y="319" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1664352428161">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+@@ -433,38 +368,98 @@
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+     <state x="499" y="254" width="537" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.816@0.0.1536.816" timestamp="1664348902220" />
+-    <state width="1483" height="334" key="GridCell.Tab.0.bottom" timestamp="1664350604141">
++    <state x="339" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1664624445570">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="339" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.816@0.0.1536.816" timestamp="1664624445570" />
++    <state x="433" y="95" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1664692865017">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+-    <state width="1483" height="334" key="GridCell.Tab.0.center" timestamp="1664350604141">
++    <state x="433" y="95" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.816@0.0.1536.816" timestamp="1664692865017" />
++    <state x="371" y="0" key="#com.intellij.unscramble.UnscrambleDialog" timestamp="1664422371658">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+-    <state width="1483" height="334" key="GridCell.Tab.0.left" timestamp="1664350604141">
++    <state x="371" y="0" key="#com.intellij.unscramble.UnscrambleDialog/0.0.1536.816@0.0.1536.816" timestamp="1664422371658" />
++    <state x="549" y="288" key="Github.CreateGistDialog" timestamp="1664800522815">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+-    <state width="1483" height="334" key="GridCell.Tab.0.right" timestamp="1664350604141">
++    <state x="549" y="288" key="Github.CreateGistDialog/0.0.1536.816@0.0.1536.816" timestamp="1664800522815" />
++    <state width="1483" height="405" key="GridCell.Tab.0.bottom" timestamp="1664853992026">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+-    <state width="1483" height="334" key="GridCell.Tab.1.bottom" timestamp="1664350604141">
++    <state width="1483" height="405" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664853992026" />
++    <state width="1483" height="405" key="GridCell.Tab.0.center" timestamp="1664853992025">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+-    <state width="1483" height="334" key="GridCell.Tab.1.center" timestamp="1664350604141">
++    <state width="1483" height="405" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1664853992025" />
++    <state width="1483" height="405" key="GridCell.Tab.0.left" timestamp="1664853992025">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+-    <state width="1483" height="334" key="GridCell.Tab.1.left" timestamp="1664350604141">
++    <state width="1483" height="405" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1664853992025" />
++    <state width="1483" height="405" key="GridCell.Tab.0.right" timestamp="1664853992025">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+-    <state width="1483" height="334" key="GridCell.Tab.1.right" timestamp="1664350604141">
++    <state width="1483" height="405" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1664853992025" />
++    <state width="1483" height="405" key="GridCell.Tab.1.bottom" timestamp="1664853992027">
+       <screen x="0" y="0" width="1536" height="816" />
+     </state>
+-    <state width="1483" height="334" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
++    <state width="1483" height="405" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664853992027" />
++    <state width="1483" height="405" key="GridCell.Tab.1.center" timestamp="1664853992027">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state width="1483" height="405" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1664853992027" />
++    <state width="1483" height="405" key="GridCell.Tab.1.left" timestamp="1664853992026">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state width="1483" height="405" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1664853992026" />
++    <state width="1483" height="405" key="GridCell.Tab.1.right" timestamp="1664853992027">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state width="1483" height="405" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1664853992027" />
++    <state width="1483" height="242" key="GridCell.Tab.2.bottom" timestamp="1664456393783">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state width="1483" height="242" key="GridCell.Tab.2.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664456393783" />
++    <state width="1483" height="242" key="GridCell.Tab.2.center" timestamp="1664456393783">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state width="1483" height="242" key="GridCell.Tab.2.center/0.0.1536.816@0.0.1536.816" timestamp="1664456393783" />
++    <state width="1483" height="242" key="GridCell.Tab.2.left" timestamp="1664456393783">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state width="1483" height="242" key="GridCell.Tab.2.left/0.0.1536.816@0.0.1536.816" timestamp="1664456393783" />
++    <state width="1483" height="242" key="GridCell.Tab.2.right" timestamp="1664456393783">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state width="1483" height="242" key="GridCell.Tab.2.right/0.0.1536.816@0.0.1536.816" timestamp="1664456393783" />
++    <state x="153" y="0" key="SettingsEditor" timestamp="1664596775397">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="153" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1664596775397" />
++    <state x="261" y="77" key="Vcs.Push.Dialog.v2" timestamp="1664849348319">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="261" y="77" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1664849348319" />
++    <state x="597" y="269" width="379" height="292" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1664715969614">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="597" y="269" width="379" height="292" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.816@0.0.1536.816" timestamp="1664715969614" />
++    <state x="246" y="0" key="com.intellij.database.dbimport.ImportDialog" timestamp="1664614897689">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="246" y="0" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.816@0.0.1536.816" timestamp="1664614897689" />
++    <state x="533" y="302" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1664886169688">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="533" y="302" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816@0.0.1536.816" timestamp="1664886169688" />
++    <state x="341" y="181" key="run.anything.popup" timestamp="1664642399617">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="341" y="181" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1664642399617" />
++    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1664692497046">
++      <screen x="0" y="0" width="1536" height="816" />
++    </state>
++    <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1664692497046" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: .idea/mybatisx/templates.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"TemplatesSettings\">\r\n    <option name=\"templateConfigs\">\r\n      <TemplateContext>\r\n        <option name=\"generateConfig\">\r\n          <GenerateConfig>\r\n            <option name=\"annotationType\" value=\"MYBATIS_PLUS3\" />\r\n            <option name=\"basePackage\" value=\"com.trkj\" />\r\n            <option name=\"basePath\" value=\"src/main/java\" />\r\n            <option name=\"classNameStrategy\" value=\"camel\" />\r\n            <option name=\"encoding\" value=\"UTF-8\" />\r\n            <option name=\"extraClassSuffix\" value=\"\" />\r\n            <option name=\"ignoreFieldPrefix\" value=\"\" />\r\n            <option name=\"ignoreFieldSuffix\" value=\"\" />\r\n            <option name=\"ignoreTablePrefix\" value=\"\" />\r\n            <option name=\"ignoreTableSuffix\" value=\"\" />\r\n            <option name=\"moduleName\" value=\"Fitness-Projects\" />\r\n            <option name=\"modulePath\" value=\"$PROJECT_DIR$\" />\r\n            <option name=\"moduleUIInfoList\">\r\n              <list>\r\n                <ModuleInfoGo>\r\n                  <option name=\"basePath\" value=\"${domain.basePath}\" />\r\n                  <option name=\"configName\" value=\"mapperInterface\" />\r\n                  <option name=\"encoding\" value=\"${domain.encoding}\" />\r\n                  <option name=\"fileName\" value=\"${domain.fileName}Mapper\" />\r\n                  <option name=\"fileNameWithSuffix\" value=\"${domain.fileName}Mapper.java\" />\r\n                  <option name=\"modulePath\" value=\"$PROJECT_DIR$\" />\r\n                  <option name=\"packageName\" value=\"com.trkj.dao\" />\r\n                </ModuleInfoGo>\r\n                <ModuleInfoGo>\r\n                  <option name=\"basePath\" value=\"src/main/resources\" />\r\n                  <option name=\"configName\" value=\"mapperXml\" />\r\n                  <option name=\"encoding\" value=\"${domain.encoding}\" />\r\n                  <option name=\"fileName\" value=\"${domain.fileName}Mapper\" />\r\n                  <option name=\"fileNameWithSuffix\" value=\"${domain.fileName}Mapper.xml\" />\r\n                  <option name=\"modulePath\" value=\"$PROJECT_DIR$\" />\r\n                  <option name=\"packageName\" value=\"mapper\" />\r\n                </ModuleInfoGo>\r\n                <ModuleInfoGo>\r\n                  <option name=\"basePath\" value=\"${domain.basePath}\" />\r\n                  <option name=\"configName\" value=\"serviceImpl\" />\r\n                  <option name=\"encoding\" value=\"${domain.encoding}\" />\r\n                  <option name=\"fileName\" value=\"${domain.fileName}ServiceImpl\" />\r\n                  <option name=\"fileNameWithSuffix\" value=\"${domain.fileName}ServiceImpl.java\" />\r\n                  <option name=\"modulePath\" value=\"$PROJECT_DIR$\" />\r\n                  <option name=\"packageName\" value=\"${domain.basePackage}.service.impl\" />\r\n                </ModuleInfoGo>\r\n                <ModuleInfoGo>\r\n                  <option name=\"basePath\" value=\"${domain.basePath}\" />\r\n                  <option name=\"configName\" value=\"serviceInterface\" />\r\n                  <option name=\"encoding\" value=\"${domain.encoding}\" />\r\n                  <option name=\"fileName\" value=\"${domain.fileName}Service\" />\r\n                  <option name=\"fileNameWithSuffix\" value=\"${domain.fileName}Service.java\" />\r\n                  <option name=\"modulePath\" value=\"$PROJECT_DIR$\" />\r\n                  <option name=\"packageName\" value=\"${domain.basePackage}.service\" />\r\n                </ModuleInfoGo>\r\n              </list>\r\n            </option>\r\n            <option name=\"needsComment\" value=\"true\" />\r\n            <option name=\"relativePackage\" value=\"entity\" />\r\n            <option name=\"superClass\" value=\"\" />\r\n            <option name=\"tableUIInfoList\">\r\n              <list>\r\n                <TableUIInfo>\r\n                  <option name=\"className\" value=\"StockOut\" />\r\n                  <option name=\"tableName\" value=\"stock_out\" />\r\n                </TableUIInfo>\r\n              </list>\r\n            </option>\r\n            <option name=\"templatesName\" value=\"mybatis-plus3\" />\r\n            <option name=\"useLombokPlugin\" value=\"true\" />\r\n          </GenerateConfig>\r\n        </option>\r\n        <option name=\"moduleName\" value=\"Fitness-Projects\" />\r\n        <option name=\"projectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"templateName\" value=\"mybatis-plus3\" />\r\n      </TemplateContext>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/mybatisx/templates.xml	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ .idea/mybatisx/templates.xml	(date 1664779881825)
+@@ -6,9 +6,8 @@
+         <option name="generateConfig">
+           <GenerateConfig>
+             <option name="annotationType" value="MYBATIS_PLUS3" />
+-            <option name="basePackage" value="com.trkj" />
++            <option name="basePackage" value="com.trkj.entity" />
+             <option name="basePath" value="src/main/java" />
+-            <option name="classNameStrategy" value="camel" />
+             <option name="encoding" value="UTF-8" />
+             <option name="extraClassSuffix" value="" />
+             <option name="ignoreFieldPrefix" value="" />
+@@ -19,52 +18,52 @@
+             <option name="modulePath" value="$PROJECT_DIR$" />
+             <option name="moduleUIInfoList">
+               <list>
+-                <ModuleInfoGo>
++                <ModuleUIInfo>
+                   <option name="basePath" value="${domain.basePath}" />
+                   <option name="configName" value="mapperInterface" />
+                   <option name="encoding" value="${domain.encoding}" />
+                   <option name="fileName" value="${domain.fileName}Mapper" />
+                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
+                   <option name="modulePath" value="$PROJECT_DIR$" />
+-                  <option name="packageName" value="com.trkj.dao" />
+-                </ModuleInfoGo>
+-                <ModuleInfoGo>
++                  <option name="packageName" value="com.trkj.dao.liucz2" />
++                </ModuleUIInfo>
++                <ModuleUIInfo>
+                   <option name="basePath" value="src/main/resources" />
+                   <option name="configName" value="mapperXml" />
+                   <option name="encoding" value="${domain.encoding}" />
+                   <option name="fileName" value="${domain.fileName}Mapper" />
+                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
+                   <option name="modulePath" value="$PROJECT_DIR$" />
+-                  <option name="packageName" value="mapper" />
+-                </ModuleInfoGo>
+-                <ModuleInfoGo>
++                  <option name="packageName" value="mapper.liucz2" />
++                </ModuleUIInfo>
++                <ModuleUIInfo>
+                   <option name="basePath" value="${domain.basePath}" />
+                   <option name="configName" value="serviceImpl" />
+                   <option name="encoding" value="${domain.encoding}" />
+                   <option name="fileName" value="${domain.fileName}ServiceImpl" />
+                   <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
+                   <option name="modulePath" value="$PROJECT_DIR$" />
+-                  <option name="packageName" value="${domain.basePackage}.service.impl" />
+-                </ModuleInfoGo>
+-                <ModuleInfoGo>
++                  <option name="packageName" value="com.trkj.service.implLiucz2.liucz2" />
++                </ModuleUIInfo>
++                <ModuleUIInfo>
+                   <option name="basePath" value="${domain.basePath}" />
+                   <option name="configName" value="serviceInterface" />
+                   <option name="encoding" value="${domain.encoding}" />
+                   <option name="fileName" value="${domain.fileName}Service" />
+                   <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
+                   <option name="modulePath" value="$PROJECT_DIR$" />
+-                  <option name="packageName" value="${domain.basePackage}.service" />
+-                </ModuleInfoGo>
++                  <option name="packageName" value="com.trkj.service.implLiucz2" />
++                </ModuleUIInfo>
+               </list>
+             </option>
+             <option name="needsComment" value="true" />
+-            <option name="relativePackage" value="entity" />
++            <option name="relativePackage" value="liucz2" />
+             <option name="superClass" value="" />
+             <option name="tableUIInfoList">
+               <list>
+                 <TableUIInfo>
+-                  <option name="className" value="StockOut" />
+-                  <option name="tableName" value="stock_out" />
++                  <option name="className" value="Sales" />
++                  <option name="tableName" value="sales" />
+                 </TableUIInfo>
+               </list>
+             </option>
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#设置端口号\r\nserver.port=8888\r\n#数据库驱动\r\nspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver\r\n#数据库连接地址\r\nspring.datasource.url=jdbc:mysql://localhost:3308/db_Test4?\r\nuseUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai\r\n#数据库用户名\r\nspring.datasource.username=root\r\n#数据库密码\r\nspring.datasource.password=root\r\nspring.datasource.sql-script-encoding=utf-8\r\n#加载映射文件\r\nmybatis-plus.mapper-locations=classpath*:/mapper/**/*.xml\r\n#设置别名\r\nmybatis-plus.type-aliases-package=com.trkj.entity\r\n#全局逻辑删除的实体字段名\r\nmybatis-plus.global-config.db-config.logic-delete-field=isDelete\r\n#逻辑删除值，默认为1\r\nmybatis-plus.global-config.db-config.logic-delete-value=1\r\n#逻辑未删除值，默认为0\r\nmybatis-plus.global-config.db-config.logic-not-delete-value=0\r\n#关闭驼峰命名映射\r\n#mybatis-plus.configuration.map-underscore-to-camel-case=false\r\n#显示日志\r\nmybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl\r\nlogging.level.com.manong.dao=debug\r\n#JSON日期格式化\r\nspring.jackson.date-format=yyyy-MM-dd\r\n#JSON日期格式化设置时区为上海\r\nspring.jackson.time-zone=Asia/Shanghai\r\n#日期格式化\r\nspring.mvc.format.date=yyyy-MM-dd\r\nspring.mvc.format.date-time=yyyy-MM-dd HH:mm:ss\r\n#jwt配置\r\n#密钥\r\njwt.secret=com.trkj\r\n#过期时间(30分钟,单位毫秒)\r\njwt.expiration=1800000\r\n################################# Redis相关配置 #################################\r\nspring.redis.host=localhost\r\nspring.redis.port=6379\r\nspring.redis.database=0\r\nspring.redis.timeout=10000\r\nspring.redis.password=redis2020\r\n#自定义属性\r\n#redis过期时间\r\nspring.redis.expire=60000\r\n#登录请求地址(自定义)\r\nrequest.login.url=/api/user/login\r\n#阿里云OSS配置\r\naliyun.oss.file.endpoint=oss-cn-hangzhou.aliyuncs.com\r\naliyun.oss.file.keyid=LTAI5tG8TpwCeYDMgPKrqYyV\r\naliyun.oss.file.keysecret=3miMjshrWmUzgJHiabQE8Irj1714mD\r\n#bucket名称\r\naliyun.oss.file.bucketname=liucz-bucket\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/application.properties	(revision b285168e0eb55ef71065c354bc71c08eaa8dba97)
++++ src/main/resources/application.properties	(date 1664335141288)
+@@ -3,12 +3,12 @@
+ #数据库驱动
+ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+ #数据库连接地址
+-spring.datasource.url=jdbc:mysql://localhost:3308/db_Test4?
++spring.datasource.url=jdbc:mysql://localhost:3306/db_Test3?
+ useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+ #数据库用户名
+ spring.datasource.username=root
+ #数据库密码
+-spring.datasource.password=root
++spring.datasource.password=123456
+ spring.datasource.sql-script-encoding=utf-8
+ #加载映射文件
+ mybatis-plus.mapper-locations=classpath*:/mapper/**/*.xml
+@@ -42,7 +42,7 @@
+ spring.redis.port=6379
+ spring.redis.database=0
+ spring.redis.timeout=10000
+-spring.redis.password=redis2020
++#spring.redis.password=123456
+ #自定义属性
+ #redis过期时间
+ spring.redis.expire=60000
