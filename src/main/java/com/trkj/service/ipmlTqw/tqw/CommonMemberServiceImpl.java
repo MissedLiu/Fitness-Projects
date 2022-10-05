@@ -4,11 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.trkj.dao.tqw.CommonMealMapper;
-import com.trkj.dao.tqw.CommonMemberMapper;
-import com.trkj.dao.tqw.MemberMapper;
-import com.trkj.dao.tqw.MemberMealMapper;
+import com.trkj.dao.tqw.*;
 import com.trkj.entity.tqw.CommonMeal;
+import com.trkj.entity.tqw.Comsune;
 import com.trkj.entity.tqw.Member;
 import com.trkj.entity.tqw.MemberMeal;
 import com.trkj.service.ipmlTqw.CommonMealService;
@@ -35,6 +33,8 @@ public class CommonMemberServiceImpl implements CommonMemberService {
     private CommonMealService commonMealService;
     @Autowired
     private CommonMemberMapper commonMemberMapper;
+    @Autowired
+    private ComsuneMapper comsuneMapper;
 
     /*
      *
@@ -108,6 +108,8 @@ public class CommonMemberServiceImpl implements CommonMemberService {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    //添加消费记录
+                    addComsune(member1,commonMeal);
                     return 5;
                 } else {
                     //到期时间小于现在(已过期)
@@ -123,6 +125,7 @@ public class CommonMemberServiceImpl implements CommonMemberService {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    addComsune(member1,commonMeal);
                     return 5;
                 }
             } else {
@@ -142,6 +145,7 @@ public class CommonMemberServiceImpl implements CommonMemberService {
                     e.printStackTrace();
                 }
                 memberMealMapper.insert(memberMeal);
+                addComsune(member1,commonMeal);
                 return 0;
             }
         }
@@ -159,6 +163,17 @@ public class CommonMemberServiceImpl implements CommonMemberService {
             return 3;
         }
         return 5;
+    }
+    //添加充值记录方法
+    public void addComsune(Member member,CommonMeal commonMeal){
+        Comsune comsune=new Comsune();
+        comsune.setMemberId(member.getMemberId());
+        comsune.setMealId((long) commonMeal.getCmId());
+        comsune.setMealName(commonMeal.getCmName());
+        comsune.setMealType("普通");
+        comsune.setComsunePrice(commonMeal.getCmPrice());
+        comsune.setComsuneDate(new Date());
+        comsuneMapper.insert(comsune);
     }
 
     //删除普通会员套餐

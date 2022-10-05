@@ -16,7 +16,7 @@ public class PtProjectnameServiceImpl extends ServiceImpl<PtProjectnameMapper, P
 implements PtProjectnameService {
     //通过套餐id查询私教项目(项目未禁用)
     @Override
-    public List<PtProjectname> selectPtProject(Long ptId){
+    public List<PtProjectname> selectPtProject(Long ptId) {
         return baseMapper.selectPtProjectByPtId(ptId);
     }
 

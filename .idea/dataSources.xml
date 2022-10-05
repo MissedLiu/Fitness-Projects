@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/db_test4?serverTimezone=GMT</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="db_test4@localhost" uuid="32872eea-9322-4b4d-91b0-ef33af9fb8c4">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/db_test4?serverTimezone=GMT</jdbc-url>
+    </data-source>
   </component>
 </project>

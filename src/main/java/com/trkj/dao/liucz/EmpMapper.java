@@ -1,6 +1,7 @@
 package com.trkj.dao.liucz;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.liucz.Emp;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
@@ -20,4 +21,9 @@ public interface EmpMapper extends BaseMapper<Emp> {
     * */
 
     IPage<Emp> selectEmpUserNamePage(IPage<Emp> page, @Param("query") EmpQueryVo query);
+
+    /*
+     * 分页查询员工信息（根据员工岗位）
+     * */
+    IPage<Emp> selectEmpListByStation(Page<Emp> pageStr,@Param("query") EmpQueryVo empQueryVo);
 }

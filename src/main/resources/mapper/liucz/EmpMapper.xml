@@ -56,4 +56,15 @@
         </if>
     </select>
 
+
+    <select id="selectEmpListByStation" resultType="com.trkj.entity.liucz.Emp">
+        select * from sys_emp where 1=1
+        <if test="query.station !=null and query.station !='' ">
+            and station=#{query.station}
+        </if>
+        <if test="query.empName !=null and query.empName !='' ">
+            and emp_name = #{query.empName}
+        </if>
+    </select>
+
 </mapper>

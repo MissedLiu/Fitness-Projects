@@ -90,4 +90,5 @@ public class Member{
     */
     private Date updateTime;
 
+
 }

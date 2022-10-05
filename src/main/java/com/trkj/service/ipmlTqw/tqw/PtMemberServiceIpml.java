@@ -5,14 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.trkj.dao.tqw.ChooseprojectnameMapper;
-import com.trkj.dao.tqw.MemberMapper;
-import com.trkj.dao.tqw.MemberMealMapper;
-import com.trkj.dao.tqw.PtMemberMapper;
-import com.trkj.entity.tqw.ChooseProject;
-import com.trkj.entity.tqw.Member;
-import com.trkj.entity.tqw.MemberMeal;
-import com.trkj.entity.tqw.PtMeal;
+import com.trkj.dao.tqw.*;
+import com.trkj.entity.tqw.*;
 import com.trkj.service.ipmlTqw.PtMealService;
 import com.trkj.service.ipmlTqw.PtMemberService;
 import com.trkj.utils.DateUtil;
@@ -39,6 +33,10 @@ public class PtMemberServiceIpml implements PtMemberService {
     private ChooseprojectnameMapper chooseprojectnameMapper;
     @Autowired
     private PtMemberMapper ptMemberMapper;
+    @Autowired
+    private ComsuneMapper comsuneMapper;
+    @Autowired
+    private PtProjectnameMapper ptProjectnameMapper;
     /*
      *
      *查询私教会员列表
@@ -52,8 +50,6 @@ public class PtMemberServiceIpml implements PtMemberService {
     }
 
 
-
-
     /*
      *
      *新增私教会员
@@ -65,6 +61,8 @@ public class PtMemberServiceIpml implements PtMemberService {
         memberQueryVo.setMealType("私教");
         //通过id查询私教套餐
         PtMeal ptMeal = ptMealService.selectPtMealByMealId(memberQueryVo.getMealId());
+        //通过id查询私教项目
+        PtProjectname ptProjectname=ptProjectnameMapper.selectById(memberQueryVo.getProjectId());
         //通过电话和姓名查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();
         wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
@@ -120,6 +118,8 @@ public class PtMemberServiceIpml implements PtMemberService {
                 chooseProject.setEmpId(memberQueryVo.getEmpId());
                 chooseProject.setChooseId(memberQueryVo.getMealId());
                 chooseprojectnameMapper.insert(chooseProject);
+                //添加消费记录
+                addComsune(member1,ptMeal,ptProjectname);
                 return 0;
             }else{
                 //有套餐
@@ -139,6 +139,8 @@ public class PtMemberServiceIpml implements PtMemberService {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    //添加消费记录
+                    addComsune(member1,ptMeal,ptProjectname);
                     return 5;
                 }else {
                     //到期时间小于现在(已过期)
@@ -155,6 +157,8 @@ public class PtMemberServiceIpml implements PtMemberService {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    //添加消费记录
+                    addComsune(member1,ptMeal,ptProjectname);
                     return 5;
                 }
             }
@@ -176,6 +180,19 @@ public class PtMemberServiceIpml implements PtMemberService {
         return 5;
     }
 
+    //添加充值记录方法
+    public void addComsune(Member member, PtMeal ptMeal, PtProjectname ptProjectname){
+        Comsune comsune=new Comsune();
+        comsune.setMemberId(member.getMemberId());
+        comsune.setMealId((long) ptMeal.getPtId());
+        comsune.setMealName(ptMeal.getPtName());
+        comsune.setPtpId(ptProjectname.getPtpId());
+        comsune.setPtpName(ptProjectname.getPtpName());
+        comsune.setMealType("私教");
+        comsune.setComsunePrice(ptMeal.getPtPrice());
+        comsune.setComsuneDate(new Date());
+        comsuneMapper.insert(comsune);
+    }
 
     /*
      *

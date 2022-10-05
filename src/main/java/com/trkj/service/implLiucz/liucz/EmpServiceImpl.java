@@ -1,5 +1,6 @@
 package com.trkj.service.implLiucz.liucz;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.dao.liucz.EmpAndUserMapper;
@@ -84,6 +85,16 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpSe
 
         }
         return false;
+    }
+
+    /*
+     * 分页查询员工信息（根据员工岗位）
+     * */
+    @Override
+    public IPage<Emp> findEmpListByStation(EmpQueryVo empQueryVo){
+        Page<Emp> pageStr=new Page<Emp>(empQueryVo.getPageNo(),empQueryVo.getPageSize());
+        IPage<Emp> iPage =baseMapper.selectEmpListByStation(pageStr,empQueryVo);
+        return iPage;
     }
 
 }

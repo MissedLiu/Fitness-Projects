@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.entity.tqw.Member;
 import com.trkj.vo.queryTqw.MemberQueryVo;
-import com.trkj.vo.queryTqw.PtMealAndEmpQueryVo;
 
 import java.util.List;
 
@@ -26,6 +25,14 @@ public interface MemberService extends IService<Member> {
      *
      */
     boolean addMember(Member member);
+
+
+    /*
+     *
+     *查询会员状态为0的信息
+     *
+     */
+    List<Member> findMemberByState(long memberstate);
 
     /*
      *

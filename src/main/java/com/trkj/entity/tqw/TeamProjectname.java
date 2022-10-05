@@ -13,7 +13,7 @@ import java.util.Date;
  * 团操项目类型表
  * @TableName team__projectname
  */
-@TableName(value ="team__projectname")
+@TableName(value ="team_projectname")
 @Data
 public class TeamProjectname implements Serializable {
     /**

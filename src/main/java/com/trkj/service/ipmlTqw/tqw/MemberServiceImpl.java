@@ -9,18 +9,12 @@ import com.trkj.dao.tqw.ChooseprojectnameMapper;
 import com.trkj.dao.tqw.MemberMapper;
 import com.trkj.dao.tqw.MemberMealMapper;
 import com.trkj.entity.tqw.*;
-import com.trkj.service.ipmlTqw.CommonMealService;
 import com.trkj.service.ipmlTqw.MemberService;
-import com.trkj.service.ipmlTqw.PtMealService;
-import com.trkj.service.ipmlTqw.TeamMealService;
-import com.trkj.utils.DateUtil;
 import com.trkj.vo.queryTqw.MemberQueryVo;
-import com.trkj.vo.queryTqw.PtMealAndEmpQueryVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -30,13 +24,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     @Resource
     private MemberMealMapper memberMealMapper;
     @Resource
-    private CommonMealService commonMealService;
-    @Resource
-    private PtMealService ptMealService;
-    @Resource
     private ChooseprojectnameMapper chooseprojectnameMapper;
-    @Resource
-    private TeamMealService teamMealService;
     /*
      *
      *查询会员信息
@@ -48,6 +36,16 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         return memberAll;
     }
 
+    /*
+     *
+     *查询会员状态为0的信息
+     *
+     */
+    public List<Member> findMemberByState(long memberstate){
+        QueryWrapper<Member> wrapper=new QueryWrapper<>();
+        wrapper.eq("member_state",memberstate);
+        return baseMapper.selectList(wrapper);
+    }
 
     /*
     *

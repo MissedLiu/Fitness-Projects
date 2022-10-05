@@ -4,10 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.trkj.dao.tqw.ChooseprojectnameMapper;
-import com.trkj.dao.tqw.MemberMapper;
-import com.trkj.dao.tqw.MemberMealMapper;
-import com.trkj.dao.tqw.TeamMemberMapper;
+import com.trkj.dao.tqw.*;
 import com.trkj.entity.tqw.*;
 import com.trkj.service.ipmlTqw.TeamMealService;
 import com.trkj.service.ipmlTqw.TeamMemberService;
@@ -35,6 +32,10 @@ public class TeamMemberServiceIpml implements TeamMemberService {
     private ChooseprojectnameMapper chooseprojectnameMapper;
     @Autowired
     private TeamMemberMapper teamMemberMapper;
+    @Autowired
+    private ComsuneMapper comsuneMapper;
+    @Autowired
+    private TeamProjectnameMapper teamProjectnameMapper;
     /*
      *
      *通过套餐类型查询团操会员
@@ -57,6 +58,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         memberQueryVo.setMealType("团操");
         //通过id查询团操套餐
         TeamMeal teamMeal = teamMealService.selectTeamMealByMealId(memberQueryVo.getMealId());
+        //通过id查询团操项目
+        TeamProjectname teamProjectname=teamProjectnameMapper.selectById(memberQueryVo.getProjectId());
         //通过电话和姓名查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();
         wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
@@ -110,6 +113,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                 chooseProject.setEmpId(memberQueryVo.getEmpId());
                 chooseProject.setChooseId(memberQueryVo.getMealId());
                 chooseprojectnameMapper.insert(chooseProject);
+                //添加消费记录
+                addComsune(member1,teamMeal,teamProjectname);
                 return 0;
             } else {
                 //有套餐
@@ -129,6 +134,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    //添加消费记录
+                    addComsune(member1,teamMeal,teamProjectname);
                     return 5;
                 } else {
                     //到期时间小于现在(已过期)
@@ -145,6 +152,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    //添加消费记录
+                    addComsune(member1,teamMeal,teamProjectname);
                     return 5;
                 }
             }
@@ -163,6 +172,20 @@ public class TeamMemberServiceIpml implements TeamMemberService {
             return 3;
         }
         return 5;
+    }
+
+    //添加充值记录方法
+    public void addComsune(Member member, TeamMeal teamMeal, TeamProjectname teamProjectname){
+        Comsune comsune=new Comsune();
+        comsune.setMemberId(member.getMemberId());
+        comsune.setMealId((long) teamMeal.getTeamId());
+        comsune.setMealName(teamMeal.getTeamName());
+        comsune.setPtpId(teamProjectname.getTpId());
+        comsune.setPtpName(teamProjectname.getTpName());
+        comsune.setMealType("团操");
+        comsune.setComsunePrice(teamMeal.getTeamPrice());
+        comsune.setComsuneDate(new Date());
+        comsuneMapper.insert(comsune);
     }
 
     /*

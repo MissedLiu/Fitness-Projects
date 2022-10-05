@@ -43,7 +43,7 @@
                   <option name="fileName" value="${domain.fileName}ServiceImpl" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
                   <option name="modulePath" value="$PROJECT_DIR$/" />
-                  <option name="packageName" value="com.trkj.service.tqwI" />
+                  <option name="packageName" value="${domain.basePackage}.service.impl" />
                 </ModuleUIInfo>
                 <ModuleUIInfo>
                   <option name="basePath" value="${domain.basePath}" />
@@ -52,7 +52,7 @@
                   <option name="fileName" value="${domain.fileName}Service" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
                   <option name="modulePath" value="$PROJECT_DIR$/" />
-                  <option name="packageName" value="com.trkj.service.tqwIpml" />
+                  <option name="packageName" value="com.trkj.service." />
                 </ModuleUIInfo>
               </list>
             </option>
@@ -62,8 +62,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="Callback" />
-                  <option name="tableName" value="callback" />
+                  <option name="className" value="CallbackProspect" />
+                  <option name="tableName" value="callback_prospect" />
                 </TableUIInfo>
               </list>
             </option>
