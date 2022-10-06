@@ -124,6 +124,8 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         wrapper.eq("member_phone",member.getMemberPhone());
         Member member1 =baseMapper.selectOne(wrapper);
         if(member1!=null){
+            //电话未修改
+            //电话未被使用
             if(member1.getMemberId() == member.getMemberId()){
                 //修改会员信息
                 UpdateWrapper<Member> wrapper1=new UpdateWrapper<>();
@@ -135,7 +137,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
                 return false;
             }
         }else {
-            //修改会员信息
+            //电话被修改
             UpdateWrapper<Member> wrapper1=new UpdateWrapper<>();
             wrapper1.eq("member_id",member.getMemberId());
             if(baseMapper.update(member,wrapper1)>0){

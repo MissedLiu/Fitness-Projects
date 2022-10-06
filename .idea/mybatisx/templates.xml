@@ -62,8 +62,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="CallbackProspect" />
-                  <option name="tableName" value="callback_prospect" />
+                  <option name="className" value="Compact" />
+                  <option name="tableName" value="compact" />
                 </TableUIInfo>
               </list>
             </option>
