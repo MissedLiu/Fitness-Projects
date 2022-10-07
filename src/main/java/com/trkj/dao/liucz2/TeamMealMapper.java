@@ -16,7 +16,7 @@ import java.util.List;
 * @author 张鑫
 * @description 针对表【team_meal(团操会员套餐表)】的数据库操作Mapper
 * @createDate 2022-09-25 21:14:45
-* @Entity com.trkj.entity.TeamMeal
+* @Entity com.trkj.entity.TeamMeall
 */
 public interface TeamMealMapper extends BaseMapper<TeamMeal> {
     /*团体套餐添加*/
