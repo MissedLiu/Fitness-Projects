@@ -162,4 +162,38 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
 
+    /**
+     * @description:
+     * 查询财务部门下的账号以及员工信息
+     * @author: Liucz
+     * @date: 2022/10/5 13:50
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<User> findCauWu() {
+        List<User> caiwu = baseMapper.findCaiwu();
+        return caiwu;
+    }
+
+    /**
+     * @description:
+     * 查询维修部门下的账号以及员工信息
+     * @author: Liucz
+     * @date: 2022/10/5 13:50
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<User> findWeiXiu() {
+        List<User> weiXiuG = userMapper.findWeiXiuG();
+        return weiXiuG;
+    }
+    //根据账户id查询员工所有信息
+
+    @Override
+    public User findUserEmpByUserId(Long id) {
+        User user = userMapper.findUserEmpByUserId(id);
+        return user;
+    }
 }

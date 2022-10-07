@@ -15,8 +15,35 @@
             <result property="schedulePrice" column="schedule_price" jdbcType="BIGINT"/>
             <result property="brand" column="brand" jdbcType="VARCHAR"/>
             <result property="scheduleTime" column="schedule_time" jdbcType="TIMESTAMP"/>
+        <association property="caigouShenhe" column="schedule_id" resultMap="BaseResultMap2"/>
     </resultMap>
 
-
+    <resultMap id="BaseResultMap2" type="com.trkj.entity.liucz2.CaigouShenhe">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="scheduleId" column="schedule_id" jdbcType="BIGINT"/>
+        <result property="shenheempId" column="shenheemp_id" jdbcType="BIGINT"/>
+        <result property="state" column="state" jdbcType="TINYINT"/>
+    </resultMap>
+    <update id="updateState">
+        update schedule set schedule_state =1 where schedule_id=#{id}
+    </update>
+    <select id="findCaiGouStateByState" resultMap="BaseResultMap">
+        select s.*,c.*  from schedule s inner join caigou_shenhe c on s.schedule_id=c.schedule_id where c.state =0 and c.shenheemp_id=#{empId}
+    </select>
+    <select id="findCaiGouStateByStatetrue" resultMap="BaseResultMap">
+select s.*,c.*  from schedule s inner join caigou_shenhe c on s.schedule_id=c.schedule_id where c.state !=0 and c.state =1 or c.state =2  and c.shenheemp_id=#{empId}
+    </select>
+    <update id="updateSchduleSteta">
+        update schedule set schedule_state=3 where schedule_id=#{scheduleId}
+    </update>
+    <update id="updateSchduleSteta2">
+          update schedule set schedule_state=2 where schedule_id=#{scheduleId}
+    </update>
+    <update id="updateSchduleSteta4">
+          update schedule set schedule_state=4 where schedule_id=#{scheduleId}
+    </update>
+    <update id="updateSchduleSteta5">
+        update schedule set schedule_state=5 where schedule_id=#{scheduleId}
+    </update>
 
 </mapper>

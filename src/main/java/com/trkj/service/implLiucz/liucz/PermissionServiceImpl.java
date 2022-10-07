@@ -100,15 +100,12 @@ public class    PermissionServiceImpl extends ServiceImpl<PermissionMapper, Perm
     public RolePermissionVo findPermissionTree(Long userId, Long roleId) {
         //根据账户id查询出当前的登录用户信息
         User user=userMapper.selectById(userId);
-        System.out.println("user==========="+user);
         List<Permission> permissionList=null;
         //判断当前用户角色是否是超级管理员,则查询所有权限,如果不是管理员则只查询自己所拥有的权限
         if( user.getIsAdmin() == 1){
             //当前为超级管理员,拥有所有的权限
-            System.out.println("user1==========="+user);
             permissionList=permissionMapper.findPermissionAll();
         }else {
-            System.out.println("user2==========="+user);
             //不为超级管理员,根据账户id查询 则只拥有自己账户下自己的权限
             permissionList=baseMapper.findPermissionListByUserId(userId);
         }

@@ -35,6 +35,7 @@ public class CustomerUserDetailsService implements UserDetailsService {
         }
         //查询用户的拥有的权限列表
         List<Permission> permissionList = permissionService.findPermissionListByUserId(user.getId());
+        permissionList.forEach(System.out::println);
         //获取权限编码
         List<String> collect = permissionList.stream()
                 .filter(item -> item != null)
@@ -47,7 +48,7 @@ public class CustomerUserDetailsService implements UserDetailsService {
         user.setAuthorities(authorityList);
         //设置菜单列表
         user.setPermissionList(permissionList);
-
+        System.out.println("user===="+user);
         return user;
     }
 }

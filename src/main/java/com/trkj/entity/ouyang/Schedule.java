@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+
+import com.trkj.entity.liucz2.CaigouShenhe;
 import lombok.Data;
 
 /**
@@ -20,7 +22,10 @@ public class Schedule implements Serializable {
      */
     @TableId(type = IdType.AUTO)
     private Long scheduleId;
-
+    /**
+     * 采购人编号
+     */
+    private  Long scheduleempId;
     /**
      * 物品名称
      */
@@ -69,10 +74,11 @@ public class Schedule implements Serializable {
     /*
     * 状态
     */
-    private String scheduleState;
+    private Byte scheduleState;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
-
+    @TableField(exist = false)
+    private CaigouShenhe caigouShenhe;
 
 }

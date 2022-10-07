@@ -72,7 +72,7 @@ public class EmpController {
      * */
     @PutMapping("/update")
     @PreAuthorize("hasAuthority('sys:emp:edit')")
-    public Result update(@RequestBody Emp emp) {
+    public Result update(@RequestBody @Validated Emp emp) {
         System.out.println("emp===" + emp);
         if (empService.updateById(emp)) {
             return Result.ok().message("修改成功");

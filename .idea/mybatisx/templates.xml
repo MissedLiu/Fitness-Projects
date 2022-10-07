@@ -8,7 +8,6 @@
             <option name="annotationType" value="MYBATIS_PLUS3" />
             <option name="basePackage" value="com.trkj" />
             <option name="basePath" value="src/main/java" />
-            <option name="classNameStrategy" value="camel" />
             <option name="encoding" value="UTF-8" />
             <option name="extraClassSuffix" value="" />
             <option name="ignoreFieldPrefix" value="" />
@@ -19,52 +18,52 @@
             <option name="modulePath" value="$PROJECT_DIR$" />
             <option name="moduleUIInfoList">
               <list>
-                <ModuleInfoGo>
+                <ModuleUIInfo>
                   <option name="basePath" value="${domain.basePath}" />
                   <option name="configName" value="mapperInterface" />
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Mapper" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
                   <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="com.trkj.dao.ouyang" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
+                  <option name="packageName" value="com.trkj.dao.liucz2" />
+                </ModuleUIInfo>
+                <ModuleUIInfo>
                   <option name="basePath" value="src/main/resources" />
                   <option name="configName" value="mapperXml" />
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Mapper" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
                   <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="mapper.ouyang" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
+                  <option name="packageName" value="mapper.liucz2" />
+                </ModuleUIInfo>
+                <ModuleUIInfo>
                   <option name="basePath" value="${domain.basePath}" />
                   <option name="configName" value="serviceImpl" />
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}ServiceImpl" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
                   <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="com.trkj.service.implOuyang.Ouyang" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
+                  <option name="packageName" value="com.trkj.service.imlLiucz2.liucz2" />
+                </ModuleUIInfo>
+                <ModuleUIInfo>
                   <option name="basePath" value="${domain.basePath}" />
                   <option name="configName" value="serviceInterface" />
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Service" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
                   <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="com.trkj.service.implOuyang" />
-                </ModuleInfoGo>
+                  <option name="packageName" value="com.trkj.service.imlLiucz2" />
+                </ModuleUIInfo>
               </list>
             </option>
             <option name="needsComment" value="true" />
-            <option name="relativePackage" value="entity.ouyang" />
+            <option name="relativePackage" value="entity.liucz2" />
             <option name="superClass" value="" />
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="Disburse" />
-                  <option name="tableName" value="disburse" />
+                  <option name="className" value="Weixg" />
+                  <option name="tableName" value="weixg" />
                 </TableUIInfo>
               </list>
             </option>

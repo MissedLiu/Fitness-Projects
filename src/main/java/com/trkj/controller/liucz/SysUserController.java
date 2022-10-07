@@ -93,10 +93,8 @@ public class SysUserController {
         }
         //获取用户信息
         User user = (User) authentication.getPrincipal();
-        System.out.println("11111"+user);
         //用户权限集合
         List<Permission> permissionList = user.getPermissionList();
-        permissionList.forEach(System.out::println);
         //获取角色权限编码字段
         Object[] roles =
                 permissionList.stream()

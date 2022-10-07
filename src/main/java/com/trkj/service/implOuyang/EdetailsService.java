@@ -20,5 +20,5 @@ public interface EdetailsService extends IService<Edetails> {
 
     Long CountDetailsByEdCode(Edetails edetails);
 
-    Long CountDetailsByEdCodeAndName(Eeamage eeamage);
+    Long CountDetailsByEdCodeAndName(Edetails edetails);
 }

@@ -14,4 +14,14 @@ import com.trkj.vo.queryOuyang.EmaintenanceQueryVo;
 public interface EmaintenanceService extends IService<Emaintenance> {
     boolean toEm(EeamageQueryVo eeamageQueryVo);
     IPage<EmaintenanceQueryVo> getEmList(IPage page,EmaintenanceQueryVo emaintenanceQueryVo);
+
+    /**
+     * @description:
+     * 添加
+     * @author: Liucz
+     * @date: 2022/10/6 16:32
+     * @param:
+     * @return:
+     **/
+    int add(Emaintenance emaintenance);
 }

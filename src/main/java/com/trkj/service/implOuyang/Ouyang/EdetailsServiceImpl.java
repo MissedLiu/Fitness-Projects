@@ -46,8 +46,8 @@ private EdetailsMapper edetailsMapper;
     }
 
     @Override
-    public Long CountDetailsByEdCodeAndName(Eeamage eeamage) {
-        return edetailsMapper.CountDetailsByEdCodeAndName(eeamage);
+    public Long CountDetailsByEdCodeAndName(Edetails edetails) {
+        return edetailsMapper.CountDetailsByEdCodeAndName(edetails);
     }
 }
 

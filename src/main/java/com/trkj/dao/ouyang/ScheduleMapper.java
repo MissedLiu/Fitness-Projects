@@ -1,8 +1,12 @@
 package com.trkj.dao.ouyang;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.entity.liucz2.CaigouShenhe;
 import com.trkj.entity.ouyang.Schedule;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -13,10 +17,10 @@ import org.apache.ibatis.annotations.Update;
 * @Entity com.trkj.entity.ouyang.Schedule
 */
 public interface ScheduleMapper extends BaseMapper<Schedule> {
-    @Insert(value = "insert into schedule (schedule_name,schedule_type,schedule_supplier," +
-                    "unit, schedule_address, schedule_num,schedule_price,brand) value " +
-                    "(#{scheduleName},#{scheduleType},#{scheduleSupplier},#{unit}," +
-                    "#{scheduleAddress},#{scheduleNum},#{schedulePrice},#{brand})")
+    @Insert(value = "insert into schedule (schedule_name,scheduleemp_id,schedule_type,schedule_supplier," +
+            "unit, schedule_address, schedule_num,schedule_price,brand) value " +
+            "(#{scheduleName},#{scheduleempId},#{scheduleType},#{scheduleSupplier},#{unit}," +
+            "#{scheduleAddress},#{scheduleNum},#{schedulePrice},#{brand})")
     public Boolean addPlan(Schedule schedule);
 
     @Insert(value = "insert into po(schedule_id, po_name, po_num, po_price," +
@@ -30,8 +34,49 @@ public interface ScheduleMapper extends BaseMapper<Schedule> {
 
     @Select(value = "select schedule_num from schedule where schedule_id=#{scheduleId}")
     public Long getPlanNum(Schedule schedule);
-}
 
+    //修改采购计划表的状态
+    int updateState(Long id);
+
+    //查询当前人采购计划状态为1-待审核的记录
+    IPage<CaigouShenhe> findCaiGouStateByState(Page<CaigouShenhe> page, @Param("empId") Long empId);
+
+    //根据状态不为0-已审核的查询该审核人id下的所有信息
+    IPage<CaigouShenhe> findCaiGouStateByStatetrue(Page<CaigouShenhe> page, @Param("empId") Long empId);
+
+    /**
+     * @description: 修改采购计划表中的状态为3-审核不通过
+     * @author: Liucz
+     * @date: 2022/10/5 18:55
+     * @param:
+     * @return:
+     **/
+    int updateSchduleSteta(Long id);
+    /**
+     * @description: 修改采购计划表中的状态为2-审核通过
+     * @author: Liucz
+     * @date: 2022/10/5 18:55
+     * @param:
+     * @return:
+     **/
+    int updateSchduleSteta2(Long id);
+    /**
+     * @description: 修改采购计划表中的状态为4-已执行
+     * @author: Liucz
+     * @date: 2022/10/5 18:55
+     * @param:
+     * @return:
+     **/
+    int updateSchduleSteta4(Long id);
+    /**
+     * @description: 修改采购计划表中的状态为5-撤销
+     * @author: Liucz
+     * @date: 2022/10/5 18:55
+     * @param:
+     * @return:
+     **/
+    int updateSchduleSteta5(Long id);
+}
 
 
 

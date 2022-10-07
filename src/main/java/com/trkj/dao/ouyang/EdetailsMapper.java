@@ -23,8 +23,8 @@ public interface EdetailsMapper extends BaseMapper<Edetails> {
     @Select(value = "select count(*) from equipment_details where ed_code = #{edCode}")
     Long CountDetailsByEdCode(Edetails edetails);
 
-    @Select(value = "select count(*) from equipment_details where ed_code = #{edCode} and ed_name = #{eeName}")
-    Long CountDetailsByEdCodeAndName(Eeamage eeamage);
+    @Select(value = "select count(*) from equipment_details where ed_code = #{edCode} and ed_name = #{edName} and ed_state=1")
+    Long CountDetailsByEdCodeAndName(Edetails edetails);
 }
 
 

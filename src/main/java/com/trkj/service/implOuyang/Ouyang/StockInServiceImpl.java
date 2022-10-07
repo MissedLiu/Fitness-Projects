@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.dao.ouyang.StockInVoMapper;
+import com.trkj.dto.CaiGouShenHeDTO;
 import com.trkj.entity.ouyang.StockIn;
 import com.trkj.service.implOuyang.StockInService;
 import com.trkj.dao.ouyang.StockInMapper;

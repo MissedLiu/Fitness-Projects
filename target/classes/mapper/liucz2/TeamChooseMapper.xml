@@ -10,7 +10,5 @@
             <result property="tpId" column="tp_id" jdbcType="BIGINT"/>
     </resultMap>
 
-    <sql id="Base_Column_List">
-        id,team_id,tp_id
-    </sql>
+
 </mapper>

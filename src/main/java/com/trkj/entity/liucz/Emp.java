@@ -10,8 +10,9 @@ import java.util.Date;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 /**
  * <p>
@@ -37,11 +38,15 @@ public class Emp implements Serializable {
     /**
      * 姓名
      */
+    @Length(max = 5,message = "名字太长")
+    @NotNull(message="名字不能为空")
     private String empName;
 
     /**
      * 年龄
      */
+    @Min(value = 20)
+    @Max(value = 80)
     private Integer empAge;
 
     /**
@@ -67,6 +72,9 @@ public class Emp implements Serializable {
     /**
      * 邮箱
      */
+
+    @Email(message="邮箱格式错误")
+
     private String emil;
 
     /**

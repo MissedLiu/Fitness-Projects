@@ -37,6 +37,20 @@ public class EmaintenanceServiceImpl extends ServiceImpl<EmaintenanceMapper, Ema
         queryWrapper.orderByDesc("em_time");
         return baseMapper.selectPage(page, queryWrapper);
     }
+
+    /**
+     * @description:
+     * 添加
+     * @author: Liucz
+     * @date: 2022/10/6 16:32
+     * @param:
+     * @return:
+     **/
+    @Override
+    public int add(Emaintenance emaintenance) {
+        int insert = baseMapper.insert(emaintenance);
+        return insert;
+    }
 }
 
 

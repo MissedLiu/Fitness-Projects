@@ -44,12 +44,29 @@ public interface UserMapper extends BaseMapper<User> {
     * 将选择的员工id添加到账户表上
     * */
     int updateUser(@Param("userId") Long userId, @Param("empId") Long empId);
-///*
-//* 根据员工id查询是否存在相关账号信息
-//* */
-//    User EmpcheckUser(Long empId);
+
 
     User EmpcheckUser2(@Param("empId") Long empId);
 
+    /**
+     * @description:
+     * 查询财务部门下的账号以及员工信息
+     * @author: Liucz
+     * @date: 2022/10/5 13:50
+     * @param:
+     * @return:
+     **/
+    List<User> findCaiwu();
+    /**
+     * @description:
+     * 查询后勤部门下的账号以及岗位为维修的员工信息
+     * @author: Liucz
+     * @date: 2022/10/5 13:50
+     * @param:
+     * @return:
+     **/
+    List<User> findWeiXiuG();
+    //根据账户id查询员工所有信息
+    User findUserEmpByUserId(Long id);
 
 }

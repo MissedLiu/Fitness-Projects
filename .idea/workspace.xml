@@ -3,188 +3,114 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Fitness-Projects" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="欧阳104晚">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/exception/CustomError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/exception/CustomErrorType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/oss/OssProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/OSSController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/CommonMealController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/FlyerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/PtMealController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/PtProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/SalesArticleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/SalesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/TeamMealController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/TeamProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/DisburseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpAndUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserAndEmpMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/CommonMealMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/FlyerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/InvoiceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/PtChooseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/PtMealMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/PtProjectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/SalesArticleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/SalesMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/TeamChooseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/TeamMealMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/TeamProjectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/DisburseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dto/PtMealProjectDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dto/TeamProjectDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dto/UserRoleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/EmpAndUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/UserAndEmp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/CommonMeal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/Flyer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/Invoice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/PtChoose.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/PtMeal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/PtProject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/PtProjectPtChoose.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/Sales.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/SalesArticle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/TeamChoose.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/TeamMeal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/TeamProject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/TeamProjectChoose.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Disburse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/FileService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/FileServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/CommonMealService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/FlyerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/InvoiceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/PtChooseSerivce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/PtMealService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/PtProjectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/SalesArticleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/SalesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/TeamChooseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/TeamMealService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/TeamProjectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/CommonMealServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/FlyerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/InvoiceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/PtChooseSerivceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/PtMealServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/PtProjectServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/SalesArticleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/SalesServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/TeamChooseServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/TeamMealServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/TeamProjectServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/DisburseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/DisburseServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/SystemConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpAndUserQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/EmpQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserRoleQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz/UserVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz2/FlyerVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz2/PtProjectNameVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz2/PtProjectVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz2/SalesArticleAndInvoiceVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryLiucz2/TeamProjectVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/DisburseQueryVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpAndUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserAndEmpMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserRoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/CommonMealMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/FlyerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/InvoiceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/PtChooseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/PtMealMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/PtProjectMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/SalesArticleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/SalesMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/TeamChooseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/TeamMealMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/TeamProjectMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/DisburseMapper.xml" afterDir="false" />
+    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="liucz1003  Commit22">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/CaiGouShenHeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/CaigouShenheMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/WeixgMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dto/CaiGouShenHeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/CaigouShenhe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/Weixg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/CaigouShenheService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/WeixgService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/CaigouShenheServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/WeixgServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/CaigouShenheMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/WeixgMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/EmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/EmpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/PermissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/RoleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/SysUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/EeamageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/EeamageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/SheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/SheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/EmpMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/PermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/PermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/RoleMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ChangenumMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ChangenumMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/PoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/PoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EdetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EdetailsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EeamageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EeamageMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ScheduleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInVoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockInVoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockOutMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StockOutMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/StoreMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Emp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/StockOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/EmpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/PermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Eeamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Eeamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Schedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/DepartmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/EmpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/EmpServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/RoleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/PoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/PoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EdetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EdetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EeamageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EeamageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EmaintenanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EmaintenanceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockOutServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockOutServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StoreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockOutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockOutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/utils/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/utils/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/ScheduleQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/ScheduleQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockInService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockInService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/EeamageQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/EeamageQueryVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/liucz/PermissionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/PermissionMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInVoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockInVoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockOutMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/StockOutMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/trkj/TestUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/CommonMetaObjectHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/mybatis/MybatisPlusConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/redis/RedisService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/SpringSecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/exception/CustomerAuthenticationException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/filter/CheckTokenFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/AnonymousAuthenticationHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/CustomerAccessDeniedHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginFailureHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/handler/LoginSuccessHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/web/CORSConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/run/GeneratorCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/JwtUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/LoginResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/MenuTree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/Result.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/utils/ResultCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo$Meta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/RouterVo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/TokenVo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/trkj/TestUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/EeamageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/EeamageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ScheduleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ScheduleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/EmpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/EmpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/SysUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/SysUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/EeamageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/EeamageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/SheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/SheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/liucz/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/liucz/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EdetailsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EdetailsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EeamageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EeamageMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/ScheduleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/ScheduleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/StockOutMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/StockOutMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/liucz/Emp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/liucz/Emp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Eeamage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Eeamage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Schedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EdetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EdetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EeamageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EeamageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EmaintenanceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EmaintenanceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/ScheduleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/ScheduleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/query/PageVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/query/PageVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/queryOuyang/EeamageQueryVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/queryOuyang/EeamageQueryVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz/UserAndEmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz/UserAndEmpMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz2/PtChooseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz2/PtChooseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz2/TeamChooseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz2/TeamChooseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ouyang/EeamageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ouyang/EeamageMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ouyang/PoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ouyang/ScheduleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ouyang/ScheduleMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +124,6 @@
         <option value="Class" />
       </list>
     </option>
-    <option name="SCHEME" value="项目" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -341,12 +266,48 @@
       </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -374,14 +335,11 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application" />
-        <item itemvalue="应用程序.test1" />
         <item itemvalue="JUnit.test1.name" />
-        <item itemvalue="应用程序.GeneratorCode" />
-        <item itemvalue="应用程序.GeneratorCode (1)" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="应用程序级" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -411,6 +369,10 @@
       <workItem from="1664843475926" duration="4646000" />
       <workItem from="1664851835448" duration="13846000" />
       <workItem from="1664880306039" duration="683000" />
+      <workItem from="1664930226092" duration="33614000" />
+      <workItem from="1665016681444" duration="34226000" />
+      <workItem from="1665123478424" duration="1304000" />
+      <workItem from="1665135467880" duration="1969000" />
     </task>
     <task id="LOCAL-00001" summary="欧阳test1">
       <created>1663671260386</created>
@@ -451,7 +413,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -531,6 +493,68 @@
     <MESSAGE value="欧阳104" />
     <MESSAGE value="欧阳104晚" />
     <option name="LAST_COMMIT_MESSAGE" value="欧阳104晚" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1664939431073">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1664939431073" />
+    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1665069909750">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1665069909750" />
+    <state x="496" y="105" key="FileChooserDialogImpl" timestamp="1664896924361">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="496" y="105" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1664896924361" />
+    <state width="1483" height="233" key="GridCell.Tab.0.bottom" timestamp="1665114839037">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1665114839037" />
+    <state width="1483" height="233" key="GridCell.Tab.0.center" timestamp="1665114839036">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1665114839036" />
+    <state width="1483" height="233" key="GridCell.Tab.0.left" timestamp="1665114839036">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1665114839036" />
+    <state width="1483" height="233" key="GridCell.Tab.0.right" timestamp="1665114839036">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1665114839036" />
+    <state width="1483" height="233" key="GridCell.Tab.1.bottom" timestamp="1665114839098">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1665114839098" />
+    <state width="1483" height="233" key="GridCell.Tab.1.center" timestamp="1665114839097">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1665114839037" />
+    <state width="1483" height="233" key="GridCell.Tab.1.left" timestamp="1665114839037">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1665114839037" />
+    <state width="1483" height="233" key="GridCell.Tab.1.right" timestamp="1665114839097">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1483" height="233" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1665114839097" />
+    <state width="262" height="550" key="HiddenNamespacesPopup" timestamp="1664896117453">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="262" height="550" key="HiddenNamespacesPopup/0.0.1536.816@0.0.1536.816" timestamp="1664896117453" />
+    <state x="246" y="0" key="com.intellij.database.dbimport.ImportDialog" timestamp="1664939402621">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="246" y="0" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.816@0.0.1536.816" timestamp="1664939402621" />
+    <state x="341" y="181" key="run.anything.popup" timestamp="1664940683576">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="341" y="181" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1664940683576" />
+    <state x="347" y="0" width="840" height="814" key="search.everywhere.popup" timestamp="1665044829300">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="347" y="0" width="840" height="814" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1665044829300" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

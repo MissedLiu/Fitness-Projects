@@ -93,4 +93,24 @@ public interface UserService extends IService<User> {
      * */
 
     User EmpcheckUser(Long empId);
+    /**
+     * @description:
+     * 查询财务部门下的账号以及员工信息
+     * @author: Liucz
+     * @date: 2022/10/5 13:50
+     * @param:
+     * @return:
+     **/
+    List<User> findCauWu();
+    /**
+     * @description:
+     * 查询维修部门下的账号以及员工信息
+     * @author: Liucz
+     * @date: 2022/10/5 13:50
+     * @param:
+     * @return:
+     **/
+    List<User> findWeiXiu();
+    //根据账户id查询员工所有信息
+    User findUserEmpByUserId(Long id);
 }

@@ -22,6 +22,7 @@
     </resultMap>
     <!-- 通用查询映射结果 -->
     <resultMap id="empBaseResultMap" type="com.trkj.entity.liucz.Emp">
+        <result column="emp_id" property="empId"/>
         <result column="emp_name" property="empName" />
         <result column="emp_age" property="empAge" />
         <result column="emp_sex" property="empSex" />
@@ -81,6 +82,16 @@
     </update>
     <select id="EmpcheckUser2" resultMap="BaseResultMap">
          select * from sys_user  where emp_id=#{empId};
+    </select>
+    <select id="findCaiwu" resultMap="BaseResultMap">
+          select u.id,e.emp_name  from sys_user u inner join sys_emp e on u.emp_id=e.emp_id where u.department_name like  "财务部"
+    </select>
+    <select id="findWeiXiuG" resultMap="BaseResultMap">
+         select u.id,e.emp_name  from sys_user u inner join sys_emp e on u.emp_id=e.emp_id where u.department_name ="后勤部" and  e.station like  "%维修%"
+    </select>
+    <select id="findUserEmpByUserId" resultMap="BaseResultMap">
+  select u.*,e.*  from sys_user u inner join sys_emp e on u.emp_id=e.emp_id where u.id=#{id}
+
     </select>
 
 </mapper>

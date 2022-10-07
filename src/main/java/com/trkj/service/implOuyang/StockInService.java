@@ -1,6 +1,7 @@
 package com.trkj.service.implOuyang;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.trkj.dto.CaiGouShenHeDTO;
 import com.trkj.entity.ouyang.StockIn;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.queryOuyang.PoQueryVo;

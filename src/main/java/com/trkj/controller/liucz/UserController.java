@@ -190,5 +190,19 @@ public class UserController {
         //存在员工
         return Result.ok(false);
     }
+    /**
+     * @description:
+     * 根据账号id查询所有员工信息
+     * @author: Liucz
+     * @date: 2022/10/6 23:20
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/empByUserId/{id}")
+    public Result  empByUserId(@PathVariable Long id){
+        User userByUserId = userService.findUserEmpByUserId(id);
+        System.out.println("userByUserId=="+userByUserId);
+        return Result.ok(userByUserId);
+    }
 }
 

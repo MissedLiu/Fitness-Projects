@@ -5,13 +5,48 @@
 <mapper namespace="com.trkj.dao.ouyang.EeamageMapper">
 
     <resultMap id="BaseResultMap" type="com.trkj.entity.ouyang.Eeamage">
-            <id property="eeId" column="ed_id" jdbcType="BIGINT"/>
-            <result property="stockinId" column="stockIn_id" jdbcType="VARCHAR"/>
-            <result property="eeName" column="ed_name" jdbcType="VARCHAR"/>
-            <result property="eeTime" column="ed_time" jdbcType="TIMESTAMP"/>
-            <result property="eeContent" column="ed_content" jdbcType="VARCHAR"/>
+            <id property="eeId" column="ee_id" jdbcType="BIGINT"/>
+           <result property="state" column="state" />
+        <result property="edCode" column="ed_code"/>
+            <result property="eeName" column="ee_name" jdbcType="VARCHAR"/>
+            <result property="eeTime" column="ee_time" jdbcType="TIMESTAMP"/>
+            <result property="eeContent" column="ee_content" jdbcType="VARCHAR"/>
             <result property="beizhu" column="beizhu" jdbcType="VARCHAR"/>
             <result property="sname" column="sname" jdbcType="VARCHAR"/>
+        <association property="weixg" column="ee_id" resultMap="BaseResultMap2"/>
     </resultMap>
+    <resultMap id="BaseResultMap2" type="com.trkj.entity.liucz2.Weixg">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="weixgId" column="weixg_id" jdbcType="BIGINT"/>
+        <result property="weixgName" column="weixg_name" />
+        <result property="eeId" column="ee_id" jdbcType="BIGINT"/>
+    </resultMap>
+    <select id="findStateByIdByName" resultType="com.trkj.entity.ouyang.Eeamage">
+        select * from equipment_eamage where ee_name=#{eeName} and ed_code=#{edCode}
 
+    </select>
+    <select id="findStateById" resultType="com.trkj.entity.ouyang.Eeamage">
+          select * from equipment_eamage where ee_id=#{id}
+    </select>
+    <update id="updateStateByEeId">
+        update equipment_eamage set state=2 where ee_id=#{id}
+    </update>
+    <select id="findAllIpage" resultMap="BaseResultMap">
+            select e.* ,w.* from equipment_eamage e left join weixg w on e.ee_id=w.ee_id where  1=1
+            <if test="query.eeName !=null and query.eeName !=''">
+                and ee_name=#{query.eeName}
+            </if>
+    </select>
+    <select id="findAllIpageByEmpId" resultMap="BaseResultMap">
+        select e.* ,w.* from equipment_eamage e left join weixg w on e.ee_id=w.ee_id where w.weixg_id=#{query.weixgId}
+        <if test="query.eeName !=null and query.eeName !=''">
+            and ee_name=#{query.eeName}
+        </if>
+    </select>
+    <update id="updateStateByEeId3">
+        update equipment_eamage set state=3 where ee_id=#{id}
+    </update>
+    <update id="updateStateByEeId4">
+        update equipment_eamage set state=4 where ee_id=#{id}
+    </update>
 </mapper>
