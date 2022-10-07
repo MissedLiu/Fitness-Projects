@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.PtProjectnameMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.PtProjectname">
+            <id property="ptpId" column="ptp_id" jdbcType="BIGINT"/>
+            <result property="ptpName" column="ptp_name" jdbcType="VARCHAR"/>
+            <result property="ptpIs" column="ptp_is" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ptp_id,ptp_name,ptp_is,
+        create_time,update_time
+    </sql>
+
+
+<!--    通过套餐id查询私教项目(项目未禁用)-->
+    <select id="selectPtProjectByPtId" resultMap="BaseResultMap">
+        select * from pt_projectname pp,pt_choose pc,pt_meal pm
+        where pm.pt_id=pc.pt_id
+        and pp.ptp_id=pc.ptp_id
+        and pp.ptp_is=0
+        and pm.pt_id=#{ptId};
+    </select>
+
+</mapper>

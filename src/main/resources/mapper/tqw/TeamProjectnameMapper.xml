@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.TeamProjectnameMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.TeamProjectname">
+            <id property="tpId" column="tp_id" jdbcType="BIGINT"/>
+            <result property="tpName" column="tp_name" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="tpIs" column="tp_is" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        tp_id,tp_name,create_time,
+        update_time,tp_is
+    </sql>
+
+    <!--    通过套餐id查询团操项目(项目未禁用)-->
+    <select id="selectTeamProjectByTeamId" resultMap="BaseResultMap">
+        select * from team_projectname tp,team_choose tc,team_meal tm
+        where tm.team_id=tc.team_id
+        and tp.tp_id=tc.tp_id
+        and tp.tp_is=0
+        and tm.team_id=#{teamId};
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.MemberMapper">
+
+    <select id="findMemberAll" resultType="com.trkj.entity.tqw.Member">
+        select * from `member` where member_state != 1
+        <if test="query.memberPhone !=null and query.memberPhone !='' ">
+            and member_phone=#{query.memberPhone}
+        </if>
+    </select>
+    <select id="listAllNoPage" resultType="com.trkj.entity.tqw.Member">
+        select * from `member` where member_state != 1
+        <if test="query.memberPhone !=null and query.memberPhone !='' ">
+            and member_phone=#{query.memberPhone}
+        </if>
+    </select>
+
+</mapper>

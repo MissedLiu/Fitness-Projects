@@ -37,4 +37,9 @@ public interface EmpService extends IService<Emp> {
 * 根据员工id删除员工文件
 * */
     public boolean deleteById(Long id);
+
+    /*
+     * 分页查询员工信息（根据员工岗位）
+     * */
+    IPage<Emp> findEmpListByStation(EmpQueryVo empQueryVo);
 }

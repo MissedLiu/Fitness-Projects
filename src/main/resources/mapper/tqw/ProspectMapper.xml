@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.ProspectMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.Prospect">
+            <id property="prospectId" column="prospect_id" jdbcType="BIGINT"/>
+            <result property="prospectName" column="prospect_name" jdbcType="VARCHAR"/>
+            <result property="prospectPhone" column="prospect_phone" jdbcType="VARCHAR"/>
+            <result property="prospectAddress" column="prospect_address" jdbcType="VARCHAR"/>
+            <result property="prospectSex" column="prospect_sex" jdbcType="VARCHAR"/>
+            <result property="prospectAge" column="prospect_age" jdbcType="INTEGER"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="prospectIs" column="prospect_is" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        prospect_id,prospect_name,prospect_phone,
+        prospect_address,prospect_sex,prospect_age,
+        type,prospect_is
+    </sql>
+<!--    分页查询潜在用户列表-->
+    <select id="selectProspectList" resultType="com.trkj.vo.queryTqw.ProspectQueryVo">
+        select * from prospect where 1=1
+        <if test="query.prospectPhone !=null and query.prospectPhone !='' ">
+            and prospect_phone=#{query.prospectPhone}
+        </if>
+    </select>
+</mapper>

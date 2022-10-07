@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.LoseMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.Lose">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="itemName" column="item_name" jdbcType="VARCHAR"/>
+            <result property="createTtime" column="create_ttime" jdbcType="TIMESTAMP"/>
+            <result property="state" column="state" jdbcType="VARCHAR"/>
+            <result property="uname" column="uname" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,item_name,create_ttime,
+        state,uname,phone,
+        add_time
+    </sql>
+<!--    查询-->
+    <select id="selectLose" resultType="com.trkj.entity.tqw.Lose">
+        select * from lose where 1=1
+            <if test="query.itemName != null and query.itemName != ''">
+                and item_name like "%"#{query.itemName}"%"
+            </if>
+            order by create_ttime desc
+    </select>
+</mapper>

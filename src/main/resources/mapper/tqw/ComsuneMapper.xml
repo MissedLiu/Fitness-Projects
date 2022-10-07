@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.ComsuneMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.Comsune">
+            <id property="comsuneId" column="comsune_id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+            <result property="mealId" column="meal_id" jdbcType="BIGINT"/>
+            <result property="mealName" column="meal_name" jdbcType="VARCHAR"/>
+            <result property="mealType" column="meal_type" jdbcType="VARCHAR"/>
+            <result property="ptpId" column="ptp_id" jdbcType="BIGINT"/>
+            <result property="ptpName" column="ptp_name" jdbcType="VARCHAR"/>
+            <result property="comsunePrice" column="comsune_price" jdbcType="BIGINT"/>
+            <result property="comsuneDate" column="comsune_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        comsune_id,member_id,meal_id,
+        meal_name,meal_type,ptp_id,
+        ptp_name,comsune_price,comsune_date
+    </sql>
+    <select id="selectComsuneList" resultType="com.trkj.vo.queryTqw.ComsuneQueryVo">
+        select * from comsune c inner join `member` m on c.member_id = m.member_id
+        where 1=1
+        <if test="query.memberPhone !=null and query.memberPhone !='' ">
+            and m.member_phone=#{query.memberPhone}
+        </if>
+    </select>
+</mapper>

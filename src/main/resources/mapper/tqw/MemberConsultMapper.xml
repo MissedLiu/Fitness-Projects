@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.MemberConsultMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.MemberConsult">
+            <id property="consultId" column="consult_id" jdbcType="BIGINT"/>
+            <result property="consultName" column="consult_name" jdbcType="VARCHAR"/>
+            <result property="consultAge" column="consult_age" jdbcType="INTEGER"/>
+            <result property="consultSex" column="consult_sex" jdbcType="TINYINT"/>
+            <result property="consultContent" column="consult_content" jdbcType="VARCHAR"/>
+            <result property="consultTime" column="consult_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        consult_id,consult_name,consult_age,
+        consult_sex,consult_content,consult_time
+    </sql>
+<!--    分页查询-->
+    <select id="selectMemberConsultList" resultType="com.trkj.vo.queryTqw.MemberConsultQueryVo">
+        select * from member_consult where 1=1
+        <if test="query.consultPhone !=null and query.consultPhone !='' ">
+            and consult_phone=#{query.consultPhone}
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.LockerMapper">
+
+
+
+    <!--查询-->
+    <select id="findlockerList" resultType="com.trkj.vo.queryTqw.LockerQueryVo">
+        select * from locker l
+        left join member_locker ml
+         on l.locker_id = ml.locker_id
+         left join `member` m
+        on ml.member_id=m.member_id
+        where 1=1
+        <if test="query.memberPhone !=null and query.memberPhone !='' ">
+            and m.member_phone=#{query.memberPhone}
+        </if>
+        <if test="query.lockerState !=null and query.lockerState !='' ">
+            and l.locker_state=#{query.lockerState}
+        </if>
+        order by l.locker_id
+    </select>
+    <!--新增会员储物柜-->
+    <insert id="addMemberLocker">
+        insert into member_locker(member_id,locker_id,create_time,end_time)
+         values (#{lq.memberId},#{lq.lockerId},#{lq.createTime},#{lq.endTime})
+    </insert>
+    <!--删除会员储物柜-->
+    <delete id="deleteLockerByMemberId">
+        delete from member_locker where member_id=#{memberId} and locker_id=#{lockerId}
+    </delete>
+
+    <select id="selectMemberLocker" resultType="com.trkj.vo.queryTqw.LockerQueryVo">
+        select * from member_locker where locker_id=#{lockerId}
+    </select>
+</mapper>

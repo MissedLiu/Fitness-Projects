@@ -24,4 +24,5 @@ public class PageVo {
     private  Long salesmanId;//当前销售人id用于判断查询该账户下的课程记录
     private Long shenheempId;//当前审批采购人id
 
+
 }
