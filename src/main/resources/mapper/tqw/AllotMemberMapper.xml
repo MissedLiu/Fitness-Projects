@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.AllotMemberMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.AllotMember">
+            <id property="allotId" column="allot_id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+            <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        allot_id,member_id,emp_id
+    </sql>
+<!--  查询所有需要回访会员-->
+    <select id="findMemberByEmpId" resultType="com.trkj.vo.queryTqw.MemberAndAllotQueryVo">
+        select * from allot_member am inner join `member` m
+            on am.member_id = m.member_id
+            where 1=1
+        <if test="query.empId !=null and query.empId !='' ">
+            and am.emp_id=#{query.empId}
+        </if>
+        <if test="query.memberPhone !=null and query.memberPhone !='' ">
+            and m.member_phone=#{query.memberPhone}
+        </if>
+    </select>
+    <select id="findMemberByEmpIds" resultType="com.trkj.vo.queryTqw.MemberAndAllotQueryVo">
+        select * from allot_member am inner join `member` m
+        on am.member_id = m.member_id
+        where am.emp_id=#{empId}
+    </select>
+</mapper>
