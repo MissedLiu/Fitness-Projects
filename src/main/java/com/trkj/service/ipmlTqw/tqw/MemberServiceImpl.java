@@ -25,6 +25,17 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     private MemberMealMapper memberMealMapper;
     @Resource
     private ChooseprojectnameMapper chooseprojectnameMapper;
+
+    /*
+     *
+     *查询会员信息无分页
+     *
+     */
+    @Override
+    public List<Member> listAllNoPage(Member member) {
+        return baseMapper.listAllNoPage(member);
+    }
+
     /*
      *
      *查询会员信息

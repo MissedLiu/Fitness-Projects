@@ -19,5 +19,7 @@ public interface MemberMapper extends BaseMapper<Member> {
 
     //动态条件查询并分页(会员)
     IPage<Member> findMemberAll(Page<Member> page ,@Param("query") MemberQueryVo memberQueryVo);
+    //动态条件查询无分页
+    List<Member> listAllNoPage(@Param("query") Member member);
 }
 

@@ -8,5 +8,11 @@
             and member_phone=#{query.memberPhone}
         </if>
     </select>
+    <select id="listAllNoPage" resultType="com.trkj.entity.tqw.Member">
+        select * from `member` where member_state != 1
+        <if test="query.memberPhone !=null and query.memberPhone !='' ">
+            and member_phone=#{query.memberPhone}
+        </if>
+    </select>
 
 </mapper>

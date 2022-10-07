@@ -14,6 +14,12 @@ import java.util.List;
 */
 public interface MemberService extends IService<Member> {
     /*
+    *
+    *查询会员列表无分页
+    *
+    */
+    List<Member> listAllNoPage(Member member);
+    /*
      *
      *查询会员信息列表
      *
@@ -47,5 +53,6 @@ public interface MemberService extends IService<Member> {
      *
      */
     boolean updataMemberByMemberPhone(Member member);
+
 
 }

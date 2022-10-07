@@ -26,7 +26,15 @@ public class MemberController {
     @Resource
     private BlackService blackService;
     /**
-     * 查询会员列表(phone)
+     * 查询会员列表(phone)无分页
+     *
+     */
+    @GetMapping("/listAllNoPage")
+    public Result listAllNoPage(Member member) {
+        return Result.ok(memberService.listAllNoPage(member));
+    }
+    /**
+     * 查询会员列表(phone)分页
      *
      */
     @GetMapping("/listAll")
