@@ -4,14 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.tqw.Black;
-import com.trkj.entity.tqw.CommonMeal;
-import com.trkj.entity.tqw.Member;
 
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
-import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /*
 *

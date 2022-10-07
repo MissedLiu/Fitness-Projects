@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.PtMealMapperl">
+
+<!--    通过选择的私教套餐id查询该套餐下的私教教练列表-->
+    <select id="selectEmpByPtId" resultType="com.trkj.entity.liucz.Emp">
+        select * from pt_meal pm,pt_coach pc,sys_emp se
+            where pm.pt_id=pc.pt_id
+            and pc.emp_id = se.emp_id
+            and pm.pt_id=#{ptId};
+    </select>
+
+</mapper>
