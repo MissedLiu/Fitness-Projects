@@ -53,6 +53,8 @@ public class SalesArticle implements Serializable {
     //品牌
     private String brand;
 
+    private Byte state;
+
     @TableField(exist = false)
     private Invoice invoice;
     @TableField(exist = false)

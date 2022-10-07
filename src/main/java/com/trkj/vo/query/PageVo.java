@@ -26,4 +26,9 @@ public class PageVo {
     private Long empId;//当前教练id
 
 
+    private Long allSales;//教练课程销售总额
+    private Double commRate;//提成率
+    private Double salesComm;//某销售人员单个套餐的提成总和
+
+
 }

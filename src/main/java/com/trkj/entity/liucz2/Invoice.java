@@ -57,6 +57,13 @@ public class Invoice implements Serializable {
     private Date createTime;
     //品牌
     private String brand;
+
+    /**
+     * 总价
+     */
+    @TableField(exist = false)
+    private Long sumPrice;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

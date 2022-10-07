@@ -1,8 +1,10 @@
 package com.trkj.service.implLiucz2;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.liucz2.Invoice;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
+import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 
 import java.util.List;
 
@@ -10,6 +12,13 @@ import java.util.List;
  *
  */
 public interface InvoiceService extends IService<Invoice> {
+    /**
+     * 获取商品收入记录
+     * @param page
+     * @param invoiceQueryVo
+     * @return
+     */
+    IPage<Invoice> getInvoiceList(IPage page, InvoiceQueryVo invoiceQueryVo);
     /**
      * @description:
      * 生成发票记录
@@ -37,4 +46,7 @@ public interface InvoiceService extends IService<Invoice> {
      * @return:
      **/
     int updateInvoice(SalesArticleAndInvoiceVo salesArticleAndInvoiceVo);
+
+
+    Long SumInvoicePrice(Long tjType);
 }

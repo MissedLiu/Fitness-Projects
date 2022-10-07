@@ -1,5 +1,8 @@
 package com.trkj.controller.liucz2;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.entity.liucz2.Invoice;
 import com.trkj.entity.liucz2.SalesArticle;
 import com.trkj.service.implLiucz2.InvoiceService;
 import com.trkj.service.implLiucz2.SalesArticleService;
@@ -7,6 +10,7 @@ import com.trkj.service.implOuyang.StockOutService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
+import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -43,6 +47,17 @@ public class SalesArticleController {
     }
 
     /**
+     * 获取商品销售信息
+     * @param pageVo
+     * @return
+     */
+    @GetMapping("/saList")
+    public Result findsaList(PageVo pageVo){
+        IPage page=new Page(pageVo.getPageNo(),pageVo.getPageSize());
+        salesArticleService.getAllSa(page,pageVo);
+        return Result.ok(page);
+    }
+    /**
      * 添加商品记录及发票记录
      * @param salesArticleAndInvoiceVo
      * @return
@@ -69,6 +84,7 @@ public class SalesArticleController {
         if(invoiceService.addInvoice(salesArticleAndInvoiceVo)!=1){
             return Result.error().message("购买失败!!!");
         }
+
         return  Result.ok().message("购买成功");
     }
     /**
