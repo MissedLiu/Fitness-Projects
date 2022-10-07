@@ -65,6 +65,9 @@
         <if test="query.empName !=null and query.empName !='' ">
             and emp_name = #{query.empName}
         </if>
+        <if test="query.empPhone !=null and query.empPhone !='' ">
+            and emp_phone = #{query.empPhone}
+        </if>
     </select>
 
 </mapper>
