@@ -92,6 +92,11 @@ public class CommissionController {
         return Result.error().message("提交失败");
     }
 
+    /**
+     * 修改商品提成和总提成
+     * @param pageVo
+     * @return
+     */
     @PostMapping("/updateSpComm")
     public Result updateSpComm(@RequestBody PageVo pageVo){
         System.out.println("----------------");

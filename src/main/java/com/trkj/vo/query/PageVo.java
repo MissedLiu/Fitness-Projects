@@ -21,6 +21,7 @@ public class PageVo {
     private String mealName;//课程销售套餐名
     private String memberName;//课程销售会员名
     private String type;//课程销售类型
+    private String typee;
     private  Long salesmanId;//当前销售人id用于判断查询该账户下的课程记录
     private Long shenheempId;//当前审批采购人id
     private Long empId;//当前教练id
