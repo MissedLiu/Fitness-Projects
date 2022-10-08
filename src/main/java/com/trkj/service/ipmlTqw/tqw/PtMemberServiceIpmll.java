@@ -69,7 +69,12 @@ public class PtMemberServiceIpmll implements PtMemberService {
         wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
         wrapper1.eq("member_name", memberQueryVo.getMemberName());
         Member member1 = memberMapper.selectOne(wrapper1);
-        if(member1==null){
+        //判断是否黑名单
+        if(member1 != null){
+            if(member1.getMemberState()==1){
+                return 4;
+            }
+        }else if(member1==null){
             return 1;
         }
         //修改会员类型为正式会员
@@ -77,12 +82,6 @@ public class PtMemberServiceIpmll implements PtMemberService {
         wrapper.eq("member_id", member1.getMemberId());
         wrapper.set("member_type", 1);
         memberMapper.update(null, wrapper);
-        //判断是否黑名单
-        if(member1 != null){
-            if(member1.getMemberState()==1){
-                return 4;
-            }
-        }
         //通过电话查会员
         QueryWrapper<Member> wrapper2 = new QueryWrapper<>();
         wrapper2.eq("member_phone", memberQueryVo.getMemberPhone());

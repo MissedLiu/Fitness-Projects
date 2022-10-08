@@ -68,6 +68,8 @@ public class CommonMemberServiceImpll implements CommonMemberService {
             if(member1.getMemberState()==1){
                 return 4;
             }
+        }else if(member1==null){
+            return 1;
         }
         //通过电话查会员
         QueryWrapper<Member> wrapper2 = new QueryWrapper<>();
