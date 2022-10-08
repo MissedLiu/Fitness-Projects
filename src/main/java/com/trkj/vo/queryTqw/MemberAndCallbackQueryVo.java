@@ -1,12 +1,13 @@
 package com.trkj.vo.queryTqw;
 
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.query.PageVo2;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class MemberAndCallbackQueryVo extends PageVo {
+public class MemberAndCallbackQueryVo extends PageVo2 {
     /*
      *
      *会员编号

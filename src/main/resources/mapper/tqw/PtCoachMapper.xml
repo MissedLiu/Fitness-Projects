@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.PtCoachMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.PtCoach">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="ptId" column="pt_id" jdbcType="BIGINT"/>
+            <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,pt_id,emp_id
+    </sql>
+<!--    添加教练私教关系-->
+    <insert id="insertPtCoachs">
+        insert into pt_coach (pt_id,emp_id) values
+        <foreach collection="ptMealId" item="item" index="index" separator=",">
+            (#{item},#{empId})
+        </foreach>
+    </insert>
+</mapper>

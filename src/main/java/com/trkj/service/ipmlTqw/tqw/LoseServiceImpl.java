@@ -29,7 +29,6 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
     @Override
     public boolean addLose(Lose lose) {
         lose.setState("未领取");
-        lose.setCreateTtime(new Date());
         if(baseMapper.insert(lose)>0){
             return true;
         }

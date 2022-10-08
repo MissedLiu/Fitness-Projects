@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.tqw.Member;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.query.PageVo2;
 import lombok.Data;
 
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.Date;
 *
 */
 @Data
-public class MemberAndBlackQueryVo extends PageVo {
+public class MemberAndBlackQueryVo extends PageVo2 {
     private long id;//黑名单编号
     private Date createTime;//拉黑时间
     private String why;//原因

@@ -29,6 +29,7 @@ public class LoseController {
     //新增失物
     @PostMapping("/addlose")
     public Result addLose(@RequestBody Lose lose){
+        System.out.println("++++++++++++++++++="+lose);
         return Result.ok(loseService.addLose(lose));
     }
 

@@ -74,9 +74,6 @@ public class PtMemberController {
         }
         return Result.error().message("会员套餐删除失败");
     }
-
-
-
     /*
      *
      *通过是否禁用查询私教套餐
