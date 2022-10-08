@@ -34,5 +34,6 @@
         <if test="query.ptName !=null and query.ptName !=''">
             and pt_name like "%"#{query.ptName}"%"
         </if>
+
     </select>
 </mapper>
