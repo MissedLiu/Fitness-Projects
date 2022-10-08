@@ -30,7 +30,6 @@ public class DisburseServiceImpl extends ServiceImpl<DisburseMapper, Disburse>
     public IPage<Disburse> getList(IPage page, DisburseQueryVo disburseQueryVo) {
         QueryWrapper<Disburse> queryWrapper = new QueryWrapper();
         queryWrapper.orderByDesc("disburse_time");
-        System.out.println(disburseQueryVo);
         queryWrapper.like(!ObjectUtils.isEmpty(disburseQueryVo.getChangeTime()),
                 "disburse_time",disburseQueryVo.getChangeTime());
         return baseMapper.selectPage(page, queryWrapper);

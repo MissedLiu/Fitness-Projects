@@ -95,6 +95,7 @@ public class SalesArticleServiceImpl extends ServiceImpl<SalesArticleMapper, Sal
     public IPage<SalesArticle> getAllSa(IPage page,PageVo pageVo) {
         QueryWrapper queryWrapper=new QueryWrapper();
         queryWrapper.eq("saemp_id",pageVo.getSalesmanId());
+        queryWrapper.orderByDesc("sales_time");
         return baseMapper.selectPage(page,queryWrapper);
     }
 

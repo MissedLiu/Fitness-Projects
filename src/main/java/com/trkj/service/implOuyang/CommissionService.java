@@ -29,5 +29,6 @@ public interface CommissionService extends IService<Commission> {
     //修改提成总值
     Boolean updateCommissionPrice(Commission commission);
 
+    //修改商品提成
     Boolean updateCommSp(Commission commission);
 }

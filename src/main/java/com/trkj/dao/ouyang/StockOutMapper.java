@@ -44,7 +44,11 @@ public interface StockOutMapper extends BaseMapper<StockOut> {
     int updateOutNum2(@Param("outId") Long id,@Param("storeNum") Long storeNum);
 
 
-
+    /**
+     * 通过物品名和品牌获取出库数
+     * @param edetails
+     * @return
+     */
     @Select(value = "select sum(out_num) from stock_out where stockin_name=#{edName} and brand=#{brand}")
     Long getOutNumByNameAndBrand(Edetails edetails);
 

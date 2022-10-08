@@ -34,6 +34,11 @@ public class CommissionController {
     @Resource
     private SalesArticleService salesArticleService;
 
+    /**
+     * 获取提及提成表数据
+     * @param commissionQueryVo
+     * @return
+     */
     @GetMapping("/list")
     public Result getList(CommissionQueryVo commissionQueryVo) {
         IPage page = new Page(commissionQueryVo.getPageNo(), commissionQueryVo.getPageSize());

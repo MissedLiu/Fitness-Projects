@@ -51,6 +51,7 @@
         <if test="query.type !=null and query.type !=''">
             and type like "%"#{query.type}"%"
         </if>
+        ORDER by sales_time DESC
     </select>
 
     <select id="findAllSales" resultType="com.trkj.entity.liucz2.Sales">

@@ -27,6 +27,7 @@ private EdetailsMapper edetailsMapper;
     public IPage<Edetails> findDetailsPage(IPage page, EdetailsQueryVo edetailsQueryVo) {
         QueryWrapper<Edetails>queryWrapper=new QueryWrapper();
         queryWrapper.like(!ObjectUtils.isEmpty(edetailsQueryVo.getEdName()),"ed_name",edetailsQueryVo.getEdName());
+        queryWrapper.orderByDesc("ed_time");
         return baseMapper.selectPage(page,queryWrapper);
     }
 

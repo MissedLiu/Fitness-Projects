@@ -61,7 +61,7 @@ public class SalesController {
                     if (!ObjectUtils.isEmpty(salesService.getCpIdByMmIdAndprojectId(MmId, list.get(i).getProjectId()))) {
                         //如果三重判断通过 则修改课程销售状态为1
                         list.get(i).setState((byte) 1);
-                        salesService.save(list.get(i));
+                        salesService.updateById(list.get(i));
                     }
                 }
             }

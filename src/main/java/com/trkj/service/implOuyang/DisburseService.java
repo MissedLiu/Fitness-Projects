@@ -19,6 +19,11 @@ public interface DisburseService extends IService<Disburse> {
      */
     IPage<Disburse> getList(IPage page,DisburseQueryVo disburseQueryVo);
 
+    /**
+     * 添加支出记录
+     * @param scheduleQueryVo
+     * @return
+     */
     boolean toDisburse(ScheduleQueryVo scheduleQueryVo);
 
 }

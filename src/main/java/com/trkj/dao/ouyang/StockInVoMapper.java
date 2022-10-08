@@ -13,7 +13,12 @@ import org.apache.ibatis.annotations.Param;
 * @Entity com.trkj.entity.ouyang.StockIn
 */
 public interface StockInVoMapper extends BaseMapper<StockIn> {
-
+    /**
+     * 获取入库记录和报损报溢数
+     * @param page
+     * @param query
+     * @return
+     */
     IPage<StockInQueryVo> findStockInAllAndLoseOrMore(IPage<StockInQueryVo> page, @Param("query") StockInQueryVo query);
 }
 

@@ -37,7 +37,6 @@ public class InvoiceController {
 
     @GetMapping("/toSumPrice/{id}")
     public Result toSumPrice(@PathVariable Long id){
-        System.out.println("wertyuiop"+id);
         if (!ObjectUtils.isEmpty(id)){
             return Result.ok(invoiceService.SumInvoicePrice(id));
         }return Result.error().message("没有可统计的记录！");

@@ -40,9 +40,14 @@ public class PoController {
         return Result.ok(page);
     }
 
+    /**
+     * 商品入库
+     * @param poQueryVo
+     * @return
+     */
     @PostMapping("/toStock")
     public Result toStock(@RequestBody PoQueryVo poQueryVo) {
-        System.out.println("poQueryVo="+poQueryVo);
+        //后端数据校验
         if (ObjectUtils.isEmpty(poQueryVo.getChangeLose()) && ObjectUtils.isEmpty(poQueryVo.getChangeMore())){
             return Result.error().message("请输入报损数溢数！");
         }else if (ObjectUtils.isEmpty(poQueryVo.getChangeLose())){
@@ -98,6 +103,11 @@ public class PoController {
         return Result.ok().message("删除失败");
     }
 
+    /**
+     * 获取所有未入库的商品
+     * @param poQueryVo
+     * @return
+     */
     @GetMapping("/getNotExecuted")
     public Result getNotExecuted(PoQueryVo poQueryVo){
         IPage<Po> page =new Page<>(poQueryVo.getPageNo(),poQueryVo.getPageSize());

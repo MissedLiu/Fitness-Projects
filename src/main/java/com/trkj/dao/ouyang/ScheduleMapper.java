@@ -17,18 +17,33 @@ import org.apache.ibatis.annotations.Update;
 * @Entity com.trkj.entity.ouyang.Schedule
 */
 public interface ScheduleMapper extends BaseMapper<Schedule> {
+    /**
+     * 添加采购计划
+     * @param schedule
+     * @return
+     */
     @Insert(value = "insert into schedule (schedule_name,scheduleemp_id,schedule_type,schedule_supplier," +
             "unit, schedule_address, schedule_num,schedule_price,brand) value " +
             "(#{scheduleName},#{scheduleempId},#{scheduleType},#{scheduleSupplier},#{unit}," +
             "#{scheduleAddress},#{scheduleNum},#{schedulePrice},#{brand})")
     public Boolean addPlan(Schedule schedule);
 
+    /**
+     * 采购计划完成、添加到已购物品表
+     * @param schedule
+     * @return
+     */
     @Insert(value = "insert into po(schedule_id, po_name, po_num, po_price," +
             " brand, schedule_address, schedule_supplier, po_type) VALUES " +
             "(#{scheduleId},#{scheduleName},#{scheduleNum},#{schedulePrice}," +
             "#{brand},#{scheduleAddress},#{scheduleSupplier},#{scheduleType})")
     public Boolean toPo(Schedule schedule);
 
+    /**
+     * 修改采购计划状态
+     * @param schedule
+     * @return
+     */
     @Update("update schedule set schedule_state='已执行' where schedule_id = #{scheduleId}")
     public Boolean updatePlanState(Schedule schedule);
 
