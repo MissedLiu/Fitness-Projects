@@ -2,7 +2,7 @@ package com.trkj.service.implLiucz2;
 
 import com.trkj.entity.liucz2.Schoolteaching;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.trkj.entity.liucz2.TeamCoach;
+import com.trkj.entity.liucz2.TeamCoachl;
 
 import java.util.List;
 
@@ -18,5 +18,5 @@ public interface SchoolteachingService extends IService<Schoolteaching> {
      * @param:
      * @return:
      **/
-     List<TeamCoach> findTeamIdByCoachId (Long empId);
+     List<TeamCoachl> findTeamIdByCoachId (Long empId);
 }

@@ -57,6 +57,7 @@ public class PtMemberServiceIpmll implements PtMemberService {
      */
     @Override
     public int addPtMember(MemberQueryVo memberQueryVo) {
+
         //套餐类型
         memberQueryVo.setMealType("私教");
         //通过id查询私教套餐

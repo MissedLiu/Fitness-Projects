@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.dao.liucz2.SchoolteachingMapper;
 import com.trkj.entity.liucz2.Schoolteaching;
 
-import com.trkj.entity.liucz2.TeamCoach;
+import com.trkj.entity.liucz2.TeamCoachl;
 import com.trkj.service.implLiucz2.SchoolteachingService;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ public class SchoolteachingServiceImpl extends ServiceImpl<SchoolteachingMapper,
      * @return:
      **/
     @Override
-    public List<TeamCoach> findTeamIdByCoachId(Long empId) {
+    public List<TeamCoachl> findTeamIdByCoachId(Long empId) {
         return null;
     }
 }

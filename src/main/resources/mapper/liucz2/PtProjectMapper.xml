@@ -29,7 +29,7 @@
 <!--    * 根据条件分页查询所有私教项目并且状态为启用-->
 <!--    * */-->
     <select id="findPtProjectState" resultType="com.trkj.entity.liucz2.PtProject">
-         select ptp_id,ptp_name,ptp_is,create_time,update_time from  pt_projectname where ptp_is=1
+         select ptp_id,ptp_name,ptp_is,create_time,update_time from  pt_projectname where ptp_is=0
     </select>
     <select id="findAllName" resultType="com.trkj.entity.liucz2.PtProject">
         select * from pt_projectname where ptp_id=#{ptpId};
