@@ -68,6 +68,9 @@ public class PtMemberServiceIpmll implements PtMemberService {
         wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
         wrapper1.eq("member_name", memberQueryVo.getMemberName());
         Member member1 = memberMapper.selectOne(wrapper1);
+        if(member1==null){
+            return 1;
+        }
         //修改会员类型为正式会员
         UpdateWrapper<Member> wrapper = new UpdateWrapper<>();
         wrapper.eq("member_id", member1.getMemberId());
