@@ -26,7 +26,7 @@
           select  * from team_projectname where tp_name=#{name}
     </select>
     <select id="findTeamProjectState" resultType="com.trkj.entity.liucz2.TeamProject">
-         select tp_id,tp_name,create_time,update_time,tp_is from team_projectname where  tp_is=1
+         select tp_id,tp_name,create_time,update_time,tp_is from team_projectname where  tp_is=0
     </select>
     <select id="findAllNameTeam" resultType="com.trkj.entity.liucz2.TeamProject">
          select * from team_projectname where tp_id=#{tpId};

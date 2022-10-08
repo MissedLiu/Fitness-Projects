@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
-* @Entity com.trkj.entity.PtCoach
+* @Entity com.trkj.entity.PtCoachl
 */
 public interface PtCoachMapper extends BaseMapper<PtCoach> {
 

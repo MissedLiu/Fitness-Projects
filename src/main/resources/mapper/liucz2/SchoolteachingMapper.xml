@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.SchoolteachingMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.Schoolteaching">
+            <id property="stId" column="st_id" jdbcType="BIGINT"/>
+            <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+            <result property="empName" column="emp_name" jdbcType="VARCHAR"/>
+            <result property="mealId" column="meal_id" jdbcType="BIGINT"/>
+            <result property="mealName" column="meal_name" jdbcType="VARCHAR"/>
+            <result property="mealType" column="meal_type" jdbcType="VARCHAR"/>
+            <result property="projectnameId" column="projectname_id" jdbcType="BIGINT"/>
+            <result property="projectName" column="project_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        st_id,emp_id,emp_name,
+        meal_id,meal_name,meal_type,
+        projectname_id,project_name
+    </sql>
+</mapper>

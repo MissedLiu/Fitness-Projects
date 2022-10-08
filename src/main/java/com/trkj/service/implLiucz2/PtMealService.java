@@ -25,7 +25,7 @@ public interface PtMealService extends IService<PtMeal> {
     IPage<PtMeal> selectAllPtMeal(PageVo pageVo);
     /**
      * @description:
-     * 查询所有私教套餐,状态为1开启的
+     * 查询所有私教套餐,状态为0开启的
      * @author: Liucz
      * @date: 2022/10/2 14:29
      * @param: [ptMealVo]

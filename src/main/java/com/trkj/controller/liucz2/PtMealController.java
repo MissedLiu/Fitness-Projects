@@ -41,7 +41,7 @@ public class PtMealController {
     }
     /**
      * @description:
-     * 动态查询并分页,状态为1开启的
+     * 动态查询并分页,状态为0开启的
      * @author: Liucz
      * @date: 2022/10/2 14:29
      * @param: [ptMealVo]

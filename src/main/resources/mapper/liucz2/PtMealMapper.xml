@@ -30,9 +30,10 @@
         </foreach>
     </insert>
     <select id="findPtMealAllSteta" resultType="com.trkj.entity.liucz2.PtMeal">
-        select	*  from pt_meal  where pt_is=1
+        select	*  from pt_meal  where pt_is=0
         <if test="query.ptName !=null and query.ptName !=''">
             and pt_name like "%"#{query.ptName}"%"
         </if>
+
     </select>
 </mapper>

@@ -15,7 +15,7 @@
             <option name="ignoreTablePrefix" value="" />
             <option name="ignoreTableSuffix" value="" />
             <option name="moduleName" value="Fitness-Projects" />
-            <option name="modulePath" value="$PROJECT_DIR$/" />
+            <option name="modulePath" value="$PROJECT_DIR$" />
             <option name="moduleUIInfoList">
               <list>
                 <ModuleUIInfo>
@@ -24,8 +24,8 @@
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Mapper" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/" />
-                  <option name="packageName" value="com.trkj.dao.tqw" />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="com.trkj.dao.liucz2" />
                 </ModuleUIInfo>
                 <ModuleUIInfo>
                   <option name="basePath" value="src/main/resources" />
@@ -33,8 +33,8 @@
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Mapper" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
-                  <option name="modulePath" value="$PROJECT_DIR$/" />
-                  <option name="packageName" value="mapper.tqw" />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="mapper.liucz2" />
                 </ModuleUIInfo>
                 <ModuleUIInfo>
                   <option name="basePath" value="${domain.basePath}" />
@@ -42,8 +42,8 @@
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}ServiceImpl" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/" />
-                  <option name="packageName" value="${domain.basePackage}.service.impl" />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="com.trkj.service.implLiucz2.liucz2" />
                 </ModuleUIInfo>
                 <ModuleUIInfo>
                   <option name="basePath" value="${domain.basePath}" />
@@ -51,29 +51,29 @@
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Service" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/" />
-                  <option name="packageName" value="com.trkj.service." />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="com.trkj.service.implLiucz2" />
                 </ModuleUIInfo>
               </list>
             </option>
             <option name="needsComment" value="true" />
-            <option name="relativePackage" value="entity" />
+            <option name="relativePackage" value="entity.liucz2" />
             <option name="superClass" value="" />
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="TeamCoach" />
-                  <option name="tableName" value="team_coach" />
+                  <option name="className" value="PtCoach" />
+                  <option name="tableName" value="pt_coach" />
                 </TableUIInfo>
               </list>
             </option>
-            <option name="templatesName" value="mybatis-plus2" />
+            <option name="templatesName" value="mybatis-plus3" />
             <option name="useLombokPlugin" value="true" />
           </GenerateConfig>
         </option>
         <option name="moduleName" value="Fitness-Projects" />
         <option name="projectPath" value="$PROJECT_DIR$" />
-        <option name="templateName" value="mybatis-plus2" />
+        <option name="templateName" value="mybatis-plus3" />
       </TemplateContext>
     </option>
   </component>

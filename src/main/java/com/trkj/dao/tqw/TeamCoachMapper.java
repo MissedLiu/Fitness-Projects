@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
-* @Entity com.trkj.entity.TeamCoach
+* @Entity com.trkj.entity.TeamCoachl
 */
 public interface TeamCoachMapper extends BaseMapper<TeamCoach> {
 
