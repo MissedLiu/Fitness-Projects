@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.trkj.entity.tqw.Member;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.query.PageVo2;
 import lombok.Data;
 
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.util.Date;
 *
 */
 @Data
-public class MemberQueryVo extends PageVo {
+public class MemberQueryVo extends PageVo2 {
     //套餐办理编号
     private long mmId;
     //所选套餐编号

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -16,101 +13,39 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:Fitness-Projects" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="liucz1003  Commit22">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz2/CaiGouShenHeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/CaigouShenheMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz2/WeixgMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dto/CaiGouShenHeDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/CaigouShenhe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz2/Weixg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/CaigouShenheService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/WeixgService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/CaigouShenheServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz2/liucz2/WeixgServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/CaigouShenheMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz2/WeixgMapper.xml" afterDir="false" />
+    <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/EmpAndPtMealQueryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/EmpAndTeamMealQueryVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3a09de2-418c-4672-a3ff-c90c17a12a27/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/config/security/service/CustomerUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/EmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/EmpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/SysUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/liucz/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/EeamageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/EeamageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/SheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/ouyang/SheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/liucz/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EdetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EdetailsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EeamageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/EeamageMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/ouyang/ScheduleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/liucz/Emp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Eeamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Eeamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/ouyang/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implLiucz/liucz/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EdetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EdetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EeamageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EeamageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EmaintenanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/EmaintenanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockInService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/StockInService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/EeamageQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryOuyang/EeamageQueryVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/EeamageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/EeamageMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ScheduleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ouyang/ScheduleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/config/security/service/CustomerUserDetailsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/EmpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/EmpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/SysUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/SysUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/liucz/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/EeamageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/EeamageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/SheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/controller/ouyang/SheduleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/liucz/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/liucz/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EdetailsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EdetailsMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EeamageMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/EeamageMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/ScheduleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/ScheduleMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/StockOutMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/dao/ouyang/StockOutMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/liucz/Emp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/liucz/Emp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Eeamage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Eeamage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/entity/ouyang/Schedule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/PermissionServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implLiucz/liucz/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EdetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EdetailsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EeamageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EeamageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EmaintenanceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/EmaintenanceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EdetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EeamageServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/EmaintenanceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/ScheduleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/Ouyang/StockInServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/ScheduleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/service/implOuyang/ScheduleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/query/PageVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/query/PageVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trkj/vo/queryOuyang/EeamageQueryVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trkj/vo/queryOuyang/EeamageQueryVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz/UserAndEmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz/UserAndEmpMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz2/PtChooseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz2/PtChooseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/liucz2/TeamChooseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/liucz2/TeamChooseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ouyang/EeamageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ouyang/EeamageMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ouyang/PoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ouyang/ScheduleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ouyang/ScheduleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/CoachController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/LoseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/LoseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/PtMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/PtMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/ipmlTqw/tqw/LoseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/ipmlTqw/tqw/LoseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/ComsuneQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/ComsuneQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/LockerQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/LockerQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/LoseQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/LoseQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberAndAllotQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberAndAllotQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberAndBlackQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberAndBlackQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberAndCallbackQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberAndCallbackQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/ProspectAndAllotQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/ProspectAndAllotQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/ProspectAndCallbackQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/ProspectAndCallbackQueryVo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,12 +56,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -144,12 +81,8 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="NamedScopeManager">
-    <scope name="oyzw" pattern="lib:*..*||test:*..*||src:*..*" />
-  </component>
   <component name="ProjectId" id="2EpeDWH2T1afdNZs5KiVNDsuccM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -157,8 +90,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ChangesTree.GroupingKeys" value="module&#10;directory" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -169,7 +103,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mapper/tqw" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -179,34 +113,34 @@
     <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.scopes" />
-    <property name="show.run.dashboard.notification" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj\config\security" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
-      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\java\com\trkj" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\java\com\trkj\service\implOuyang\Ouyang" />
-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\java\com\trkj\service\implOuyang" />
-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\java\com\trkj\dao\ouyang" />
-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper\ouyang" />
-      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper\liucz" />
+      <recent name="D:\idea\Fitness-Projects\src\main\resources\mapper\tqw" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\liucz" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources\mapper\ouyang" />
+      <recent name="D:\Users\jsf\Fitness-Projects\src\main\resources\mapper" />
+      <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.trkj.vo.query" />
-      <recent name="com.trkj.dao" />
-      <recent name="com.trkj.controller" />
+      <recent name="com.trkj.controller.tqw" />
+      <recent name="com.trkj.dao.tqw" />
       <recent name="com.trkj.utils" />
-      <recent name="com.trkj.vo" />
+      <recent name="com.trkj.dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\idea\Fitness-Projects\src\main\resources\mapper\tqw" />
+      <recent name="D:\idea\Fitness-Projects\src\main\resources\mapper" />
+      <recent name="D:\idea\Fitness-Projects\src\main\java\com\trkj\vo" />
+      <recent name="D:\idea\Fitness-Projects\src\main\java\com\trkj\service" />
+      <recent name="D:\idea\Fitness-Projects\src\main\java\com\trkj\entity" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -265,60 +199,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Fitness-Projects-1" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.trkj.Application" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="Fitness-Projects" />
       <extension name="coverage">
@@ -360,19 +240,18 @@
       <workItem from="1663852077677" duration="18136000" />
       <workItem from="1664111831201" duration="37214000" />
       <workItem from="1664239620204" duration="24836000" />
-      <workItem from="1664326447153" duration="8360000" />
-      <workItem from="1664345923480" duration="2693000" />
-      <workItem from="1664352321320" duration="15029000" />
-      <workItem from="1664438513248" duration="2959000" />
-      <workItem from="1664442161883" duration="10325000" />
-      <workItem from="1664499388677" duration="12507000" />
-      <workItem from="1664843475926" duration="4646000" />
-      <workItem from="1664851835448" duration="13846000" />
-      <workItem from="1664880306039" duration="683000" />
-      <workItem from="1664930226092" duration="33614000" />
-      <workItem from="1665016681444" duration="34226000" />
-      <workItem from="1665123478424" duration="1304000" />
-      <workItem from="1665135467880" duration="1969000" />
+      <workItem from="1664326447153" duration="5413000" />
+      <workItem from="1664367315264" duration="2934000" />
+      <workItem from="1664411293964" duration="34335000" />
+      <workItem from="1664498187387" duration="26167000" />
+      <workItem from="1664589314568" duration="19680000" />
+      <workItem from="1664669503556" duration="34739000" />
+      <workItem from="1664754263730" duration="24246000" />
+      <workItem from="1664843136221" duration="13979000" />
+      <workItem from="1664872696349" duration="12264000" />
+      <workItem from="1664896884947" duration="1913000" />
+      <workItem from="1664929776092" duration="32278000" />
+      <workItem from="1665016233711" duration="56220000" />
     </task>
     <task id="LOCAL-00001" summary="欧阳test1">
       <created>1663671260386</created>
@@ -395,21 +274,77 @@
       <option name="project" value="LOCAL" />
       <updated>1664197284272</updated>
     </task>
-    <task id="LOCAL-00004" summary="欧阳0928">
-      <created>1664332049714</created>
+    <task id="LOCAL-00004" summary="9.28">
+      <created>1664364454091</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1664332049714</updated>
+      <updated>1664364454091</updated>
     </task>
-    <task id="LOCAL-00005" summary="欧阳104">
-      <created>1664852014648</created>
+    <task id="LOCAL-00005" summary="10.3">
+      <created>1664780856309</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1664852014648</updated>
+      <updated>1664780856309</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="10.5">
+      <created>1664954743090</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664954743090</updated>
+    </task>
+    <task id="LOCAL-00007" summary="10.6">
+      <created>1665044621248</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665044621248</updated>
+    </task>
+    <task id="LOCAL-00008" summary="10.7">
+      <created>1665109906187</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665109906187</updated>
+    </task>
+    <task id="LOCAL-00009" summary="10.7.1">
+      <created>1665109946419</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665109946419</updated>
+    </task>
+    <task id="LOCAL-00010" summary="10.7.2">
+      <created>1665110211916</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665110211916</updated>
+    </task>
+    <task id="LOCAL-00011" summary="10.7.3">
+      <created>1665139614530</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1665139614530</updated>
+    </task>
+    <task id="LOCAL-00012" summary="10.7.3">
+      <created>1665139905853</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1665139905853</updated>
+    </task>
+    <task id="LOCAL-00013" summary="10.7.4">
+      <created>1665143494296</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1665143494296</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,143 +353,180 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="17beae87-fe35-4449-9a1e-5ed868bc439c">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:D:/Users/jsf/Fitness-Projects/src/main/java/com/trkj/vo/query" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="619dd943-73f2-400a-9a89-3ae3618368c3">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
-      </map>
-    </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="17beae87-fe35-4449-9a1e-5ed868bc439c" value="TOOL_WINDOW" />
-        <entry key="619dd943-73f2-400a-9a89-3ae3618368c3" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="欧阳test1" />
     <MESSAGE value="欧阳0922" />
     <MESSAGE value="欧阳0926" />
     <MESSAGE value="欧阳0926晚上" />
-    <MESSAGE value="欧阳0928" />
-    <MESSAGE value="欧阳104" />
-    <MESSAGE value="欧阳104晚" />
-    <option name="LAST_COMMIT_MESSAGE" value="欧阳104晚" />
+    <MESSAGE value="9.28" />
+    <MESSAGE value="10.3" />
+    <MESSAGE value="10.5" />
+    <MESSAGE value="10.6" />
+    <MESSAGE value="10.7" />
+    <MESSAGE value="10.7.1" />
+    <MESSAGE value="10.7.2" />
+    <MESSAGE value="10.7.3" />
+    <MESSAGE value="10.7.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="10.7.4" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1664939431073">
+    <state x="27" y="90" width="1164" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1665193885781">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1664338731837" />
+    <state x="27" y="90" width="1164" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1665193885781" />
+    <state x="469" y="232" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1664609454927">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="469" y="232" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1664609454927" />
+    <state x="574" y="137" key="#com.intellij.ide.util.MemberChooser" timestamp="1664879646616">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="137" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1664879646616" />
+    <state x="313" y="319" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1664352428161">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="59" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1664939431073" />
-    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser" timestamp="1665069909750">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="313" y="319" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.816@0.0.1536.816" timestamp="1664352428161" />
+    <state x="499" y="269" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1665141544098">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="527" y="48" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1665069909750" />
-    <state x="496" y="105" key="FileChooserDialogImpl" timestamp="1664896924361">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="499" y="254" width="537" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.816@0.0.1536.816" timestamp="1664348902220" />
+    <state x="499" y="269" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1665141544098" />
+    <state x="318" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1665142276832">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="496" y="105" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1664896924361" />
-    <state width="1483" height="233" key="GridCell.Tab.0.bottom" timestamp="1665114839037">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="318" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1665142276832" />
+    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1665044574219">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1665114839037" />
-    <state width="1483" height="233" key="GridCell.Tab.0.center" timestamp="1665114839036">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1665044574219" />
+    <state x="367" y="0" key="CommitChangelistDialog2" timestamp="1665143493168">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1665114839036" />
-    <state width="1483" height="233" key="GridCell.Tab.0.left" timestamp="1665114839036">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="367" y="0" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1665143493168" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1665041518294">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1665114839036" />
-    <state width="1483" height="233" key="GridCell.Tab.0.right" timestamp="1665114839036">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1665041518294" />
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1665114839036" />
-    <state width="1483" height="233" key="GridCell.Tab.1.bottom" timestamp="1665114839098">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="203" key="GridCell.Tab.0.center" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1665114839098" />
-    <state width="1483" height="233" key="GridCell.Tab.1.center" timestamp="1665114839097">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="203" key="GridCell.Tab.0.left" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1665114839037" />
-    <state width="1483" height="233" key="GridCell.Tab.1.left" timestamp="1665114839037">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="203" key="GridCell.Tab.0.right" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1665114839037" />
-    <state width="1483" height="233" key="GridCell.Tab.1.right" timestamp="1665114839097">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="203" key="GridCell.Tab.1.bottom" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1483" height="233" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1665114839097" />
-    <state width="262" height="550" key="HiddenNamespacesPopup" timestamp="1664896117453">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="203" key="GridCell.Tab.1.center" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="262" height="550" key="HiddenNamespacesPopup/0.0.1536.816@0.0.1536.816" timestamp="1664896117453" />
-    <state x="246" y="0" key="com.intellij.database.dbimport.ImportDialog" timestamp="1664939402621">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="203" key="GridCell.Tab.1.left" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="246" y="0" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.816@0.0.1536.816" timestamp="1664939402621" />
-    <state x="341" y="181" key="run.anything.popup" timestamp="1664940683576">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="203" key="GridCell.Tab.1.right" timestamp="1665210395200">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="341" y="181" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1664940683576" />
-    <state x="347" y="0" width="840" height="814" key="search.everywhere.popup" timestamp="1665044829300">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state width="1483" height="334" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
+    <state width="1493" height="203" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1665210395200" />
+    <state width="1493" height="277" key="GridCell.Tab.2.bottom" timestamp="1664872649103">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="347" y="0" width="840" height="814" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1665044829300" />
+    <state width="1493" height="277" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1664872649103" />
+    <state width="1493" height="277" key="GridCell.Tab.2.center" timestamp="1664872649103">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1664872649103" />
+    <state width="1493" height="277" key="GridCell.Tab.2.left" timestamp="1664872649103">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1664872649103" />
+    <state width="1493" height="277" key="GridCell.Tab.2.right" timestamp="1664872649103">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1664872649103" />
+    <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1664365704188">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="212" height="477" key="HiddenNamespacesPopup/0.0.1536.864@0.0.1536.864" timestamp="1664365704188" />
+    <state x="147" y="68" key="MergeDialog" timestamp="1665140135431">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="147" y="68" key="MergeDialog/0.0.1536.864@0.0.1536.864" timestamp="1665140135431" />
+    <state x="396" y="192" key="MultipleFileMergeDialog" timestamp="1665140162453">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="396" y="192" key="MultipleFileMergeDialog/0.0.1536.864@0.0.1536.864" timestamp="1665140162452" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1665143529501">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1665143529501" />
+    <state x="564" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1665140062913">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="564" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1665140062913" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1664780072269">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1664780072269" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1665147338756">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1665147338756" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/trkj/service/implOuyang/ChangenumService.java</url>
+          <line>12</line>
+          <properties class="com.trkj.service.implOuyang.ChangenumService" method="toChangenum">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

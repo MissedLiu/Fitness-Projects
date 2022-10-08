@@ -3,10 +3,11 @@ package com.trkj.vo.queryTqw;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.query.PageVo2;
 import lombok.Data;
 
 @Data
-public class ProspectAndAllotQueryVo extends PageVo {
+public class ProspectAndAllotQueryVo extends PageVo2 {
     /**
      *
      */
