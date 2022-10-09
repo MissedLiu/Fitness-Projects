@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.vo.query.PageVo;
-import com.trkj.vo.queryLiucz2.XueYuanVo;
+import com.trkj.vo.queryLiucz2.XueYuanPtVo;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Param;
 * @createDate 2022-09-22 21:34:27
 * @Entity com.trkj.entity.CommonMeal
 */
-public interface XueYuanMapper extends BaseMapper<XueYuanVo> {
+public interface XueYuanPtMapper extends BaseMapper<XueYuanPtVo> {
     /**
      * @description:
      * 动态查询所有信息并分页
@@ -22,7 +22,7 @@ public interface XueYuanMapper extends BaseMapper<XueYuanVo> {
      * @param:
      * @return:
      **/
-    IPage<XueYuanVo> findAll(Page<XueYuanVo> page, @Param("query") PageVo pageVo);
+    IPage<XueYuanPtVo> findAll(Page<XueYuanPtVo> page, @Param("query") PageVo pageVo);
 }
 
 

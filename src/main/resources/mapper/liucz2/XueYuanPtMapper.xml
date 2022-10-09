@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.trkj.dao.liucz2.XueYuanMapper">
+<mapper namespace="com.trkj.dao.liucz2.XueYuanPtMapper">
 
-    <resultMap id="BaseResultMap" type="com.trkj.vo.queryLiucz2.XueYuanVo">
+    <resultMap id="BaseResultMap" type="com.trkj.vo.queryLiucz2.XueYuanPtVo">
             <result property="empId" column="emp_id"/>
         <result property="chooseId" column="choose_id"/>
         <result property="cpId" column="cp_id" />
@@ -27,8 +27,13 @@
         <result property="updateTime" column="update_time"/>
 
     </resultMap>
-    <select id="findAll" resultMap="BaseResultMap">
-select cp.* , mm.* , me.* from choose_projectname cp left join member_meal mm on cp.mm_id=mm.mm_id left join  `member` me on me.member_id =mm.member_id	 where cp.emp_id=#{query.empId}
+    <select id="findAll" resultType="com.trkj.vo.queryLiucz2.XueYuanPtVo">
+        select cp.* , mm.* , me.* ,ptm.*,ptn.* from choose_projectname cp
+        inner join member_meal mm on cp.mm_id=mm.mm_id
+        inner join  `member` me on me.member_id =mm.member_id
+        inner join pt_meal ptm on ptm.pt_id=cp.choose_id
+        inner join pt_projectname ptn on ptn.ptp_id = cp.ptp_id
+        where cp.emp_id=#{query.empId} and me.member_state !=1
     <if test="query.mealType !=null and query.mealType !=''">
         and mm.meal_type=#{query.mealType}
     </if>

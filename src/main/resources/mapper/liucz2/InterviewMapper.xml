@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.InterviewMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.Interview">
+            <id property="interviewId" column="interview_id" jdbcType="BIGINT"/>
+            <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+        <result property="memberName" column="member_name"/>
+            <result property="memberType" column="member_type" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="interview" column="interview" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        interview_id,emp_id,member_id,
+        member_type,create_time,interview
+    </sql>
+    <select id="findAllByEmpIdInterviewIPage" resultType="com.trkj.entity.liucz2.Interview">
+        select * from interview where emp_id=#{query.empId}
+        <if test="query.memberName !=null and query.memberName !=''">
+            and member_name=#{query.memberName}
+        </if>
+    </select>
+
+</mapper>

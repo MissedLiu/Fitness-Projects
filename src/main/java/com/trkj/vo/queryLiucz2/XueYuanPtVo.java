@@ -16,7 +16,7 @@ import java.util.Date;
  * @Version: 5.0
  */
 @Data
-public class XueYuanVo extends PageVo {
+public class XueYuanPtVo extends PageVo {
     /*
      *
      *会员编号
@@ -137,4 +137,46 @@ public class XueYuanVo extends PageVo {
      *
      */
     private long chooseId;
+    /**
+     * 私教套餐编号
+     */
+    private Long ptId;
+
+    /**
+     *
+     */
+    private String ptTime;
+
+    /**
+     * 套餐生效时间
+     */
+    private Date ptDate;
+
+    /**
+     * 套餐价格
+     */
+    private Long ptPrice;
+
+    /**
+     * 是否禁用(0-禁用,1-使用)
+     */
+    private Integer ptIs;
+
+    /**
+     * 套餐名
+     */
+    private String ptName;
+
+
+    /**
+     * 项目名称(减脂或塑形.)
+     */
+    private String ptpName;
+
+    /**
+     * 是否禁用(0-禁用,1-使用)
+     */
+    private Integer ptpIs;
+
+
 }

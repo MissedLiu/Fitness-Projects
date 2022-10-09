@@ -3,10 +3,10 @@ package com.trkj.service.implLiucz2.liucz2;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.trkj.dao.liucz2.XueYuanMapper;
-import com.trkj.service.implLiucz2.XueYuanService;
+import com.trkj.dao.liucz2.XueYuanPtMapper;
+import com.trkj.service.implLiucz2.XueYuanPtService;
 import com.trkj.vo.query.PageVo;
-import com.trkj.vo.queryLiucz2.XueYuanVo;
+import com.trkj.vo.queryLiucz2.XueYuanPtVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -20,10 +20,10 @@ import javax.annotation.Resource;
  * @Version: 5.0
  */
 @Service
-public class XueYuanServicelmpl extends ServiceImpl<XueYuanMapper, XueYuanVo>
-        implements XueYuanService {
+public class XueYuanPtServicelmpl extends ServiceImpl<XueYuanPtMapper, XueYuanPtVo>
+        implements XueYuanPtService {
     @Resource
-    private XueYuanMapper xueYuanMapper;
+    private XueYuanPtMapper xueYuanMapper;
     /**
      * @description:
      * 分页动态查询学员列表
@@ -33,9 +33,9 @@ public class XueYuanServicelmpl extends ServiceImpl<XueYuanMapper, XueYuanVo>
      * @return:
      **/
     @Override
-    public IPage<XueYuanVo> findAllList(PageVo pageVo) {
-        Page<XueYuanVo> page=new Page<>(pageVo.getPageNo() ,pageVo.getPageSize());
-        IPage<XueYuanVo> all = xueYuanMapper.findAll(page, pageVo);
+    public IPage<XueYuanPtVo> findAllList(PageVo pageVo) {
+        Page<XueYuanPtVo> page=new Page<>(pageVo.getPageNo() ,pageVo.getPageSize());
+        IPage<XueYuanPtVo> all = xueYuanMapper.findAll(page, pageVo);
         return all;
     }
 }
