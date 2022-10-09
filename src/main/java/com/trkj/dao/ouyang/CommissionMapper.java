@@ -3,6 +3,7 @@ package com.trkj.dao.ouyang;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.trkj.entity.ouyang.Commission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -36,7 +37,15 @@ public interface CommissionMapper extends BaseMapper<Commission> {
 
     //修改商品销售提成
     @Update(value = "update commission set commission_sp=#{commissionSp} where salesman_id=#{salesmanId}")
-    boolean updateCommission(Commission commission);
+    boolean updateCommissionSp(Commission commission);
+
+    /**
+     * 修改每个课程销售的提成数
+     *
+     * @param commission
+     * @return
+     */
+    Boolean updateCommission(@Param("commission") Commission commission);
 
 
 }

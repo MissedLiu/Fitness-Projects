@@ -1,5 +1,6 @@
 package com.trkj.controller.ouyang;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.ouyang.Commission;
@@ -13,6 +14,8 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @ClassName CommissionController
@@ -36,6 +39,7 @@ public class CommissionController {
 
     /**
      * 获取提及提成表数据
+     *
      * @param commissionQueryVo
      * @return
      */
@@ -54,6 +58,19 @@ public class CommissionController {
      */
     @PostMapping("/updateCommission")
     public Result updateCommission(@RequestBody PageVo pageVo) {
+        /*//获取当前时间，并将格式修改成yyyy-MM-dd
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        //创建条件构造器
+        QueryWrapper queryWrapper = new QueryWrapper();
+        //添加条件     库中的最后修改日期=今天的日期
+        queryWrapper.select("comm_time").like("comm_time", simpleDateFormat.format(date));
+        //库中销售人员id=前台获取的id
+        queryWrapper.eq("salesman_id", pageVo.getSalesmanId());
+        if (commissionService.count(queryWrapper)>0){
+            return Result.exist().message("一天最多统计一次！");
+        }*/
+
         //创建临时变量存储各个套餐类型的总销售价格
         Long allPrice = 0L;
         //调用sumPrice查询总价格 如果不为空则将其赋值给allPrice变量  sumPrice的查询条件为类型type和销售人员id 且状态state需要为1
@@ -99,11 +116,12 @@ public class CommissionController {
 
     /**
      * 修改商品提成和总提成
+     *
      * @param pageVo
      * @return
      */
     @PostMapping("/updateSpComm")
-    public Result updateSpComm(@RequestBody PageVo pageVo){
+    public Result updateSpComm(@RequestBody PageVo pageVo) {
         System.out.println("----------------");
         System.out.println(pageVo);
         Long allPrice = 0L;
@@ -121,7 +139,7 @@ public class CommissionController {
         if (pageVo.getCommRate() > 1 || pageVo.getCommRate() < 0) {
             return Result.error().message("请输入正确的提成率（0-1）");
         }
-        commission.setCommissionSp(allPrice*pageVo.getCommRate());
+        commission.setCommissionSp(allPrice * pageVo.getCommRate());
         if (commissionService.updateCommSp(commission)) {
             commPt = commissionService.getByCommissionPt(commission);
             commSj = commissionService.getByCommissionSj(commission);

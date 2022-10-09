@@ -117,7 +117,6 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
 
     @Override
     public boolean updateCommissionOne(Commission commission) {
-
         return salesMapper.updateCommission(commission);
     }
 
