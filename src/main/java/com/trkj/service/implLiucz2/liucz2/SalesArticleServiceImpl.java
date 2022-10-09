@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.dao.liucz2.SalesArticleMapper;
 import com.trkj.entity.liucz2.Invoice;
 import com.trkj.entity.liucz2.SalesArticle;
+import com.trkj.entity.ouyang.Commission;
 import com.trkj.service.implLiucz2.SalesArticleService;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
@@ -89,6 +90,25 @@ public class SalesArticleServiceImpl extends ServiceImpl<SalesArticleMapper, Sal
         SalesArticle salesArticle = baseMapper.selectOne(queryWrapper);
         return salesArticle;
     }
+
+    @Override
+    public IPage<SalesArticle> getAllSa(IPage page,PageVo pageVo) {
+        QueryWrapper queryWrapper=new QueryWrapper();
+        queryWrapper.eq("saemp_id",pageVo.getSalesmanId());
+        queryWrapper.orderByDesc("sales_time");
+        return baseMapper.selectPage(page,queryWrapper);
+    }
+
+    @Override
+    public Long sumPrice(PageVo pageVo) {
+        return salesArticleMapper.sumPrice(pageVo);
+    }
+
+    @Override
+    public Boolean updateState(PageVo pageVo) {
+        return salesArticleMapper.updateState(pageVo);
+    }
+
 
 }
 

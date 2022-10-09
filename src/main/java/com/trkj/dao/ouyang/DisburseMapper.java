@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Insert;
 * @Entity com.trkj.entity.ouyang.Disburse
 */
 public interface DisburseMapper extends BaseMapper<Disburse> {
+    //插入支出表数据
     @Insert(value = "insert into disburse (disburse_type,disburse_price,beizhu)" +
             " value (#{scheduleType},#{scheduleNum}*#{schedulePrice},#{disburseBeizhu})")
     Boolean toDisburse(ScheduleQueryVo scheduleQueryVo);

@@ -23,6 +23,12 @@ public class DisburseController {
 
     @Resource
     private DisburseService disburseService;
+
+    /**
+     * 获取支出表数据
+     * @param disburseQueryVo
+     * @return
+     */
     @GetMapping("/list")
     public Result getDisburseList(DisburseQueryVo disburseQueryVo) {
         IPage<Edetails> page=new Page(disburseQueryVo.getPageNo(),disburseQueryVo.getPageSize());
@@ -30,6 +36,11 @@ public class DisburseController {
         return Result.ok(page);
     }
 
+    /**
+     * 通过id删除数据
+     * @param id
+     * @return
+     */
     @DeleteMapping("/delete/{id}")
     public Result deleteDisburse(@PathVariable Long id){
         if (disburseService.removeById(id)){

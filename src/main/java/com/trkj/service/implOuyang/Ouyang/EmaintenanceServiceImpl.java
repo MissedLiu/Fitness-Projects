@@ -25,10 +25,6 @@ public class EmaintenanceServiceImpl extends ServiceImpl<EmaintenanceMapper, Ema
     @Resource
     private EmaintenanceMapper emaintenanceMapper;
 
-    @Override
-    public boolean toEm(EeamageQueryVo eeamageQueryVo) {
-        return emaintenanceMapper.toEm(eeamageQueryVo);
-    }
 
     @Override
     public IPage<EmaintenanceQueryVo> getEmList(IPage page,EmaintenanceQueryVo emaintenanceQueryVo) {

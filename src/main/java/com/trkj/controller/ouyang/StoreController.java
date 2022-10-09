@@ -27,8 +27,15 @@ public class StoreController {
         return Result.ok(page);
     }
 
+    /**
+     * 根据id删除
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("/delete/{id}")
     public Result deleteStore(@PathVariable Long id) {
+        //判断库存数是否为0
         if (storeService.FindStoreNumByID(id) == 0) {
             if (storeService.removeById(id)) {
                 return Result.ok().message("删除成功");
@@ -37,19 +44,21 @@ public class StoreController {
         }
         return Result.error().message("库存数不为0，无法删除！");
     }
-  /**
-   * @description:
-   *
-   * @author: Liucz
-   * @date: 2022/9/30 15:03
-   * @param: [storeQueryVo]
-   * @return: com.trkj.utils.Result
-   **/
+
+    /**
+     * @description:
+     * @author: Liucz
+     * @date: 2022/9/30 15:03
+     * @param: [storeQueryVo]
+     * @return: com.trkj.utils.Result
+     **/
     @PostMapping("/toOutStock")
     public Result toOutStock(@RequestBody StoreQueryVo storeQueryVo) {
-
+        //判断库存数是否大于前端输入的出库数量
         if (storeService.getStoreNumByStoreId(storeQueryVo) >= storeQueryVo.getOutStockNum()) {
+            //如果大于 则调用出库方法
             if (storeService.toOutStock(storeQueryVo)) {
+                //出库后修改库存中的数量
                 if (storeService.updateStroeNumChu(storeQueryVo)) {
                     return Result.ok().message("出库成功");
                 }
@@ -58,6 +67,6 @@ public class StoreController {
             return Result.error().message("出库失败！");
         }
         return Result.error().message("出库数不可多于库存数！");
-        }
+    }
 
 }

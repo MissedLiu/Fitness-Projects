@@ -47,6 +47,7 @@ public Result getRepairList(EeamageQueryVo eeamageQueryVo) {
     IPage<Eeamage> repairListIpage = eeamageService.findRepairListIpage(eeamageQueryVo);
     return Result.ok(repairListIpage);
 }
+
     @GetMapping("/listByEmpId")
     public Result getRepairListByEmpId(EeamageQueryVo eeamageQueryVo) {
         //调用分页查询方法

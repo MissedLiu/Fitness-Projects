@@ -12,6 +12,7 @@
             <result property="stockinNum" column="stockIn_num" jdbcType="BIGINT"/>
             <result property="salesPrice" column="sales_price" jdbcType="BIGINT"/>
             <result property="salesTime" column="sales_time" jdbcType="TIMESTAMP"/>
+            <result property="state" column="state" jdbcType="TIMESTAMP"/>
         <result property="brand" column="brand" />
         <association property="invoice" column="invoice_id" resultMap="BaseResultMap2"/>
     </resultMap>

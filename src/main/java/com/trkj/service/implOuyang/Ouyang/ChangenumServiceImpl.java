@@ -20,6 +20,12 @@ public class ChangenumServiceImpl extends ServiceImpl<ChangenumMapper, Changenum
 
     @Resource
     private ChangenumMapper changenumMapper;
+
+    /**
+     * 添加记录到报溢报损表
+     * @param poQueryVo
+     * @return
+     */
     @Override
     public Boolean toChangenum(PoQueryVo poQueryVo) {
         return changenumMapper.toChangeNum(poQueryVo);

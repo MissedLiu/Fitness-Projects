@@ -10,5 +10,10 @@ import com.trkj.vo.queryOuyang.PoQueryVo;
 * @createDate 2022-09-23 19:43:53
 */
 public interface ChangenumService extends IService<Changenum> {
+    /**
+     * 插入报损报溢记录
+     * @param poQueryVo
+     * @return
+     */
     Boolean toChangenum(PoQueryVo poQueryVo);
 }

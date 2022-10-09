@@ -28,4 +28,50 @@
             and m.member_phone=#{query.memberPhone}
         </if>
     </select>
+
+    <select id="SumWeekPrice" resultType="java.lang.Long">
+        SELECT SUM(comsune_price)
+        FROM comsune
+        where  DATE_SUB(CURDATE(), INTERVAL 7 DAY) <![CDATA[ <= ]]> date(comsune_date)
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumLastQuarterPrice" resultType="java.lang.Long">
+        select SUM(comsune_price)
+        from comsune
+        where QUARTER(comsune_date)=QUARTER(DATE_SUB(now(),interval 1 QUARTER))
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumQuarterPrice" resultType="java.lang.Long">
+        select SUM(comsune_price)
+        from comsune
+        where QUARTER(comsune_date)=QUARTER(now())
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumMonthPrice" resultType="java.lang.Long">
+        SELECT SUM(comsune_price)
+        FROM comsune
+        where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <![CDATA[ <= ]]> date(comsune_date)
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumYearPrice" resultType="java.lang.Long">
+        select SUM(comsune_price)
+        from comsune
+        where YEAR(comsune_date)=YEAR(NOW())
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
 </mapper>
