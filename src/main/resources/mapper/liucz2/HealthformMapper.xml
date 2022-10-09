@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.liucz2.HealthformMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.Healthform">
+            <id property="healthformId" column="healthForm_id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+            <result property="memberName" column="member_name" jdbcType="VARCHAR"/>
+            <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+            <result property="weight" column="weight" jdbcType="INTEGER"/>
+            <result property="height" column="height" jdbcType="INTEGER"/>
+            <result property="hipline" column="hipline" jdbcType="INTEGER"/>
+            <result property="shoulderWai" column="shoulder_wai" jdbcType="INTEGER"/>
+            <result property="belly" column="belly" jdbcType="INTEGER"/>
+            <result property="bw" column="BW" jdbcType="INTEGER"/>
+            <result property="upbicepLeft" column="upbicep_left" jdbcType="INTEGER"/>
+            <result property="beforebicepRight" column="beforebicep_right" jdbcType="INTEGER"/>
+            <result property="bigtrousersLeft" column="bigtrousers_left" jdbcType="INTEGER"/>
+            <result property="littletrousersRight" column="littletrousers_right" jdbcType="INTEGER"/>
+            <result property="waistline" column="waistline" jdbcType="INTEGER"/>
+            <result property="fat" column="fat" jdbcType="INTEGER"/>
+            <result property="weightnbim" column="weightNBIM" jdbcType="INTEGER"/>
+            <result property="uimsatz" column="uimsatz" jdbcType="INTEGER"/>
+            <result property="endurance" column="endurance" jdbcType="INTEGER"/>
+            <result property="flexibility" column="flexibility" jdbcType="INTEGER"/>
+            <result property="pushup" column="pushup" jdbcType="INTEGER"/>
+            <result property="obpm" column="OBPM" jdbcType="INTEGER"/>
+            <result property="hrrest" column="hrrest" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        healthForm_id,member_id,member_name,
+        emp_id,weight,height,
+        hipline,shoulder_wai,belly,
+        BW,upbicep_left,beforebicep_right,
+        bigtrousers_left,littletrousers_right,waistline,
+        fat,weightNBIM,uimsatz,
+        endurance,flexibility,pushup,
+        OBPM,hrrest
+    </sql>
+    <select id="findAllIpage" resultType="com.trkj.entity.liucz2.Healthform">
+        select * from healthForm where emp_id=#{query.empId}
+        <if test="query.memberName !=null and query.memberName !='' ">
+            and member_name=#{query.memberName}
+        </if>
+    </select>
+</mapper>

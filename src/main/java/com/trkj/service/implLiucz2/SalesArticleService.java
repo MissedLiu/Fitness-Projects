@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.liucz2.Invoice;
 import com.trkj.entity.liucz2.SalesArticle;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.trkj.entity.ouyang.Commission;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
 
@@ -49,4 +50,16 @@ public interface SalesArticleService extends IService<SalesArticle> {
      * @return:
      **/
     SalesArticle findstoreNumBySaId(Long saId);
+
+    /**
+     * 获取商品销售记录
+     * @param page
+     * @param pageVo
+     * @return
+     */
+    IPage<SalesArticle> getAllSa(IPage page,PageVo pageVo);
+
+    Long sumPrice(PageVo pageVo);
+
+    Boolean updateState(PageVo pageVo);
 }

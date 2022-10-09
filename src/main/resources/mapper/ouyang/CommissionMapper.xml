@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.ouyang.CommissionMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.ouyang.Commission">
+            <id property="commissionId" column="commission_id" jdbcType="BIGINT"/>
+            <result property="salesmanId" column="salesman_id" jdbcType="VARCHAR"/>
+            <result property="empName" column="emp_name" jdbcType="VARCHAR"/>
+            <result property="empPhone" column="emp_phone" jdbcType="VARCHAR"/>
+            <result property="departmentName" column="department_name" jdbcType="VARCHAR"/>
+            <result property="commissionPrice" column="commission_price" jdbcType="BIGINT"/>
+            <result property="commissionSj" column="commission_sj" jdbcType="BIGINT"/>
+            <result property="commissionPt" column="commission_pt" jdbcType="BIGINT"/>
+            <result property="commissionTc" column="commission_tc" jdbcType="BIGINT"/>
+            <result property="commissionSp" column="commission_sp" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        commission_id,sales_id,salesman_id,
+        emp_name,emp_phone,department_name,
+        commission_price,commission_sj,commission_pt,
+        commission_tc,commission_sp
+    </sql>
+
+    <update id="updateCommission">
+        update commission set
+        <if test="commission.commissionPt !=null and commission.commissionPt !=''">
+            commission_pt=#{commission.commissionPt}
+        </if>
+        <if test="commission.commissionSj !=null and commission.commissionSj !=''">
+            commission_sj=#{commission.commissionSj}
+        </if>
+        <if test="commission.commissionTc !=null and commission.commissionTc !=''">
+            commission_tc=#{commission.commissionTc}
+        </if>
+        where salesman_id=#{commission.salesmanId}
+    </update>
+</mapper>

@@ -12,6 +12,11 @@ import org.apache.ibatis.annotations.Insert;
 * @Entity com.trkj.entity.ouyang.StockIn
 */
 public interface StockInMapper extends BaseMapper<StockIn> {
+    /**
+     * 添加入库记录
+     * @param poQueryVo
+     * @return
+     */
     @Insert(value = "insert into stock_in(po_id,in_name,in_num,in_type,brand)" +
             "VALUES (#{poId},#{poName},#{poNum},#{poType},#{brand})")
     Boolean toInStock(PoQueryVo poQueryVo);

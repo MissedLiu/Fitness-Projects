@@ -14,11 +14,21 @@ public class stockInController {
     @Resource
     private StockInService stockInService;
 
+    /**
+     * 分页获取入库记录
+     * @param StockInQueryVo
+     * @return
+     */
     @GetMapping("/list")
     public Result findPoList(StockInQueryVo StockInQueryVo) {
         return Result.ok(stockInService.findAllStockIn(StockInQueryVo));
     }
 
+    /**
+     * 根据id删除
+     * @param id
+     * @return
+     */
     @DeleteMapping("/delete/{id}")
     public Result deleteStockIn(@PathVariable Long id){
         if (stockInService.removeById(id)){

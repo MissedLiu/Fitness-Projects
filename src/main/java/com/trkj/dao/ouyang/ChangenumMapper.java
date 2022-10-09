@@ -13,8 +13,9 @@ import org.apache.ibatis.annotations.Insert;
 * @Entity com.trkj.entity.ouyang.Changenum
 */
 public interface ChangenumMapper extends BaseMapper<Changenum> {
+    //插入数据到报损报溢表
     @Insert(value = "insert into changenum(shopping_id, change_lose, change_more) value (#{poId},#{changeLose},#{changeMore})")
-    public Boolean toChangeNum(PoQueryVo poQueryVo);
+    Boolean toChangeNum(PoQueryVo poQueryVo);
 
 
 }

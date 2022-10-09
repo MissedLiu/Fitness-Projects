@@ -26,23 +26,38 @@ public class DisburseServiceImpl extends ServiceImpl<DisburseMapper, Disburse>
 
     @Resource
     private DisburseMapper disburseMapper;
+
+    /**
+     *获取支出表数据
+     * @param page
+     * @param disburseQueryVo
+     * @return
+     */
     @Override
     public IPage<Disburse> getList(IPage page, DisburseQueryVo disburseQueryVo) {
+        //创建条件构造器
         QueryWrapper<Disburse> queryWrapper = new QueryWrapper();
+        //通过时间降序
         queryWrapper.orderByDesc("disburse_time");
-        System.out.println(disburseQueryVo);
+        //模糊查询
         queryWrapper.like(!ObjectUtils.isEmpty(disburseQueryVo.getChangeTime()),
-                "disburse_time",disburseQueryVo.getChangeTime());
+                "disburse_time", disburseQueryVo.getChangeTime());
         return baseMapper.selectPage(page, queryWrapper);
 
     }
 
+    /**
+     * 添加数据到支出表
+     * @param scheduleQueryVo
+     * @return
+     */
     @Override
     public boolean toDisburse(ScheduleQueryVo scheduleQueryVo) {
-        String beizhu=String.join("","购入",
+        //因为在sql语句中不能做到字符串拼接 所以在此处拼接
+        String beizhu = String.join("", "购入",
                 scheduleQueryVo.getScheduleName(),
                 scheduleQueryVo.getSchedulePrice().toString(),
-                "*",scheduleQueryVo.getScheduleNum().toString(),
+                "*", scheduleQueryVo.getScheduleNum().toString(),
                 scheduleQueryVo.getUnit());
         scheduleQueryVo.setDisburseBeizhu(beizhu);
         return disburseMapper.toDisburse(scheduleQueryVo);

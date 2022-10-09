@@ -1,12 +1,15 @@
 package com.trkj.service.implLiucz2.liucz2;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.dao.liucz2.InvoiceMapper;
 import com.trkj.entity.liucz2.Invoice;
 import com.trkj.service.implLiucz2.InvoiceService;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
+import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -20,6 +23,17 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
     implements InvoiceService {
     @Resource
     private InvoiceMapper invoiceMapper;
+
+    @Override
+    public IPage<Invoice> getInvoiceList(IPage page, InvoiceQueryVo invoiceQueryVo) {
+        QueryWrapper queryWrapper=new QueryWrapper();
+        queryWrapper.like(!ObjectUtils.isEmpty(invoiceQueryVo.getStockinName()),
+                "stockin_name",invoiceQueryVo.getStockinName());
+        queryWrapper.orderByDesc("create_time");
+        IPage page1 = baseMapper.selectPage(page, queryWrapper);
+
+        return baseMapper.selectPage(page,queryWrapper);
+    }
 
     /**
      * @description:
@@ -78,6 +92,28 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
         int i = invoiceMapper.updateInvoice(salesArticleAndInvoiceVo);
         return i;
     }
+
+    @Override
+    public Long SumInvoicePrice(Long tjType) {
+        Long SumPrice = null;
+        if (tjType==1){
+            SumPrice=invoiceMapper.SumWeekPrice();
+        }
+        if (tjType==2){
+            SumPrice=invoiceMapper.SumMonthPrice();
+        }
+        if (tjType==3){
+            SumPrice=invoiceMapper.SumQuarterPrice();
+        }
+        if (tjType==4){
+            SumPrice=invoiceMapper.SumLastQuarterPrice();
+        }
+        if (tjType==5){
+            SumPrice=invoiceMapper.SumYearPrice();
+        }
+        return SumPrice;
+    }
+
 }
 
 
