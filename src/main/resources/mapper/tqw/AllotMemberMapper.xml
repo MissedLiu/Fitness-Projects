@@ -13,7 +13,8 @@
     <sql id="Base_Column_List">
         allot_id,member_id,emp_id
     </sql>
-<!--  查询所有需要回访会员-->
+
+    <!--  查询所有需要回访会员-->
     <select id="findMemberByEmpId" resultType="com.trkj.vo.queryTqw.MemberAndAllotQueryVo">
         select * from allot_member am inner join `member` m
             on am.member_id = m.member_id
@@ -30,4 +31,19 @@
         on am.member_id = m.member_id
         where am.emp_id=#{empId}
     </select>
+
+<!--  添加会员客服关系表-->
+    <insert id="addMemberAndEmp">
+        insert into allot_member(member_id,emp_id) values
+        <foreach collection="memberId" item="item" index="index" separator=",">
+            (#{item},#{empId})
+        </foreach>
+    </insert>
+<!--  添加潜在用户客服关系表-->
+    <insert id="addProspectAndEmp">
+        insert into allot_prospect(prospect_id,emp_id) values
+        <foreach collection="prospectId" item="item" index="index" separator=",">
+            (#{item},#{empId})
+        </foreach>
+    </insert>
 </mapper>

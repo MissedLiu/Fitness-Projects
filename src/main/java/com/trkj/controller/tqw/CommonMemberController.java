@@ -60,6 +60,26 @@ public class CommonMemberController {
         }
         return Result.error().message("系统错误");
     }
+
+    /*
+     *
+     *续费
+     *
+     */
+    @PutMapping("/renew")
+    public Result RenewCommonMember(@RequestBody MemberQueryVo memberQueryVo){
+        int a=commonMemberService.renewCommonMember(memberQueryVo);
+         if(a==0){
+             return Result.ok().message("续费成功");
+         }else if(a==1){
+             return Result.exist().message("续费失败，会员以拉黑");
+         }else if(a==2){
+             return Result.exist().message("续费失败，会员不存在");
+         }
+         return Result.exist();
+    }
+
+
     /*
      *
      *通过会员办理套餐表id删除普通会员数据

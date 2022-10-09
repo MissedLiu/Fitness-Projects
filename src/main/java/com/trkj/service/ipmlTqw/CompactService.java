@@ -20,4 +20,6 @@ public interface CompactService extends IService<Compact> {
     List<MemberMeal> findMemberMeal(Member member);
     //添加合同数据
     boolean addCompact(Compact compact);
+    //删除记录
+    boolean delDetial(Long compactId);
 }

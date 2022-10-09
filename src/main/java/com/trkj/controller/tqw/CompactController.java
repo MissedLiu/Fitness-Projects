@@ -32,4 +32,12 @@ public class CompactController {
         }
         return Result.exist().message("记录添加失败");
     }
+    //删除记录
+    @DeleteMapping("/delDetial/{compactId}")
+    public Result delDetial(@PathVariable Long compactId){
+        if(compactService.delDetial(compactId)){
+            return Result.ok().message("删除成功");
+        }
+        return Result.exist().message("删除失败");
+    }
 }

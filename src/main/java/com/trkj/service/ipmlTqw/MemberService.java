@@ -52,7 +52,7 @@ public interface MemberService extends IService<Member> {
      *根据电话修改会员
      *
      */
-    boolean updataMemberByMemberPhone(Member member);
+    int updataMemberByMemberPhone(Member member);
 
 
 }

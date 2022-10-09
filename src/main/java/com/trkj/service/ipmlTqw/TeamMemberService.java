@@ -25,5 +25,11 @@ public interface TeamMemberService {
      *
      */
     PtMealAndEmpQueryVo selectTeamMealAndEmpByMmId(long mmId);
+    /*
+    *
+    *续费
+    *
+    */
+    int renewTeamMember(MemberQueryVo memberQueryVo);
 
 }

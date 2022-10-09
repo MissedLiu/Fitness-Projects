@@ -70,7 +70,6 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         wrapper.eq("member_phone",member.getMemberPhone());
         if(baseMapper.selectOne(wrapper) == null){
             member.setMemberState(0);
-            member.setMemberType(0);
             member.setCreateTime(new Date());
             member.setUpdateTime(new Date());
             baseMapper.insert(member);
@@ -129,33 +128,38 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
      *
      */
     @Override
-    public boolean updataMemberByMemberPhone(Member member) {
+    public int updataMemberByMemberPhone(Member member) {
         //通过电话查询会员
         QueryWrapper<Member> wrapper=new QueryWrapper<>();
         wrapper.eq("member_phone",member.getMemberPhone());
         Member member1 =baseMapper.selectOne(wrapper);
+        //判断电话是否被修改
         if(member1!=null){
             //电话未修改
-            //电话未被使用
+            //判断是否由正式会员改为体验会员
+            if(member1.getMemberType()==1 && member.getMemberType()==0){
+                return 0;
+            }
+            //判断该修改后的电话所属会员是不是此会员
             if(member1.getMemberId() == member.getMemberId()){
                 //修改会员信息
                 UpdateWrapper<Member> wrapper1=new UpdateWrapper<>();
                 wrapper1.eq("member_id",member.getMemberId());
                 if(baseMapper.update(member,wrapper1)>0){
-                    return true;
+                    return 1;
                 }
             }else {
-                return false;
+                return 2;
             }
         }else {
             //电话被修改
             UpdateWrapper<Member> wrapper1=new UpdateWrapper<>();
             wrapper1.eq("member_id",member.getMemberId());
             if(baseMapper.update(member,wrapper1)>0){
-                return true;
+                return 1;
             }
         }
-        return false;
+        return 3;
     }
 
 

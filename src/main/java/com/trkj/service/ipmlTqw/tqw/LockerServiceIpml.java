@@ -58,6 +58,10 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
         || lockerQueryVo.getLockerId() == 0){
             return 5;
         }
+        //判断该储物柜是否有人所有(查询储物柜状态)
+        if(baseMapper.selectById(lockerQueryVo.getLockerId()).getLockerState()==0){
+            return 6;
+        }
         //查询会员情况（是否拉黑，是否存在）
         //通过电话和姓名查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();

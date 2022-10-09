@@ -73,6 +73,8 @@ public class LockerController {
             return Result.error().message("电话输入有误");
         }else if(a==4){
             return Result.error().message("姓名输入有误");
+        }else if(a==6){
+            return Result.exist().message("储物柜已被使用");
         }
         return Result.error().message("系统错误");
     }

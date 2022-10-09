@@ -28,4 +28,11 @@ public interface CommonMemberService {
      *
      */
     boolean delCommonMemberById(long mmId);
+
+    /*
+    *
+    *续费
+    *
+    */
+    int renewCommonMember(MemberQueryVo memberQueryVo);
 }

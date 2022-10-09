@@ -38,4 +38,11 @@ public interface PtMemberService {
      *
      */
     PtMealAndEmpQueryVo selectPtMealAndEmpByMmId(long mmId);
+
+    /*
+    *
+    *续费
+    *
+    */
+    int renewPtMember(MemberQueryVo memberQueryVo);
 }

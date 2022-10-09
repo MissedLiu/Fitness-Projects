@@ -60,6 +60,25 @@ public class PtMemberController {
         return Result.error().message("系统错误");
     }
 
+    /*
+     *
+     *续费
+     *
+     */
+    @PutMapping("/renew")
+    public Result RenewPtMember(@RequestBody MemberQueryVo memberQueryVo){
+        System.out.println("memberQueryVo"+memberQueryVo);
+        int a=ptmemberService.renewPtMember(memberQueryVo);
+        if(a==0){
+            return Result.ok().message("续费成功");
+        }else if(a==1){
+            return Result.exist().message("续费失败，会员以拉黑");
+        }else if(a==2){
+            return Result.exist().message("续费失败，会员不存在");
+        }
+        return Result.exist();
+    }
+
 
     /*
      *

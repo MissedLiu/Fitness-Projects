@@ -41,6 +41,7 @@ implements CompactService {
         //查询该会员办理的套餐
         QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
         wrapper.eq("member_id", member.getMemberId());
+        wrapper.eq("meal_type","私教").or().eq("meal_type","团操");
         List<MemberMeal> list = memberMealMapper.selectList(wrapper);
         //通过套餐id查询合同表中是否有数据
         List<MemberMeal> list1=new LinkedList<>();
@@ -59,6 +60,17 @@ implements CompactService {
     @Override
     public boolean addCompact(Compact compact) {
         if(baseMapper.insert(compact)>0){
+            return true;
+        }
+        return false;
+    }
+    //删除记录
+    @Override
+    public boolean delDetial(Long compactId) {
+        QueryWrapper<Compact> wrapper=new QueryWrapper<>();
+        wrapper.eq("compact_id", compactId);
+        int i = baseMapper.delete(wrapper);
+        if(i>0){
             return true;
         }
         return false;

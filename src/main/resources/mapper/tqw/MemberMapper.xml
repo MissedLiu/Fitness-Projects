@@ -2,17 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.trkj.dao.tqw.MemberMapper">
 
+
     <select id="findMemberAll" resultType="com.trkj.entity.tqw.Member">
         select * from `member` where member_state != 1
         <if test="query.memberPhone !=null and query.memberPhone !='' ">
             and member_phone=#{query.memberPhone}
         </if>
+        order by create_time desc
     </select>
+
     <select id="listAllNoPage" resultType="com.trkj.entity.tqw.Member">
         select * from `member` where member_state != 1
         <if test="query.memberPhone !=null and query.memberPhone !='' ">
             and member_phone=#{query.memberPhone}
         </if>
+        order by create_time desc
     </select>
 
+    <update id="updateByMemberIs">
+        update `member` set member_state = case
+        <foreach collection="memberId" item="item" index="index" separator="">
+            when member_id = #{item} then 2
+        </foreach>
+            else member_state end
+    </update>
+    <!-- 修改潜在用户状态为1-->
+    <update id="updateByProspectIs">
+        update prospect set prospect_is = case
+        <foreach collection="memberId" item="item" index="index" separator="">
+            when prospect_id = #{item} then 1
+        </foreach>
+        else prospect_is end
+    </update>
 </mapper>

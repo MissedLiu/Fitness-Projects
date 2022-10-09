@@ -76,10 +76,15 @@ public class MemberController {
      */
     @PutMapping("/updataMemberByMemberPhone")
     public Result updataMemberByMemberPhone(@RequestBody Member member){
-        if(memberService.updataMemberByMemberPhone(member)){
+        int a=memberService.updataMemberByMemberPhone(member);
+        if(a==0){
+            return Result.exist().message("修改失败，无法从正式会员改为体验会员");
+        }else if(a==1){
             return Result.ok().message("修改成功");
+        }else if(a==2){
+            return Result.exist().message("修改失败,修改的电话已注册");
         }
-        return Result.error().message("会员电话已注册");
+        return Result.error().message("系统错误");
     }
 
     /*

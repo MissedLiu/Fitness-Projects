@@ -24,6 +24,7 @@
         <result column="mm_id" property="mmId" />
         <result column="team_name" property="mealName" />
         <result column="tp_name" property="projectName" />
+        <result column="tp_id" property="projectId" />
         <result column="emp_name" property="empName" />
     </resultMap>
 

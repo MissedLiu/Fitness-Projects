@@ -23,4 +23,5 @@
             and m.member_phone=#{query.memberPhone}
         </if>
     </select>
+
 </mapper>
