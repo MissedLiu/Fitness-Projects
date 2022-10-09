@@ -108,7 +108,7 @@ public class CommissionServiceImpl extends ServiceImpl<CommissionMapper, Commiss
      */
     @Override
     public Boolean updateCommSp(Commission commission) {
-        return commissionMapper.updateCommission(commission);
+        return commissionMapper.updateCommissionSp(commission);
     }
 
 

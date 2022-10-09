@@ -23,4 +23,18 @@
         commission_price,commission_sj,commission_pt,
         commission_tc,commission_sp
     </sql>
+
+    <update id="updateCommission">
+        update commission set
+        <if test="commission.commissionPt !=null and commission.commissionPt !=''">
+            commission_pt=#{commission.commissionPt}
+        </if>
+        <if test="commission.commissionSj !=null and commission.commissionSj !=''">
+            commission_sj=#{commission.commissionSj}
+        </if>
+        <if test="commission.commissionTc !=null and commission.commissionTc !=''">
+            commission_tc=#{commission.commissionTc}
+        </if>
+        where salesman_id=#{commission.salesmanId}
+    </update>
 </mapper>
