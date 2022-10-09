@@ -64,5 +64,11 @@ public interface StockOutService extends IService<StockOut> {
      * @return:
      **/
     Long findStockNum(Long id);
+
+    /**
+     * 通过器材使用表中的物品id查询出库记录中的物品出库数量
+     * @param edetails
+     * @return
+     */
     Long getOutNum(Edetails edetails);
 }

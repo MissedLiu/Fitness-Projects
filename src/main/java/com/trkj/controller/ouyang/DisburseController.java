@@ -37,7 +37,7 @@ public class DisburseController {
     }
 
     /**
-     * 用过id删除数据
+     * 通过id删除数据
      * @param id
      * @return
      */

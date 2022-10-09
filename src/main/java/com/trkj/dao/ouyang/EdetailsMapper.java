@@ -39,7 +39,7 @@ public interface EdetailsMapper extends BaseMapper<Edetails> {
     Long CountDetailsByEdCode(Edetails edetails);
 
     /**
-     *
+     *查询是否有相同标识编码的器材
      * @param edetails
      * @return
      */

@@ -12,7 +12,6 @@ import com.trkj.vo.queryOuyang.EmaintenanceQueryVo;
 * @createDate 2022-09-29 09:49:10
 */
 public interface EmaintenanceService extends IService<Emaintenance> {
-    boolean toEm(EeamageQueryVo eeamageQueryVo);
     IPage<EmaintenanceQueryVo> getEmList(IPage page,EmaintenanceQueryVo emaintenanceQueryVo);
 
     /**

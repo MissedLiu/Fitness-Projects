@@ -95,6 +95,11 @@ public class PoController {
 
     }
 
+    /**
+     * 通过id删除
+     * @param id
+     * @return
+     */
     @DeleteMapping("/delete/{id}")
     private Result daletePo(@PathVariable Long id) {
         if (poService.removeById(id)) {
@@ -104,7 +109,7 @@ public class PoController {
     }
 
     /**
-     * 获取所有未入库的商品
+     * 分页获取所有未入库的商品
      * @param poQueryVo
      * @return
      */

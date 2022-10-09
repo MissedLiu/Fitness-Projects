@@ -95,6 +95,11 @@ public class SheduleController {
 
     }
 
+    /**
+     * 获取所有未执行的采购计划
+     * @param scheduleQueryVo
+     * @return
+     */
     @GetMapping("/getNotExecuted")
     public Result getNotExecuted(ScheduleQueryVo scheduleQueryVo){
         IPage<Schedule> page =new Page<>(scheduleQueryVo.getPageNo(),scheduleQueryVo.getPageSize());

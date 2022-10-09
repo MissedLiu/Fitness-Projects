@@ -46,7 +46,7 @@ public interface ScheduleMapper extends BaseMapper<Schedule> {
      */
     @Update("update schedule set schedule_state='已执行' where schedule_id = #{scheduleId}")
     public Boolean updatePlanState(Schedule schedule);
-
+//通过id查询计划采购的数量
     @Select(value = "select schedule_num from schedule where schedule_id=#{scheduleId}")
     public Long getPlanNum(Schedule schedule);
 

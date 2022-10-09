@@ -14,15 +14,7 @@ import org.apache.ibatis.annotations.Insert;
 * @Entity com.trkj.ouyang.entity.ouyang.EquipmentMaintenance
 */
 public interface EmaintenanceMapper extends BaseMapper<Emaintenance> {
-    /**
-     * 插入器材维修记录表
-     * @param eeamageQueryVo
-     * @return
-     */
-    @Insert(value = "insert into equipment_maintenance " +
-            "(emp_name,ee_id,resu_its,methods,ed_code,ed_name) values " +
-            "(#{empName},#{eeId},#{resuIts},#{emMethods},#{edCode},#{eeName});")
-    boolean toEm(EeamageQueryVo eeamageQueryVo);
+
 
 }
 

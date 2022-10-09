@@ -21,19 +21,24 @@ public interface EdetailsService extends IService<Edetails> {
     IPage<Edetails> findDetailsPage(IPage page, EdetailsQueryVo edetailsQueryVo);
 
     /**
-     *
+     *添加器材使用记录
      * @param edetails
      * @return
      */
     boolean addDetails(Edetails edetails);
 
     /**
-     *
+     *获取同物品名同品牌的物品使用记录条数
      * @param edetails
      * @return
      */
     Long getSumDetails(Edetails edetails);
 
+    /**
+     * 判断库中是否有与前端输入的标识编码相同的器材
+     * @param edetails
+     * @return
+     */
     Long CountDetailsByEdCode(Edetails edetails);
 
     Long CountDetailsByEdCodeAndName(Edetails edetails);

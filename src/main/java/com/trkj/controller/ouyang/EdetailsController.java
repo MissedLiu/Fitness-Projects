@@ -88,6 +88,7 @@ public class EdetailsController {
     @DeleteMapping("/delete/{id}")
     public Result deleteDetails(@PathVariable Long id){
         Edetails edetails= edetailsService.getById(id);
+        //如果状态为1 则表示器材使用中 不可删除
         if (edetails.getEdState()!=1){
             if (edetailsService.removeById(id)){
                 return Result.ok().message("删除成功");

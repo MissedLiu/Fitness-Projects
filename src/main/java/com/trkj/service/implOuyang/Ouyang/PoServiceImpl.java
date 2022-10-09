@@ -42,6 +42,12 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
         return poMapper.updatePoState(poQueryVo);
     }
 
+    /**
+     * 获取未入库的记录
+     * @param page
+     * @param poQueryVo
+     * @return
+     */
     @Override
     public IPage<Po> getNotExecuted(IPage<Po> page, PoQueryVo poQueryVo) {
         QueryWrapper<Po> queryWrapper = new QueryWrapper();
