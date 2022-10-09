@@ -36,13 +36,17 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
     }
 
     @Override
-    public boolean updateLoseState(Lose lose) {
+    public int updateLoseState(Lose lose) {
+        System.out.println();
+        if(baseMapper.selectById(lose.getId()).getState().equals("已领取")){
+            return 0;
+        }
         //修改失物状态
         lose.setState("已领取");
         lose.setAddTime(new Date());
         if(baseMapper.updateById(lose)>0) {
-            return true;
+            return 1;
         }
-        return false;
+        return 2;
     }
 }

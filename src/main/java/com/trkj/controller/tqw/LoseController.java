@@ -1,5 +1,6 @@
 package com.trkj.controller.tqw;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.trkj.entity.tqw.Lose;
 import com.trkj.service.ipmlTqw.LockerService;
 import com.trkj.service.ipmlTqw.LoseService;
@@ -36,6 +37,12 @@ public class LoseController {
     //新增领取人，修改失物状态
     @PostMapping("/updateLoseState")
     public Result updateLoseState(@RequestBody Lose lose){
-        return Result.ok(loseService.updateLoseState(lose));
+        int a=loseService.updateLoseState(lose);
+        if(a==0){
+            return Result.exist().message("物品已领取");
+        }else if(a==1){
+            return Result.ok().message("物品领取成功");
+        }
+        return Result.exist().message("领取失败");
     }
 }

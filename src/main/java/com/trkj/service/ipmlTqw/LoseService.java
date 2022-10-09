@@ -15,5 +15,5 @@ public interface LoseService extends IService<Lose> {
     //新增失物
     boolean addLose(Lose lose);
     //
-    boolean updateLoseState(Lose lose);
+    int updateLoseState(Lose lose);
 }
