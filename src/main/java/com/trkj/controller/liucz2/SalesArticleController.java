@@ -11,6 +11,7 @@ import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
 import com.trkj.vo.queryOuyang.InvoiceQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -62,6 +63,7 @@ public class SalesArticleController {
      * @param salesArticleAndInvoiceVo
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('sellgood:sellgood:add')")
     @PostMapping("/add")
     public Result add(@RequestBody SalesArticleAndInvoiceVo salesArticleAndInvoiceVo){
         //判断当前购买数是否大于出库总数
@@ -95,6 +97,7 @@ public class SalesArticleController {
      * @param: [id]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:sellgood:delete')")
     @DeleteMapping("/delete/{id}")
     public Result delete(@PathVariable Long id){
         System.out.println("id==="+id);
@@ -115,6 +118,7 @@ public class SalesArticleController {
      * @param: [id]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:sellgood:delete2')")
     @DeleteMapping("/delete2/{id}")
     public Result delete2(@PathVariable Long id){
         System.out.println("id==="+id);

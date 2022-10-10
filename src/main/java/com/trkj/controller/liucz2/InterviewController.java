@@ -4,6 +4,7 @@ import com.trkj.entity.liucz2.Interview;
 import com.trkj.service.implLiucz2.InterviewService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,6 +30,7 @@ public class InterviewController {
      * @param: 
      * @return: 
      **/
+    @PreAuthorize("hasAnyAuthority('coachs:interview:add')")
     @PostMapping("/addInterview")
     private Result addInterview(@RequestBody Interview interview){
         boolean save = interviewService.save(interview);
@@ -57,6 +59,7 @@ public class InterviewController {
  * @param:
  * @return:
  **/
+@PreAuthorize("hasAnyAuthority('coachs:interview:delete')")
 @GetMapping("/delete/{id}")
     public Result delete(@PathVariable Long id){
     boolean b = interviewService.removeById(id);

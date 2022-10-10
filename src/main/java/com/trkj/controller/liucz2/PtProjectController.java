@@ -5,6 +5,7 @@ import com.trkj.service.implLiucz2.PtChooseSerivce;
 import com.trkj.service.implLiucz2.PtProjectService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz2.PtProjectVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,7 @@ public class PtProjectController {
         return  Result.ok(ptProjectService.selectPtProject(ptProjectVo));
     }
     /*添加私教项目*/
+    @PreAuthorize("hasAnyAuthority('projectname:ptPro:add')")
     @PostMapping("add")
     public Result addPtProject(@RequestBody PtProject ptProject){
         if(ptProjectService.addPtProject(ptProject)){
@@ -41,6 +43,7 @@ public class PtProjectController {
     }
 
     /*删除*/
+    @PreAuthorize("hasAnyAuthority('projectname:ptPro:delete')")
     @DeleteMapping("delete/{ptpId}")
     public Result deletePtProjectById(@PathVariable Long ptpId){
         //判断当前项目是否绑定了套餐,有则无法删除
@@ -55,6 +58,7 @@ public class PtProjectController {
 
 
     /*修改*/
+    @PreAuthorize("hasAnyAuthority('projectname:ptPro:edit')")
     @PutMapping("update")
     public Result updatePtProject(@RequestBody PtProject ptProject){
         //根据传入的项目名称,查询是否已经存在
