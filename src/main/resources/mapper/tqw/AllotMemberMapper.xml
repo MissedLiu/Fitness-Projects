@@ -26,6 +26,7 @@
             and m.member_phone=#{query.memberPhone}
         </if>
     </select>
+
     <select id="findMemberByEmpIds" resultType="com.trkj.vo.queryTqw.MemberAndAllotQueryVo">
         select * from allot_member am inner join `member` m
         on am.member_id = m.member_id

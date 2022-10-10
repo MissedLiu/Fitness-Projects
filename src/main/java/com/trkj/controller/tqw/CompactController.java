@@ -5,6 +5,7 @@ import com.trkj.entity.tqw.Member;
 import com.trkj.service.ipmlTqw.CompactService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.CompactAndMemberQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,6 +26,7 @@ public class CompactController {
         return Result.ok(compactService.findMemberMeal(member));
     }
     //添加合同数据
+    @PreAuthorize("hasAuthority('members:contract:add')")
     @PostMapping("/addCompact")
     public Result addCompact(@RequestBody Compact compact){
         if(compactService.addCompact(compact)){
@@ -33,6 +35,7 @@ public class CompactController {
         return Result.exist().message("记录添加失败");
     }
     //删除记录
+    @PreAuthorize("hasAuthority('members:contract:delete')")
     @DeleteMapping("/delDetial/{compactId}")
     public Result delDetial(@PathVariable Long compactId){
         if(compactService.delDetial(compactId)){

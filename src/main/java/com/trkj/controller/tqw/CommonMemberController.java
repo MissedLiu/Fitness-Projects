@@ -7,6 +7,7 @@ import com.trkj.service.ipmlTqw.MemberService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz.UserQueryVo;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -42,6 +43,7 @@ public class CommonMemberController {
      *新增普通会员
      *
      */
+    @PreAuthorize("hasAuthority('members:ptmember:add')")
     @PostMapping("/addCommonMember")
     public Result addCommonMember(@RequestBody MemberQueryVo memberQueryVo){
         int res=commonMemberService.addCommonMember(memberQueryVo);
@@ -66,6 +68,7 @@ public class CommonMemberController {
      *续费
      *
      */
+    @PreAuthorize("hasAuthority('members:ptmember:xufei')")
     @PutMapping("/renew")
     public Result RenewCommonMember(@RequestBody MemberQueryVo memberQueryVo){
         int a=commonMemberService.renewCommonMember(memberQueryVo);
@@ -85,6 +88,7 @@ public class CommonMemberController {
      *通过会员办理套餐表id删除普通会员数据
      *
      */
+    @PreAuthorize("hasAuthority('members:ptmember:delete')")
     @DeleteMapping("/delCommonMemberById/{mmId}")
     public Result delCommonMemberById(@PathVariable long mmId){
         if(commonMemberService.delCommonMemberById(mmId)){
@@ -105,9 +109,10 @@ public class CommonMemberController {
 
     /*
      *
-     *通过mealId查询普通套餐
+     *通过mealId查询普通套餐（详情）
      *
      */
+    @PreAuthorize("hasAuthority('members:ptmember:xiangqing')")
     @GetMapping("/findCommenMealByCmId/{cmId}")
     public Result selectCommonMealByMealId(@PathVariable Long cmId){
         System.out.println(cmId);

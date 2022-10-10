@@ -5,6 +5,7 @@ import com.trkj.service.ipmlTqw.AllotMemberService;
 import com.trkj.service.ipmlTqw.CallbackMemberService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ public class AllotMemberController {
         return Result.ok(allotMemberService.findMemberByEmpId(empQueryVo));
     }
     //新增回访记录
+    @PreAuthorize("hasAuthority('pay:member:paymember')")
     @PostMapping("/addCallbackMember")
     public Result addCallbackMember(@RequestBody CallbackMember callbackMember){
         if(callbackMemberService.addCallbackMember(callbackMember)){

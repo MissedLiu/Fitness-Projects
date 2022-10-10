@@ -9,6 +9,7 @@ import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
 import com.trkj.vo.queryTqw.EmpAndPtMealQueryVo;
 import com.trkj.vo.queryTqw.EmpAndTeamMealQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -34,12 +35,14 @@ public class CoachController {
         return Result.ok(empService.findEmpListByStation(empQueryVo));
     }
     //修改教练
+    @PreAuthorize("hasAuthority('coachs:coach:edit')")
     @PutMapping("/updateEmp")
     public Result updateEmp(@RequestBody Emp emp){
         return Result.ok(empService.updateById(emp));
     }
 
     //通过员工id查询私教关系表数据
+    @PreAuthorize("hasAuthority('coachs:coach:sjmeal')")
     @GetMapping("/findPtAndEmp")
     public Result findPtAndEmp(Long empId){
         return Result.ok(ptCoachService.findPtAndEmpByEmpId(empId));
@@ -54,6 +57,7 @@ public class CoachController {
     }
 
     //通过员工id查询团操关系表数据
+    @PreAuthorize("hasAuthority('coachs:coach:tcmeal')")
     @GetMapping("/findTeamAndEmp")
     public Result findTeamAndEmp(Long empId){
         return Result.ok(teamCoachService.findTeamAndEmpByEmpId(empId));

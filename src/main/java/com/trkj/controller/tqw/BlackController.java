@@ -4,6 +4,7 @@ import com.trkj.service.ipmlTqw.BlackService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -36,6 +37,7 @@ public class BlackController {
     *移出黑名单
     *
     */
+    @PreAuthorize("hasAuthority('members:blacklist:delete')")
     @PutMapping("/outUpdMemberState")
     public Result outUpdMemberState(@RequestBody MemberAndBlackQueryVo memberAndBlackQueryVo){
         if(blackService.outUpdMemberState(memberAndBlackQueryVo.getMemberId(),memberAndBlackQueryVo.getWhy())){

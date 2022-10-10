@@ -7,6 +7,7 @@ import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
 import com.trkj.vo.queryTqw.MemberAndCallbackQueryVo;
 import com.trkj.vo.queryTqw.MemberMessageQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -40,6 +41,7 @@ public class MessageController {
     }
 
     //分配会员
+    @PreAuthorize("hasAuthority('services:message:sllotmember')")
     @PostMapping("/allocationMember")
     public Result allocationMember(@RequestBody MemberMessageQueryVo memberMessageQueryVo){
         System.out.println("empId:"+memberMessageQueryVo);
@@ -49,6 +51,7 @@ public class MessageController {
         return Result.error().message("分配失败");
     }
     //已分配会员查看
+    @PreAuthorize("hasAuthority('services:message:selectmember')")
     @GetMapping("/findMemberByEmpIds")
     public Result findMemberByEmpIds(Long empId){
         return Result.ok(allotMemberService.findMemberByEmpIds(empId));
@@ -63,7 +66,6 @@ public class MessageController {
     }
 
 
-
     //查询分配状态为0的潜在用户
     @GetMapping("/findProspectByProspectIs")
     public Result findProspectByProspectIs(){
@@ -71,6 +73,7 @@ public class MessageController {
     }
 
     //分配潜在用户
+    @PreAuthorize("hasAuthority('services:message:sllotpotential')")
     @PostMapping("/allocationProspect")
     public Result allocationProspect(@RequestBody MemberMessageQueryVo memberMessageQueryVo){
         System.out.println("empId:"+memberMessageQueryVo);
@@ -80,6 +83,7 @@ public class MessageController {
         return Result.error().message("分配失败");
     }
     //已分配潜在用户查看
+    @PreAuthorize("hasAuthority('services:message:selectpotential')")
     @GetMapping("/findProspectByEmpIds")
     public Result findProspectByEmpIds(Long empId){
         return Result.ok(allotProspectService.findProspectByEmpIds(empId));

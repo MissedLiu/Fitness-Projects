@@ -3,6 +3,7 @@ package com.trkj.controller.tqw;
 import com.trkj.service.ipmlTqw.*;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -39,6 +40,7 @@ public class TeamMemberController {
      *新增团操会员
      *
      */
+    @PreAuthorize("hasAuthority('members:tcmember:add')")
     @PostMapping("/addTeamMember")
     public Result addTeamMember(@RequestBody MemberQueryVo memberQueryVo){
         int res=teamMemberService.addTeamMember(memberQueryVo);
@@ -64,6 +66,7 @@ public class TeamMemberController {
      *通过会员办理套餐表id删除私教会员套餐表，项目表数据
      *
      */
+    @PreAuthorize("hasAuthority('members:tcmember:delete')")
     @DeleteMapping("/delTeamMealById/{mmId}")
     public Result delTeamMealById(@PathVariable long mmId){
         if(ptMemberService.delPtMemberById(mmId)){
@@ -77,6 +80,7 @@ public class TeamMemberController {
      *续费
      *
      */
+    @PreAuthorize("hasAuthority('members:tcmember:xufei')")
     @PutMapping("/renew")
     public Result RenewPtMember(@RequestBody MemberQueryVo memberQueryVo){
         System.out.println("memberQueryVo"+memberQueryVo);
@@ -130,6 +134,7 @@ public class TeamMemberController {
      *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
      *
      */
+    @PreAuthorize("hasAuthority('members:tcmember:xiangqing')")
     @GetMapping("/selectTeamMealByMealId/{mmId}")
     public Result selectTeamMealByMealId(@PathVariable Long mmId){
         return Result.ok(teamMemberService.selectTeamMealAndEmpByMmId(mmId));

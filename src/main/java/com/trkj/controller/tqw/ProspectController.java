@@ -4,6 +4,7 @@ import com.trkj.entity.tqw.Prospect;
 import com.trkj.service.ipmlTqw.ProspectService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.ProspectQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ public class ProspectController {
         return Result.ok(prospectService.findProspectList(prospectQueryVo));
     }
     //新增潜在用户
+    @PreAuthorize("hasAuthority('prospects:prospects:add')")
     @PostMapping("/addProspect")
     public Result addProspect(@RequestBody Prospect prospect){
         if(prospectService.addProspect(prospect)){
@@ -27,6 +29,7 @@ public class ProspectController {
         return Result.error().message("添加失败");
     }
     //删除潜在用户
+    @PreAuthorize("hasAuthority('prospects:prospects:delete')")
     @DeleteMapping("/deleteProspect/{prospectId}")
     public Result deleteProspect(@PathVariable Long prospectId){
         if(prospectService.deleteProspect(prospectId)){
@@ -36,6 +39,7 @@ public class ProspectController {
     }
 
     //修改潜在用户
+    @PreAuthorize("hasAuthority('prospects:prospects:edit')")
     @PutMapping("/updProspect")
     public Result updProspect(@RequestBody Prospect prospect){
         if(prospectService.updProspecr(prospect)==true){

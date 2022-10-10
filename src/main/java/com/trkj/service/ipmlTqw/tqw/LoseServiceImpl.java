@@ -1,6 +1,7 @@
 package com.trkj.service.ipmlTqw.tqw;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -11,7 +12,10 @@ import com.trkj.service.ipmlTqw.LoseService;
 import com.trkj.vo.queryTqw.LoseQueryVo;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
 *
@@ -20,6 +24,17 @@ import java.util.Date;
 public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements LoseService {
     //查询
     public IPage<Lose> selectLose(LoseQueryVo loseQueryVo){
+        //删除半年前的失物招领记录
+        //两个月前时间
+        Calendar rightNow = Calendar.getInstance();
+        rightNow.setTime(new Date());
+        rightNow.add(Calendar.MONTH ,-6);
+        System.out.println("ttttt"+rightNow.getTime());
+        //删除两个月前的数据
+        QueryWrapper<Lose> wrapper=new QueryWrapper<>();
+        wrapper.le("create_ttime",rightNow.getTime());
+        baseMapper.delete(wrapper);
+
         Page<Lose> page=new Page<>(loseQueryVo.getPageNo(),loseQueryVo.getPageSize());
         System.out.println(loseQueryVo);
         IPage<Lose> iPage=baseMapper.selectLose(page,loseQueryVo);

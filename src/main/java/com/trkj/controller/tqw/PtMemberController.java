@@ -6,6 +6,7 @@ import com.trkj.service.ipmlTqw.PtMemberService;
 import com.trkj.service.ipmlTqw.PtProjectnameService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -41,6 +42,7 @@ public class PtMemberController {
      *新增私教会员
      *
      */
+    @PreAuthorize("hasAuthority('members:sjmember:add')")
     @PostMapping("/addPtMember")
     public Result addPtMember(@RequestBody MemberQueryVo memberQueryVo){
         int res=ptmemberService.addPtMember(memberQueryVo);
@@ -65,6 +67,7 @@ public class PtMemberController {
      *续费
      *
      */
+    @PreAuthorize("hasAuthority('members:sjmember:xufei')")
     @PutMapping("/renew")
     public Result RenewPtMember(@RequestBody MemberQueryVo memberQueryVo){
         System.out.println("memberQueryVo"+memberQueryVo);
@@ -85,6 +88,7 @@ public class PtMemberController {
      *通过会员办理套餐表id删除私教会员套餐表，项目表数据
      *
      */
+    @PreAuthorize("hasAuthority('members:sjmember:delete')")
     @DeleteMapping("/delPtMealById/{mmId}")
     public Result delPtMealById(@PathVariable long mmId){
 
@@ -133,6 +137,7 @@ public class PtMemberController {
      *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
      *
      */
+    @PreAuthorize("hasAuthority('members:sjmember:xiangqing')")
     @GetMapping("/selectPtMealByMealId/{mmId}")
     public Result selectCommonMealByMealId(@PathVariable Long mmId){
         return Result.ok(ptmemberService.selectPtMealAndEmpByMmId(mmId));

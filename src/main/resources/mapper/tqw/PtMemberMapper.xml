@@ -58,6 +58,7 @@
         and cp.ptp_id=pp.ptp_id
         and cp.emp_id=se.emp_id
         and pm.pt_id=mm.meal_id
+        order by mm.mm_time desc
     </select>
 
 

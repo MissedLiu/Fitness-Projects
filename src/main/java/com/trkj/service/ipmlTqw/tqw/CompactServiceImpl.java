@@ -38,10 +38,11 @@ implements CompactService {
     //查询会员下办了套餐却没有签订合同的套餐
     @Override
     public List<MemberMeal> findMemberMeal(Member member) {
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa"+member);
         //查询该会员办理的套餐
         QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
         wrapper.eq("member_id", member.getMemberId());
-        wrapper.eq("meal_type","私教").or().eq("meal_type","团操");
+        wrapper.and(wrapper1 -> wrapper1.eq("meal_type","私教").or().eq("meal_type","团操"));
         List<MemberMeal> list = memberMealMapper.selectList(wrapper);
         //通过套餐id查询合同表中是否有数据
         List<MemberMeal> list1=new LinkedList<>();

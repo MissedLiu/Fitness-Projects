@@ -28,5 +28,6 @@
         <if test="query.memberPhone !=null and query.memberPhone !='' ">
             and m.member_phone=#{query.memberPhone}
         </if>
+        order by cm.Column_time desc
     </select>
 </mapper>

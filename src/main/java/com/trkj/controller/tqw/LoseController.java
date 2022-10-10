@@ -7,6 +7,7 @@ import com.trkj.service.ipmlTqw.LoseService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.LockerQueryVo;
 import com.trkj.vo.queryTqw.LoseQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,6 +29,7 @@ public class LoseController {
         return Result.ok(loseService.selectLose(loseQueryVo));
     }
     //新增失物
+    @PreAuthorize("hasAuthority('loses:lose:add')")
     @PostMapping("/addlose")
     public Result addLose(@RequestBody Lose lose){
         System.out.println("++++++++++++++++++="+lose);
@@ -35,6 +37,7 @@ public class LoseController {
     }
 
     //新增领取人，修改失物状态
+    @PreAuthorize("hasAuthority('loses:lose:get')")
     @PostMapping("/updateLoseState")
     public Result updateLoseState(@RequestBody Lose lose){
         int a=loseService.updateLoseState(lose);

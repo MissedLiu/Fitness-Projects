@@ -8,6 +8,7 @@ import com.trkj.service.ipmlTqw.PtProjectnameService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -47,6 +48,7 @@ public class MemberController {
      *新增会员
      *
      */
+    @PreAuthorize("hasAuthority('members:refinance:add')")
     @PostMapping("/addMember")
     public Result addMember(@RequestBody Member member){
         if(memberService.addMember(member)){
@@ -61,6 +63,7 @@ public class MemberController {
     *通过会员id删除会员
     *
     */
+    @PreAuthorize("hasAuthority('members:refinance:delete')")
     @DeleteMapping("/delMemberByMemberId/{memberId}")
     public Result delMemberByMemberId(@PathVariable Long memberId){
         if(memberService.delMemberByMemberId(memberId)){
@@ -74,6 +77,7 @@ public class MemberController {
      *根据电话修改会员
      *
      */
+    @PreAuthorize("hasAuthority('members:refinance:edit')")
     @PutMapping("/updataMemberByMemberPhone")
     public Result updataMemberByMemberPhone(@RequestBody Member member){
         int a=memberService.updataMemberByMemberPhone(member);
@@ -92,6 +96,7 @@ public class MemberController {
     *加入黑名单
     *
     */
+    @PreAuthorize("hasAuthority('members:refinance:addblack')")
     @PutMapping("/goUpdMemberState")
     public Result goUpdMemberState(@RequestBody MemberAndBlackQueryVo memberAndBlackQueryVo){
         if(blackService.goUpdMemberState(memberAndBlackQueryVo.getMemberId(),memberAndBlackQueryVo.getWhy())){

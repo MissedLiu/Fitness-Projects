@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.dao.tqw.MemberConsultMapper;
+import com.trkj.dao.tqw.MemberMapper;
 import com.trkj.dao.tqw.ProspectMapper;
+import com.trkj.entity.tqw.Member;
 import com.trkj.entity.tqw.MemberConsult;
 import com.trkj.entity.tqw.Prospect;
 import com.trkj.service.ipmlTqw.MemberConsultService;
@@ -28,6 +30,8 @@ public class MemberConsultServiceImpl extends ServiceImpl<MemberConsultMapper, M
 implements MemberConsultService {
     @Autowired
     private ProspectMapper prospectMapper;
+    @Autowired
+    private MemberMapper memberMapper;
 
     //分页查询列表
     @Override
@@ -43,6 +47,12 @@ implements MemberConsultService {
         //新增咨询记录
         memberConsult.setConsultTime(new Date());
         baseMapper.insert(memberConsult);
+        //判断是否是会员
+        QueryWrapper<Member> wrapper1=new QueryWrapper<>();
+        wrapper1.eq("member_phone",memberConsult.getConsultPhone());
+        if(memberMapper.selectOne(wrapper1)!=null){
+            return 2;
+        }
         //根据电话查询潜在用户表是否有记录
         QueryWrapper<Prospect> wrapper=new QueryWrapper<>();
         wrapper.eq("prospect_phone",memberConsult.getConsultPhone());

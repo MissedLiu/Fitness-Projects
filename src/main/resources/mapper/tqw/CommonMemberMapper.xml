@@ -33,6 +33,7 @@
         and m.member_state != 1
         and mm.member_id=m.member_id
         and cm.cm_id=mm.meal_id
+        order by mm.mm_time desc
     </select>
 
     <!--通过电话和套餐类型和套餐id查询普通会员-->

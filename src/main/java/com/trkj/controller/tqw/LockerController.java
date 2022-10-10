@@ -7,6 +7,7 @@ import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.LockerQueryVo;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,6 +29,7 @@ public class LockerController {
     }
 
     //新增储物柜
+    @PreAuthorize("hasAuthority('members:locker:add')")
     @PostMapping("/addLocker")
     public Result addLocker(@RequestBody LockerQueryVo lockerQueryVo){
         int i = lockerService.addLocker(lockerQueryVo.getLockerId());
@@ -38,6 +40,7 @@ public class LockerController {
         }
     }
     //删除储物柜
+    @PreAuthorize("hasAuthority('members:locker:delete')")
     @DeleteMapping("/deleteLocker/{lockerId}")
     public Result deleteLocker(@PathVariable long lockerId){
         int a = lockerService.deleteLocker(lockerId);
@@ -58,8 +61,8 @@ public class LockerController {
         return Result.error().message("失败");
     }
 
-
     //储物柜添加会员
+    @PreAuthorize("hasAuthority('members:locker:addmember')")
     @PostMapping("/addLockerByMemberId")
     public Result addLockerByMemberId(@RequestBody LockerQueryVo lockerQueryVo){
         int a = lockerService.addLockerByMemberId(lockerQueryVo);
@@ -80,6 +83,7 @@ public class LockerController {
     }
 
     //储物柜移除会员
+    @PreAuthorize("hasAuthority('members:locker:deletemember')")
     @DeleteMapping("/deleteLockerByMemberId/{memberId}/{lockerId}")
     public Result deleteLockerByMemberId(@PathVariable long memberId,@PathVariable long lockerId){
         if(lockerService.deleteLockerByMemberId(memberId,lockerId)){
