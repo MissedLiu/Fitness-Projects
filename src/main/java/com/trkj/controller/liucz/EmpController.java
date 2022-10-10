@@ -197,6 +197,17 @@ public class EmpController {
         IPage<User> userAndEmp = userService.findUserAndEmp2(userQueryVo);
         return Result.ok(userAndEmp);
     }
-
+    /**
+     * @description:
+     * 统计每个部门的人数
+     * @author: Liucz
+     * @date: 2022/10/10 9:44
+     * @param: []
+     * @return: com.trkj.utils.Result
+     **/
+    @GetMapping("/CountEmpNum")
+    public Result CountEmpNum(){
+        return Result.ok( empService.findCountEmpBydeptId());
+    }
 }
 
