@@ -6,6 +6,7 @@ import com.trkj.entity.ouyang.StockOut;
 import com.trkj.service.implOuyang.StockOutService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.StockOutQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,7 +26,7 @@ public class StockOutController {
 
         return Result.ok(page);
     }
-
+    @PreAuthorize("hasAnyAuthority('stores:outStore:delete')")
     @DeleteMapping("/delete/{id}")
     public Result deleteStockOut(@PathVariable Long id){
         if (stockOutService.removeById(id)){

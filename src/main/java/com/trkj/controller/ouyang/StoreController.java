@@ -6,6 +6,7 @@ import com.trkj.entity.ouyang.Store;
 import com.trkj.service.implOuyang.StoreService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.StoreQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,6 +34,7 @@ public class StoreController {
      * @param id
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('stores:store:delete')")
     @DeleteMapping("/delete/{id}")
     public Result deleteStore(@PathVariable Long id) {
         //判断库存数是否为0
@@ -52,6 +54,7 @@ public class StoreController {
      * @param: [storeQueryVo]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('stores:store:delete')")
     @PostMapping("/toOutStock")
     public Result toOutStock(@RequestBody StoreQueryVo storeQueryVo) {
         //判断库存数是否大于前端输入的出库数量
