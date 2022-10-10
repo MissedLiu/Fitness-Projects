@@ -73,5 +73,8 @@
             and meal_type=#{query.type}
         </if>
     </select>
+    <select id="findNum" resultType="com.trkj.vo.queryLiucz.TeamMemerberNumVo">
+        select meal_type as name ,count(comsune_id) as value from comsune group by meal_type;
+    </select>
 
 </mapper>

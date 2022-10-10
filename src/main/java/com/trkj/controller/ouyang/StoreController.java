@@ -54,7 +54,7 @@ public class StoreController {
      * @param: [storeQueryVo]
      * @return: com.trkj.utils.Result
      **/
-    @PreAuthorize("hasAnyAuthority('stores:store:delete')")
+    @PreAuthorize("hasAnyAuthority('stores:store:outStock')")
     @PostMapping("/toOutStock")
     public Result toOutStock(@RequestBody StoreQueryVo storeQueryVo) {
         //判断库存数是否大于前端输入的出库数量

@@ -3,6 +3,7 @@ package com.trkj.service.ipmlTqw;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.entity.tqw.Member;
+import com.trkj.vo.queryLiucz.TeamMemerberNumVo;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 
 import java.util.List;

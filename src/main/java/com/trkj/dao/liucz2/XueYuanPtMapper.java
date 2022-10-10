@@ -23,6 +23,15 @@ public interface XueYuanPtMapper extends BaseMapper<XueYuanPtVo> {
      * @return:
      **/
     IPage<XueYuanPtVo> findAll(Page<XueYuanPtVo> page, @Param("query") PageVo pageVo);
+    /**
+     * @description:
+     * 查询教练下私教学员的人数
+     * @author: Liucz
+     * @date: 2022/10/10 20:54
+     * @param:
+     * @return:
+     **/
+
 }
 
 

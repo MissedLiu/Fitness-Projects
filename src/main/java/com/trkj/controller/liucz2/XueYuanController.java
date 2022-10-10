@@ -97,5 +97,16 @@ public class XueYuanController {
         }
         return Result.error().message("记录清除失败");
     }
-
+    /**
+     * @description:
+     * 查询个个教练下的会员数量
+     * @author: Liucz
+     * @date: 2022/10/10 20:22
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/findNumJiaoLian")
+    public Result findNumJiaoLian(){
+        return Result.ok(xueYuanTmService.findNUm());
+    }
 }

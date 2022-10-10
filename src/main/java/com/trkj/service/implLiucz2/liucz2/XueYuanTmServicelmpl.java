@@ -7,11 +7,13 @@ import com.trkj.dao.liucz2.XueYuanPtMapper;
 import com.trkj.dao.liucz2.XueYuanTmMapper;
 import com.trkj.service.implLiucz2.XueYuanTmService;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz2.JiaolianNumVo;
 import com.trkj.vo.queryLiucz2.XueYuanPtVo;
 import com.trkj.vo.queryLiucz2.XueYuanTmVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @BelongsProject: Fitness-Projects
@@ -38,5 +40,18 @@ public class XueYuanTmServicelmpl  implements XueYuanTmService {
         Page<XueYuanTmVo> page=new Page<>(pageVo.getPageNo() ,pageVo.getPageSize());
         IPage<XueYuanTmVo> all = xueYuanTmMapper.findAll(page, pageVo);
         return all;
+    }
+    /**
+     * @description:
+     * 查询个个教练下的会员数量
+     * @author: Liucz
+     * @date: 2022/10/10 20:22
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<JiaolianNumVo> findNUm() {
+        List<JiaolianNumVo> nUm = xueYuanTmMapper.findNUm();
+        return nUm;
     }
 }

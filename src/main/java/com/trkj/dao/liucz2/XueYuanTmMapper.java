@@ -4,9 +4,12 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz2.JiaolianNumVo;
 import com.trkj.vo.queryLiucz2.XueYuanPtVo;
 import com.trkj.vo.queryLiucz2.XueYuanTmVo;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @author 张鑫
@@ -24,6 +27,23 @@ public interface XueYuanTmMapper extends BaseMapper<XueYuanPtVo> {
      * @return:
      **/
     IPage<XueYuanTmVo> findAll(Page<XueYuanTmVo> page, @Param("query") PageVo pageVo);
+    /**
+     * @description:
+     * 查询个个教练下的会员数量
+     * @author: Liucz
+     * @date: 2022/10/10 20:22
+     * @param:
+     * @return:
+     **/
+    List<JiaolianNumVo> findNUm();
+    /**
+     * @description:
+     * 查询教练下团操学员的人数
+     * @author: Liucz
+     * @date: 2022/10/10 20:54
+     * @param:
+     * @return:
+     **/
 }
 
 

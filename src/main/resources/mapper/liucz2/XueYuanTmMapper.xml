@@ -21,6 +21,13 @@
 
 
     </select>
+    <select id="findNUm" resultType="com.trkj.vo.queryLiucz2.JiaolianNumVo">
+            select e.emp_name as name ,count(me.member_id) as value  from choose_projectname cp
+        inner join member_meal mm on cp.mm_id=mm.mm_id
+        inner join  `member` me on me.member_id =mm.member_id
+        inner join sys_emp e on e.emp_id=cp.emp_id
+        where  me.member_state !=1 group by cp.emp_id ;
+    </select>
 
 
 </mapper>

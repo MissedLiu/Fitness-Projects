@@ -1,5 +1,6 @@
 package com.trkj.controller.tqw;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.service.ipmlTqw.ComsuneService;
 import com.trkj.utils.Result;
@@ -44,5 +45,17 @@ public class ComsuneController {
             return Result.ok().message("删除成功");
         }
         return Result.error().message("删除失败");
+    }
+    /**
+     * @description:
+     * 统计套餐消费次数
+     * @author: Liucz
+     * @date: 2022/10/10 17:10
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/findNum")
+    public Result findNum(){
+        return Result.ok(comsuneService.findNum());
     }
 }

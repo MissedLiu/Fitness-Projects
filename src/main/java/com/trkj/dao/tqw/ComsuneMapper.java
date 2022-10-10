@@ -6,9 +6,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.tqw.Comsune;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz.TeamMemerberNumVo;
 import com.trkj.vo.queryTqw.ComsuneQueryVo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
 * @Entity com.trkj.entity.Comsune
@@ -27,4 +30,14 @@ public interface ComsuneMapper extends BaseMapper<Comsune> {
     Long SumLastQuarterPrice(@Param("query") PageVo pageVo);
 
     Long SumYearPrice(@Param("query") PageVo pageVo);
+
+    /**
+     * @description:
+     * 统计套餐消费次数
+     * @author: Liucz
+     * @date: 2022/10/10 17:10
+     * @param:
+     * @return:
+     **/
+    List<TeamMemerberNumVo> findNum();
 }
