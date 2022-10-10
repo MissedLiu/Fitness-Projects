@@ -21,7 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/repair")
-public class EeamageController {
+public class  EeamageController {
     @Resource
     private EeamageService eeamageService;
     @Resource
