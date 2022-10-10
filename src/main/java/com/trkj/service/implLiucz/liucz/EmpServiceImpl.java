@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.service.implLiucz.FileService;
 import com.trkj.service.implLiucz.UserService;
 import com.trkj.utils.SystemConstants;
+import com.trkj.vo.queryLiucz.CountEmpVo;
 import com.trkj.vo.queryLiucz.EmpAndUserQueryVo;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -53,7 +55,6 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpSe
     public IPage<Emp> findEmpListByPage2( EmpQueryVo empQueryVo) {
         Page<Emp> pageStr=new Page<Emp>(empQueryVo.getPageNo(),empQueryVo.getPageSize());
         IPage<Emp> iPage = empMapper.selectEmpUserNamePage(pageStr, empQueryVo);
-        System.out.println("211111111111111 "+iPage.getRecords());
         return iPage;
     }
     /*
@@ -63,7 +64,6 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpSe
     public IPage<EmpAndUser> findEmpListByPage3(EmpAndUserQueryVo empAndUserQueryVo) {
         Page<EmpAndUser> pageStr=new Page<EmpAndUser>(empAndUserQueryVo.getPageNo(),empAndUserQueryVo.getPageSize());
         IPage<EmpAndUser> iPage =empAndUserMapper.selectEmpUserNamePage3(pageStr, empAndUserQueryVo);
-        System.out.println("211111111111111 "+iPage.getRecords());
         return iPage;
     }
     /*
@@ -95,6 +95,13 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpSe
         Page<Emp> pageStr=new Page<Emp>(empQueryVo.getPageNo(),empQueryVo.getPageSize());
         IPage<Emp> iPage =baseMapper.selectEmpListByStation(pageStr,empQueryVo);
         return iPage;
+    }
+    //添加每个部门下的人数
+    @Override
+    public List<CountEmpVo> findCountEmpBydeptId() {
+        List<CountEmpVo> countEmpBydeptId = empMapper.findCountEmpBydeptId();
+        countEmpBydeptId.forEach(System.out::println);
+        return countEmpBydeptId;
     }
 
 }

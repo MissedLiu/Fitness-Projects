@@ -69,5 +69,8 @@
             and emp_phone = #{query.empPhone}
         </if>
     </select>
+    <select id="findCountEmpBydeptId" resultType="com.trkj.vo.queryLiucz.CountEmpVo">
+        SELECT department_name as name,count(t.emp_id) as value FROM sys_emp t  where t.department_id !=1 GROUP BY t.department_id;
+    </select>
 
 </mapper>

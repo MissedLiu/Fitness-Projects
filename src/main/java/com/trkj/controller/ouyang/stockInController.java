@@ -3,6 +3,7 @@ package com.trkj.controller.ouyang;
 import com.trkj.service.implOuyang.StockInService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.StockInQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,6 +30,7 @@ public class stockInController {
      * @param id
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('stores:outStore:delete')")
     @DeleteMapping("/delete/{id}")
     public Result deleteStockIn(@PathVariable Long id){
         if (stockInService.removeById(id)){

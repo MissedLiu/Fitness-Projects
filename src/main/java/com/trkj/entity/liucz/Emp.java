@@ -122,7 +122,9 @@ public class Emp implements Serializable {
     private String synopsis;
     @TableField(exist = false)
     private User user;
-
+    //统计人数
+    @TableField(exist = false)
+    private Long num;
 
 
 }

@@ -9,6 +9,7 @@ import com.trkj.service.implOuyang.StockInService;
 import com.trkj.service.implOuyang.StoreService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.PoQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +46,7 @@ public class PoController {
      * @param poQueryVo
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('stores:po:toStore')")
     @PostMapping("/toStock")
     public Result toStock(@RequestBody PoQueryVo poQueryVo) {
         //后端数据校验
@@ -100,6 +102,7 @@ public class PoController {
      * @param id
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('stores:po:delete')")
     @DeleteMapping("/delete/{id}")
     private Result daletePo(@PathVariable Long id) {
         if (poService.removeById(id)) {

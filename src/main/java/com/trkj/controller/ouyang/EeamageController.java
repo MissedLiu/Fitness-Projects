@@ -14,6 +14,7 @@ import com.trkj.service.implOuyang.EeamageService;
 import com.trkj.service.implOuyang.EmaintenanceService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.EeamageQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,7 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/repair")
-public class EeamageController {
+public class  EeamageController {
     @Resource
     private EeamageService eeamageService;
     @Resource
@@ -127,6 +128,7 @@ public Result getRepairList(EeamageQueryVo eeamageQueryVo) {
  * @param: [eeamage]
  * @return: com.trkj.utils.Result
  **/
+
     @PostMapping("/add")
     public Result addRepair(@RequestBody Eeamage eeamage) {
         Edetails edetails=new Edetails();
@@ -160,6 +162,7 @@ public Result getRepairList(EeamageQueryVo eeamageQueryVo) {
  * @param: [id]
  * @return: com.trkj.utils.Result
  **/
+@PreAuthorize("hasAnyAuthority('repairs:record:delete')")
     @DeleteMapping("/delete/{id}")
     public Result deleteRepair(@PathVariable Long id) {
         //判断状态为 2-维修中则不可删除

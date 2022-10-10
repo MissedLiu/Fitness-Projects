@@ -4,8 +4,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.liucz.Emp;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.entity.liucz.EmpAndUser;
+import com.trkj.vo.queryLiucz.CountEmpVo;
 import com.trkj.vo.queryLiucz.EmpAndUserQueryVo;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -42,4 +45,6 @@ public interface EmpService extends IService<Emp> {
      * 分页查询员工信息（根据员工岗位）
      * */
     IPage<Emp> findEmpListByStation(EmpQueryVo empQueryVo);
+    //添加每个部门下的人数
+    List<CountEmpVo> findCountEmpBydeptId();
 }
