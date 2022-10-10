@@ -54,6 +54,20 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
         queryWrapper.eq("po_state","未入库");
         return baseMapper.selectPage(page,queryWrapper);
     }
+    /**
+     * @description:
+     * 根据id删除数据
+     * @author: Liucz
+     * @date: 2022/10/10 22:01
+     * @param:
+     * @return:
+     **/
+    @Override
+    public int deleteByid(Long id) {
+        System.out.println("oooo="+id);
+        int i = poMapper.deleteByPoIdInt(id);
+        return i;
+    }
 
 }
 

@@ -16,6 +16,10 @@
             <result property="poTime" column="po_time" jdbcType="TIMESTAMP"/>
             <result property="poType" column="po_type" jdbcType="VARCHAR"/>
     </resultMap>
+    <delete id="deleteByPoIdInt">
+
+delete from po where po_id=#{id}
+    </delete>
 
 
 </mapper>

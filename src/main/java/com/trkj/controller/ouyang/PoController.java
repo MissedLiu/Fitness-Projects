@@ -104,8 +104,8 @@ public class PoController {
      */
     @PreAuthorize("hasAnyAuthority('stores:po:delete')")
     @DeleteMapping("/delete/{id}")
-    private Result daletePo(@PathVariable Long id) {
-        if (poService.removeById(id)) {
+    public Result daletePo(@PathVariable Long id) {
+        if (poService.deleteByid(id)==1) {
             return Result.ok().message("恭喜您删除成功");
         }
         return Result.ok().message("删除失败");

@@ -19,4 +19,13 @@ public interface PoService extends IService<Po> {
 
     //查询所有未入库的已购物品
     IPage<Po> getNotExecuted(IPage<Po> page, PoQueryVo poQueryVo);
+    /**
+     * @description:
+     * 根据id删除数据
+     * @author: Liucz
+     * @date: 2022/10/10 22:01
+     * @param:
+     * @return:
+     **/
+    int deleteByid(Long id);
 }

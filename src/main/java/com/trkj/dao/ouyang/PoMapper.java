@@ -18,8 +18,15 @@ public interface PoMapper extends BaseMapper<Po> {
      */
     @Update(value = "update po set po_state='已入库' where po_id=#{poId}")
     public boolean updatePoState(Po po);
-
-
+    /**
+     * @description:
+     * 通过id删除数据
+     * @author: Liucz
+     * @date: 2022/10/10 22:08
+     * @param:
+     * @return:
+     **/
+    int deleteByPoIdInt(Long id);
 }
 
 

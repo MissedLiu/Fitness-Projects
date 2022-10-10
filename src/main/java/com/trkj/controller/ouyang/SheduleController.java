@@ -44,14 +44,14 @@ public class SheduleController {
     //添加采购计划
     @PreAuthorize("hasAnyAuthority('stores:plan:add')")
     @PostMapping("/add")
-    private Result addPlan(@RequestBody Schedule schedule) {
+    public Result addPlan(@RequestBody Schedule schedule) {
         return Result.ok(scheduleService.addPlan(schedule));
     }
 
     //修改采购计划
     @PreAuthorize("hasAnyAuthority('stores:plan:edit')")
     @PutMapping("/update")
-    private Result updatePlan(@RequestBody Schedule schedule) {
+    public Result updatePlan(@RequestBody Schedule schedule) {
 
         if (scheduleService.updateById(schedule)) {
             return Result.ok().message("修改成功");
@@ -62,7 +62,7 @@ public class SheduleController {
     //删除采购计划记录
     @PreAuthorize("hasAnyAuthority('stores:plan:delete')")
     @DeleteMapping("/delete/{id}")
-    private Result daletePlan(@PathVariable Long id) {
+    public Result daletePlan(@PathVariable Long id) {
         //根据当前计划id查询出状态
         int state = scheduleService.findState(id);
         if (state != 0) {
@@ -80,7 +80,7 @@ public class SheduleController {
 
     @PreAuthorize("hasAnyAuthority('stores:plan:toPo')")
     @PostMapping("/toPo")
-    private Result toPo(@RequestBody ScheduleQueryVo schedule) {
+    public Result toPo(@RequestBody ScheduleQueryVo schedule) {
         //先判断是否已经入库了
         int state = scheduleService.findState(schedule.getScheduleId());
         if (state == 4) {
