@@ -6,6 +6,7 @@ import com.trkj.entity.ouyang.Eeamage;
 import com.trkj.service.implOuyang.EmaintenanceService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.EmaintenanceQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,6 +34,7 @@ public class EmaintenanceController {
         return Result.ok(page);
     }
 
+    @PreAuthorize("hasAnyAuthority('equipment:plan:delete')")
     @DeleteMapping("/delete/{id}")
     public Result deleteEm(@PathVariable Long id){
         if (emaintenanceService.removeById(id)) {
