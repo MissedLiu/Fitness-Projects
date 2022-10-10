@@ -42,12 +42,14 @@ public class SheduleController {
     }
 
     //添加采购计划
+    @PreAuthorize("hasAnyAuthority('stores:plan:add')")
     @PostMapping("/add")
     private Result addPlan(@RequestBody Schedule schedule) {
         return Result.ok(scheduleService.addPlan(schedule));
     }
 
     //修改采购计划
+    @PreAuthorize("hasAnyAuthority('stores:plan:edit')")
     @PutMapping("/update")
     private Result updatePlan(@RequestBody Schedule schedule) {
 
@@ -58,6 +60,7 @@ public class SheduleController {
     }
 
     //删除采购计划记录
+    @PreAuthorize("hasAnyAuthority('stores:plan:delete')")
     @DeleteMapping("/delete/{id}")
     private Result daletePlan(@PathVariable Long id) {
         //根据当前计划id查询出状态
@@ -75,7 +78,7 @@ public class SheduleController {
 
     //采购完成，将数据插入已购物品表
 
-
+    @PreAuthorize("hasAnyAuthority('stores:plan:toPo')")
     @PostMapping("/toPo")
     private Result toPo(@RequestBody ScheduleQueryVo schedule) {
         //先判断是否已经入库了
@@ -131,6 +134,7 @@ public class SheduleController {
      * @param:
      * @return:
      **/
+    @PreAuthorize("hasAnyAuthority('stores:plan:shenhe')")
     @PostMapping("/addCaiGouShenHe")
     public Result addCaiGouShenHe(@RequestBody CaiGouShenHeDTO caiGouShenHeDTO) {
 
@@ -180,6 +184,7 @@ public class SheduleController {
         return Result.exist().message("该计划只有在未审核状态下才能编辑");
     }
 
+    @PreAuthorize("hasAnyAuthority('stores:plan:cxshenhe')")
     @GetMapping("/chexiao/{id}")
     public Result chexiao(@PathVariable Long id) {
         //根据当前计划id查询出状态

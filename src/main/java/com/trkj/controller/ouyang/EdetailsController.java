@@ -9,6 +9,7 @@ import com.trkj.service.implOuyang.StockOutService;
 import com.trkj.service.implOuyang.StoreService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.EdetailsQueryVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -44,6 +45,7 @@ public class EdetailsController {
      * @param edetails
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('equipments:details:add')")
     @PostMapping("/add")
     public Result addDetails(@RequestBody Edetails edetails){
         //通过前端回传的信息 判断出库表中是否有此器材
@@ -85,6 +87,7 @@ public class EdetailsController {
      * @param id
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('equipments:details:delete')")
     @DeleteMapping("/delete/{id}")
     public Result deleteDetails(@PathVariable Long id){
         Edetails edetails= edetailsService.getById(id);
@@ -103,6 +106,7 @@ public class EdetailsController {
      * @param edetails
      * @return
      */
+    @PreAuthorize("hasAnyAuthority('equipments:details:edit')")
     @PutMapping("/update")
     public Result updateDetails(@RequestBody Edetails edetails){
         //前端回传的数据为使用中和未使用 将其修改为1和0

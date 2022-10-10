@@ -12,6 +12,7 @@ import com.trkj.service.implOuyang.CommissionService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
 import org.apache.ibatis.annotations.Delete;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -77,6 +78,7 @@ public class SalesController {
      * @param:
      * @return:
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:classSell:getMeal')")
     @PostMapping("/addSales")
     public Result addSales(@RequestBody Sales sales) {
         Long MbId = 0L, MmId = 0L;
@@ -115,6 +117,7 @@ public class SalesController {
      * @param:
      * @return:
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:classSell:delete')")
     @DeleteMapping("/delete/{id}")
     public Result delete(@PathVariable Long id) {
         if (salesService.removeById(id)) {

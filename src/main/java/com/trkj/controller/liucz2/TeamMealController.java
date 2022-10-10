@@ -9,6 +9,7 @@ import com.trkj.service.implLiucz2.TeamProjectService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.TeamProjectVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -41,6 +42,7 @@ public class TeamMealController {
      * @param: [teamMeal]
      * @return: com.trkj.utils.Result
      **/
+
     @GetMapping("/listState")
     public Result selectTeamMealListState(PageVo pageVo) {
         return Result.ok(teamMealService.findAllTeamMealState(pageVo));
@@ -53,6 +55,7 @@ public class TeamMealController {
      * @param: [teamMeal]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:teamMeal:add')")
     @PostMapping("/add")
     public Result addTeamMeal(@RequestBody TeamMeal teamMeal) {
         //判断当前传入的套餐名,表中是否已经存在,如果存在则提示套餐名已经存在
@@ -71,6 +74,7 @@ public class TeamMealController {
      * @param: [teamMeal]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:teamMeal:edit')")
     @PutMapping("/update")
     public Result updateTeamMeal(@RequestBody TeamMeal teamMeal) {
         //修改套餐时,先判断该套餐名是否存在,如果存在则提示存在无法修改
@@ -95,6 +99,7 @@ public class TeamMealController {
      * @param: [teamId]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:teamMeal:delete')")
     @DeleteMapping("/delete/{teamId}")
     public Result deleteById(@PathVariable Long teamId) {
         //判断该套餐是否绑定了团操项目
@@ -114,6 +119,7 @@ public class TeamMealController {
     /*
      * 获取团操项目列表,
      * */
+    @PreAuthorize("hasAnyAuthority('sellgood:teamMeal:xuanze')")
     @GetMapping("/listTeamProList")
     public Result selectTeamProList(TeamProjectVo teamProjectVo){
 //        根据条件查询团操项目列表并分页,并查询只有状态为启用的

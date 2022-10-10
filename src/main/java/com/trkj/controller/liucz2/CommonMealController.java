@@ -5,6 +5,7 @@ import com.trkj.entity.liucz2.CommonMeal;
 import com.trkj.service.implLiucz2.CommonMealService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -40,12 +41,14 @@ public class CommonMealController {
      * @param: [commonMeal]
      * @return: com.trkj.utils.Result
      **/
+
     @GetMapping("/listState")
     public Result selectAllCommonMealState(PageVo pageVo){
         System.out.println("pageVo="+pageVo);
         return Result.ok(commonMealService.selectAllCommonMealState(pageVo));
     }
     /*删除*/
+    @PreAuthorize("hasAnyAuthority('sellgood:commonMeal:delete')")
     @DeleteMapping("/delete/{cmId}")
     public Result deleteById(@PathVariable Long cmId) {
         if (commonMealService.removeById(cmId)){
@@ -60,6 +63,7 @@ public class CommonMealController {
      * @param: [commonMeal]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:commonMeal:add')")
     @PostMapping("/add")
     public Result addCommonMeal(@RequestBody CommonMeal commonMeal){
         System.out.println("commonMeal=="+commonMeal);
@@ -78,6 +82,7 @@ public class CommonMealController {
      * @param: [commonMeal]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:commonMeal:edit')")
     @PutMapping("/update")
     public Result update(@RequestBody CommonMeal commonMeal) {
         //判断当前修改的套餐名称是否存在

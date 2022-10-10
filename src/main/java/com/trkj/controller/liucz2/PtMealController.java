@@ -14,6 +14,7 @@ import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.PtProjectNameVo;
 import com.trkj.vo.queryLiucz2.PtProjectVo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -47,6 +48,7 @@ public class PtMealController {
      * @param: [ptMealVo]
      * @return: com.trkj.utils.Result
      **/
+
     @GetMapping("/listState")
     public Result selectAllPtMealState(PageVo pageVo) {
         return Result.ok(ptMealService.selectAllPtMealState(pageVo));
@@ -59,6 +61,7 @@ public class PtMealController {
      * @param: [ptMeal]
      * @return: com.trkj.utils.Result
      **/
+    @PreAuthorize("hasAnyAuthority('sellgood:ptMeal:add')")
     @PostMapping("/add")
     public Result addPtMeal(@RequestBody PtMeal ptMeal) {
         //判断当前需要添加的私教套餐名有没有被使用
@@ -69,6 +72,7 @@ public class PtMealController {
         return Result.ok(ptMealService.save(ptMeal));
     }
     /*修改*/
+    @PreAuthorize("hasAnyAuthority('sellgood:ptMeal:edit')")
     @PutMapping("/update")
     public Result update(@RequestBody PtMeal ptMeal) {
         //判断当前需要修改的私教套餐名有没有被使用
@@ -91,6 +95,8 @@ public class PtMealController {
      * @param: [ptId]
      * @return: com.trkj.utils.Result
      **/
+
+    @PreAuthorize("hasAnyAuthority('sellgood:ptMeal:delete')")
     @DeleteMapping("/delete/{ptId}")
     public Result deleteById(@PathVariable Long ptId) {
         //判断该套餐是否绑定了项目
@@ -109,6 +115,7 @@ public class PtMealController {
      *
      * 获取私教项目列表
      * */
+    @PreAuthorize("hasAnyAuthority('sellgood:ptMeal:xuanze')")
     @GetMapping("/PtProjectList")
     public Result selectPtProject2(PtProjectVo ptProjectVo){
         System.out.println("ptProjectVo=="+ptProjectVo);
