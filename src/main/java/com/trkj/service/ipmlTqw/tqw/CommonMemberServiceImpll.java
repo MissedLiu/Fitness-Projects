@@ -6,7 +6,9 @@ import com.baomidou.mybatisplus.core.conditions.update.Update;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.dao.ouyang.ProceedsMapper;
 import com.trkj.dao.tqw.*;
+import com.trkj.entity.liucz2.Proceeds;
 import com.trkj.entity.tqw.CommonMeall;
 import com.trkj.entity.tqw.Comsune;
 import com.trkj.entity.tqw.Member;
@@ -37,6 +39,8 @@ public class CommonMemberServiceImpll implements CommonMemberService {
     private CommonMemberMapper commonMemberMapper;
     @Autowired
     private ComsuneMapper comsuneMapper;
+    @Autowired
+    private ProceedsMapper proceedsMapper;
 
     /*
      *
@@ -45,11 +49,11 @@ public class CommonMemberServiceImpll implements CommonMemberService {
      */
     @Override
     public IPage<MemberQueryVo> findCommentMember(MemberQueryVo memberQueryVo) {
-        Page<MemberQueryVo> pageStr=new Page<>(memberQueryVo.getPageNo(),memberQueryVo.getPageSize());
+        Page<MemberQueryVo> pageStr = new Page<>(memberQueryVo.getPageNo(), memberQueryVo.getPageSize());
         IPage<MemberQueryVo> Page = commonMemberMapper.findCommonMemberAll(pageStr, memberQueryVo);
         return Page;
     }
-    
+
     /*
      *
      *新增普通会员
@@ -67,11 +71,11 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         wrapper1.eq("member_name", memberQueryVo.getMemberName());
         Member member1 = memberMapper.selectOne(wrapper1);
         //判断是否黑名单
-        if(member1 != null){
-            if(member1.getMemberState()==1){
+        if (member1 != null) {
+            if (member1.getMemberState() == 1) {
                 return 4;
             }
-        }else if(member1==null){
+        } else if (member1 == null) {
             return 1;
         }
         //通过电话查会员
@@ -85,7 +89,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         if (member1 != null) {
             //会员存在
             //判断是否为体验会员
-            if(member1.getMemberType()==0){
+            if (member1.getMemberType() == 0) {
                 //体验会员
                 //直接办理套餐
                 MemberMeal memberMeal = new MemberMeal();
@@ -95,7 +99,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                 memberMeal.setMmTime(new Date());
                 Calendar rightNow = Calendar.getInstance();
                 rightNow.setTime(new Date());
-                rightNow.add(Calendar.DATE ,1);
+                rightNow.add(Calendar.DATE, 1);
                 memberMeal.setMmDate(rightNow.getTime());
                 memberMealMapper.insert(memberMeal);
                 return 0;
@@ -126,7 +130,9 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                         e.printStackTrace();
                     }
                     //添加消费记录
-                    addComsune(member1.getMemberId(),commonMeal);
+                    addComsune(member1.getMemberId(), commonMeal);
+                    //添加收入记录
+                    addproceeds(commonMeal);
                     return 5;
                 } else {
                     //到期时间小于现在(已过期)
@@ -143,7 +149,9 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                         e.printStackTrace();
                     }
                     //添加消费记录
-                    addComsune(member1.getMemberId(),commonMeal);
+                    addComsune(member1.getMemberId(), commonMeal);
+                    //添加收入记录
+                    addproceeds(commonMeal);
                     return 5;
                 }
             } else {
@@ -164,28 +172,31 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                 }
                 memberMealMapper.insert(memberMeal);
                 //添加消费记录
-                addComsune(member1.getMemberId(),commonMeal);
+                addComsune(member1.getMemberId(), commonMeal);
+                //添加收入记录
+                addproceeds(commonMeal);
                 return 0;
             }
         }
         if (member2 == null && member3.size() == 0) {
             //会员不存在
             return 1;
-        }else if(member2 != null && member3.size() !=0){
+        } else if (member2 != null && member3.size() != 0) {
             //会员不存在
             return 1;
-        }else if(member2 == null) {
+        } else if (member2 == null) {
             //电话不存在
             return 2;
-        }else if (member3.size() == 0) {
+        } else if (member3.size() == 0) {
             //姓名不存在
             return 3;
         }
         return 5;
     }
+
     //添加充值记录方法
-    public void addComsune(Long memberId, CommonMeall commonMeal){
-        Comsune comsune=new Comsune();
+    public void addComsune(Long memberId, CommonMeall commonMeal) {
+        Comsune comsune = new Comsune();
         comsune.setMemberId(memberId);
         comsune.setMealId((long) commonMeal.getCmId());
         comsune.setMealName(commonMeal.getCmName());
@@ -195,11 +206,20 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         comsuneMapper.insert(comsune);
     }
 
+    public void addproceeds(CommonMeall commonMeal) {
+        Proceeds proceeds = new Proceeds();
+        proceeds.setProceedsTime(new Date());
+        proceeds.setMealType("普通");
+        proceeds.setMealName(commonMeal.getCmName());
+        proceeds.setProceedsPrice(commonMeal.getCmPrice());
+        proceedsMapper.insert(proceeds);
+    }
+
     //删除普通会员套餐
     @Override
-    public boolean delCommonMemberById(long mmId){
-        int a=memberMealMapper.deleteById(mmId);
-        if(a>0){
+    public boolean delCommonMemberById(long mmId) {
+        int a = memberMealMapper.deleteById(mmId);
+        if (a > 0) {
             return true;
         }
         return false;
@@ -209,7 +229,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
     @Override
     public int renewCommonMember(MemberQueryVo memberQueryVo) {
         //通过套餐办理编号查询办理的套餐信息
-        MemberMeal memberMeal=memberMealMapper.selectById(memberQueryVo.getMmId());
+        MemberMeal memberMeal = memberMealMapper.selectById(memberQueryVo.getMmId());
         //通过id查询普通套餐
         CommonMeall commonMeal = commonMealService.selectCommonMealByMealId(memberQueryVo.getMealId());
 
@@ -219,18 +239,18 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         wrapper1.eq("member_name", memberQueryVo.getMemberName());
         Member member1 = memberMapper.selectOne(wrapper1);
         //判断是否黑名单
-        if(member1 != null){
-            if(member1.getMemberState()==1){
+        if (member1 != null) {
+            if (member1.getMemberState() == 1) {
                 return 1;
             }
-        }else if(member1==null){
+        } else if (member1 == null) {
             return 2;
         }
         //体验会员续费修改会员状态为正式会员
-        if(member1.getMemberType()==0){
-            UpdateWrapper<Member> wrapper=new UpdateWrapper<>();
-            wrapper.set("member_type",1).eq("member_id",member1.getMemberId());
-            memberMapper.update(null,wrapper);
+        if (member1.getMemberType() == 0) {
+            UpdateWrapper<Member> wrapper = new UpdateWrapper<>();
+            wrapper.set("member_type", 1).eq("member_id", member1.getMemberId());
+            memberMapper.update(null, wrapper);
         }
         //获取当前到期时间
         Date date = new Date();
@@ -249,7 +269,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                 e.printStackTrace();
             }
             //添加消费记录
-            addComsune(memberQueryVo.getMemberId(),commonMeal);
+            addComsune(memberQueryVo.getMemberId(), commonMeal);
             return 0;
         } else {
             //到期时间小于现在(已过期)
@@ -266,7 +286,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                 e.printStackTrace();
             }
             //添加消费记录
-            addComsune(memberQueryVo.getMemberId(),commonMeal);
+            addComsune(memberQueryVo.getMemberId(), commonMeal);
             return 0;
         }
 

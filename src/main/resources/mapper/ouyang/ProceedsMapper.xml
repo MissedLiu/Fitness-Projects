@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.ouyang.ProceedsMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.Proceeds">
+            <id property="proceedsId" column="proceeds_id" jdbcType="BIGINT"/>
+            <result property="mealName" column="meal_name" jdbcType="VARCHAR"/>
+            <result property="pName" column="p_name" jdbcType="VARCHAR"/>
+            <result property="mealType" column="meal_type" jdbcType="VARCHAR"/>
+            <result property="proceedsPrice" column="proceeds_price" jdbcType="BIGINT"/>
+            <result property="proceedsTime" column="proceeds_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        proceeds_id,meal_name,p_name,
+        meal_type,proceeds_price,proceeds_time
+    </sql>
+
+    <select id="SumWeekPrice" resultType="java.lang.Long">
+        SELECT SUM(proceeds_price)
+        FROM proceeds
+        where  DATE_SUB(CURDATE(), INTERVAL 7 DAY) <![CDATA[ <= ]]> date(proceeds_time)
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumLastQuarterPrice" resultType="java.lang.Long">
+        select SUM(proceeds_price)
+        from proceeds
+        where QUARTER(proceeds_time)=QUARTER(DATE_SUB(now(),interval 1 QUARTER))
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumQuarterPrice" resultType="java.lang.Long">
+        select SUM(proceeds_price)
+        from proceeds
+        where QUARTER(proceeds_time)=QUARTER(now())
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumMonthPrice" resultType="java.lang.Long">
+        SELECT SUM(proceeds_price)
+        FROM proceeds
+        where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <![CDATA[ <= ]]> date(proceeds_time)
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+
+    <select id="SumYearPrice" resultType="java.lang.Long">
+        select SUM(proceeds_price)
+        from proceeds
+        where YEAR(proceeds_time)=YEAR(NOW())
+        <if test="query.type!=null and query.type!='' ">
+            and meal_type=#{query.type}
+        </if>
+    </select>
+</mapper>

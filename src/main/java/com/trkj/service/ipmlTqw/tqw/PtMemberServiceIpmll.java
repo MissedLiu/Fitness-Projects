@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.dao.ouyang.ProceedsMapper;
 import com.trkj.dao.tqw.*;
+import com.trkj.entity.liucz2.Proceeds;
 import com.trkj.entity.tqw.*;
 import com.trkj.service.ipmlTqw.PtMealService;
 import com.trkj.service.ipmlTqw.PtMemberService;
@@ -38,6 +40,8 @@ public class PtMemberServiceIpmll implements PtMemberService {
     private ComsuneMapper comsuneMapper;
     @Autowired
     private PtProjectnameMapper ptProjectnameMapper;
+    @Autowired
+    private ProceedsMapper proceedsMapper;
     /*
      *
      *查询私教会员列表
@@ -145,6 +149,8 @@ public class PtMemberServiceIpmll implements PtMemberService {
                 chooseprojectnameMapper.insert(chooseProject);
                 //添加消费记录
                 addComsune(member1.getMemberId(),ptMeal,ptProjectname);
+                //添加收入记录
+                addProceeds(ptMeal,ptProjectname);
                 return 0;
             }else{
                 //有套餐
@@ -166,6 +172,8 @@ public class PtMemberServiceIpmll implements PtMemberService {
                     }
                     //添加消费记录
                     addComsune(member1.getMemberId(),ptMeal,ptProjectname);
+                    //添加收入记录
+                    addProceeds(ptMeal,ptProjectname);
                     return 5;
                 }else {
                     //到期时间小于现在(已过期)
@@ -184,6 +192,8 @@ public class PtMemberServiceIpmll implements PtMemberService {
                     }
                     //添加消费记录
                     addComsune(member1.getMemberId(),ptMeal,ptProjectname);
+                    //添加收入记录
+                    addProceeds(ptMeal,ptProjectname);
                     return 5;
                 }
             }
@@ -219,6 +229,15 @@ public class PtMemberServiceIpmll implements PtMemberService {
         comsuneMapper.insert(comsune);
     }
 
+    public void addProceeds(PtMeall ptMeal, PtProjectname ptProjectname){
+        Proceeds proceeds=new Proceeds();
+        proceeds.setProceedsTime(new Date());
+        proceeds.setMealType("私教");
+        proceeds.setMealName(ptMeal.getPtName());
+        proceeds.setProceedsPrice(ptMeal.getPtPrice());
+        proceeds.setPName(ptProjectname.getPtpName());
+        proceedsMapper.insert(proceeds);
+    }
     /*
      *
      *续费

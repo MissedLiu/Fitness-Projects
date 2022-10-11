@@ -18,7 +18,6 @@ public interface ComsuneService extends IService<Comsune> {
     //查询
     IPage<Comsune> selectComsuneList(ComsuneQueryVo comsuneQueryVo);
 
-    Long sumPrice(PageVo pageVo);
     /**
      * @description:
      * 统计套餐消费次数
