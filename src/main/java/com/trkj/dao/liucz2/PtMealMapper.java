@@ -8,6 +8,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.liucz2.PtMeal;
 import com.trkj.entity.liucz2.PtProject;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz2.CountPtVo;
+import com.trkj.vo.queryLiucz2.CountTeamVo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -48,5 +50,13 @@ public interface PtMealMapper extends BaseMapper<PtMeal> {
      * 添加私教套餐与私教项目关系
      * */
     int savePtMealPtProject(Long ptId, List<Long> ptpId);
-
+    /**
+     * @description:
+     * 统计每个教练下的私教人数
+     * @author: Liucz
+     * @date: 2022/10/11 9:29
+     * @param:
+     * @return:
+     **/
+    List<CountPtVo> CountPtNum();
 }

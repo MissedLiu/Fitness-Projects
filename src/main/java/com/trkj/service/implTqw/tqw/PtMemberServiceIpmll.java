@@ -321,6 +321,8 @@ public class PtMemberServiceIpmll implements PtMemberService {
         QueryWrapper<ChooseProject> wrapper=new QueryWrapper<>();
         wrapper.eq("mm_id",mmId);
         int b = chooseprojectnameMapper.delete(wrapper);
+        System.out.println("bbbb="+b);
+        //同时还要删除所项目表中的数据
         if(a>0 && b>0){
             return true;
         }

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.liucz2.TeamMeal;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz2.CountTeamVo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -54,6 +55,15 @@ public interface TeamMealMapper extends BaseMapper<TeamMeal> {
     int deleteTeamProject(Long teamId);
 
     int saveTeamProject(Long teamId, List<Long> tpId);
+    /**
+     * @description:
+     * 统计每个教练下的团操人数
+     * @author: Liucz
+     * @date: 2022/10/11 9:29
+     * @param:
+     * @return:
+     **/
+    List<CountTeamVo> CountTeamNum();
 }
 
 
