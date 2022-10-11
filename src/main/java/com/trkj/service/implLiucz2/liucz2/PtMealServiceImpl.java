@@ -9,6 +9,7 @@ import com.trkj.dao.liucz2.PtMealMapper;
 import com.trkj.entity.liucz2.PtMeal;
 import com.trkj.service.implLiucz2.PtMealService;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz2.CountPtVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -75,6 +76,19 @@ public class PtMealServiceImpl extends ServiceImpl<PtMealMapper, PtMeal> impleme
         //在重新添加
 
         return   baseMapper.savePtMealPtProject(ptId,ptpId)>0;
+    }
+    /**
+     * @description:
+     * 统计每个教练下的私教人数
+     * @author: Liucz
+     * @date: 2022/10/11 9:29
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<CountPtVo> CountPtNum() {
+        List<CountPtVo> countPtVos = ptMealVoMapper.CountPtNum();
+        return countPtVos;
     }
 
 

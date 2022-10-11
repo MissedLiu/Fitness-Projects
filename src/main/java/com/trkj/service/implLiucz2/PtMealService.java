@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.entity.liucz2.PtMeal;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz2.CountPtVo;
 
 import java.util.List;
 
@@ -50,4 +51,13 @@ public interface PtMealService extends IService<PtMeal> {
      * @return: boolean
      **/
     boolean savePtMealPtProject(Long ptId, List<Long> ptpId);
+    /**
+     * @description:
+     * 统计每个教练下的私教人数
+     * @author: Liucz
+     * @date: 2022/10/11 9:29
+     * @param:
+     * @return:
+     **/
+    List<CountPtVo> CountPtNum();
 }

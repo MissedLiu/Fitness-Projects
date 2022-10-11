@@ -152,8 +152,21 @@ public class TeamMealController {
     public Result savePtMealPtProject(@RequestBody TeamProjectDTO teamProjectDTO){
         //保存团操和项目的关系
         if (teamMealService.saveTeamProject(teamProjectDTO.getTeamId(), teamProjectDTO.getTpId())) {
-            return Result.ok().message("私教项目分配成功");
+            return Result.ok().message("团操项目分配成功");
         }
-        return Result.error().message("私教项目分配失败");
+        return Result.error().message("团操项目分配失败");
+    }
+
+    /**
+     * @description:
+     * 统计每个教练下的团操人数
+     * @author: Liucz
+     * @date: 2022/10/11 9:29
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/countTeamNum")
+    public Result countTeamNum(){
+        return Result.ok(teamMealService.CountTeamNum());
     }
 }

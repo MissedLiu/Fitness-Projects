@@ -10,6 +10,7 @@ import com.trkj.dao.liucz2.TeamMealMapper;
 import com.trkj.entity.liucz2.TeamMeal;
 import com.trkj.service.implLiucz2.TeamMealService;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz2.CountTeamVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -100,6 +101,19 @@ public class TeamMealServiceImpl extends ServiceImpl<TeamMealMapper, TeamMeal>
         baseMapper.deleteTeamProject(teamId);
         //在重新添加
         return   baseMapper.saveTeamProject(teamId,tpId)>0;
+    }
+    /**
+     * @description:
+     * 统计每个教练下的团操人数
+     * @author: Liucz
+     * @date: 2022/10/11 9:29
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<CountTeamVo> CountTeamNum() {
+        List<CountTeamVo> countTeamVos = teamMealMapper.CountTeamNum();
+        return countTeamVos;
     }
 
 }

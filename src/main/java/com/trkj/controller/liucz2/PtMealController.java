@@ -152,5 +152,16 @@ public class PtMealController {
         }
         return Result.error().message("私教项目分配失败");
     }
-
+    /**
+     * @description:
+     * 统计每个教练下的私教人数
+     * @author: Liucz
+     * @date: 2022/10/11 9:29
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/countPtNum")
+    public Result countPtNum(){
+        return Result.ok(ptMealService.CountPtNum());
+    }
 }
