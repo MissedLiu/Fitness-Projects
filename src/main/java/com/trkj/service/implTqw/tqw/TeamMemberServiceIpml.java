@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.dao.ouyang.ProceedsMapper;
 import com.trkj.dao.tqw.*;
+import com.trkj.entity.liucz2.Proceeds;
+import com.trkj.entity.liucz2.TeamMeal;
 import com.trkj.entity.tqw.*;
 import com.trkj.service.implTqw.TeamMealService;
 import com.trkj.service.implTqw.TeamMemberService;
@@ -37,6 +40,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
     private ComsuneMapper comsuneMapper;
     @Autowired
     private TeamProjectnameMapper teamProjectnameMapper;
+    @Autowired
+    private ProceedsMapper proceedsMapper;
     /*
      *
      *通过套餐类型查询团操会员
@@ -140,6 +145,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                 chooseprojectnameMapper.insert(chooseProject);
                 //添加消费记录
                 addComsune(member1.getMemberId(),teamMeal,teamProjectname);
+                //添加收入报表
+                addProceeds(teamMeal,teamProjectname);
                 return 0;
             } else {
                 //有套餐
@@ -161,6 +168,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                     }
                     //添加消费记录
                     addComsune(member1.getMemberId(),teamMeal,teamProjectname);
+                    //添加收入报表
+                    addProceeds(teamMeal,teamProjectname);
                     return 5;
                 } else {
                     //到期时间小于现在(已过期)
@@ -179,6 +188,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                     }
                     //添加消费记录
                     addComsune(member1.getMemberId(),teamMeal,teamProjectname);
+                    //添加收入报表
+                    addProceeds(teamMeal,teamProjectname);
                     return 5;
                 }
             }
@@ -211,6 +222,16 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         comsune.setComsunePrice(teamMeal.getTeamPrice());
         comsune.setComsuneDate(new Date());
         comsuneMapper.insert(comsune);
+    }
+
+    public void addProceeds(TeamMeall teamMeal, TeamProjectname teamProjectname){
+        Proceeds proceeds=new Proceeds();
+        proceeds.setProceedsTime(new Date());
+        proceeds.setMealType("私教");
+        proceeds.setMealName(teamMeal.getTeamName());
+        proceeds.setProceedsPrice(teamMeal.getTeamPrice());
+        proceeds.setPName(teamProjectname.getTpName());
+        proceedsMapper.insert(proceeds);
     }
 
     /*

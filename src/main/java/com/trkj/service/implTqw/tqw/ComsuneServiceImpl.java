@@ -31,30 +31,6 @@ implements ComsuneService {
         IPage<Comsune> iPage=baseMapper.selectComsuneList(page,comsuneQueryVo);
         return iPage;
     }
-
-    @Override
-    public Long sumPrice(PageVo pageVo) {
-        Long sump=0l;
-        switch (pageVo.getTypee()){
-            case "近七天":
-                sump=comsuneMapper.SumWeekPrice(pageVo);
-                break;
-            case "近一个月":
-                sump=comsuneMapper.SumMonthPrice(pageVo);
-                break;
-            case "本季度":
-                sump=comsuneMapper.SumQuarterPrice(pageVo);
-                break;
-            case "上季度":
-                sump=comsuneMapper.SumLastQuarterPrice(pageVo);
-                break;
-            case "本年":
-                sump=comsuneMapper.SumYearPrice(pageVo);
-                break;
-        }
-        System.out.println("--------------------"+sump);
-        return sump;
-    }
     /**
      * @description:
      * 统计套餐消费次数
