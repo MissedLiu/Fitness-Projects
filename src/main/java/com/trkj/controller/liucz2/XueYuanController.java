@@ -41,6 +41,7 @@ public class XueYuanController {
      **/
     @GetMapping("/xueyuanlist")
     public Result xueyuanlist(PageVo pageVo) {
+        System.out.println("pageVo="+pageVo);
         //判断是私教还是团操
         if (pageVo.getMealType().equals("私教")) {
             IPage<XueYuanPtVo> allList = xueYuanService.findAllList(pageVo);
