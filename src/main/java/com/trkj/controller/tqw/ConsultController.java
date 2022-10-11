@@ -1,7 +1,7 @@
 package com.trkj.controller.tqw;
 
 import com.trkj.entity.tqw.MemberConsult;
-import com.trkj.service.ipmlTqw.MemberConsultService;
+import com.trkj.service.implTqw.MemberConsultService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberConsultQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,5 +33,14 @@ public class ConsultController {
            return Result.ok().message("记录添加完成，该用户已是会员");
        }
        return Result.error().message("添加失败");
+    }
+    //删除咨询记录
+    @PreAuthorize("hasAuthority('pay:counsult:delete')")
+    @DeleteMapping("/deleteCounsult/{consultId}")
+    public Result deleteCounsult(@PathVariable Long consultId){
+        if(memberConsultService.deletecounsult(consultId)){
+            return Result.ok().message("删除成功");
+        }
+        return Result.error().message("删除失败");
     }
 }

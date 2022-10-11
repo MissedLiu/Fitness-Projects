@@ -55,8 +55,8 @@ public class DisburseServiceImpl extends ServiceImpl<DisburseMapper, Disburse>
     public boolean toDisburse(ScheduleQueryVo scheduleQueryVo) {
         //因为在sql语句中不能做到字符串拼接 所以在此处拼接
         String beizhu = String.join("", "购入",
-                scheduleQueryVo.getScheduleName(),
-                scheduleQueryVo.getSchedulePrice().toString(),
+                scheduleQueryVo.getScheduleName(),"  ",
+                scheduleQueryVo.getSchedulePrice().toString(),"元",
                 "*", scheduleQueryVo.getScheduleNum().toString(),
                 scheduleQueryVo.getUnit());
         scheduleQueryVo.setDisburseBeizhu(beizhu);

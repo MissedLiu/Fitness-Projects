@@ -1,9 +1,8 @@
 package com.trkj.controller.tqw;
 
-import com.trkj.service.ipmlTqw.MemberService;
-import com.trkj.service.ipmlTqw.PtMealService;
-import com.trkj.service.ipmlTqw.PtMemberService;
-import com.trkj.service.ipmlTqw.PtProjectnameService;
+import com.trkj.service.implTqw.PtMealService;
+import com.trkj.service.implTqw.PtMemberService;
+import com.trkj.service.implTqw.PtProjectnameService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -54,6 +54,12 @@ public class ProspectAndCallbackQueryVo extends PageVo2 {
      * 内容
      */
     private String callbackContent;
+    /*
+     *
+     *回访记录id
+     *
+     */
+    private Long callbackId;
 
     /**
      * 时间

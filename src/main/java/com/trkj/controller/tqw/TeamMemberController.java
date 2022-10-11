@@ -1,6 +1,6 @@
 package com.trkj.controller.tqw;
 
-import com.trkj.service.ipmlTqw.*;
+import com.trkj.service.implTqw.*;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;

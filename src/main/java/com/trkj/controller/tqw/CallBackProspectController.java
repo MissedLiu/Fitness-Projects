@@ -1,16 +1,10 @@
 package com.trkj.controller.tqw;
 
-import com.trkj.dao.tqw.CallbackProspectMapper;
-import com.trkj.entity.tqw.CallbackProspect;
-import com.trkj.service.ipmlTqw.CallbackMemberService;
-import com.trkj.service.ipmlTqw.CallbackProspectService;
+import com.trkj.service.implTqw.CallbackProspectService;
 import com.trkj.utils.Result;
-import com.trkj.vo.queryTqw.MemberAndCallbackQueryVo;
-import com.trkj.vo.queryTqw.ProspectAndAllotQueryVo;
 import com.trkj.vo.queryTqw.ProspectAndCallbackQueryVo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -21,9 +15,18 @@ public class CallBackProspectController {
     private CallbackProspectService callbackProspectService;
     //查询列表
     @GetMapping("/selectCallBackList")
-    private Result selectCallBackList(ProspectAndCallbackQueryVo prospectAndAllotQueryVo){
+    public Result selectCallBackList(ProspectAndCallbackQueryVo prospectAndAllotQueryVo){
         System.out.println("eee="+prospectAndAllotQueryVo);
 
         return Result.ok(callbackProspectService.selectCallBackList(prospectAndAllotQueryVo));
+    }
+    //删除咨询记录
+    @PreAuthorize("hasAuthority('pay:prospectrecord:delete')")
+    @DeleteMapping("/deleteProspectCord/{callbackId}")
+    public Result deleteCounsult(@PathVariable Long callbackId){
+        if(callbackProspectService.deleteProspectCord(callbackId)){
+            return Result.ok().message("删除成功");
+        }
+        return Result.error().message("删除失败");
     }
 }

@@ -1,8 +1,8 @@
 package com.trkj.controller.tqw;
 
 import com.trkj.entity.tqw.CallbackMember;
-import com.trkj.service.ipmlTqw.AllotMemberService;
-import com.trkj.service.ipmlTqw.CallbackMemberService;
+import com.trkj.service.implTqw.AllotMemberService;
+import com.trkj.service.implTqw.CallbackMemberService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;

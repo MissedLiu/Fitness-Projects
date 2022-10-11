@@ -2,9 +2,8 @@ package com.trkj.controller.tqw;
 
 
 import com.trkj.entity.tqw.Member;
-import com.trkj.service.ipmlTqw.BlackService;
-import com.trkj.service.ipmlTqw.MemberService;
-import com.trkj.service.ipmlTqw.PtProjectnameService;
+import com.trkj.service.implTqw.BlackService;
+import com.trkj.service.implTqw.MemberService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
 import com.trkj.vo.queryTqw.MemberQueryVo;

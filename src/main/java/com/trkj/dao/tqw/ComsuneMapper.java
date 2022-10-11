@@ -14,26 +14,15 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
-* @Entity com.trkj.entity.Comsune
-*/
+ * @Entity com.trkj.entity.Comsune
+ */
 public interface ComsuneMapper extends BaseMapper<Comsune> {
 
     //查询
-    IPage<Comsune> selectComsuneList(Page<Comsune> page,@Param("query") ComsuneQueryVo comsuneQueryVo);
-
-    Long SumWeekPrice(@Param("query") PageVo pageVo);
-
-    Long SumMonthPrice(@Param("query") PageVo pageVo);
-
-    Long SumQuarterPrice(@Param("query") PageVo pageVo);
-
-    Long SumLastQuarterPrice(@Param("query") PageVo pageVo);
-
-    Long SumYearPrice(@Param("query") PageVo pageVo);
+    IPage<Comsune> selectComsuneList(Page<Comsune> page, @Param("query") ComsuneQueryVo comsuneQueryVo);
 
     /**
-     * @description:
-     * 统计套餐消费次数
+     * @description: 统计套餐消费次数
      * @author: Liucz
      * @date: 2022/10/10 17:10
      * @param:

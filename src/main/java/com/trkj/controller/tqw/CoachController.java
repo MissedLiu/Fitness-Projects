@@ -1,10 +1,9 @@
 package com.trkj.controller.tqw;
 
 import com.trkj.entity.liucz.Emp;
-import com.trkj.entity.tqw.PtCoach;
 import com.trkj.service.implLiucz.EmpService;
-import com.trkj.service.ipmlTqw.PtCoachService;
-import com.trkj.service.ipmlTqw.TeamCoachService;
+import com.trkj.service.implTqw.PtCoachService;
+import com.trkj.service.implTqw.TeamCoachService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
 import com.trkj.vo.queryTqw.EmpAndPtMealQueryVo;

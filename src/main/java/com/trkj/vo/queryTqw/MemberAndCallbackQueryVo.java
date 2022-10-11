@@ -85,6 +85,12 @@ public class MemberAndCallbackQueryVo extends PageVo2 {
     private Date columnTime;
     /*
     *
+    *回访记录id
+    *
+    */
+    private Long callbackId;
+    /*
+    *
     *员工id
     *
     */
