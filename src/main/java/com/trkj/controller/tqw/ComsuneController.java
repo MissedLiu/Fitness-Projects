@@ -1,8 +1,6 @@
 package com.trkj.controller.tqw;
 
-import com.baomidou.mybatisplus.extension.api.R;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.trkj.service.ipmlTqw.ComsuneService;
+import com.trkj.service.implTqw.ComsuneService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryTqw.ComsuneQueryVo;

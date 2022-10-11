@@ -1,12 +1,8 @@
 package com.trkj.controller.tqw;
 
-import com.trkj.entity.tqw.Locker;
-import com.trkj.service.ipmlTqw.BlackService;
-import com.trkj.service.ipmlTqw.LockerService;
+import com.trkj.service.implTqw.LockerService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.LockerQueryVo;
-import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

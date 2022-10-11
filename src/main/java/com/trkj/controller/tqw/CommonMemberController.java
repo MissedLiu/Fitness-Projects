@@ -1,11 +1,9 @@
 package com.trkj.controller.tqw;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.trkj.service.ipmlTqw.CommonMealService;
-import com.trkj.service.ipmlTqw.CommonMemberService;
-import com.trkj.service.ipmlTqw.MemberService;
+import com.trkj.service.implTqw.CommonMealService;
+import com.trkj.service.implTqw.CommonMemberService;
 import com.trkj.utils.Result;
-import com.trkj.vo.queryLiucz.UserQueryVo;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

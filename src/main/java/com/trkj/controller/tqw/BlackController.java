@@ -1,9 +1,8 @@
 package com.trkj.controller.tqw;
 
-import com.trkj.service.ipmlTqw.BlackService;
+import com.trkj.service.implTqw.BlackService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
-import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

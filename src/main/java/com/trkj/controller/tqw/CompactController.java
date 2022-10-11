@@ -2,7 +2,7 @@ package com.trkj.controller.tqw;
 
 import com.trkj.entity.tqw.Compact;
 import com.trkj.entity.tqw.Member;
-import com.trkj.service.ipmlTqw.CompactService;
+import com.trkj.service.implTqw.CompactService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.CompactAndMemberQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,17 +1,14 @@
 package com.trkj.controller.tqw;
 
-import com.trkj.entity.tqw.Member;
 import com.trkj.service.implLiucz.EmpService;
-import com.trkj.service.ipmlTqw.*;
+import com.trkj.service.implTqw.*;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryLiucz.EmpQueryVo;
-import com.trkj.vo.queryTqw.MemberAndCallbackQueryVo;
 import com.trkj.vo.queryTqw.MemberMessageQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @RestController
 @RequestMapping("api/message")

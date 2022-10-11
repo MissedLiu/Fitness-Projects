@@ -1,11 +1,8 @@
 package com.trkj.controller.tqw;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.trkj.entity.tqw.Lose;
-import com.trkj.service.ipmlTqw.LockerService;
-import com.trkj.service.ipmlTqw.LoseService;
+import com.trkj.service.implTqw.LoseService;
 import com.trkj.utils.Result;
-import com.trkj.vo.queryTqw.LockerQueryVo;
 import com.trkj.vo.queryTqw.LoseQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
