@@ -8,11 +8,13 @@ import com.trkj.entity.liucz2.Weixg;
 
 import com.trkj.service.implLiucz2.WeixgService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  */
 @Service
+@Transactional
 public class WeixgServiceImpl extends ServiceImpl<WeixgMapper, Weixg>
     implements WeixgService {
     /**

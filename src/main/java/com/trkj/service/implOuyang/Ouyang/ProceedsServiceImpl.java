@@ -9,6 +9,7 @@ import com.trkj.dao.ouyang.ProceedsMapper;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryOuyang.ProceedsQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -18,6 +19,7 @@ import javax.annotation.Resource;
  * @createDate 2022-10-11 09:27:23
  */
 @Service
+@Transactional
 public class ProceedsServiceImpl extends ServiceImpl<ProceedsMapper, Proceeds>
         implements ProceedsService {
 

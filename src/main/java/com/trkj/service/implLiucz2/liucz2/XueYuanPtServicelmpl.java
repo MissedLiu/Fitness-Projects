@@ -8,6 +8,7 @@ import com.trkj.service.implLiucz2.XueYuanPtService;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.XueYuanPtVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
  * @Version: 5.0
  */
 @Service
+@Transactional
 public class XueYuanPtServicelmpl extends ServiceImpl<XueYuanPtMapper, XueYuanPtVo>
         implements XueYuanPtService {
     @Resource

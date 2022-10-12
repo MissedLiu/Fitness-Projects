@@ -34,7 +34,9 @@ public class CaigouShenhe implements Serializable {
      * 审核结果(0-待审,2-拒绝,1-同意)
      */
     private Byte state;
-
+    private String result;
+    @TableField(exist = false)
+    private String empName;
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

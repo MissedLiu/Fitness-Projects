@@ -6,6 +6,7 @@ import com.trkj.service.implOuyang.ChangenumService;
 import com.trkj.dao.ouyang.ChangenumMapper;
 import com.trkj.vo.queryOuyang.PoQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 * @createDate 2022-09-23 19:43:53
 */
 @Service
+@Transactional
 public class ChangenumServiceImpl extends ServiceImpl<ChangenumMapper, Changenum>
     implements ChangenumService{
 

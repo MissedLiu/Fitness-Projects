@@ -4,6 +4,7 @@ package com.trkj.service.implLiucz2;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz.CountTongJi;
 import com.trkj.vo.queryLiucz2.JiaolianNumVo;
 import com.trkj.vo.queryLiucz2.XueYuanTmVo;
 
@@ -28,4 +29,13 @@ public interface XueYuanTmService  {
      * @return:
      **/
     List<JiaolianNumVo> findNUm();
+    /**
+     * @description:
+     * 返回统计私教团操人数
+     * @author: Liucz
+     * @date: 2022/10/12 21:20
+     * @param:
+     * @return:
+     **/
+    List<CountTongJi> CountTongJi();
 }

@@ -5,14 +5,17 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.dao.liucz2.XueYuanPtMapper;
 import com.trkj.dao.liucz2.XueYuanTmMapper;
+import com.trkj.service.implLiucz2.PtMealService;
+import com.trkj.service.implLiucz2.TeamMealService;
 import com.trkj.service.implLiucz2.XueYuanTmService;
 import com.trkj.vo.query.PageVo;
-import com.trkj.vo.queryLiucz2.JiaolianNumVo;
-import com.trkj.vo.queryLiucz2.XueYuanPtVo;
-import com.trkj.vo.queryLiucz2.XueYuanTmVo;
+import com.trkj.vo.queryLiucz.CountTongJi;
+import com.trkj.vo.queryLiucz2.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,9 +27,14 @@ import java.util.List;
  * @Version: 5.0
  */
 @Service
+@Transactional
 public class XueYuanTmServicelmpl  implements XueYuanTmService {
     @Resource
     private XueYuanTmMapper xueYuanTmMapper;
+    @Resource
+    private PtMealService ptMealService;
+    @Resource
+    private TeamMealService teamMealService;
     /**
      * @description:
      * 分页动态查询学员列表
@@ -54,4 +62,35 @@ public class XueYuanTmServicelmpl  implements XueYuanTmService {
         List<JiaolianNumVo> nUm = xueYuanTmMapper.findNUm();
         return nUm;
     }
+    /**
+     * @description:
+     * 返回统计私教团操人数
+     * @author: Liucz
+     * @date: 2022/10/12 21:20
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<CountTongJi> CountTongJi() {
+        //查询私教套餐人数
+        List<CountPtVo> countPtVos = ptMealService.CountPtNum();
+        //查询团操套餐人数
+        List<CountTeamVo> countTeamVos = teamMealService.CountTeamNum();
+        //设置返回数据
+        CountTongJi countTongJi=new CountTongJi();
+        List<CountTongJi> list=new ArrayList<>();
+        for (CountPtVo countPtVo: countPtVos) {
+            for (CountTeamVo countTeamVo: countTeamVos) {
+                if (countPtVo.getName()==countTeamVo.getName()){
+                    countTongJi.setName(countPtVo.getName());
+                    countTongJi.setPvalue(countPtVo.getValue());
+                    countTongJi.setPvalue(countTeamVo.getValue());
+                    list.add(countTongJi);
+                }
+            }
+        }
+
+        return list;
+    }
+
 }

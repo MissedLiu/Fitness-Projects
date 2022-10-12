@@ -11,11 +11,13 @@ import com.trkj.service.implLiucz2.PtMealService;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.CountPtVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
+@Transactional
 public class PtMealServiceImpl extends ServiceImpl<PtMealMapper, PtMeal> implements PtMealService {
     @Resource
     private PtMealMapper ptMealVoMapper;

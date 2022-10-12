@@ -13,6 +13,7 @@ import com.trkj.service.implLiucz2.TeamProjectService;
 import com.trkj.vo.queryLiucz2.TeamProjectVo;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ import java.util.List;
 * @createDate 2022-09-26 09:53:18
 */
 @Service
+@Transactional
 public class TeamProjectServiceImpl extends ServiceImpl<TeamProjectMapper, TeamProject>
     implements TeamProjectService {
 

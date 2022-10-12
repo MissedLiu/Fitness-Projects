@@ -9,11 +9,13 @@ import com.trkj.entity.liucz2.PtProject;
 import com.trkj.entity.liucz2.TeamChoose;
 import com.trkj.service.implLiucz2.TeamChooseService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
+@Transactional
 public class TeamChooseServiceImpl extends ServiceImpl<TeamChooseMapper, TeamChoose> implements TeamChooseService {
    @Resource
    private TeamChooseMapper teamChooseMapper;

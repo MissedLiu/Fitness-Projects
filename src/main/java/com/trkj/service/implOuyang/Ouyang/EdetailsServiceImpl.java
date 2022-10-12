@@ -9,6 +9,7 @@ import com.trkj.entity.ouyang.Eeamage;
 import com.trkj.service.implOuyang.EdetailsService;
 import com.trkj.vo.queryOuyang.EdetailsQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
  * @createDate 2022-09-29 14:06:32
  */
 @Service
+@Transactional
 public class EdetailsServiceImpl extends ServiceImpl<EdetailsMapper, Edetails>
         implements EdetailsService {
     @Resource

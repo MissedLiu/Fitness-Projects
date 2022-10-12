@@ -62,8 +62,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="PtCoach" />
-                  <option name="tableName" value="pt_coach" />
+                  <option name="className" value="Interview" />
+                  <option name="tableName" value="interview" />
                 </TableUIInfo>
               </list>
             </option>

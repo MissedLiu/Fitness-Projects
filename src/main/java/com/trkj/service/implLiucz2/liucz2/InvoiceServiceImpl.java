@@ -9,6 +9,7 @@ import com.trkj.service.implLiucz2.InvoiceService;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
 import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ import java.util.List;
  *
  */
 @Service
+@Transactional
 public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
     implements InvoiceService {
     @Resource

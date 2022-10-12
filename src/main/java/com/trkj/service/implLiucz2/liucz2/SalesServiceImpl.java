@@ -12,6 +12,7 @@ import com.trkj.entity.ouyang.Commission;
 import com.trkj.service.implLiucz2.SalesService;
 import com.trkj.vo.query.PageVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ import java.util.List;
  *
  */
 @Service
+@Transactional
 public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
     implements SalesService {
     @Resource

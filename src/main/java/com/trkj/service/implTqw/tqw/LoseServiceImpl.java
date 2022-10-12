@@ -10,6 +10,7 @@ import com.trkj.entity.tqw.Lose;
 import com.trkj.service.implTqw.LoseService;
 import com.trkj.vo.queryTqw.LoseQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +19,7 @@ import java.util.Date;
 *
 */
 @Service
+@Transactional
 public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements LoseService {
     //查询
     public IPage<Lose> selectLose(LoseQueryVo loseQueryVo){

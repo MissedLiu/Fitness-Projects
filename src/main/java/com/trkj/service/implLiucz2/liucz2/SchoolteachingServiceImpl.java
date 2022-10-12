@@ -7,6 +7,7 @@ import com.trkj.entity.liucz2.Schoolteaching;
 import com.trkj.entity.liucz2.TeamCoachl;
 import com.trkj.service.implLiucz2.SchoolteachingService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  *
  */
 @Service
+@Transactional
 public class SchoolteachingServiceImpl extends ServiceImpl<SchoolteachingMapper, Schoolteaching>
     implements SchoolteachingService {
     /**

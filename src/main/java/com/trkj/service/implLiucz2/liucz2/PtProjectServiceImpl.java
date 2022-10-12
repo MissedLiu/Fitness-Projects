@@ -12,6 +12,7 @@ import com.trkj.service.implLiucz2.PtProjectService;
 import com.trkj.vo.queryLiucz2.PtProjectVo;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.List;
 * @createDate 2022-09-26 10:08:04
 */
 @Service
+@Transactional
 public class PtProjectServiceImpl extends ServiceImpl<PtProjectMapper, PtProject>
     implements PtProjectService {
     @Resource

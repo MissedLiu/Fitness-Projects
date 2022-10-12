@@ -9,6 +9,7 @@ import com.trkj.entity.liucz2.Interview;
 import com.trkj.service.implLiucz2.InterviewService;
 import com.trkj.vo.query.PageVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -16,6 +17,7 @@ import javax.annotation.Resource;
  *
  */
 @Service
+@Transactional
 public class InterviewServiceImpl extends ServiceImpl<InterviewMapper, Interview>
     implements InterviewService {
     @Resource

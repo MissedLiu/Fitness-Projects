@@ -13,6 +13,7 @@ import com.trkj.dao.ouyang.ScheduleMapper;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryOuyang.ScheduleQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -24,6 +25,7 @@ import java.util.List;
  * @createDate 2022-09-21 15:55:23
  */
 @Service
+@Transactional
 public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
         implements ScheduleService {
 

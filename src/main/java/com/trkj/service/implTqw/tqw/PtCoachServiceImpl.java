@@ -8,6 +8,7 @@ import com.trkj.entity.tqw.PtCoach;
 import com.trkj.service.implTqw.PtCoachService;
 import com.trkj.vo.queryTqw.EmpAndPtMealQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 *
 */
 @Service
+@Transactional
 public class PtCoachServiceImpl extends ServiceImpl<PtCoachMapper, PtCoach>
 implements PtCoachService {
 

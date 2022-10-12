@@ -10,6 +10,7 @@ import com.trkj.dao.ouyang.CommissionMapper;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryOuyang.CommissionQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
  * @createDate 2022-10-05 09:41:43
  */
 @Service
+@Transactional
 public class CommissionServiceImpl extends ServiceImpl<CommissionMapper, Commission>
         implements CommissionService {
 

@@ -1,6 +1,7 @@
 package com.trkj.controller.liucz2;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.trkj.dao.liucz.UserMapper;
 import com.trkj.entity.liucz2.CaigouShenhe;
 import com.trkj.service.implLiucz2.CaigouShenheService;
 import com.trkj.service.implOuyang.ScheduleService;
@@ -111,5 +112,18 @@ public class CaiGouShenHeController {
     @PostMapping("/delete5")
     public Result delete5(@RequestBody CaigouShenhe caigouShenhe) {
         return Result.ok(caigouShenheService.delete5(caigouShenhe));
+    }
+    /**
+     * @description:
+     * 查询该采购计划的审核数据
+     * @author: Liucz
+     * @date: 2022/10/12 14:46
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/fingShengheJiHua/{id}")
+    public Result fingShengheJiHua(@PathVariable Long id){
+        List<CaigouShenhe> allCaigouShenheByscheduleId = caigouShenheService.findAllCaigouShenheByscheduleId(id);
+        return Result.ok(allCaigouShenheByscheduleId);
     }
 }

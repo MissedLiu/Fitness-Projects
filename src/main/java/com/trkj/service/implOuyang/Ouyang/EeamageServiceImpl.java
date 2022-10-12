@@ -9,6 +9,7 @@ import com.trkj.service.implOuyang.EeamageService;
 import com.trkj.dao.ouyang.EeamageMapper;
 import com.trkj.vo.queryOuyang.EeamageQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -20,6 +21,7 @@ import java.util.List;
  * @createDate 2022-09-28 15:36:21
  */
 @Service
+@Transactional
 public class EeamageServiceImpl extends ServiceImpl<EeamageMapper, Eeamage>
         implements EeamageService {
 

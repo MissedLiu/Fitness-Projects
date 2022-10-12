@@ -11,6 +11,7 @@ import com.trkj.dao.ouyang.StockInMapper;
 import com.trkj.vo.queryOuyang.PoQueryVo;
 import com.trkj.vo.queryOuyang.StockInQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
  * @createDate 2022-09-23 20:22:01
  */
 @Service
+@Transactional
 public class StockInServiceImpl extends ServiceImpl<StockInMapper, StockIn>
         implements StockInService {
 

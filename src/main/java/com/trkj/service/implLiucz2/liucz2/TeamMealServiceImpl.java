@@ -12,6 +12,7 @@ import com.trkj.service.implLiucz2.TeamMealService;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.CountTeamVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -24,6 +25,7 @@ import java.util.List;
 * @createDate 2022-09-22 21:34:27
 */
 @Service
+@Transactional
 public class TeamMealServiceImpl extends ServiceImpl<TeamMealMapper, TeamMeal>
     implements TeamMealService {
     @Resource

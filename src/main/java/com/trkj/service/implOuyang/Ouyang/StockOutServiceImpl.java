@@ -9,6 +9,7 @@ import com.trkj.service.implOuyang.StockOutService;
 import com.trkj.dao.ouyang.StockOutMapper;
 import com.trkj.vo.queryOuyang.StockOutQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
 * @createDate 2022-09-27 10:39:53
 */
 @Service
+@Transactional
 public class StockOutServiceImpl extends ServiceImpl<StockOutMapper, StockOut>
     implements StockOutService{
 

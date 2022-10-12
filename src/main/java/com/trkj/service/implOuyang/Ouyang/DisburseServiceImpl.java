@@ -11,6 +11,7 @@ import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.ScheduleQueryVo;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
  * @createDate 2022-10-04 14:27:46
  */
 @Service
+@Transactional
 public class DisburseServiceImpl extends ServiceImpl<DisburseMapper, Disburse>
         implements DisburseService {
 

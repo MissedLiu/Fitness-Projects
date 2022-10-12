@@ -84,7 +84,7 @@
          select * from sys_user  where emp_id=#{empId};
     </select>
     <select id="findCaiwu" resultMap="BaseResultMap">
-          select u.id,e.emp_name  from sys_user u inner join sys_emp e on u.emp_id=e.emp_id where u.department_name like  "财务部"
+          select u.id,e.emp_name ,e.station from sys_user u inner join sys_emp e on u.emp_id=e.emp_id where u.department_name like  "财务部"
     </select>
     <select id="findWeiXiuG" resultMap="BaseResultMap">
          select u.id,e.emp_name  from sys_user u inner join sys_emp e on u.emp_id=e.emp_id where u.department_name ="后勤部" and  e.station like  "%维修%"

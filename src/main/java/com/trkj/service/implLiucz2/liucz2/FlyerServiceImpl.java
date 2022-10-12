@@ -10,6 +10,7 @@ import com.trkj.entity.liucz2.Flyer;
 import com.trkj.service.implLiucz2.FlyerService;
 import com.trkj.vo.queryLiucz2.FlyerVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import java.util.List;
 * @createDate 2022-09-27 09:37:08
 */
 @Service
+@Transactional
 public class FlyerServiceImpl extends ServiceImpl<FlyerMapper, Flyer>
     implements FlyerService {
   @Resource

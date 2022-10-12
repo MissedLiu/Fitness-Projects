@@ -10,6 +10,7 @@ import com.trkj.entity.liucz2.Healthform;
 import com.trkj.service.implLiucz2.HealthformService;
 import com.trkj.vo.query.PageVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -17,6 +18,7 @@ import javax.annotation.Resource;
  *
  */
 @Service
+@Transactional
 public class HealthformServiceImpl extends ServiceImpl<HealthformMapper, Healthform>
     implements HealthformService {
     @Resource

@@ -9,6 +9,7 @@
             <result property="scheduleId" column="schedule_id" jdbcType="BIGINT"/>
             <result property="shenheempId" column="shenheemp_id" jdbcType="BIGINT"/>
             <result property="state" column="state" jdbcType="TINYINT"/>
+        <result property="result" column="result"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -23,10 +24,10 @@
 
     </insert>
     <update id="UpdateState">
-        update caigou_shenhe set state=1 where id=#{id} and schedule_id=#{scheduleId} and shenheemp_id =#{shenheempId}
+        update caigou_shenhe set state=1 ,result=#{result} where id=#{id} and schedule_id=#{scheduleId} and shenheemp_id =#{shenheempId}
     </update>
     <update id="UpdateRefuseState">
-        update caigou_shenhe set state=2 where id=#{id} and schedule_id=#{scheduleId} and shenheemp_id =#{shenheempId}
+        update caigou_shenhe set state=2,result=#{result} where id=#{id} and schedule_id=#{scheduleId} and shenheemp_id =#{shenheempId}
     </update>
     <delete id="delete5">
          update caigou_shenhe set state=5 where id=#{id} and schedule_id=#{scheduleId} and shenheemp_id =#{shenheempId}

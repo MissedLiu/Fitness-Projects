@@ -10,6 +10,7 @@ import com.trkj.entity.liucz2.CommonMeal;
 import com.trkj.service.implLiucz2.CommonMealService;
 import com.trkj.vo.query.PageVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
 * @createDate 2022-09-22 21:34:27
 */
 @Service
+@Transactional
 public class CommonMealServiceImpl extends ServiceImpl<CommonMealMapper, CommonMeal>
     implements CommonMealService {
 

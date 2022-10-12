@@ -8,6 +8,7 @@ import com.trkj.service.implOuyang.PoService;
 import com.trkj.dao.ouyang.PoMapper;
 import com.trkj.vo.queryOuyang.PoQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -18,6 +19,7 @@ import javax.annotation.Resource;
 * @createDate 2022-09-22 11:33:17
 */
 @Service
+@Transactional
 public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
     implements PoService{
 

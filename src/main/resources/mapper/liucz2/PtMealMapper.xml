@@ -37,12 +37,12 @@
 
     </select>
     <select id="CountPtNum" resultType="com.trkj.vo.queryLiucz2.CountPtVo">
-                    select e.emp_name as name ,count(me.member_id)as value from choose_projectname cp
+            select count( distinct mm.member_id) as value ,e.emp_name as name ,e.emp_sex,e.emp_id from choose_projectname cp
         inner join member_meal mm on cp.mm_id=mm.mm_id
         inner join  `member` me on me.member_id =mm.member_id
         inner join pt_meal ptm on ptm.pt_id=cp.choose_id
         inner join pt_projectname ptn on ptn.ptp_id = cp.ptp_id
          inner join sys_emp e on e.emp_id=cp.emp_id
-        where mm.meal_type="私教" and me.member_state !=1 group by cp.emp_id;
+        where mm.meal_type="私教" and me.member_state !=1 group by cp.emp_id order by cp.emp_id desc;
     </select>
 </mapper>

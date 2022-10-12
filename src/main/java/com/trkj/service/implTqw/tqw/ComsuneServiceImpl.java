@@ -11,6 +11,7 @@ import com.trkj.vo.queryLiucz.TeamMemerberNumVo;
 import com.trkj.vo.queryTqw.ComsuneQueryVo;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.List;
 *
 */
 @Service
+@Transactional
 public class ComsuneServiceImpl extends ServiceImpl<ComsuneMapper, Comsune>
 implements ComsuneService {
 

@@ -51,4 +51,13 @@ public interface CaigouShenheService extends IService<CaigouShenhe> {
      * @return:
      **/
     int delete6(Long id);
+    /**
+     * @description:
+     * 根据采购编号查询出所有的审核信息
+     * @author: Liucz
+     * @date: 2022/10/12 14:54
+     * @param:
+     * @return:
+     **/
+    List<CaigouShenhe> findAllCaigouShenheByscheduleId(Long scheduleId);
 }

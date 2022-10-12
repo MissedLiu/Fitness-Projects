@@ -100,7 +100,6 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpSe
     @Override
     public List<CountEmpVo> findCountEmpBydeptId() {
         List<CountEmpVo> countEmpBydeptId = empMapper.findCountEmpBydeptId();
-        countEmpBydeptId.forEach(System.out::println);
         return countEmpBydeptId;
     }
 

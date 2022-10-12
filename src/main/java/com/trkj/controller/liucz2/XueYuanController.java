@@ -114,4 +114,16 @@ public class XueYuanController {
     public Result findNumJiaoLian(){
         return Result.ok(xueYuanTmService.findNUm());
     }
+    /**
+     * @description:
+     * 返回统计私教团操人数
+     * @author: Liucz
+     * @date: 2022/10/12 21:20
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/CountTongJi")
+    public Result CountTongJi(){
+        return Result.ok(xueYuanTmService.CountTongJi());
+    }
 }

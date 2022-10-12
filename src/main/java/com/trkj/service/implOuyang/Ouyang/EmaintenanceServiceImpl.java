@@ -9,6 +9,7 @@ import com.trkj.dao.ouyang.EmaintenanceMapper;
 import com.trkj.vo.queryOuyang.EeamageQueryVo;
 import com.trkj.vo.queryOuyang.EmaintenanceQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
 * @createDate 2022-09-29 09:49:10
 */
 @Service
+@Transactional
 public class EmaintenanceServiceImpl extends ServiceImpl<EmaintenanceMapper, Emaintenance>
     implements EmaintenanceService {
 

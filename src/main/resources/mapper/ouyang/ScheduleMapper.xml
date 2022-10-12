@@ -23,6 +23,7 @@
         <result property="scheduleId" column="schedule_id" jdbcType="BIGINT"/>
         <result property="shenheempId" column="shenheemp_id" jdbcType="BIGINT"/>
         <result property="state" column="state" jdbcType="TINYINT"/>
+        <result property="result" column="result"/>
     </resultMap>
     <update id="updateState">
         update schedule set schedule_state =1 where schedule_id=#{id}

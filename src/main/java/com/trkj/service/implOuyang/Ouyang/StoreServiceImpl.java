@@ -17,6 +17,7 @@ import com.trkj.dao.ouyang.StoreMapper;
 import com.trkj.vo.queryOuyang.PoQueryVo;
 import com.trkj.vo.queryOuyang.StoreQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
@@ -29,6 +30,7 @@ import java.util.Map;
 * @createDate 2022-09-23 20:36:05
 */
 @Service
+@Transactional
 public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store>
     implements StoreService{
 

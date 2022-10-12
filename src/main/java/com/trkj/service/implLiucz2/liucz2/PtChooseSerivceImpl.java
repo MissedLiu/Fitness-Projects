@@ -6,10 +6,12 @@ import com.trkj.dao.liucz2.PtChooseMapper;
 import com.trkj.entity.liucz2.PtChoose;
 import com.trkj.service.implLiucz2.PtChooseSerivce;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 @Service
+@Transactional
 public class PtChooseSerivceImpl extends ServiceImpl<PtChooseMapper, PtChoose> implements PtChooseSerivce {
     @Resource
     private PtChooseMapper ptChooseMapper;

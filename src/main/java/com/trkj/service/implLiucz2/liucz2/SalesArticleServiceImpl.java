@@ -12,6 +12,7 @@ import com.trkj.service.implLiucz2.SalesArticleService;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
  *商品记录实现
  */
 @Service
+@Transactional
 public class SalesArticleServiceImpl extends ServiceImpl<SalesArticleMapper, SalesArticle>
     implements SalesArticleService {
     @Resource

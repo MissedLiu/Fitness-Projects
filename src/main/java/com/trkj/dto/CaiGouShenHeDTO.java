@@ -15,6 +15,8 @@ import java.util.List;
  */
 @Data
 public class CaiGouShenHeDTO {
-    private Long scheduleId;
-    private List<Long> id;
+    private Long scheduleId;//采购编号
+    private List<Long> id;//账号id
+
+
 }

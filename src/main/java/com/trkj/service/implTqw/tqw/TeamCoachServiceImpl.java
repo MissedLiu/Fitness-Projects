@@ -8,6 +8,7 @@ import com.trkj.entity.tqw.TeamCoach;
 import com.trkj.service.implTqw.TeamCoachService;
 import com.trkj.vo.queryTqw.EmpAndTeamMealQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 *
 */
 @Service
+@Transactional
 public class TeamCoachServiceImpl extends ServiceImpl<TeamCoachMapper, TeamCoach>
 implements TeamCoachService {
     //新增私教套餐教练关系表数据

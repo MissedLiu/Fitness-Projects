@@ -63,16 +63,18 @@ public class SheduleController {
     @PreAuthorize("hasAnyAuthority('stores:plan:delete')")
     @DeleteMapping("/delete/{id}")
     public Result daletePlan(@PathVariable Long id) {
+        System.out.println("id="+id);
         //根据当前计划id查询出状态
         int state = scheduleService.findState(id);
-        if (state != 0) {
+        System.out.println("state="+state);
+        if (state != 0&& state!=5) {
             return Result.exist().message("删除失败,该状态下无法删除");
         }
-        if (state == 4 || state == 0) {
+
             if (scheduleService.removeById(id)) {
                 return Result.ok().message("恭喜您删除成功");
             }
-        }
+
         return Result.exist().message("删除失败");
     }
 
@@ -178,7 +180,7 @@ public class SheduleController {
     public Result checkJihua(@PathVariable Long id) {
         //根据当前计划id查询出状态
         int state = scheduleService.findState(id);
-        if (!ObjectUtils.isEmpty(state) && state == 0) {
+        if (!ObjectUtils.isEmpty(state) && state == 0|| state == 5) {
             return Result.ok();
         }
         return Result.exist().message("该计划只有在未审核状态下才能编辑");

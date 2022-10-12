@@ -14,6 +14,7 @@ import com.trkj.service.implTqw.CompactService;
 import com.trkj.vo.queryTqw.CompactAndMemberQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.List;
 *
 */
 @Service
+@Transactional
 public class CompactServiceImpl extends ServiceImpl<CompactMapper, Compact>
 implements CompactService {
     @Autowired
