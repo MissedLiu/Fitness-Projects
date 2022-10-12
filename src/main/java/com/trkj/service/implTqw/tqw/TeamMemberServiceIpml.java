@@ -92,6 +92,15 @@ public class TeamMemberServiceIpml implements TeamMemberService {
             //判断是否为体验会员
             if(member1.getMemberType()==0){
                 //体验会员
+
+                //判断是否办理过套餐（体验会员只能体验一种套餐）
+                QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
+                wrapper.eq("meal_type",memberQueryVo.getMealType());
+                wrapper.eq("member_id",member1.getMemberId());
+                if(memberMealMapper.selectList(wrapper).size()>0){
+                    return 6;
+                }
+
                 //直接办理套餐
                 MemberMeal memberMeal = new MemberMeal();
                 memberMeal.setMemberId(member1.getMemberId());

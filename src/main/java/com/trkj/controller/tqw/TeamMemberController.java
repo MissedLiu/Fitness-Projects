@@ -56,6 +56,8 @@ public class TeamMemberController {
             return Result.error().message("此会员已拉黑");
         }else if(res==5){
             return Result.ok().message("套餐已拥有，续费成功");
+        }else if(res==6){
+            return Result.error().message("该用户已办理过团操套餐，若想继续办理团操套餐，请先升级为正式会员");
         }
         return Result.error().message("系统错误");
     }
