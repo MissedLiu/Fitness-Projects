@@ -18,8 +18,6 @@ import java.util.List;
 * @Entity com.trkj.entity.ouyang.EquipmentEamage
 */
 public interface EeamageMapper extends BaseMapper<Eeamage> {
-    @Update(value = "update equipment_eamage set beizhu ='修理完成' where ee_id = #{eeId}")
-    boolean updateBeizhu(EeamageQueryVo eeamageQueryVo);
 
     @Insert(value = "insert into equipment_eamage " +
             "(ed_code,ee_name,ee_content, beizhu, sname) " +
@@ -88,6 +86,10 @@ public interface EeamageMapper extends BaseMapper<Eeamage> {
      * @return:
      **/
     int updateStateByEeId4(Long id);
+
+
+    @Update(value = "update equipment_details set ed_state=2 where ed_name=#{edName} and ed_code=#{edCode}")
+    boolean updateDetailsState(EeamageQueryVo eeamageQueryVo);
 }
 
 

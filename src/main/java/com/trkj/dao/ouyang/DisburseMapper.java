@@ -4,8 +4,10 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.trkj.entity.ouyang.Disburse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.trkj.entity.ouyang.Schedule;
+import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.ScheduleQueryVo;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 
 /**
 * @author oyzz
@@ -18,6 +20,7 @@ public interface DisburseMapper extends BaseMapper<Disburse> {
     @Insert(value = "insert into disburse (disburse_type,disburse_price,beizhu)" +
             " value (#{scheduleType},#{scheduleNum}*#{schedulePrice},#{disburseBeizhu})")
     Boolean toDisburse(ScheduleQueryVo scheduleQueryVo);
+
 }
 
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.ouyang.OnFileMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.ouyang.OnFile">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="money" column="money" jdbcType="DECIMAL"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="date" column="date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,money,type,
+        date
+    </sql>
+</mapper>

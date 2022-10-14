@@ -107,7 +107,7 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
         QueryWrapper queryWrapper=new QueryWrapper();
         queryWrapper.eq("salesman_id",pageVo.getSalesmanId());
         queryWrapper.eq("type",pageVo.getType());
-        queryWrapper.in("state", 1,2);
+        queryWrapper.in("state", 1);
         queryWrapper.orderByDesc("sales_time");
         return baseMapper.selectPage(page,queryWrapper);
     }

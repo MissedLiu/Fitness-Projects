@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.service.implLiucz2.InvoiceService;
 import com.trkj.utils.Result;
+import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.List;
 
 /**
  * @ClassName InvoiceController
- * @Description TODO
+ * @Description 商品收入统计表
  * @Author Ouyang
  * @Date 2022/10/7 14:34
  * @since JDK 8
@@ -60,4 +61,7 @@ public class InvoiceController {
             return Result.ok().message("删除成功");
         }return Result.error().message("删除失败");
     }
+
+
+
 }

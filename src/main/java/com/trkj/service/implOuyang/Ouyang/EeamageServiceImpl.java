@@ -64,11 +64,11 @@ public class EeamageServiceImpl extends ServiceImpl<EeamageMapper, Eeamage>
         return allIpage;
     }
 
-    @Override
-    public boolean updateBeizhu(EeamageQueryVo eeamageQueryVo) {
-        return eeamageMapper.updateBeizhu(eeamageQueryVo);
-    }
-
+    /**
+     * 入库
+     * @param eeamage
+     * @return
+     */
     @Override
     public boolean addRepair(Eeamage eeamage) {
         return eeamageMapper.addRepair(eeamage);
@@ -139,6 +139,17 @@ public class EeamageServiceImpl extends ServiceImpl<EeamageMapper, Eeamage>
     public int UpdateStateById4(Long id) {
         int i = eeamageMapper.updateStateByEeId4(id);
         return i;
+    }
+
+    /**
+     * 维修失败 将器材使用记录中的器材状态改为2（无法使用）
+     * @param eeamageQueryVo
+     * @return
+     */
+    @Transactional
+    @Override
+    public boolean updateDetailsState(EeamageQueryVo eeamageQueryVo) {
+        return eeamageMapper.updateDetailsState(eeamageQueryVo);
     }
 }
 

@@ -8,6 +8,7 @@ package com.trkj.controller.ouyang;/**
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.entity.liucz2.Proceeds;
 import com.trkj.service.implOuyang.ProceedsService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
@@ -33,6 +34,7 @@ public class ProceedsController {
 
     @GetMapping("/list")
     public Result getList(PageVo pageVo){
+        System.out.println("aaaaa"+pageVo.getChangeTime());
         IPage page=new Page(pageVo.getPageNo(),pageVo.getPageSize());
         return Result.ok(proceedsService.getList(page,pageVo));
     }

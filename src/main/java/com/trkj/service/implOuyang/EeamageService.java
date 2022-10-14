@@ -32,7 +32,12 @@ public interface EeamageService extends IService<Eeamage> {
      * @return: com.baomidou.mybatisplus.core.metadata.IPage<com.trkj.entity.ouyang.Eeamage>
      **/
     IPage<Eeamage> findRepairListIpageByEmpId( EeamageQueryVo eeamageQueryVo);
-    boolean updateBeizhu(EeamageQueryVo eeamageQueryVo);
+
+    /**
+     * 报修
+     * @param eeamage
+     * @return
+     */
     boolean addRepair(Eeamage eeamage);
     /**
      * @description:
@@ -80,5 +85,10 @@ public interface EeamageService extends IService<Eeamage> {
      **/
     int UpdateStateById4(Long id);
 
-
+    /**
+     * 维修失败 修改器材使用记录中的状态
+     * @param eeamageQueryVo
+     * @return
+     */
+    boolean updateDetailsState(EeamageQueryVo eeamageQueryVo);
 }

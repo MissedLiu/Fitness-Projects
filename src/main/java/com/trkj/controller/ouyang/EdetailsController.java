@@ -1,6 +1,5 @@
 package com.trkj.controller.ouyang;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.ouyang.Edetails;
@@ -15,8 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.print.attribute.ResolutionSyntax;
 
+/**
+ * 器材使用记录
+ */
 @RestController
 @RequestMapping("/api/details")
+
 public class EdetailsController {
 
     @Resource

@@ -44,6 +44,7 @@ public class EmaintenanceServiceImpl extends ServiceImpl<EmaintenanceMapper, Ema
      * @param:
      * @return:
      **/
+    @Transactional
     @Override
     public int add(Emaintenance emaintenance) {
         int insert = baseMapper.insert(emaintenance);

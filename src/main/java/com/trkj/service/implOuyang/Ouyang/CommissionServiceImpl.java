@@ -97,6 +97,7 @@ public class CommissionServiceImpl extends ServiceImpl<CommissionMapper, Commiss
      * @param commission
      * @return
      */
+    @Transactional
     @Override
     public Boolean updateCommissionPrice(Commission commission) {
         return commissionMapper.updateCommissionPrice(commission);
@@ -108,6 +109,7 @@ public class CommissionServiceImpl extends ServiceImpl<CommissionMapper, Commiss
      * @param commission
      * @return
      */
+    @Transactional
     @Override
     public Boolean updateCommSp(Commission commission) {
         return commissionMapper.updateCommissionSp(commission);

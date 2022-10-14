@@ -50,6 +50,7 @@ public class EdetailsServiceImpl extends ServiceImpl<EdetailsMapper, Edetails>
      * @param edetails
      * @return
      */
+    @Transactional
     @Override
     public boolean addDetails(Edetails edetails) {
         return edetailsMapper.addDetails(edetails);
@@ -79,7 +80,6 @@ public class EdetailsServiceImpl extends ServiceImpl<EdetailsMapper, Edetails>
 
     /**
      * 判断是否有相同标识编码
-     *
      * @param edetails
      * @return
      */
