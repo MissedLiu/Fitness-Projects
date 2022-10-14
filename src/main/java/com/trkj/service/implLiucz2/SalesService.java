@@ -6,8 +6,11 @@ import com.trkj.entity.liucz2.Sales;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.entity.ouyang.Commission;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz.CountEmpVo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  *
@@ -94,4 +97,13 @@ public interface SalesService extends IService<Sales> {
      * @return
      */
     boolean updateSalesState(PageVo pageVo);
+    /**
+     * @description:
+     * 查询每个销售的业绩
+     * @author: Liucz
+     * @date: 2022/10/14 9:30
+     * @param:
+     * @return:
+     **/
+    List<CountEmpVo> findAllCount();
 }

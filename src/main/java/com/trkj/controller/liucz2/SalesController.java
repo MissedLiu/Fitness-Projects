@@ -56,7 +56,7 @@ public class SalesController {
                     MmId = salesService.getMmIdByMemberIdAndMlId(MbId, list.get(i).getMealId());
                     if ("普通".equals(list.get(i).getType())) {
                         list.get(i).setState((byte) 1);
-                        salesService.save(list.get(i));
+                        salesService.updateById(list.get(i));
                     }
                     //判断getCpIdByMmIdAndprojectId（通过套餐办理编号和项目编号查询所选项目表编号）是否为空
                     if (!ObjectUtils.isEmpty(salesService.getCpIdByMmIdAndprojectId(MmId, list.get(i).getProjectId()))) {
@@ -138,5 +138,16 @@ public class SalesController {
         salesService.findSalesPageByTypeAndId(page, pageVo);
         return Result.ok(page);
     }
-
+    /**
+     * @description:
+     * 查询每个销售的业绩
+     * @author: Liucz
+     * @date: 2022/10/14 9:30
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/findSalesCount")
+    public Result findSalesCount(){
+        return Result.ok(salesService.findAllCount());
+    }
 }

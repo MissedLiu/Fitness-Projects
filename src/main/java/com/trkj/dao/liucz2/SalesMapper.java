@@ -7,6 +7,7 @@ import com.trkj.entity.liucz2.Sales;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.trkj.entity.ouyang.Commission;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz.CountEmpVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -116,6 +117,15 @@ public interface SalesMapper extends BaseMapper<Sales> {
      */
     @Update(value = "update sales set state=2 where type=#{type} and salesman_id=#{salesmanId} and state=1")
     Boolean updateState(PageVo pageVo);
+    /**
+     * @description:
+     * 查询每个销售的业绩
+     * @author: Liucz 
+     * @date: 2022/10/14 9:30
+     * @param: 
+     * @return: 
+     **/
+    List<CountEmpVo> findAllCount();
 }
 
 

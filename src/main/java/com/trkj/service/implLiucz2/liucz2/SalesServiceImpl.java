@@ -11,6 +11,7 @@ import com.trkj.entity.liucz2.Sales;
 import com.trkj.entity.ouyang.Commission;
 import com.trkj.service.implLiucz2.SalesService;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryLiucz.CountEmpVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
@@ -125,6 +126,19 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
     @Override
     public boolean updateSalesState(PageVo pageVo) {
         return salesMapper.updateState(pageVo);
+    }
+    /**
+     * @description:
+     * 查询每个销售的业绩
+     * @author: Liucz
+     * @date: 2022/10/14 9:30
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<CountEmpVo> findAllCount() {
+        List<CountEmpVo> allCount = salesMapper.findAllCount();
+        return allCount;
     }
 
 

@@ -27,4 +27,13 @@ public interface HealthformService extends IService<Healthform> {
      * @return: 
      **/
     Healthform checkFind(Long memberId);
+    /**
+     * @description:
+     * 根据体检id查询数据
+     * @author: Liucz
+     * @date: 2022/10/13 18:57
+     * @param:
+     * @return:
+     **/
+    Healthform healthform(Long id);
 }

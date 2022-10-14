@@ -44,6 +44,8 @@ public interface XueYuanTmMapper extends BaseMapper<XueYuanPtVo> {
      * @param:
      * @return:
      **/
+    List<JiaolianNumVo> findjiaolainNUm();
+
 }
 
 

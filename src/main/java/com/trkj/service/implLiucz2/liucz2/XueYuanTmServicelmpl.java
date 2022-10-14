@@ -92,5 +92,18 @@ public class XueYuanTmServicelmpl  implements XueYuanTmService {
 
         return list;
     }
+    /**
+     * @description:
+     * 统计个个教练下的人数
+     * @author: Liucz
+     * @date: 2022/10/13 14:30
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<JiaolianNumVo> findjiaolainNUm() {
+        List<JiaolianNumVo> jiaolianNumVos = xueYuanTmMapper.findjiaolainNUm();
+        return jiaolianNumVos;
+    }
 
 }

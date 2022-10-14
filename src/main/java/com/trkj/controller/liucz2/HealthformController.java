@@ -35,4 +35,17 @@ public class HealthformController {
         IPage<Healthform> allIpage = healthformService.findAllIpage(pageVo);
         return  Result.ok(allIpage);
     }
+    /**
+     * @description:
+     * 根据体检id查询数据
+     * @author: Liucz
+     * @date: 2022/10/13 18:56
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/healthform/{id}")
+    public Result healthform(@PathVariable Long id){
+        Healthform healthform = healthformService.healthform(id);
+        return Result.ok(healthform);
+    }
 }

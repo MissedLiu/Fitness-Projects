@@ -38,4 +38,13 @@ public interface XueYuanTmService  {
      * @return:
      **/
     List<CountTongJi> CountTongJi();
+    /**
+     * @description:
+     * 统计个个教练下的人数
+     * @author: Liucz
+     * @date: 2022/10/13 14:30
+     * @param:
+     * @return:
+     **/
+    List<JiaolianNumVo> findjiaolainNUm();
 }

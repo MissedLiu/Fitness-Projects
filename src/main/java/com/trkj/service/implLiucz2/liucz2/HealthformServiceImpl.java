@@ -52,6 +52,21 @@ public class HealthformServiceImpl extends ServiceImpl<HealthformMapper, Healthf
         Healthform healthform = baseMapper.selectOne(queryWrapper);
         return healthform;
     }
+    /**
+     * @description:
+     * 根据体检id查询数据
+     * @author: Liucz
+     * @date: 2022/10/13 18:57
+     * @param:
+     * @return:
+     **/
+    @Override
+    public Healthform healthform(Long id) {
+        QueryWrapper<Healthform> queryWrapper=new QueryWrapper<>();
+         queryWrapper.eq("healthForm_id", id);
+        Healthform healthform = baseMapper.selectOne(queryWrapper);
+        return healthform;
+    }
 }
 
 

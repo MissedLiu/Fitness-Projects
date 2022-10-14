@@ -35,5 +35,13 @@
         inner join sys_emp e on e.emp_id=cp.emp_id
         where  me.member_state !=1 and mm.meal_type!="普通"  group by cp.emp_id ;
     </select>
+    <select id="findjiaolainNUm" resultType="com.trkj.vo.queryLiucz2.JiaolianNumVo">
+         select se.emp_name as name,count(distinct mm.member_id)  as value
+from choose_projectname cp
+inner join member_meal mm  on cp.mm_id=mm.mm_id
+inner join sys_emp se on cp.emp_id=se.emp_id
+group by cp.emp_id;
+    </select>
+
 
 </mapper>

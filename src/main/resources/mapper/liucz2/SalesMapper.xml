@@ -58,4 +58,8 @@
         select *
         from sales
     </select>
+    <select id="findAllCount" resultType="com.trkj.vo.queryLiucz.CountEmpVo">
+          select e.emp_name as name,count(*) as value from sales s LEFT JOIN sys_emp e on s.salesman_id=e.emp_id where s.state !=0 group by e.emp_id ;
+    </select>
+
 </mapper>
