@@ -29,10 +29,14 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
     @Override
     public IPage<Invoice> getInvoiceList(IPage page, InvoiceQueryVo invoiceQueryVo) {
         QueryWrapper queryWrapper=new QueryWrapper();
+        //根据商品名模糊查询
         queryWrapper.like(!ObjectUtils.isEmpty(invoiceQueryVo.getStockinName()),
                 "stockin_name",invoiceQueryVo.getStockinName());
+        //根据只有年月的时间模糊查询
+        queryWrapper.like(!ObjectUtils.isEmpty(invoiceQueryVo.getChangeTime()),
+                "create_time", invoiceQueryVo.getChangeTime());
+        //根据时间排序
         queryWrapper.orderByDesc("create_time");
-        IPage page1 = baseMapper.selectPage(page, queryWrapper);
 
         return baseMapper.selectPage(page,queryWrapper);
     }

@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 /**
  * @ClassName EmaintenanceController
- * @Description TODO
+ * @Description 器材维修记录
  * @Author Ouyang
  * @Date 2022/10/4 8:49
  * @since JDK 8

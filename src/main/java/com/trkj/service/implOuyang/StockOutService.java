@@ -71,4 +71,7 @@ public interface StockOutService extends IService<StockOut> {
      * @return
      */
     Long getOutNum(Edetails edetails);
+
+
+
 }

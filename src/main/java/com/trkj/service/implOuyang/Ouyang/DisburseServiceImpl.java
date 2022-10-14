@@ -30,7 +30,8 @@ public class DisburseServiceImpl extends ServiceImpl<DisburseMapper, Disburse>
     private DisburseMapper disburseMapper;
 
     /**
-     *获取支出表数据
+     * 获取支出表数据
+     *
      * @param page
      * @param disburseQueryVo
      * @return
@@ -50,20 +51,26 @@ public class DisburseServiceImpl extends ServiceImpl<DisburseMapper, Disburse>
 
     /**
      * 添加数据到支出表
+     *
      * @param scheduleQueryVo
      * @return
      */
+    @Transactional
     @Override
     public boolean toDisburse(ScheduleQueryVo scheduleQueryVo) {
         //因为在sql语句中不能做到字符串拼接 所以在此处拼接
         String beizhu = String.join("", "购入",
-                scheduleQueryVo.getScheduleName(),"  ",
-                scheduleQueryVo.getSchedulePrice().toString(),"元",
+                scheduleQueryVo.getScheduleName(), "  ",
+                scheduleQueryVo.getSchedulePrice().toString(), "元",
                 "*", scheduleQueryVo.getScheduleNum().toString(),
                 scheduleQueryVo.getUnit());
         scheduleQueryVo.setDisburseBeizhu(beizhu);
         return disburseMapper.toDisburse(scheduleQueryVo);
     }
+
+
+
+
 }
 
 

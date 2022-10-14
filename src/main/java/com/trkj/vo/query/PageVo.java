@@ -26,6 +26,7 @@ public class PageVo {
     private Long shenheempId;//当前审批采购人id
     private Long empId;//当前教练id
     private String mealType;//套餐类型
+    private String changeTime;//接收前台用于查询的时间值
 
 
 

@@ -28,6 +28,7 @@ public class ChangenumServiceImpl extends ServiceImpl<ChangenumMapper, Changenum
      * @param poQueryVo
      * @return
      */
+    @Transactional
     @Override
     public Boolean toChangenum(PoQueryVo poQueryVo) {
         return changenumMapper.toChangeNum(poQueryVo);

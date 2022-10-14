@@ -39,6 +39,12 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
 
     }
 
+    /**
+     * 修改已购物品状态（未入库、已入库）
+     * @param poQueryVo
+     * @return
+     */
+    @Transactional
     @Override
     public boolean updatePoState(PoQueryVo poQueryVo) {
         return poMapper.updatePoState(poQueryVo);
@@ -64,6 +70,7 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
      * @param:
      * @return:
      **/
+    @Transactional
     @Override
     public int deleteByid(Long id) {
         System.out.println("oooo="+id);
