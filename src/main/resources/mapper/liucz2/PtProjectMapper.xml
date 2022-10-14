@@ -21,6 +21,7 @@
         <if test="query.ptpName !=null and query.ptpName !=''">
             and ptp_name=#{query.ptpName}
         </if>
+        order by ptp_id desc
     </select>
     <select id="findPtAllByPtpName" resultType="com.trkj.entity.liucz2.PtProject">
         select  * from pt_projectname where ptp_name=#{name}

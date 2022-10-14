@@ -28,6 +28,7 @@
             <result property="pushup" column="pushup" jdbcType="INTEGER"/>
             <result property="obpm" column="OBPM" jdbcType="INTEGER"/>
             <result property="hrrest" column="hrrest" jdbcType="INTEGER"/>
+            <result property="time" column="time" />
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -45,5 +46,6 @@
         <if test="query.memberName !=null and query.memberName !='' ">
             and member_name=#{query.memberName}
         </if>
+        order by healthForm_id desc
     </select>
 </mapper>

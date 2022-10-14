@@ -23,6 +23,7 @@
         <if test="query.memberName !=null and query.memberName !=''">
             and member_name=#{query.memberName}
         </if>
+        order by interview_id desc
     </select>
 
 </mapper>

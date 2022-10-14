@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-@Transactional
+
 public class TeamChooseServiceImpl extends ServiceImpl<TeamChooseMapper, TeamChoose> implements TeamChooseService {
    @Resource
    private TeamChooseMapper teamChooseMapper;

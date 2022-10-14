@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -129,7 +131,7 @@ public class Healthform implements Serializable {
      * 心率
      */
         private Integer hrrest;
-
+    private Date time;
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

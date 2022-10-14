@@ -47,6 +47,7 @@
         <if test="query.invoicedName !=null and query.invoicedName!='' ">
             and i.invoice_name like  "%"#{query.invoicedName}"%"
         </if>
+        order by sa_id desc
     </select>
     <update id="updateBySaId">
         update sales_article set  stockIn_num=#{stockinNum},sales_price=#{salesPrice} where sa_id=#{saId}

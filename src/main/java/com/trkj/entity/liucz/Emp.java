@@ -57,11 +57,13 @@ public class Emp implements Serializable {
     /**
      * 住址
      */
+    @Pattern(regexp = "^[\u4e00-\u9fa5]{0,20}$",message = "地址输入有误")
     private String empAddress;
 
     /**
      * 电话
      */
+    @Pattern(regexp = "^1[3456789]\\d{9}$",message = "电话输入有误")
     private String empPhone;
 
     /**
@@ -74,7 +76,6 @@ public class Emp implements Serializable {
      */
 
     @Email(message="邮箱格式错误")
-
     private String emil;
 
     /**

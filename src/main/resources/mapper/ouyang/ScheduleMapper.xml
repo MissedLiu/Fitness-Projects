@@ -29,7 +29,8 @@
         update schedule set schedule_state =1 where schedule_id=#{id}
     </update>
     <select id="findCaiGouStateByState" resultMap="BaseResultMap">
-        select s.*,c.*  from schedule s inner join caigou_shenhe c on s.schedule_id=c.schedule_id where c.state =0 and c.shenheemp_id=#{empId}
+        select s.*,c.*  from schedule s inner join caigou_shenhe c on s.schedule_id=c.schedule_id
+        where c.state =0 and c.shenheemp_id=#{empId}  order by s.schedule_id desc
     </select>
     <select id="findCaiGouStateByStatetrue" resultMap="BaseResultMap">
 select s.*,c.*  from schedule s inner join caigou_shenhe c on s.schedule_id=c.schedule_id where c.state !=0 and c.state =1 or c.state =2  and c.shenheemp_id=#{empId}

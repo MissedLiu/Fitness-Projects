@@ -61,7 +61,6 @@ public class UserController {
      * */
     @GetMapping("/userPageAll")
     public Result findUserAndEmp2( UserQueryVo userQueryVo){
-        System.out.println("userQueryVo=="+userQueryVo);
         IPage<User> userAndEmp = userService.findUserAndEmp2(userQueryVo);
         return Result.ok(userAndEmp);
     }

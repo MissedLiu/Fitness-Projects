@@ -22,6 +22,7 @@
         <if test="query.ptName !=null and query.ptName !=''">
             and pt_name like "%"#{query.ptName}"%"
         </if>
+        order by pt_id desc
     </select>
     <insert id="savePtMealPtProject">
         insert into pt_choose (pt_id,ptp_id) values

@@ -31,7 +31,7 @@ import java.util.List;
  * @since 2022-09-17
  */
 @Service
-@Transactional
+
 public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpService {
     @Resource
     private UserService userService;
@@ -70,6 +70,7 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpSe
      * 根据员工id删除员工文件
      * */
     @Override
+    @Transactional
     public boolean deleteById(Long id) {
         //查询
         Emp emp = baseMapper.selectById(id);
@@ -98,6 +99,7 @@ public class EmpServiceImpl extends ServiceImpl<EmpMapper, Emp> implements EmpSe
     }
     //添加每个部门下的人数
     @Override
+    @Transactional
     public List<CountEmpVo> findCountEmpBydeptId() {
         List<CountEmpVo> countEmpBydeptId = empMapper.findCountEmpBydeptId();
         return countEmpBydeptId;

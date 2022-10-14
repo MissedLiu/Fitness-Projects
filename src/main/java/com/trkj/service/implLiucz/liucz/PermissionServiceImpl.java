@@ -25,7 +25,7 @@ import java.util.*;
  * @since 2022-09-17
  */
 @Service
-@Transactional
+
 public class    PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
     @Resource
     private UserMapper userMapper;

@@ -30,9 +30,9 @@ public class InterviewController {
      * @param: 
      * @return: 
      **/
-    @PreAuthorize("hasAnyAuthority('coachs:interview:add')")
+
     @PostMapping("/addInterview")
-    private Result addInterview(@RequestBody Interview interview){
+    public Result addInterview(@RequestBody Interview interview){
         boolean save = interviewService.save(interview);
         if(save){
             return Result.ok().message("添加成功");

@@ -24,6 +24,7 @@
         <if test="query.cmName !=null and query.cmName !=''">
             and cm_name like  "%"#{query.cmName}"%"
         </if>
+        order by cm_id desc
     </select>
     <select id="findAllByCmNameCommonMealIPageState" resultType="com.trkj.entity.liucz2.CommonMeal">
         select  * from  common_meal where cm_is=1

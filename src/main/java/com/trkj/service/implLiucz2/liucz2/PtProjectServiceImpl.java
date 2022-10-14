@@ -24,7 +24,7 @@ import java.util.List;
 * @createDate 2022-09-26 10:08:04
 */
 @Service
-@Transactional
+
 public class PtProjectServiceImpl extends ServiceImpl<PtProjectMapper, PtProject>
     implements PtProjectService {
     @Resource
@@ -63,6 +63,7 @@ public class PtProjectServiceImpl extends ServiceImpl<PtProjectMapper, PtProject
     /*
 * 添加私教项目
 * */
+    @Transactional
     @Override
     public Boolean addPtProject(PtProject ptProject) {
         PtProject ptAllByPtpName = ptProjectMapper.findPtAllByPtpName(ptProject.getPtpName());

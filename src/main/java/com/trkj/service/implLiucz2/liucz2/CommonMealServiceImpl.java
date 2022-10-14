@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 * @createDate 2022-09-22 21:34:27
 */
 @Service
-@Transactional
+
 public class CommonMealServiceImpl extends ServiceImpl<CommonMealMapper, CommonMeal>
     implements CommonMealService {
 
@@ -62,7 +62,7 @@ public class CommonMealServiceImpl extends ServiceImpl<CommonMealMapper, CommonM
         CommonMeal commonMeal = baseMapper.selectOne(queryWrapper);
         return commonMeal;
     }
-
+    @Transactional
     @Override
     /*添加套餐*/
     public Boolean addCommonMeal(CommonMeal commonMeal) {

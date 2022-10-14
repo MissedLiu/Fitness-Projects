@@ -32,7 +32,6 @@ public class FlyerController {
      **/
     @GetMapping("/list")
     public Result selectFlyer(FlyerVo flyerVo) {
-        System.out.println("flyerVo=" + flyerVo);
         return Result.ok(flyerService.selectAllFlyer(flyerVo));
     }
 

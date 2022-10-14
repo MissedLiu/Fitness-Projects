@@ -25,13 +25,14 @@ import java.util.List;
 * @createDate 2022-09-22 21:34:27
 */
 @Service
-@Transactional
+
 public class TeamMealServiceImpl extends ServiceImpl<TeamMealMapper, TeamMeal>
     implements TeamMealService {
     @Resource
     private  TeamMealMapper teamMealMapper;
 
     /*添加团操信息*/
+    @Transactional
     @Override
     public Boolean addTeamMeal(TeamMeal teamMeal) {
         return teamMealMapper.addTeamMeal(teamMeal);
@@ -97,6 +98,7 @@ public class TeamMealServiceImpl extends ServiceImpl<TeamMealMapper, TeamMeal>
      * @param: [ptId, ptpId]
      * @return: boolean
      **/
+    @Transactional
     @Override
     public boolean saveTeamProject(Long teamId, List<Long> tpId) {
         //分配之前先删除原本有的

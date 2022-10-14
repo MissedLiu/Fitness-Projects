@@ -11,6 +11,8 @@ import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * <p>
  * 部门表
@@ -35,6 +37,7 @@ public class Department implements Serializable {
     /**
      * 部门名称
      */
+    @NotNull(message = "部门名称不能为空")
     private String departmentName;
 
     /**

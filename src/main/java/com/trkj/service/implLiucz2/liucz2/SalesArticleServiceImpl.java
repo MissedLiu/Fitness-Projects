@@ -21,7 +21,7 @@ import java.util.List;
  *商品记录实现
  */
 @Service
-@Transactional
+
 public class SalesArticleServiceImpl extends ServiceImpl<SalesArticleMapper, SalesArticle>
     implements SalesArticleService {
     @Resource
@@ -49,6 +49,7 @@ public class SalesArticleServiceImpl extends ServiceImpl<SalesArticleMapper, Sal
      * @return: int
      **/
     @Override
+    @Transactional
     public Long addSalesArticle(SalesArticleAndInvoiceVo salesArticleAndInvoiceVo) {
         SalesArticle salesArticle=new SalesArticle();
         salesArticle.setBrand(salesArticleAndInvoiceVo.getBrand());
@@ -70,6 +71,7 @@ public class SalesArticleServiceImpl extends ServiceImpl<SalesArticleMapper, Sal
      * @return: int
      **/
     @Override
+    @Transactional
     public int update(SalesArticleAndInvoiceVo salesArticleAndInvoiceVo) {
         //修改
         int i = salesArticleMapper.updateBySaId(salesArticleAndInvoiceVo.getSaId(), salesArticleAndInvoiceVo.getStockInNum(), salesArticleAndInvoiceVo.getStockInNum() * salesArticleAndInvoiceVo.getSalesPrice());
@@ -107,6 +109,7 @@ public class SalesArticleServiceImpl extends ServiceImpl<SalesArticleMapper, Sal
     }
 
     @Override
+    @Transactional
     public Boolean updateState(PageVo pageVo) {
         return salesArticleMapper.updateState(pageVo);
     }

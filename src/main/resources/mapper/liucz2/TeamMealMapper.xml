@@ -22,6 +22,7 @@
         <if test="query.teamName !=null and query.teamName !=''">
             and team_name like "%"#{query.teamName}"%"
         </if>
+        order by team_id desc
     </select>
 
     <insert id="saveTeamProject">

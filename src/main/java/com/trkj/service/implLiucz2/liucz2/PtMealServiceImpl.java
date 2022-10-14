@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-@Transactional
+
 public class PtMealServiceImpl extends ServiceImpl<PtMealMapper, PtMeal> implements PtMealService {
     @Resource
     private PtMealMapper ptMealVoMapper;
@@ -72,6 +72,7 @@ public class PtMealServiceImpl extends ServiceImpl<PtMealMapper, PtMeal> impleme
      * @return: boolean
      **/
     @Override
+    @Transactional
     public boolean savePtMealPtProject(Long ptId, List<Long> ptpId) {
         //分配之前先删除原本有的
         baseMapper.deletePtMealPtProject(ptId);

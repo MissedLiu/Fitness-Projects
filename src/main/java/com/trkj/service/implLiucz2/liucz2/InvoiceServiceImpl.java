@@ -20,7 +20,7 @@ import java.util.List;
  *
  */
 @Service
-@Transactional
+
 public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
     implements InvoiceService {
     @Resource
@@ -46,6 +46,7 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
      * @return: int
      **/
     @Override
+    @Transactional
     public int addInvoice(SalesArticleAndInvoiceVo salesArticleAndInvoiceVo) {
         Invoice invoice=new Invoice();
         invoice.setSalesId(salesArticleAndInvoiceVo.getSalesId());
@@ -69,6 +70,7 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
      * @return: int
      **/
     @Override
+    @Transactional
     public int deleteInvoice(Long id) {
         QueryWrapper<Invoice > queryWrapper=new QueryWrapper<>();
         queryWrapper.eq("sales_id" ,id);
@@ -88,13 +90,14 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
      * @param:
      * @return:
      **/
+    @Transactional
     @Override
     public int updateInvoice(SalesArticleAndInvoiceVo salesArticleAndInvoiceVo) {
         salesArticleAndInvoiceVo.setSalesPrice(salesArticleAndInvoiceVo.getStockInNum()*salesArticleAndInvoiceVo.getSalesPrice());
         int i = invoiceMapper.updateInvoice(salesArticleAndInvoiceVo);
         return i;
     }
-
+    @Transactional
     @Override
     public Long SumInvoicePrice(Long tjType) {
         Long SumPrice = null;

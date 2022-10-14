@@ -25,7 +25,7 @@ import java.util.List;
  * @since 2022-09-17
  */
 @Service
-@Transactional
+
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
     @Resource
     private UserMapper userMapper;
@@ -57,6 +57,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     }
     //保存分配好的权限数据
     @Override
+    @Transactional
     public boolean saveRolePermission(Long roleId, List<Long> permissionIds) {
         //分配之前先删除已有的权限数据
         baseMapper.deleteRolePermissionByRoleId(roleId);

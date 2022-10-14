@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  *
  */
 @Service
-@Transactional
+
 public class InterviewServiceImpl extends ServiceImpl<InterviewMapper, Interview>
     implements InterviewService {
     @Resource

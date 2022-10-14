@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  *
  */
 @Service
-@Transactional
+
 public class HealthformServiceImpl extends ServiceImpl<HealthformMapper, Healthform>
     implements HealthformService {
     @Resource

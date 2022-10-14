@@ -22,7 +22,7 @@ import java.util.List;
 * @createDate 2022-09-27 09:37:08
 */
 @Service
-@Transactional
+
 public class FlyerServiceImpl extends ServiceImpl<FlyerMapper, Flyer>
     implements FlyerService {
   @Resource
@@ -38,12 +38,12 @@ public class FlyerServiceImpl extends ServiceImpl<FlyerMapper, Flyer>
     public IPage<Flyer> selectAllFlyer(FlyerVo flyerVo) {
       Page<Flyer> page=new Page<>(flyerVo.getPageNo(),flyerVo.getPageSize());
       IPage<Flyer> allByFlyerAddressFlyerIPage = flyerMapper.findAllByFlyerAddressFlyerIPage(page, flyerVo);
-      System.out.println("allByFlyerAddressFlyerIPage="+allByFlyerAddressFlyerIPage.getRecords());
       return allByFlyerAddressFlyerIPage;
     }
 
 
     /*添加*/
+    @Transactional
     @Override
     public Boolean addFlyer(Flyer flyer) {
         return flyerMapper.addFlyer(flyer) ;

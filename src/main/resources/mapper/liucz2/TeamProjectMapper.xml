@@ -21,6 +21,7 @@
         <if test="query.tpName !=null and query.tpName !='' ">
             and tp_name=#{query.tpName}
         </if>
+        order by tp_id desc
     </select>
     <select id="findTeamProjectBytpName" resultType="com.trkj.entity.liucz2.TeamProject">
           select  * from team_projectname where tp_name=#{name}

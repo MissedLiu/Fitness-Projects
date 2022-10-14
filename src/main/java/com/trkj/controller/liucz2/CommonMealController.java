@@ -31,7 +31,6 @@ public class CommonMealController {
       **/
     @GetMapping("/list")
     public Result selectAllCommonMeal(PageVo pageVo){
-        System.out.println("pageVo="+pageVo);
         return Result.ok(commonMealService.selectAllCommonMeal(pageVo));
     }
     /**

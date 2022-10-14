@@ -55,7 +55,9 @@
         <if test="query.username != '' and query.username != null">
             and u.username like "%"#{query.username}"%"
         </if>
-
+        <if test="query.departmentId != '' and query.departmentId != null">
+            and u.department_id=#{query.departmentId}
+        </if>
     </select>
     <select id="checkEmp" resultMap="BaseResultMap">
         select u.emp_id,u.id,u.username,u.department_name,e.emp_name,u.password  from sys_user u left join sys_emp e on u.emp_id=e.emp_id where id=#{id}

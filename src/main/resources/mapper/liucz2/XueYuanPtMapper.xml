@@ -40,7 +40,7 @@
     <if test="query.memberName !=null and query.memberName !=''">
         and me.member_name=#{query.memberName}
     </if>
-
+        order by me.member_id desc
 
     </select>
 

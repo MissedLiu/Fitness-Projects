@@ -20,7 +20,7 @@ import java.util.List;
  *
  */
 @Service
-@Transactional
+
 public class CaigouShenheServiceImpl extends ServiceImpl<CaigouShenheMapper, CaigouShenhe>
     implements CaigouShenheService {
     @Resource
@@ -44,12 +44,14 @@ public class CaigouShenheServiceImpl extends ServiceImpl<CaigouShenheMapper, Cai
     }
     //同意事件,修改状态=1
     @Override
+    @Transactional
     public int updateAgress(CaigouShenhe caigouShenhe) {
         int i = caigouShenheMapper.UpdateState(caigouShenhe);
         return i;
     }
     //拒绝事件,修改状态=2
     @Override
+    @Transactional
     public int updateRefuse(CaigouShenhe caigouShenhe) {
         int i = caigouShenheMapper.UpdateRefuseState(caigouShenhe);
         return i;
@@ -80,6 +82,7 @@ public class CaigouShenheServiceImpl extends ServiceImpl<CaigouShenheMapper, Cai
      **/
 
     @Override
+    @Transactional
     public int delete5(CaigouShenhe caigouShenhe) {
         int i = caigouShenheMapper.delete5(caigouShenhe);
         return i;
@@ -93,6 +96,7 @@ public class CaigouShenheServiceImpl extends ServiceImpl<CaigouShenheMapper, Cai
      * @return:
      **/
     @Override
+    @Transactional
     public int delete6(Long id) {
         QueryWrapper<CaigouShenhe> queryWrapper=new QueryWrapper<>();
         queryWrapper.eq("schedule_id" ,id);

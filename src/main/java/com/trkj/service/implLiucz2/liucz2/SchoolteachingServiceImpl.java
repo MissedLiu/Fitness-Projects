@@ -15,7 +15,7 @@ import java.util.List;
  *
  */
 @Service
-@Transactional
+
 public class SchoolteachingServiceImpl extends ServiceImpl<SchoolteachingMapper, Schoolteaching>
     implements SchoolteachingService {
     /**

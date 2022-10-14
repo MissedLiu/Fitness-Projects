@@ -27,7 +27,7 @@ import java.util.List;
  * @Version: 5.0
  */
 @Service
-@Transactional
+
 public class XueYuanTmServicelmpl  implements XueYuanTmService {
     @Resource
     private XueYuanTmMapper xueYuanTmMapper;

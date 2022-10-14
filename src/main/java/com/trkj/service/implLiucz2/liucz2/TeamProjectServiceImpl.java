@@ -25,7 +25,7 @@ import java.util.List;
 * @createDate 2022-09-26 09:53:18
 */
 @Service
-@Transactional
+
 public class TeamProjectServiceImpl extends ServiceImpl<TeamProjectMapper, TeamProject>
     implements TeamProjectService {
 
@@ -57,6 +57,7 @@ public class TeamProjectServiceImpl extends ServiceImpl<TeamProjectMapper, TeamP
     }
 
     /*t添加普通套餐*/
+    @Transactional
     @Override
     public Boolean addTeamProject(TeamProject teamProject) {
         //根据项目名查询是否存在

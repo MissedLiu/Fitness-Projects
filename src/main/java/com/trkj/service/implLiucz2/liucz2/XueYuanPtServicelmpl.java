@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @Version: 5.0
  */
 @Service
-@Transactional
+
 public class XueYuanPtServicelmpl extends ServiceImpl<XueYuanPtMapper, XueYuanPtVo>
         implements XueYuanPtService {
     @Resource

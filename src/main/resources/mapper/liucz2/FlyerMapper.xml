@@ -28,6 +28,7 @@
         <if test="query.flyerName !=null and query.flyerName !='' ">
             and flyer_name like "%"#{query.flyerName}"%"
         </if>
+        order by flyer_id desc
     </select>
 
 </mapper>

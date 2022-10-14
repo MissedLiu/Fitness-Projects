@@ -28,7 +28,7 @@ import java.util.List;
  * @since 2022-09-17
  */
 @Service
-@Transactional
+
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Resource
@@ -69,6 +69,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     *  根据账户id修改账户名和密码
     * */
     @Override
+    @Transactional
     public int UpdateUserByUserId(User user) {
         int i = userMapper.UpdateUserByUserId(user);
         return i;
@@ -89,7 +90,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public int checkEmp(Long id) {
         User user = userMapper.checkEmp(id);
-        System.out.println("12222222222222="+user);
         //,有员工信息时返回
         if ( user.getEmp().getEmpName() !=null){
             return 0;
@@ -110,6 +110,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * 分配角色,添加
      */
     @Override
+    @Transactional
     public boolean saveUserRole(Long userId, List<Long> roleIds) {
         //先删除原来的用户与角色的关系
             baseMapper.deleteUserRole(userId);
@@ -145,6 +146,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * 添加员工进账户表
      * */
     @Override
+    @Transactional
     public int updateUser(Long userId, Long empId) {
         int i = userMapper.updateUser(userId, empId);
         return i;
