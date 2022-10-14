@@ -19,6 +19,7 @@
         order by create_time desc
     </select>
 
+
     <update id="updateByMemberIs">
         update `member` set member_state = case
         <foreach collection="memberId" item="item" index="index" separator="">
@@ -34,4 +35,6 @@
         </foreach>
         else prospect_is end
     </update>
+
+
 </mapper>

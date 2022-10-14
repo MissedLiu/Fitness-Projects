@@ -22,6 +22,10 @@ public class MemberQueryVo extends PageVo2 {
     private long mealId;
     //套餐名字
     private String mealName;
+    //套餐时长
+    private String mealTime;
+    //套餐价格
+    private long mealPrice;
     //所选套餐类型(私教,团操,普通)
     private String mealType;
     //套餐办理时间
@@ -36,6 +40,8 @@ public class MemberQueryVo extends PageVo2 {
     private Long empId;
     //教练名字
     private String empName;
+    //教练电话
+    private String empPhone;
 
     /*
      *

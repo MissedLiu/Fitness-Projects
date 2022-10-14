@@ -89,6 +89,13 @@ public class Member{
     *
     */
     private Date updateTime;
+    /*
+    *
+    *套餐集合
+    *
+    */
+    @TableField(exist = false)
+    private List<MemberMeal> list;
 
 
 }

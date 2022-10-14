@@ -60,6 +60,26 @@ public class Compact implements Serializable {
     private String photoAddress;
 
     /**
+     * 合同原件图片地址2
+     */
+    private String photoAddress2;
+
+    /**
+     * 合同原件图片地址3
+     */
+    private String photoAddress3;
+
+    /**
+     * 合同原件图片地址4
+     */
+    private String photoAddress4;
+
+    /**
+     * 合同原件图片地址5
+     */
+    private String photoAddress5;
+
+    /**
      * 业务员
      */
     private String salesman;

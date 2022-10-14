@@ -1,7 +1,10 @@
 package com.trkj.service.implTqw;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.trkj.entity.tqw.Member;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+
+import java.util.List;
 
 public interface CommonMemberService {
     /*
@@ -9,7 +12,7 @@ public interface CommonMemberService {
      *通过套餐类型查询普通会员套餐
      *
      */
-    IPage<MemberQueryVo> findCommentMember(MemberQueryVo memberQueryVo);
+    IPage<Member> findCommentMember(MemberQueryVo memberQueryVo);
 
     /*
      *
@@ -32,4 +35,7 @@ public interface CommonMemberService {
     *
     */
     int renewCommonMember(MemberQueryVo memberQueryVo);
+
+    //通过会员id查询办理的普通套餐
+    List<MemberQueryVo> findCommonByMemberId(Long memberId);
 }

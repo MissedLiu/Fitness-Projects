@@ -131,14 +131,24 @@ public class TeamMemberController {
     }
 
 
-    /*
-     *
-     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
-     *
-     */
-    @PreAuthorize("hasAuthority('members:tcmember:xiangqing')")
-    @GetMapping("/selectTeamMealByMealId/{mmId}")
-    public Result selectTeamMealByMealId(@PathVariable Long mmId){
-        return Result.ok(teamMemberService.selectTeamMealAndEmpByMmId(mmId));
-    }
+//    /*
+//     *
+//     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
+//     *
+//     */
+//    @PreAuthorize("hasAuthority('members:tcmember:xiangqing')")
+//    @GetMapping("/selectTeamMealByMealId/{mmId}")
+//    public Result selectTeamMealByMealId(@PathVariable Long mmId){
+//        return Result.ok(teamMemberService.selectTeamMealAndEmpByMmId(mmId));
+//    }
+/*
+ *
+ *通过会员id查询办理的私教套餐
+ *
+ */
+@GetMapping("/findTeamByMemberId/{memberId}")
+public Result findTeamByMemberId(@PathVariable Long memberId){
+    System.out.println("-------"+memberId);
+    return Result.ok(teamMemberService.findTeamByMemberId(memberId));
+}
 }

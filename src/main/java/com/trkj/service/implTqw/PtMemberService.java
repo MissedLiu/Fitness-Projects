@@ -1,8 +1,11 @@
 package com.trkj.service.implTqw;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.trkj.entity.tqw.Member;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 import com.trkj.vo.queryTqw.PtMealAndEmpQueryVo;
+
+import java.util.List;
 
 public interface PtMemberService {
     /*
@@ -10,7 +13,7 @@ public interface PtMemberService {
      *通过套餐类型查询私教会员
      *
      */
-    IPage<MemberQueryVo> findPtMember(MemberQueryVo memberQueryVo);
+    IPage<Member> findPtMember(MemberQueryVo memberQueryVo);
 
 
 
@@ -43,4 +46,7 @@ public interface PtMemberService {
     *
     */
     int renewPtMember(MemberQueryVo memberQueryVo);
+
+    //通过会员id查询办理的私教套餐
+    List<MemberQueryVo> findPtByMemberId(Long memberId);
 }

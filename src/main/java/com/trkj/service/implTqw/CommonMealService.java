@@ -3,6 +3,7 @@ package com.trkj.service.implTqw;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.entity.tqw.CommonMeall;
+import com.trkj.vo.queryTqw.MemberQueryVo;
 
 import java.util.List;
 
@@ -16,6 +17,8 @@ public interface CommonMealService extends IService<CommonMeall> {
      *
      */
     List<CommonMeall> selectPtMeal();
+
+
     /*
     *
     *通过id查普通套餐

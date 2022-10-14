@@ -48,9 +48,9 @@ public class PtMemberServiceIpmll implements PtMemberService {
      *
      */
     @Override
-    public IPage<MemberQueryVo> findPtMember(MemberQueryVo memberQueryVo) {
-        Page<MemberQueryVo> pageStr=new Page<>(memberQueryVo.getPageNo(),memberQueryVo.getPageSize());
-        IPage<MemberQueryVo> Page = ptMemberMapper.findPtMember( pageStr,memberQueryVo);
+    public IPage<Member> findPtMember(MemberQueryVo memberQueryVo) {
+        Page<Member> pageStr=new Page<>(memberQueryVo.getPageNo(),memberQueryVo.getPageSize());
+        IPage<Member> Page = ptMemberMapper.findPtMember( pageStr,memberQueryVo);
         return Page;
     }
 
@@ -261,10 +261,9 @@ public class PtMemberServiceIpmll implements PtMemberService {
         //通过id查询私教项目
         PtProjectname ptProjectname=ptProjectnameMapper.selectById(memberQueryVo.getProjectId());
 
-        //通过电话和姓名查询会员
+        //通过id查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();
-        wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
-        wrapper1.eq("member_name", memberQueryVo.getMemberName());
+        wrapper1.eq("member_id", memberQueryVo.getMemberId());
         Member member1 = memberMapper.selectOne(wrapper1);
         //判断是否黑名单
         if(member1 != null){
@@ -317,6 +316,12 @@ public class PtMemberServiceIpmll implements PtMemberService {
             addComsune(member1.getMemberId(),ptMeall,ptProjectname);
             return 0;
         }
+    }
+
+    //通过会员id查询办理的私教套餐
+    @Override
+    public List<MemberQueryVo> findPtByMemberId(Long memberId) {
+        return ptMemberMapper.findPtByMemberId(memberId);
     }
 
     /*

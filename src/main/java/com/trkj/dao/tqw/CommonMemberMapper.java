@@ -7,12 +7,17 @@ import com.trkj.entity.tqw.Member;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface CommonMemberMapper extends BaseMapper<Member> {
-    //动态查询私教会员（私教）
-    IPage<MemberQueryVo> findCommonMemberAll(Page<MemberQueryVo> page , @Param("query") MemberQueryVo memberQueryVo);
+    //动态查询普通会员（普通）
+    IPage<Member> findCommonMemberAll(Page<Member> page , @Param("query") MemberQueryVo memberQueryVo);
 
     //通过电话和类型和套餐编号查会员
     MemberQueryVo findMemberByPhoneAndMealTypeAndMealId(@Param("mealType") String mealType,
                                                         @Param("memberPhone") String memberPhone,
+
                                                         @Param("mealId") Long mealId);
+    //通过会员id查询办理的普通套餐
+    List<MemberQueryVo> findCommonByMemberId(Long memberId);
 }

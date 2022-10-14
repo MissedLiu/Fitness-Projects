@@ -24,5 +24,6 @@ public interface MemberMapper extends BaseMapper<Member> {
     int updateByMemberIs(List<Long> memberId);
     //修改潜在用户状态为1
     int updateByProspectIs(List<Long> memberId);
+
 }
 

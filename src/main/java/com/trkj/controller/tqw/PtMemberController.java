@@ -1,5 +1,6 @@
 package com.trkj.controller.tqw;
 
+import com.trkj.service.implTqw.MemberService;
 import com.trkj.service.implTqw.PtMealService;
 import com.trkj.service.implTqw.PtMemberService;
 import com.trkj.service.implTqw.PtProjectnameService;
@@ -34,7 +35,6 @@ public class PtMemberController {
     public Result PtMemberList(MemberQueryVo memberQueryVo){
         return Result.ok(ptmemberService.findPtMember(memberQueryVo));
     }
-
 
     /*
      *
@@ -112,7 +112,7 @@ public class PtMemberController {
 
     /*
      *
-     *通过选择的私教套餐id查询该套餐下的私教套餐列表
+     *通过选择的私教套餐id查询该套餐下的私教教练列表
      *
      */
     @GetMapping("/ptCoachListByPtId")
@@ -133,14 +133,25 @@ public class PtMemberController {
 
 
 
+//    /*
+//     *
+//     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
+//     *
+//     */
+//    @PreAuthorize("hasAuthority('members:sjmember:xiangqing')")
+//    @GetMapping("/selectPtMealByMealId/{mmId}")
+//    public Result selectCommonMealByMealId(@PathVariable Long mmId){
+//        return Result.ok(ptmemberService.selectPtMealAndEmpByMmId(mmId));
+//    }
+
     /*
      *
-     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
+     *通过会员id查询办理的私教套餐
      *
      */
-    @PreAuthorize("hasAuthority('members:sjmember:xiangqing')")
-    @GetMapping("/selectPtMealByMealId/{mmId}")
-    public Result selectCommonMealByMealId(@PathVariable Long mmId){
-        return Result.ok(ptmemberService.selectPtMealAndEmpByMmId(mmId));
+    @GetMapping("/findPtByMemberId/{memberId}")
+    public Result findPtByMemberId(@PathVariable Long memberId){
+        System.out.println("-------"+memberId);
+        return Result.ok(ptmemberService.findPtByMemberId(memberId));
     }
 }
