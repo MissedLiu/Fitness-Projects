@@ -92,6 +92,15 @@ public class TeamMemberServiceIpml implements TeamMemberService {
             //判断是否为体验会员
             if(member1.getMemberType()==0){
                 //体验会员
+
+                //判断是否办理过套餐（体验会员只能体验一种套餐）
+                QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
+                wrapper.eq("meal_type",memberQueryVo.getMealType());
+                wrapper.eq("member_id",member1.getMemberId());
+                if(memberMealMapper.selectList(wrapper).size()>0){
+                    return 6;
+                }
+
                 //直接办理套餐
                 MemberMeal memberMeal = new MemberMeal();
                 memberMeal.setMemberId(member1.getMemberId());
@@ -248,10 +257,9 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         //通过id查询私教项目
         TeamProjectname teamProjectname=teamProjectnameMapper.selectById(memberQueryVo.getProjectId());
 
-        //通过电话和姓名查询会员
+        //通过id查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();
-        wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
-        wrapper1.eq("member_name", memberQueryVo.getMemberName());
+        wrapper1.eq("member_id", memberQueryVo.getMemberId());
         Member member1 = memberMapper.selectOne(wrapper1);
         //判断是否黑名单
         if(member1 != null){
@@ -304,6 +312,12 @@ public class TeamMemberServiceIpml implements TeamMemberService {
             addComsune(member1.getMemberId(),teamMeall,teamProjectname);
             return 0;
         }
+    }
+
+    //通过会员id查询办理的团操套餐
+    @Override
+    public List<MemberQueryVo> findTeamByMemberId(Long memberId) {
+        return teamMemberMapper.findTeamByMemberId(memberId);
     }
 
     /*

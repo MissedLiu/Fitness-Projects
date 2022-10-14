@@ -5,17 +5,26 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.trkj.dao.ouyang.DisburseMapper;
 import com.trkj.dao.tqw.BlackMapper;
 import com.trkj.dao.tqw.MemberMapper;
+import com.trkj.dao.tqw.MemberMealMapper;
+import com.trkj.entity.ouyang.Disburse;
 import com.trkj.entity.tqw.Black;
 import com.trkj.entity.tqw.Member;
+import com.trkj.entity.tqw.MemberMeal;
 import com.trkj.service.implTqw.BlackService;
+import com.trkj.vo.queryTqw.BlackMemberMealQueryVo;
+import com.trkj.vo.queryTqw.DisburseAndMemberQueryVo;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /*
@@ -28,6 +37,10 @@ import java.util.Date;
 public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements BlackService {
     @Autowired
     private MemberMapper memberMapper;
+    @Autowired
+    private MemberMealMapper memberMealMapper;
+    @Autowired
+    private DisburseMapper disburseMapper;
     /*
      *
      *加入黑名单(新增)
@@ -86,13 +99,68 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
         }
         return false;
     }
+
     /*
-     *
-     *通过电话查询黑名单
-     *
-     */
-    public MemberAndBlackQueryVo findblackMemberByPhone(String memberPhone){
-        return baseMapper.findMemberByPhone(memberPhone);
+    *
+    *查询黑名单会员下的套餐
+    *
+    */
+    @Override
+    public List<BlackMemberMealQueryVo> findBlackMemberMeal(Long memberId) {
+        QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
+        wrapper.eq("member_id",memberId);
+        List<MemberMeal> list=memberMealMapper.selectList(wrapper);
+        List<Long> list1 = new LinkedList<>();
+        List<Long> list2 = new LinkedList<>();
+        List<Long> list3 = new LinkedList<>();
+        //套餐类型分类
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).getMealType().equals("普通")){
+                list1.add(list.get(i).getMealId());
+            }else if(list.get(i).getMealType().equals("私教")){
+                list2.add(list.get(i).getMealId());
+            }else if(list.get(i).getMealType().equals("团操")){
+                list3.add(list.get(i).getMealId());
+            }
+        }
+        //查询三种套餐信息
+        List<BlackMemberMealQueryVo> list4 = new ArrayList<>();
+        list4.addAll(baseMapper.selectCommon(list1,memberId));
+        list4.addAll(baseMapper.selectPt(list2,memberId));
+        list4.addAll(baseMapper.selectTeam(list3,memberId));
+        return list4;
     }
+
+    //退费
+    @Override
+    public boolean delMemberAllMeal(DisburseAndMemberQueryVo disburseAndMemberQueryVo) {
+        //添加支出记录
+        Disburse disburse=new Disburse();
+        disburse.setDisburseType("退费");
+        disburse.setDisburseTime(new Date());
+        disburse.setDisbursePrice(disburseAndMemberQueryVo.getDisbursePrice());
+        disburse.setBeizhu(disburseAndMemberQueryVo.getBeizhu());
+        disburseMapper.insert(disburse);
+        //查询会员套餐
+        QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
+        wrapper.eq("member_id",disburseAndMemberQueryVo.getMemberId());
+        List<MemberMeal> list = memberMealMapper.selectList(wrapper);
+        //删除会员套餐数据
+        memberMealMapper.delete(wrapper);
+        //删除会员项目数据
+        if(baseMapper.deleteMemberMeal(list)>0){
+            return true;
+        }
+        return false;
+    }
+
+//    /*
+//     *
+//     *通过电话查询黑名单
+//     *
+//     */
+//    public MemberAndBlackQueryVo findblackMemberByPhone(String memberPhone){
+//        return baseMapper.findMemberByPhone(memberPhone);
+//    }
 
 }

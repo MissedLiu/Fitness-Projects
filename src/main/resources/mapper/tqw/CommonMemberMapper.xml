@@ -2,8 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.trkj.dao.tqw.CommonMemberMapper">
 
-    <!-- 普通会员封装 -->
+    <!-- 普通会员数据封装1 -->
     <resultMap id="commentMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
+        <result column="cm_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="cm_name" property="mealName"/>
+        <result column="cm_time" property="mealTime"/>
+        <result column="cm_price" property="mealPrice"/>
+    </resultMap>
+
+    <!-- 普通会员数据封装2 -->
+    <resultMap id="commentMap2" type="com.trkj.vo.queryTqw.MemberQueryVo">
         <id column="member_id" property="memberId" />
         <result column="member_name" property="memberName" />
         <result column="member_sex" property="memberSex" />
@@ -16,34 +30,40 @@
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
         <result column="meal_id" property="mealId" />
-        <result column="cm_name" property="mealName"/>
-        <result column="meal_type" property="mealType" />
-        <result column="mm_time" property="mmTime" />
-        <result column="mm_date" property="mmDate" />
-        <result column="mm_id" property="mmId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
     </resultMap>
 <!--    查询普通会员列表-->
-    <select id="findCommonMemberAll" resultMap="commentMap">
-        select * from member_meal mm,`member` m,common_meal cm
-            where 1=1
-            <if test="query.memberPhone != null and query.memberPhone !=''">
+    <select id="findCommonMemberAll" resultType="com.trkj.entity.tqw.Member">
+        select  distinct m.*
+            from `member` m left join member_meal mm
+            on m.member_id=mm.member_id
+            <if test="query.memberPhone != null and query.memberPhone != '' " >
                 and m.member_phone=#{query.memberPhone}
             </if>
-        and mm.meal_type='普通'
-        and m.member_state != 1
-        and mm.member_id=m.member_id
-        and cm.cm_id=mm.meal_id
-        order by mm.mm_time desc
+            where mm.meal_type="普通"
+             and m.member_state!=1
     </select>
 
+
+
     <!--通过电话和套餐类型和套餐id查询普通会员-->
-    <select id="findMemberByPhoneAndMealTypeAndMealId" resultMap="commentMap">
+    <select id="findMemberByPhoneAndMealTypeAndMealId" resultMap="commentMap2">
         select * from member_meal mm,`member` m
         where mm.meal_type=#{mealType}
         and m.member_phone=#{memberPhone}
         and mm.meal_Id=#{mealId}
         and m.member_state != 1
         and mm.member_id=m.member_id
+    </select>
+
+    <!--   通过会员id查询办理的普通套餐-->
+    <select id="findCommonByMemberId" resultMap="commentMap">
+        select * from member_meal mm inner join common_meal cm
+            on mm.meal_id = cm.cm_id
+            where mm.member_id=#{memberId}
     </select>
     
 </mapper>

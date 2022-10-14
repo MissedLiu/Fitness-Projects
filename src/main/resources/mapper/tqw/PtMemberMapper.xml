@@ -6,16 +6,6 @@
     <!-- 私教会员封装 -->
     <resultMap id="PtMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
         <id column="member_id" property="memberId" />
-        <result column="member_name" property="memberName" />
-        <result column="member_sex" property="memberSex" />
-        <result column="member_date" property="memberDate" />
-        <result column="member_phone" property="memberPhone" />
-        <result column="member_age" property="memberAge" />
-        <result column="member_address" property="memberAddress" />
-        <result column="member_state" property="memberState" />
-        <result column="member_type" property="memberType" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
         <result column="meal_id" property="mealId" />
         <result column="meal_type" property="mealType" />
         <result column="mm_time" property="mmTime" />
@@ -25,6 +15,9 @@
         <result column="ptp_name" property="projectName" />
         <result column="ptp_id" property="projectId" />
         <result column="emp_name" property="empName" />
+        <result column="pt_price" property="mealPrice" />
+        <result column="pt_time" property="mealTime" />
+        <result column="emp_phone" property="empPhone" />
     </resultMap>
 
 
@@ -44,21 +37,16 @@
 
 
 
-<!--    通过电话或类型或套餐编号查私教会员-->
-    <select id="findPtMember" resultMap="PtMap" >
-        select * from member_meal mm,`member` m,pt_meal pm,choose_projectname cp,pt_projectname pp,sys_emp se
-        where 1=1
-        <if test="query.memberPhone != null and query.memberPhone !=''">
+<!--    通过电话查询私教会员或全部-->
+    <select id="findPtMember" resultType="com.trkj.entity.tqw.Member" >
+        select  distinct m.*
+        from `member` m left join member_meal mm
+        on m.member_id=mm.member_id
+        <if test="query.memberPhone != null and query.memberPhone != '' " >
             and m.member_phone=#{query.memberPhone}
         </if>
-        and mm.meal_type='私教'
-        and m.member_state != 1
-        and mm.member_id=m.member_id
-        and mm.mm_id=cp.mm_id
-        and cp.ptp_id=pp.ptp_id
-        and cp.emp_id=se.emp_id
-        and pm.pt_id=mm.meal_id
-        order by mm.mm_time desc
+        where mm.meal_type="私教"
+        and m.member_state!=1
     </select>
 
 
@@ -87,6 +75,16 @@
         and cp.choose_id= pm.pt_id
     </select>
 
+<!--    通过会员id查询办理的私教套餐-->
+    <select id="findPtByMemberId" resultMap="PtMap">
+        select * from member_meal mm
+            inner join choose_projectname cp on mm.mm_id=cp.mm_id
+            inner join pt_meal pm on cp.choose_id=pm.pt_id
+            inner join pt_projectname pp on pp.ptp_id=cp.ptp_id
+            inner join sys_emp se on se.emp_id=cp.emp_id
+            where mm.meal_type="私教"
+            and mm.member_id=#{memberId};
+    </select>
 
 
 </mapper>

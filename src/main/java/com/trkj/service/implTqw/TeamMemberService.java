@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 import com.trkj.vo.queryTqw.PtMealAndEmpQueryVo;
 
+import java.util.List;
+
 public interface TeamMemberService {
     /*
      *
@@ -29,5 +31,6 @@ public interface TeamMemberService {
     *
     */
     int renewTeamMember(MemberQueryVo memberQueryVo);
-
+    //通过会员id查询办理的团操套餐
+    List<MemberQueryVo> findTeamByMemberId(Long memberId);
 }

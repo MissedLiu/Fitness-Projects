@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.trkj.dao.tqw.BlackMapper">
 
-<!--   //查询黑名单列表-->
+
+    <!--   //查询黑名单列表-->
     <select id="findBlackMemberAll" resultType="com.trkj.vo.queryTqw.MemberAndBlackQueryVo">
         select * from `member` m inner join blacklist b
             on m.member_id=b.member_id
@@ -19,4 +20,69 @@
             and m.member_phone=#{memberPhone}
     </select>
 
+    <resultMap id="commentMap" type="com.trkj.vo.queryTqw.BlackMemberMealQueryVo">
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
+        <result column="cm_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="cm_name" property="mealName"/>
+        <result column="cm_price" property="mealPrice"/>
+    </resultMap>
+<!-- 查询普通套餐   -->
+    <select id="selectCommon" resultMap="commentMap">
+        select * from common_meal cm inner join member_meal mm on cm.cm_id = mm.meal_id
+        where mm.member_id=#{memberId}
+        <foreach collection="list1" item="item" index="index" separator="">
+            and cm.cm_id = #{item}
+        </foreach>
+    </select>
+    <resultMap id="PtMap" type="com.trkj.vo.queryTqw.BlackMemberMealQueryVo">
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
+        <result column="cm_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="pt_name" property="mealName"/>
+        <result column="pt_price" property="mealPrice"/>
+    </resultMap>
+    <!-- 查询私教套餐   -->
+    <select id="selectPt" resultMap="PtMap">
+        select * from pt_meal pm inner join member_meal mm on pm.pt_id = mm.meal_id
+        where mm.member_id=#{memberId}
+        <foreach collection="list2" item="item" index="index" separator="">
+            and pm.pt_id = #{item}
+        </foreach>
+    </select>
+
+    <resultMap id="TeamMap" type="com.trkj.vo.queryTqw.BlackMemberMealQueryVo">
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
+        <result column="cm_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="team_name" property="mealName"/>
+        <result column="team_price" property="mealPrice"/>
+    </resultMap>
+    <!-- 查询团操 套餐   -->
+    <select id="selectTeam" resultMap="TeamMap">
+        select * from team_meal tm inner join member_meal mm on tm.team_id = mm.meal_id
+        where mm.member_id=#{memberId}
+        <foreach collection="list3" item="item" index="index" separator="">
+            and tm.team_id = #{item}
+        </foreach>
+    </select>
+<!--    删除套餐数据-->
+    <delete id="deleteMemberMeal">
+        delete from choose_projectname cp where 1=1
+        <foreach collection="list" item="item" index="index" separator="">
+            or cp.mm_id = #{item.mmId}
+        </foreach>;
+    </delete>
 </mapper>

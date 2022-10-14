@@ -1,6 +1,7 @@
 package com.trkj.controller.tqw;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.trkj.entity.tqw.Member;
 import com.trkj.service.implTqw.CommonMealService;
 import com.trkj.service.implTqw.CommonMemberService;
 import com.trkj.utils.Result;
@@ -30,11 +31,9 @@ public class CommonMemberController {
      */
     @GetMapping("/commentListAll")
     public Result commentListAll(MemberQueryVo memberQueryVo){
-        System.out.println(memberQueryVo);
-        IPage<MemberQueryVo > commentMember = commonMemberService.findCommentMember(memberQueryVo);
+        IPage<Member> commentMember = commonMemberService.findCommentMember(memberQueryVo);
         return Result.ok(commentMember);
     }
-
 
     /*
      *
@@ -44,6 +43,7 @@ public class CommonMemberController {
     @PreAuthorize("hasAuthority('members:ptmember:add')")
     @PostMapping("/addCommonMember")
     public Result addCommonMember(@RequestBody MemberQueryVo memberQueryVo){
+        System.out.println("ssssssssss"+memberQueryVo);
         int res=commonMemberService.addCommonMember(memberQueryVo);
         if(res==0){
             return Result.ok().message("套餐添加成功");
@@ -57,6 +57,8 @@ public class CommonMemberController {
             return Result.error().message("此会员已拉黑");
         }else if(res==5){
             return Result.ok().message("套餐已拥有，续费成功");
+        }else if(res==6){
+            return Result.error().message("该用户已办理过普通套餐，若想继续办理普通套餐，请先升级为正式会员");
         }
         return Result.error().message("系统错误");
     }
@@ -69,6 +71,7 @@ public class CommonMemberController {
     @PreAuthorize("hasAuthority('members:ptmember:xufei')")
     @PutMapping("/renew")
     public Result RenewCommonMember(@RequestBody MemberQueryVo memberQueryVo){
+        System.out.println("ssssssssss"+memberQueryVo);
         int a=commonMemberService.renewCommonMember(memberQueryVo);
          if(a==0){
              return Result.ok().message("续费成功");
@@ -76,6 +79,8 @@ public class CommonMemberController {
              return Result.exist().message("续费失败，会员以拉黑");
          }else if(a==2){
              return Result.exist().message("续费失败，会员不存在");
+         }else if(a==3){
+             return Result.exist().message("续费失败，套餐不存在");
          }
          return Result.exist();
     }
@@ -105,15 +110,29 @@ public class CommonMemberController {
         return Result.ok(commonMealService.selectPtMeal());
     }
 
+
+//    /*
+//     *
+//     *通过mealId查询普通套餐（详情）
+//     *
+//     */
+//    @PreAuthorize("hasAuthority('members:ptmember:xiangqing')")
+//    @GetMapping("/findCommenMealByCmId/{cmId}")
+//    public Result selectCommonMealByMealId(@PathVariable Long cmId){
+//        System.out.println(cmId);
+//        return Result.ok(commonMealService.selectCommonMealByMealId(cmId));
+//    }
+
     /*
-     *
-     *通过mealId查询普通套餐（详情）
-     *
-     */
-    @PreAuthorize("hasAuthority('members:ptmember:xiangqing')")
-    @GetMapping("/findCommenMealByCmId/{cmId}")
-    public Result selectCommonMealByMealId(@PathVariable Long cmId){
-        System.out.println(cmId);
-        return Result.ok(commonMealService.selectCommonMealByMealId(cmId));
+    *
+    *通过会员id查询办理的普通套餐
+    *
+    */
+    @GetMapping("/findCommonByMemberId")
+    public Result findCommonByMemberId(Long memberId){
+        System.out.println("-------"+memberId);
+        return Result.ok(commonMemberService.findCommonByMemberId(memberId));
     }
+
+
 }

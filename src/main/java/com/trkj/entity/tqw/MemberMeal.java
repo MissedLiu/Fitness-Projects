@@ -1,6 +1,7 @@
 package com.trkj.entity.tqw;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -54,4 +55,11 @@ public class MemberMeal {
     *
     */
     private Date mmDate;
+    /*
+    *
+    *套餐信息
+    *
+    */
+    @TableField(exist = false)
+    private CommonMeall commonMeall;
 }

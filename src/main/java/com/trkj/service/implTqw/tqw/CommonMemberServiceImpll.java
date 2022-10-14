@@ -46,9 +46,9 @@ public class CommonMemberServiceImpll implements CommonMemberService {
      *
      */
     @Override
-    public IPage<MemberQueryVo> findCommentMember(MemberQueryVo memberQueryVo) {
-        Page<MemberQueryVo> pageStr = new Page<>(memberQueryVo.getPageNo(), memberQueryVo.getPageSize());
-        IPage<MemberQueryVo> Page = commonMemberMapper.findCommonMemberAll(pageStr, memberQueryVo);
+    public IPage<Member> findCommentMember(MemberQueryVo memberQueryVo) {
+        Page<Member> pageStr = new Page<>(memberQueryVo.getPageNo(), memberQueryVo.getPageSize());
+        IPage<Member> Page = commonMemberMapper.findCommonMemberAll(pageStr, memberQueryVo);
         return Page;
     }
 
@@ -89,6 +89,15 @@ public class CommonMemberServiceImpll implements CommonMemberService {
             //判断是否为体验会员
             if (member1.getMemberType() == 0) {
                 //体验会员
+
+                //判断是否办理过套餐（体验会员只能体验一种套餐）
+                QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
+                wrapper.eq("meal_type",memberQueryVo.getMealType());
+                wrapper.eq("member_id",member1.getMemberId());
+                if(memberMealMapper.selectList(wrapper).size()>0){
+                    return 6;
+                }
+
                 //直接办理套餐
                 MemberMeal memberMeal = new MemberMeal();
                 memberMeal.setMemberId(member1.getMemberId());
@@ -189,7 +198,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
             //姓名不存在
             return 3;
         }
-        return 5;
+        return 7;
     }
 
     //添加充值记录方法
@@ -230,11 +239,13 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         MemberMeal memberMeal = memberMealMapper.selectById(memberQueryVo.getMmId());
         //通过id查询普通套餐
         CommonMeall commonMeal = commonMealService.selectCommonMealByMealId(memberQueryVo.getMealId());
-
-        //通过电话和姓名查询会员
+        //判断套餐是否禁用
+        if(commonMeal.getCmIs()==1){
+            return 3;
+        }
+        //通过会员id查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();
-        wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
-        wrapper1.eq("member_name", memberQueryVo.getMemberName());
+        wrapper1.eq("member_id", memberQueryVo.getMemberId());
         Member member1 = memberMapper.selectOne(wrapper1);
         //判断是否黑名单
         if (member1 != null) {
@@ -268,6 +279,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
             }
             //添加消费记录
             addComsune(memberQueryVo.getMemberId(), commonMeal);
+
             return 0;
         } else {
             //到期时间小于现在(已过期)
@@ -288,6 +300,12 @@ public class CommonMemberServiceImpll implements CommonMemberService {
             return 0;
         }
 
+    }
+
+    //通过会员id查询办理的普通套餐
+    @Override
+    public List<MemberQueryVo> findCommonByMemberId(Long memberId) {
+        return commonMemberMapper.findCommonByMemberId(memberId);
     }
 
 }

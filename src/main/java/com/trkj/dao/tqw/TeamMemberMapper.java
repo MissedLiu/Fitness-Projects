@@ -8,6 +8,8 @@ import com.trkj.vo.queryTqw.MemberQueryVo;
 import com.trkj.vo.queryTqw.PtMealAndEmpQueryVo;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface TeamMemberMapper extends BaseMapper<Member> {
     IPage<MemberQueryVo> findTeamMember(Page<MemberQueryVo> page , @Param("query") MemberQueryVo memberQueryVo);
 
@@ -20,4 +22,6 @@ public interface TeamMemberMapper extends BaseMapper<Member> {
 
     //根据所选项目表套餐办理编号查询教练，套餐信息(团操)
     PtMealAndEmpQueryVo selectTeamMealAndEmpByMmId(long mmId);
+    //通过会员id查询办理的私教套餐
+    List<MemberQueryVo> findTeamByMemberId(Long memberId);
 }

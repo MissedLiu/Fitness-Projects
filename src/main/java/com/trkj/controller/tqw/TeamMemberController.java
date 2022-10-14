@@ -56,6 +56,8 @@ public class TeamMemberController {
             return Result.error().message("此会员已拉黑");
         }else if(res==5){
             return Result.ok().message("套餐已拥有，续费成功");
+        }else if(res==6){
+            return Result.error().message("该用户已办理过团操套餐，若想继续办理团操套餐，请先升级为正式会员");
         }
         return Result.error().message("系统错误");
     }
@@ -129,14 +131,24 @@ public class TeamMemberController {
     }
 
 
-    /*
-     *
-     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
-     *
-     */
-    @PreAuthorize("hasAuthority('members:tcmember:xiangqing')")
-    @GetMapping("/selectTeamMealByMealId/{mmId}")
-    public Result selectTeamMealByMealId(@PathVariable Long mmId){
-        return Result.ok(teamMemberService.selectTeamMealAndEmpByMmId(mmId));
-    }
+//    /*
+//     *
+//     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
+//     *
+//     */
+//    @PreAuthorize("hasAuthority('members:tcmember:xiangqing')")
+//    @GetMapping("/selectTeamMealByMealId/{mmId}")
+//    public Result selectTeamMealByMealId(@PathVariable Long mmId){
+//        return Result.ok(teamMemberService.selectTeamMealAndEmpByMmId(mmId));
+//    }
+/*
+ *
+ *通过会员id查询办理的私教套餐
+ *
+ */
+@GetMapping("/findTeamByMemberId/{memberId}")
+public Result findTeamByMemberId(@PathVariable Long memberId){
+    System.out.println("-------"+memberId);
+    return Result.ok(teamMemberService.findTeamByMemberId(memberId));
+}
 }
