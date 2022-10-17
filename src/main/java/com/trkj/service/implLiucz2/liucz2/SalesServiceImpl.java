@@ -107,7 +107,7 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
         QueryWrapper queryWrapper=new QueryWrapper();
         queryWrapper.eq("salesman_id",pageVo.getSalesmanId());
         queryWrapper.eq("type",pageVo.getType());
-        queryWrapper.in("state", 1);
+        queryWrapper.in("state", 1,2);
         queryWrapper.orderByDesc("sales_time");
         return baseMapper.selectPage(page,queryWrapper);
     }
@@ -139,6 +139,16 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
     public List<CountEmpVo> findAllCount() {
         List<CountEmpVo> allCount = salesMapper.findAllCount();
         return allCount;
+    }
+
+    /**
+     * 刷新页面时重新查询会员表、消费记录表、如果在这些表中存在了该会员的信息 则修改其状态为1（已购买）
+     * @param sales
+     * @return
+     */
+    @Override
+    public boolean updateStateSetOne(Sales sales) {
+        return salesMapper.updateStateSetOne(sales);
     }
 
 

@@ -106,4 +106,12 @@ public interface SalesService extends IService<Sales> {
      * @return:
      **/
     List<CountEmpVo> findAllCount();
+
+    /**
+     * 刷新页面时重新查询会员表、消费记录表、如果在这些表中存在了该会员的信息 则修改其状态为1（已购买）
+     * @param sales
+     * @return
+     */
+    boolean updateStateSetOne(Sales sales);
+
 }
