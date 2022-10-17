@@ -45,6 +45,12 @@
         <if test="query.memberPhone != null and query.memberPhone != '' " >
             and m.member_phone=#{query.memberPhone}
         </if>
+        <if test="query.memberName != null and query.memberName != '' " >
+            and m.member_name=#{query.memberName}
+        </if>
+        <if test="query.mealId != null and query.mealId != '' " >
+            and mm.meal_id=#{query.mealId}
+        </if>
         where mm.meal_type="私教"
         and m.member_state!=1
     </select>

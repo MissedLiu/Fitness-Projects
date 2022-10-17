@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("choose_projectname")
-public class ChooseProject {
+public class ChooseProjectName {
     /*
     *
     *编号

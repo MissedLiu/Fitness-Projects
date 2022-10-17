@@ -7,12 +7,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.dao.ouyang.ProceedsMapper;
 import com.trkj.dao.tqw.*;
 import com.trkj.entity.liucz2.Proceeds;
-import com.trkj.entity.liucz2.TeamMeal;
 import com.trkj.entity.tqw.*;
 import com.trkj.service.implTqw.TeamMealService;
 import com.trkj.service.implTqw.TeamMemberService;
 import com.trkj.utils.DateUtil;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import com.trkj.vo.queryTqw.MemberQueryVo2;
 import com.trkj.vo.queryTqw.PtMealAndEmpQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +33,7 @@ public class TeamMemberServiceIpml implements TeamMemberService {
     @Autowired
     private MemberMealMapper memberMealMapper;
     @Autowired
-    private ChooseprojectnameMapper chooseprojectnameMapper;
+    private ChooseProjectNameMapper chooseprojectnameMapper;
     @Autowired
     private TeamMemberMapper teamMemberMapper;
     @Autowired
@@ -42,11 +42,14 @@ public class TeamMemberServiceIpml implements TeamMemberService {
     private TeamProjectnameMapper teamProjectnameMapper;
     @Autowired
     private ProceedsMapper proceedsMapper;
-    /*
-     *
-     *通过套餐类型查询团操会员
-     *
-     */
+
+    /**
+     * @title:  查询团操会员(分页)
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 9:02
+    */
     @Override
     public IPage<MemberQueryVo> findTeamMember(MemberQueryVo memberQueryVo) {
         Page<MemberQueryVo> page=new Page<>(memberQueryVo.getPageNo(),memberQueryVo.getPageSize());
@@ -59,17 +62,17 @@ public class TeamMemberServiceIpml implements TeamMemberService {
      *新增团操会员
      *
      */
-    public int addTeamMember(MemberQueryVo memberQueryVo) {
+    public int addTeamMember(MemberQueryVo2 memberQueryVo2) {
         //套餐类型
-        memberQueryVo.setMealType("团操");
+        memberQueryVo2.setMealType("团操");
         //通过id查询团操套餐
-        TeamMeall teamMeal = teamMealService.selectTeamMealByMealId(memberQueryVo.getMealId());
+        TeamMeall teamMeal = teamMealService.selectTeamMealByMealId(memberQueryVo2.getMealId());
         //通过id查询团操项目
-        TeamProjectname teamProjectname=teamProjectnameMapper.selectById(memberQueryVo.getProjectId());
+        TeamProjectname teamProjectname=teamProjectnameMapper.selectById(memberQueryVo2.getProjectId());
         //通过电话和姓名查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();
-        wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
-        wrapper1.eq("member_name", memberQueryVo.getMemberName());
+        wrapper1.eq("member_phone", memberQueryVo2.getMemberPhone());
+        wrapper1.eq("member_name", memberQueryVo2.getMemberName());
         Member member1 = memberMapper.selectOne(wrapper1);
         //判断是否黑名单
         if(member1 != null){
@@ -81,11 +84,11 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         }
         //通过电话查会员
         QueryWrapper<Member> wrapper2 = new QueryWrapper<>();
-        wrapper2.eq("member_phone", memberQueryVo.getMemberPhone());
+        wrapper2.eq("member_phone", memberQueryVo2.getMemberPhone());
         Member member2 = memberMapper.selectOne(wrapper2);
         //通过名字查电话
         QueryWrapper<Member> wrapper3 = new QueryWrapper<>();
-        wrapper3.eq("member_name", memberQueryVo.getMemberName());
+        wrapper3.eq("member_name", memberQueryVo2.getMemberName());
         List<Member> member3 = memberMapper.selectList(wrapper3);
         if (member1 != null) {
             //会员存在
@@ -95,7 +98,7 @@ public class TeamMemberServiceIpml implements TeamMemberService {
 
                 //判断是否办理过套餐（体验会员只能体验一种套餐）
                 QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
-                wrapper.eq("meal_type",memberQueryVo.getMealType());
+                wrapper.eq("meal_type", memberQueryVo2.getMealType());
                 wrapper.eq("member_id",member1.getMemberId());
                 if(memberMealMapper.selectList(wrapper).size()>0){
                     return 6;
@@ -104,8 +107,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                 //直接办理套餐
                 MemberMeal memberMeal = new MemberMeal();
                 memberMeal.setMemberId(member1.getMemberId());
-                memberMeal.setMealId(memberQueryVo.getMealId());
-                memberMeal.setMealType(memberQueryVo.getMealType());
+                memberMeal.setMealId(memberQueryVo2.getMealId());
+                memberMeal.setMealType(memberQueryVo2.getMealType());
                 memberMeal.setMmTime(new Date());
                 //获取套餐到期时间
                 Calendar rightNow = Calendar.getInstance();
@@ -114,27 +117,27 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                 memberMeal.setMmDate(rightNow.getTime());
                 memberMealMapper.insert(memberMeal);
                 //添加所选项目表  项目编号，教练编号，套餐编号
-                ChooseProject chooseProject = new ChooseProject();
-                chooseProject.setMmId(memberMeal.getMmId());
-                chooseProject.setPtpId(memberQueryVo.getProjectId());
-                chooseProject.setEmpId(memberQueryVo.getEmpId());
-                chooseProject.setChooseId(memberQueryVo.getMealId());
-                chooseprojectnameMapper.insert(chooseProject);
+                ChooseProjectName chooseProjectName = new ChooseProjectName();
+                chooseProjectName.setMmId(memberMeal.getMmId());
+                chooseProjectName.setPtpId(memberQueryVo2.getProjectId());
+                chooseProjectName.setEmpId(memberQueryVo2.getEmpId());
+                chooseProjectName.setChooseId(memberQueryVo2.getMealId());
+                chooseprojectnameMapper.insert(chooseProjectName);
                 return 0;
                 //无需生成消费记录
             }
 
             //查询有无套餐
-            MemberQueryVo memberQueryVo1 = teamMemberMapper.findMemberByTeamAll(memberQueryVo.getMealType(),
-                    memberQueryVo.getMemberPhone(), memberQueryVo.getMealId(), memberQueryVo.getProjectId(),
-                    memberQueryVo.getEmpId());
+            MemberQueryVo memberQueryVo1 = teamMemberMapper.findMemberByTeamAll(memberQueryVo2.getMealType(),
+                    memberQueryVo2.getMemberPhone(), memberQueryVo2.getMealId(), memberQueryVo2.getProjectId(),
+                    memberQueryVo2.getEmpId());
 
             if (memberQueryVo1 == null) {
                 //无套餐
                 MemberMeal memberMeal = new MemberMeal();
                 memberMeal.setMemberId(member1.getMemberId());
-                memberMeal.setMealId(memberQueryVo.getMealId());
-                memberMeal.setMealType(memberQueryVo.getMealType());
+                memberMeal.setMealId(memberQueryVo2.getMealId());
+                memberMeal.setMealType(memberQueryVo2.getMealType());
                 memberMeal.setMmTime(new Date());
                 //获取套餐到期时间
                 try {
@@ -146,12 +149,12 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                 }
                 memberMealMapper.insert(memberMeal);
                 //添加所选项目表  项目编号，教练编号，套餐编号
-                ChooseProject chooseProject = new ChooseProject();
-                chooseProject.setMmId(memberMeal.getMmId());
-                chooseProject.setPtpId(memberQueryVo.getProjectId());
-                chooseProject.setEmpId(memberQueryVo.getEmpId());
-                chooseProject.setChooseId(memberQueryVo.getMealId());
-                chooseprojectnameMapper.insert(chooseProject);
+                ChooseProjectName chooseProjectName = new ChooseProjectName();
+                chooseProjectName.setMmId(memberMeal.getMmId());
+                chooseProjectName.setPtpId(memberQueryVo2.getProjectId());
+                chooseProjectName.setEmpId(memberQueryVo2.getEmpId());
+                chooseProjectName.setChooseId(memberQueryVo2.getMealId());
+                chooseprojectnameMapper.insert(chooseProjectName);
                 //添加消费记录
                 addComsune(member1.getMemberId(),teamMeal,teamProjectname);
                 //添加收入报表

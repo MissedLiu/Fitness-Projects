@@ -7,6 +7,7 @@ import com.trkj.service.implTqw.CommonMemberService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,25 +25,30 @@ public class CommonMemberController {
     CommonMemberService commonMemberService;
     @Resource
     CommonMealService commonMealService;
-    /*
-     *
-     *查询普通套餐会员
-     *
-     */
+   /**
+    * @title:  查询普通套餐会员
+    * @param: null
+    * @return:
+    * @author 15087
+    * @date: 2022/10/15 17:20
+   */
     @GetMapping("/commentListAll")
     public Result commentListAll(MemberQueryVo memberQueryVo){
         IPage<Member> commentMember = commonMemberService.findCommentMember(memberQueryVo);
         return Result.ok(commentMember);
     }
 
-    /*
-     *
-     *新增普通会员
-     *
-     */
+    /**
+     * @title:  新增普通会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/16 16:16
+    */
     @PreAuthorize("hasAuthority('members:ptmember:add')")
     @PostMapping("/addCommonMember")
-    public Result addCommonMember(@RequestBody MemberQueryVo memberQueryVo){
+    public Result addCommonMember(@RequestBody @Validated MemberQueryVo memberQueryVo){
+        System.out.println("ssssssssss"+memberQueryVo);
         int res=commonMemberService.addCommonMember(memberQueryVo);
         if(res==0){
             return Result.ok().message("套餐添加成功");
@@ -62,14 +68,17 @@ public class CommonMemberController {
         return Result.error().message("系统错误");
     }
 
-    /*
-     *
-     *续费
-     *
-     */
+    /**
+     * @title:  续费
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/16 16:17
+    */
     @PreAuthorize("hasAuthority('members:ptmember:xufei')")
     @PutMapping("/renew")
     public Result RenewCommonMember(@RequestBody MemberQueryVo memberQueryVo){
+        System.out.println("ssssssssss"+memberQueryVo);
         int a=commonMemberService.renewCommonMember(memberQueryVo);
          if(a==0){
              return Result.ok().message("续费成功");
@@ -84,11 +93,13 @@ public class CommonMemberController {
     }
 
 
-    /*
-     *
-     *通过会员办理套餐表id删除普通会员数据
-     *
-     */
+    /**
+     * @title:  删除
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/16 16:17
+    */
     @PreAuthorize("hasAuthority('members:ptmember:delete')")
     @DeleteMapping("/delCommonMemberById/{mmId}")
     public Result delCommonMemberById(@PathVariable long mmId){
@@ -98,32 +109,25 @@ public class CommonMemberController {
         return Result.error().message("会员套餐删除失败");
     }
 
-    /*
-     *
-     *通过是否禁用查询普通套餐
-     *
-     */
+    /**
+     * @title:  查询普通套餐列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/16 16:17
+    */
     @GetMapping("/findCommonMealListByCmis")
     public Result findCommonMealListByCmis(){
         return Result.ok(commonMealService.selectPtMeal());
     }
 
 
-//    /*
-//     *
-//     *通过mealId查询普通套餐（详情）
-//     *
-//     */
-//    @PreAuthorize("hasAuthority('members:ptmember:xiangqing')")
-//    @GetMapping("/findCommenMealByCmId/{cmId}")
-//    public Result selectCommonMealByMealId(@PathVariable Long cmId){
-//        return Result.ok(commonMealService.selectCommonMealByMealId(cmId));
-//    }
-
-    /*
-    *
-    *通过会员id查询办理的普通套餐
-    *
+    /**
+     * @title:  通过会员id查询办理的普通套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/16 16:18
     */
     @GetMapping("/findCommonByMemberId")
     public Result findCommonByMemberId(Long memberId){

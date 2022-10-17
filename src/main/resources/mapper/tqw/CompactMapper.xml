@@ -22,6 +22,9 @@
         <if test="query.memberPhone != null and query.memberPhone !=''">
             and m.member_phone=#{query.memberPhone}
         </if>
+        <if test="query.memberName != null and query.memberName !=''">
+            and m.member_name=#{query.memberName}
+        </if>
     </select>
 
 </mapper>

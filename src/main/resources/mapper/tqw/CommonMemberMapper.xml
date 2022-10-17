@@ -37,14 +37,19 @@
     </resultMap>
 <!--    查询普通会员列表-->
     <select id="findCommonMemberAll" resultType="com.trkj.entity.tqw.Member">
-        select  distinct m.*
-            from `member` m left join member_meal mm
-            on m.member_id=mm.member_id
+        select distinct m.*
+            from `member` m left join member_meal mm on m.member_id=mm.member_id
             <if test="query.memberPhone != null and query.memberPhone != '' " >
                 and m.member_phone=#{query.memberPhone}
             </if>
+            <if test="query.memberName != null and query.memberName != '' " >
+                and m.member_name=#{query.memberName}
+            </if>
+            <if test="query.mealId != null and query.mealId != '' " >
+                and mm.meal_id=#{query.mealId}
+            </if>
             where mm.meal_type="普通"
-             and m.member_state!=1
+            and m.member_state!=1
     </select>
 
 

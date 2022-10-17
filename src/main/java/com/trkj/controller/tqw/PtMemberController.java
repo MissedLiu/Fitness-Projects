@@ -6,7 +6,9 @@ import com.trkj.service.implTqw.PtMemberService;
 import com.trkj.service.implTqw.PtProjectnameService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import com.trkj.vo.queryTqw.MemberQueryVo2;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -26,11 +28,14 @@ public class PtMemberController {
     PtMealService ptMealService;
     @Resource
     PtProjectnameService ptProjectnameService;
-    /*
-     *
-     *通过套餐类型查询私教会员套餐
-     *
-     */
+
+    /**
+     * @title:  查询私教套餐办理列表（分页）
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/16 16:18
+    */
     @GetMapping("/PtMemberList")
     public Result PtMemberList(MemberQueryVo memberQueryVo){
         return Result.ok(ptmemberService.findPtMember(memberQueryVo));
@@ -43,8 +48,8 @@ public class PtMemberController {
      */
     @PreAuthorize("hasAuthority('members:sjmember:add')")
     @PostMapping("/addPtMember")
-    public Result addPtMember(@RequestBody MemberQueryVo memberQueryVo){
-        int res=ptmemberService.addPtMember(memberQueryVo);
+    public Result addPtMember(@RequestBody @Validated MemberQueryVo2 memberQueryVo2){
+        int res=ptmemberService.addPtMember(memberQueryVo2);
         if(res==0){
             return Result.ok().message("套餐添加成功");
         }else if(res==1){

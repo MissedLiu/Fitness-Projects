@@ -2,14 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.trkj.dao.tqw.MemberMapper">
 
-
-    <select id="findMemberAll" resultType="com.trkj.entity.tqw.Member">
+    <!--动态条件查询会员并分页（会员id，会员电话，会员姓名）-->
+    <select id="findMemberList" resultType="com.trkj.entity.tqw.Member">
         select * from `member` where member_state != 1
         <if test="query.memberPhone !=null and query.memberPhone !='' ">
             and member_phone=#{query.memberPhone}
         </if>
+        <if test="query.memberId !=null and query.memberId !='' ">
+            and member_id=#{query.memberId}
+        </if>
+        <if test="query.memberName !=null and query.memberName !='' ">
+            and member_name=#{query.memberName}
+        </if>
         order by create_time desc
     </select>
+
 
     <select id="listAllNoPage" resultType="com.trkj.entity.tqw.Member">
         select * from `member` where member_state != 1
@@ -18,7 +25,6 @@
         </if>
         order by create_time desc
     </select>
-
 
     <update id="updateByMemberIs">
         update `member` set member_state = case
@@ -35,6 +41,70 @@
         </foreach>
         else prospect_is end
     </update>
+
+
+    <resultMap id="commentMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
+        <result column="cm_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="cm_name" property="mealName"/>
+        <result column="cm_price" property="mealPrice"/>
+    </resultMap>
+    <!-- 查询普通套餐   -->
+    <select id="selectCommon" resultMap="commentMap">
+        select * from common_meal cm inner join member_meal mm on cm.cm_id = mm.meal_id
+        where mm.meal_type = "普通"
+        and mm.member_id=#{memberId}
+    </select>
+    <resultMap id="PtMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
+        <result column="cm_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="pt_name" property="mealName"/>
+        <result column="pt_price" property="mealPrice"/>
+        <result column="ptp_name" property="projectName"/>
+        <result column="emp_name" property="empName"/>
+    </resultMap>
+    <!-- 查询私教套餐   -->
+    <select id="selectPt" resultMap="PtMap">
+        select * from pt_meal pm inner join member_meal mm on pm.pt_id = mm.meal_id
+        inner join choose_projectname cp on cp.mm_id=mm.mm_id
+        inner join sys_emp se on se.emp_id=cp.emp_id
+        inner join pt_projectname ptp on ptp.ptp_id=cp.ptp_id
+        where mm.meal_type = "私教"
+        and mm.member_id=#{memberId}
+    </select>
+
+    <resultMap id="TeamMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
+        <result column="meal_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="mm_time" property="mmTime"/>
+        <result column="mm_date" property="mmDate"/>
+        <result column="mm_id" property="mmId"/>
+        <result column="cm_id" property="mealId" />
+        <result column="meal_type" property="mealType"/>
+        <result column="team_name" property="mealName"/>
+        <result column="team_price" property="mealPrice"/>
+        <result column="tp_name" property="projectName"/>
+        <result column="emp_name" property="empName"/>
+    </resultMap>
+    <!-- 查询团套餐   -->
+    <select id="selectTeam" resultMap="TeamMap">
+        select * from team_meal tm inner join member_meal mm on tm.team_id = mm.meal_id
+        inner join choose_projectname cp on cp.mm_id=mm.mm_id
+        inner join sys_emp se on se.emp_id=cp.emp_id
+        inner join team_projectname tp on tp.tp_id=cp.ptp_id
+        where mm.meal_type = "团操"
+        and mm.member_id=#{memberId}
+    </select>
 
 
 </mapper>

@@ -4,6 +4,7 @@ import com.trkj.service.implTqw.BlackService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.DisburseAndMemberQueryVo;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
+import com.trkj.vo.queryTqw.MemberSelectQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,21 +22,24 @@ public class BlackController {
     private BlackService blackService;
 
 
-    /*
-    *
-    *查询黑名单列表
-    *
+    /**
+     * @title:  查询黑名单列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 14:24
     */
     @GetMapping("/blackMemberList")
-    public Result findBlackMember(MemberAndBlackQueryVo memberAndBlackQueryVo){
-        return Result.ok(blackService.findBlackMember(memberAndBlackQueryVo));
+    public Result findBlackMember(MemberSelectQueryVo memberSelectQueryVo){
+        return Result.ok(blackService.findBlackMember(memberSelectQueryVo));
     }
 
-
-    /*
-    *
-    *移出黑名单
-    *
+    /**
+     * @title:  移出黑名单
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 15:28
     */
     @PreAuthorize("hasAuthority('members:blacklist:delete')")
     @PutMapping("/outUpdMemberState")
@@ -46,20 +50,24 @@ public class BlackController {
         return Result.error().message("移出失败");
     }
 
-    /*
-    *
-    *查询黑名单会员的套餐
-    *
+    /**
+     * @title:  查询黑名单会员的套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 15:31
     */
     @GetMapping("/findBlackMemberMeal")
     public Result findBlackMemberMeal(Long memberId){
         return Result.ok(blackService.findBlackMemberMeal(memberId));
     }
 
-    /*
-    *
-    *退费
-    *
+    /**
+     * @title:  退费
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 15:32
     */
     @PostMapping("/delMemberAllMeal")
     public Result delMemberAllMeal(@RequestBody DisburseAndMemberQueryVo disburseAndMemberQueryVo){

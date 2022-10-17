@@ -2,25 +2,20 @@ package com.trkj.vo.queryTqw;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.trkj.entity.tqw.Member;
-import com.trkj.vo.query.PageVo;
 import com.trkj.vo.query.PageVo2;
 import lombok.Data;
-import org.hibernate.validator.constraints.Range;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 /*
 *
-*添加普通会员vo对象
+*私教团操会员vo对象
 *
 */
 @Data
-public class MemberQueryVo extends PageVo2 {
+public class MemberQueryVo2 extends PageVo2 {
     //套餐办理编号
     private Long mmId;
     //所选套餐编号
@@ -39,10 +34,12 @@ public class MemberQueryVo extends PageVo2 {
     //套餐到期时间
     private Date mmDate;
     //项目编号
+    @NotNull(message = "所选项目id不能为空")
     private Long projectId;
     //项目名称
     private String projectName;
     //教练编号
+    @NotNull(message = "所选教练id不能为空")
     private Long empId;
     //教练名字
     private String empName;

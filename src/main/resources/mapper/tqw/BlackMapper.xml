@@ -3,22 +3,19 @@
 <mapper namespace="com.trkj.dao.tqw.BlackMapper">
 
 
-    <!--   //查询黑名单列表-->
+    <!-- 查询黑名单列表-->
     <select id="findBlackMemberAll" resultType="com.trkj.vo.queryTqw.MemberAndBlackQueryVo">
         select * from `member` m inner join blacklist b
             on m.member_id=b.member_id
             where m.member_state=1
         <if test="query.memberPhone !=null and query.memberPhone !='' ">
-            and member_phone=#{query.memberPhone}
+            and m.member_phone=#{query.memberPhone}
+        </if>
+        <if test="query.memberName !=null and query.memberName !='' ">
+            and m.member_name=#{query.memberName}
         </if>
     </select>
-    <!--   //查询黑名单列表-->
-    <select id="findMemberByPhone" resultType="com.trkj.vo.queryTqw.MemberAndBlackQueryVo">
-        select * from `member` m inner join blacklist b
-        on m.member_id=b.member_id
-        where m.member_state=1
-            and m.member_phone=#{memberPhone}
-    </select>
+
 
     <resultMap id="commentMap" type="com.trkj.vo.queryTqw.BlackMemberMealQueryVo">
         <result column="meal_id" property="mealId" />
@@ -34,10 +31,8 @@
 <!-- 查询普通套餐   -->
     <select id="selectCommon" resultMap="commentMap">
         select * from common_meal cm inner join member_meal mm on cm.cm_id = mm.meal_id
-        where mm.member_id=#{memberId}
-        <foreach collection="list1" item="item" index="index" separator="">
-            and cm.cm_id = #{item}
-        </foreach>
+        where mm.meal_type = "普通"
+        and mm.member_id=#{memberId}
     </select>
     <resultMap id="PtMap" type="com.trkj.vo.queryTqw.BlackMemberMealQueryVo">
         <result column="meal_id" property="mealId" />
@@ -53,10 +48,8 @@
     <!-- 查询私教套餐   -->
     <select id="selectPt" resultMap="PtMap">
         select * from pt_meal pm inner join member_meal mm on pm.pt_id = mm.meal_id
-        where mm.member_id=#{memberId}
-        <foreach collection="list2" item="item" index="index" separator="">
-            and pm.pt_id = #{item}
-        </foreach>
+        where mm.meal_type = "私教"
+        and mm.member_id=#{memberId}
     </select>
 
     <resultMap id="TeamMap" type="com.trkj.vo.queryTqw.BlackMemberMealQueryVo">
@@ -70,19 +63,18 @@
         <result column="team_name" property="mealName"/>
         <result column="team_price" property="mealPrice"/>
     </resultMap>
-    <!-- 查询团操 套餐   -->
+    <!-- 查询团套餐   -->
     <select id="selectTeam" resultMap="TeamMap">
         select * from team_meal tm inner join member_meal mm on tm.team_id = mm.meal_id
-        where mm.member_id=#{memberId}
-        <foreach collection="list3" item="item" index="index" separator="">
-            and tm.team_id = #{item}
-        </foreach>
+        where  mm.meal_type = "团操"
+        and mm.member_id=#{memberId}
     </select>
+
 <!--    删除套餐数据-->
     <delete id="deleteMemberMeal">
         delete from choose_projectname cp where 1=1
         <foreach collection="list" item="item" index="index" separator="">
             or cp.mm_id = #{item.mmId}
-        </foreach>;
+        </foreach>
     </delete>
 </mapper>
