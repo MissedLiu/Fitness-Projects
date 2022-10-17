@@ -43,7 +43,6 @@ public class SalesArticleController {
      **/
     @GetMapping("/list")
     public Result findSalesList( PageVo pageVo){
-        System.out.println("pageVo"+pageVo);
         return Result.ok(salesArticleService.findInvoiceAndSalesAll(pageVo));
     }
 
@@ -100,7 +99,6 @@ public class SalesArticleController {
     @PreAuthorize("hasAnyAuthority('sellgood:sellgood:delete')")
     @DeleteMapping("/delete/{id}")
     public Result delete(@PathVariable Long id){
-        System.out.println("id==="+id);
         if (invoiceService.deleteInvoice(id)!=1){
             return Result.error().message("发票记录删除失败");
         }
@@ -121,18 +119,12 @@ public class SalesArticleController {
     @PreAuthorize("hasAnyAuthority('sellgood:sellgood:delete2')")
     @DeleteMapping("/delete2/{id}")
     public Result delete2(@PathVariable Long id){
-        System.out.println("id==="+id);
         //将出库的物品数归还
         //商品记录表的数据
         SalesArticle salesArticle = salesArticleService.findstoreNumBySaId(id);
-        System.out.println("1111");
         //根据出库编号查询出库记录表中的物品数
         Long stockOutNum = stockOutService.findStockNum(salesArticle.getStockoutId());
-        System.out.println("stockOutNum="+stockOutNum);
-        System.out.println("salesArticle.getStockinNum()="+salesArticle.getStockinNum());
-        System.out.println("222");
         int i = stockOutService.updateAddStockStoerNum(salesArticle.getStockoutId(), stockOutNum + salesArticle.getStockinNum());
-        System.out.println("33");
         if (i!=1){
             return  Result.error().message("撤销购买失败");
         }
@@ -146,45 +138,5 @@ public class SalesArticleController {
         }
         return Result.ok().message("撤销成功");
     }
-//    /**
-//     * @description:
-//     * 修改
-//     * @author: Liucz
-//     * @date: 2022/10/1 22:55
-//     * @param:
-//     * @return:
-//     **/
-//    @PutMapping("/update")
-//    public  Result update(@RequestBody SalesArticleAndInvoiceVo salesArticleAndInvoiceVo){
-//        System.out.println("salesArticleAndInvoiceVo=="+salesArticleAndInvoiceVo);
-//        //修改时判断
-//        //判断当前购买数是否大于出库总数
-//        Long stockOutNum = stockOutService.findStockOutNum(salesArticleAndInvoiceVo.getOutId());
-//        System.out.println("11111111111");
-//        System.out.println("stockOutNum="+stockOutNum);
-//        System.out.println("getStockInNum="+salesArticleAndInvoiceVo.getStockInNum());
-//
-//        if(salesArticleAndInvoiceVo.getStockInNum()>stockOutNum){
-//            return Result.error().message("购买数超出商品数量");
-//        }
-//        System.out.println("22222222222");
-//
-//        //修改出库商品的商品数量
-//        int i = stockOutService.updateStockStoerNum2(salesArticleAndInvoiceVo.getOutId(), salesArticleAndInvoiceVo.getStockInNum());
-//        if (i!=1){
-//            return Result.error().message("购买失败!");
-//        }
-//        System.out.println("33333333333");
-//        //修改商品记录表的金额
-//        int update = salesArticleService.update(salesArticleAndInvoiceVo);
-//        System.out.println("4444444444444");
-//        //修改发票记录表的购买者和数量
-//        int i1 = invoiceService.updateInvoice(salesArticleAndInvoiceVo);
-//        System.out.println("555555555");
-//        if (update==1 && i1==1){
-//            return Result.ok().message("修改成功");
-//        }
-//
-//        return Result.error().message("修改失败");
-//    }
+
 }

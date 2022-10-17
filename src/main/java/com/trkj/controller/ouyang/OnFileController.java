@@ -38,20 +38,15 @@ public class OnFileController {
         if (ObjectUtils.isEmpty(onFileService.getFileNumByDate(onFileQueryVo)) ||
                 onFileService.getFileNumByDate(onFileQueryVo) == 0) {
             Long sumPrice = 0l;
-            System.out.println("+++++"+onFileQueryVo.getOnFileType());
             switch (onFileQueryVo.getOnFileType()) {
                 case "支出":
                     sumPrice = onFileService.SumDisbursePrice(onFileQueryVo);
-                    System.out.println("进入支出收入");
                     break;
                 case "套餐收入":
                     sumPrice = onFileService.SumProceedsPrice(onFileQueryVo);
-                    System.out.println("进入套餐收入");
                     break;
                 case "商品收入":
-                    System.out.println("啊啊啊");
                     sumPrice = onFileService.SumInvoicePrice(onFileQueryVo);
-                    System.out.println("进入商品收入");
                     break;
             }
             if (sumPrice != 0) {

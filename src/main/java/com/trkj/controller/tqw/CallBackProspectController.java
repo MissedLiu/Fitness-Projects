@@ -16,7 +16,6 @@ public class CallBackProspectController {
     //查询列表
     @GetMapping("/selectCallBackList")
     public Result selectCallBackList(ProspectAndCallbackQueryVo prospectAndAllotQueryVo){
-        System.out.println("eee="+prospectAndAllotQueryVo);
 
         return Result.ok(callbackProspectService.selectCallBackList(prospectAndAllotQueryVo));
     }

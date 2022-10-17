@@ -25,7 +25,6 @@ public class OSSController {
      */
     @PostMapping("/upload")
     public Result upload(MultipartFile file, String module) {
-        System.out.println("file:"+file+"module:"+module);
         //返回上传到oss的路径
         String url = fileService.upload(file, module);
 

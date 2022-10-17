@@ -71,7 +71,6 @@ public class PtMemberController {
     @PreAuthorize("hasAuthority('members:sjmember:xufei')")
     @PutMapping("/renew")
     public Result RenewPtMember(@RequestBody MemberQueryVo memberQueryVo){
-        System.out.println("memberQueryVo"+memberQueryVo);
         int a=ptmemberService.renewPtMember(memberQueryVo);
         if(a==0){
             return Result.ok().message("续费成功");
@@ -151,7 +150,6 @@ public class PtMemberController {
      */
     @GetMapping("/findPtByMemberId/{memberId}")
     public Result findPtByMemberId(@PathVariable Long memberId){
-        System.out.println("-------"+memberId);
         return Result.ok(ptmemberService.findPtByMemberId(memberId));
     }
 }

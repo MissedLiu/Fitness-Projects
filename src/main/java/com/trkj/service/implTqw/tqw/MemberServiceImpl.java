@@ -117,7 +117,6 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
                 return true;
             }
         }
-        System.out.println(list);
         return false;
     }
 

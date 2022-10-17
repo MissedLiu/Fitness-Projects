@@ -34,7 +34,6 @@ public class ProceedsController {
 
     @GetMapping("/list")
     public Result getList(PageVo pageVo){
-        System.out.println("aaaaa"+pageVo.getChangeTime());
         IPage page=new Page(pageVo.getPageNo(),pageVo.getPageSize());
         return Result.ok(proceedsService.getList(page,pageVo));
     }

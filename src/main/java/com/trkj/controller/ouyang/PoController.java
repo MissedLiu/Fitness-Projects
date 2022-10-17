@@ -67,11 +67,9 @@ public class PoController {
         //如果报损数存在，则将报损数复制给ChangeNum并且将取其相反数
         if (poQueryVo.getChangeLose()>0){
             ChangeNum=poQueryVo.getChangeLose()*(-1);
-            System.out.println("changeLose:"+ChangeNum);
             //如果报溢数存在，则将报溢数复制给ChangeNUm
         }else if (poQueryVo.getChangeMore()>0){
             ChangeNum=poQueryVo.getChangeMore();
-            System.out.println("changeMore:"+ChangeNum);
         }
         //如果改物品报损或报溢，则修改其入库数
         poQueryVo.setPoNum(poQueryVo.getPoNum()+ChangeNum);

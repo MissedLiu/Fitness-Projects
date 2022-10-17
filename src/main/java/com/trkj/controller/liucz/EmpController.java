@@ -60,7 +60,6 @@ public class EmpController {
     @PostMapping("/add")
     @PreAuthorize("hasAuthority('sys:emp:add')")
     public Result add(@Validated @RequestBody Emp emp) {
-        System.out.println("emp===" + emp);
         if (empService.save(emp)) {
             return Result.ok().message("添加成功");
         }
@@ -73,7 +72,6 @@ public class EmpController {
     @PutMapping("/update")
     @PreAuthorize("hasAuthority('sys:emp:edit')")
     public Result update(@RequestBody @Validated Emp emp) {
-        System.out.println("emp===" + emp);
         if (empService.updateById(emp)) {
             return Result.ok().message("修改成功");
         }
@@ -85,7 +83,6 @@ public class EmpController {
      * */
     @PutMapping("/update2")
     public Result update2(@RequestBody @Validated Emp emp) {
-        System.out.println("emp===" + emp);
         if (empService.updateById(emp)) {
             return Result.ok().message("修改成功");
         }
@@ -99,7 +96,6 @@ public class EmpController {
     public Result delete(@PathVariable Long id) {
         //根据传入的员工id查询是否存在相关账号信息
         List<User> userByEmpId = userService.findUserByEmpId(id);
-        System.out.println("userByEmpId=============" + userByEmpId);
         if (userByEmpId.size() != 0) {
             return Result.error().message("该员工存在账户信息,请先收回账号!");
         } else {
@@ -140,19 +136,14 @@ public class EmpController {
      * */
     @GetMapping("/updateUser/{userId}/{empId}")
     public Result updateUser(@PathVariable Long userId, @PathVariable Long empId) {
-        System.out.println("userId==" + userId + "empId== " + empId);
         //根据员工id查询是否存在相关账号信息
-//        User user = userService.EmpcheckUser(empId);
-//        System.out.println("user========="+user);
         User user = userService.EmpcheckUser(empId);
-        System.out.println("qqqqqqqqqqqqqqq=" + user);
         if (user != null) {
             return Result.error().message("该员工已分配账号");
         }
         //根据账号id查询是否存在员工信息,如果有则提示先解绑
         //检查该账户表里有没有员工
         int i = userService.checkEmp(userId);
-        System.out.println("user=========检查该账户表里有没有员工" + i);
         //如果有就提示已分配
         if (i == 0) {
             return Result.error().message("该账号已分配,请先解绑");
@@ -204,7 +195,6 @@ public class EmpController {
     @GetMapping("/userPageAll")
     @PreAuthorize("hasAuthority('sys:emp:user')")
     public Result findUserAndEmp2( UserQueryVo userQueryVo){
-        System.out.println("userQueryVo=="+userQueryVo);
         IPage<User> userAndEmp = userService.findUserAndEmp2(userQueryVo);
         return Result.ok(userAndEmp);
     }

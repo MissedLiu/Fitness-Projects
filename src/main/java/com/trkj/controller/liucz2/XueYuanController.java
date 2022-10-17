@@ -41,7 +41,6 @@ public class XueYuanController {
      **/
     @GetMapping("/xueyuanlist")
     public Result xueyuanlist(PageVo pageVo) {
-        System.out.println("pageVo="+pageVo);
         //判断是私教还是团操
         if (pageVo.getMealType().equals("私教")) {
             IPage<XueYuanPtVo> allList = xueYuanService.findAllList(pageVo);
@@ -137,5 +136,29 @@ public class XueYuanController {
     @GetMapping("/findJiaoXueCount")
     public Result findJiaoXueCount(){
         return  Result.ok(xueYuanTmService.findjiaolainNUm());
+    }
+/**
+ * @description:
+ * 查询该会员在该教练下办理的私教套餐项目信息
+ * @author: Liucz
+ * @date: 2022/10/17 9:57
+ * @param: [pageVo]
+ * @return: com.trkj.utils.Result
+ **/
+    @GetMapping("/findMealPt")
+    public Result findMealPt(PageVo pageVo){
+        return  Result.ok(xueYuanService.findAllptMeal(pageVo));
+    }
+    /**
+     * @description:
+     * 查询该会员在该教练下办理的团操套餐项目信息
+     * @author: Liucz
+     * @date: 2022/10/17 9:57
+     * @param: [pageVo]
+     * @return: com.trkj.utils.Result
+     **/
+    @GetMapping("/findMealTm")
+    public Result findMealTm(PageVo pageVo){
+        return  Result.ok(xueYuanTmService.findAllTmMeal(pageVo));
     }
 }

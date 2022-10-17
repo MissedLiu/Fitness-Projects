@@ -62,7 +62,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public IPage<UserQueryVo> findUserAndEmp(UserQueryVo userQueryVo) {
         Page<UserQueryVo> pageStr=new Page<>(userQueryVo.getPageNo(),userQueryVo.getPageSize());
         IPage<UserQueryVo> iPage = userAndEmpMapper.selectXmlPage2(pageStr, userQueryVo);
-        System.out.println(pageStr);
         return iPage;
     }
     /*

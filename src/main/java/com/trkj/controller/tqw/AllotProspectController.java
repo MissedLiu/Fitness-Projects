@@ -26,7 +26,6 @@ public class AllotProspectController {
     @PreAuthorize("hasAuthority('pay:prospect:payprospect')")
     @PostMapping("/addCallbackProspect")
     public Result addCallbackProspect(@RequestBody CallbackProspect callbackProspect){
-        System.out.println("ssssssssssssssss"+callbackProspect);
         if(callbackProspectService.addCallbackProspect(callbackProspect)){
             return Result.ok().message("添加成功");
         }

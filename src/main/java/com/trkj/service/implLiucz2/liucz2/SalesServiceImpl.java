@@ -47,10 +47,8 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
         for (int i=0;i<salesList.size();i++){
             if (!ObjectUtils.isEmpty(salesMapper.getMemberIdByNameAndPhone(salesList.get(i)))) {
                 MbId = salesMapper.getMemberIdByNameAndPhone(salesList.get(i));
-                System.out.println("会员存在");
                 //判断getMmIdByMemberIdAndMlId（通过会员id和套餐编号查询套餐办理编号）是否为空
                 if (!ObjectUtils.isEmpty(salesMapper.getMmIdByMemberIdAndMlId(MbId, salesList.get(i).getMealId()))) {
-                    System.out.println("已办理套餐");
                     MmId = salesMapper.getMmIdByMemberIdAndMlId(MbId, salesList.get(i).getMealId());
                     if (salesList.get(i).getType()=="普通"){
                         salesList.get(i).setState((byte) 1);
@@ -58,7 +56,6 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
                     }
                     //判断getCpIdByMmIdAndprojectId（通过套餐办理编号和项目编号查询所选项目表编号）是否为空
                     if (!ObjectUtils.isEmpty(salesMapper.getCpIdByMmIdAndprojectId(MmId, salesList.get(i).getProjectId()))) {
-                        System.out.println("已有项目");
                         //如果三重判断通过 则修改课程销售状态为1
                         salesList.get(i).setState((byte) 1);
                         baseMapper.updateById(salesList.get(i));

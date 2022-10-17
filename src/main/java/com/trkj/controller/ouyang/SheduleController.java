@@ -63,10 +63,8 @@ public class SheduleController {
     @PreAuthorize("hasAnyAuthority('stores:plan:delete')")
     @DeleteMapping("/delete/{id}")
     public Result daletePlan(@PathVariable Long id) {
-        System.out.println("id="+id);
         //根据当前计划id查询出状态
         int state = scheduleService.findState(id);
-        System.out.println("state="+state);
         if (state != 0&& state!=5) {
             return Result.exist().message("删除失败,该状态下无法删除");
         }
@@ -190,7 +188,6 @@ public class SheduleController {
     @GetMapping("/chexiao/{id}")
     public Result chexiao(@PathVariable Long id) {
         //根据当前计划id查询出状态
-        System.out.println("id==" + id);
         int state = scheduleService.findState(id);
         if (!ObjectUtils.isEmpty(state) && state == 0) {
             return Result.exist().message("该计划未发起审核");
@@ -204,10 +201,8 @@ public class SheduleController {
         }
         //删除审核记录中的关系
         int i = caigouShenheService.delete6(id);
-        System.out.println("1111111=" + i);
         //修改状态为5-已撤销
         int i1 = scheduleService.updateSchduleSteta5(id);
-        System.out.println("2222=" + i1);
         if (i1 == 1 && i >= 1) {
             return Result.ok().message("已成功撤回");
         }

@@ -141,7 +141,6 @@ public class EeamageController {
         if (edetailsService.CountDetailsByEdCodeAndName(edetails) > 0) {
             //上报时查询,该物品的状态
             List<Eeamage> stateByNameById = eeamageService.findStateByNameById(eeamage);
-            System.out.println("sss=" + stateByNameById);
             if (stateByNameById != null && stateByNameById.size() != 0) {
                 for (Eeamage state : stateByNameById) {
                     if (state.getState() == 0 || state.getState() == 2 || state.getState() == 4) {

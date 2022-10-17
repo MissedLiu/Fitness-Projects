@@ -73,7 +73,6 @@ public class PoServiceImpl extends ServiceImpl<PoMapper, Po>
     @Transactional
     @Override
     public int deleteByid(Long id) {
-        System.out.println("oooo="+id);
         int i = poMapper.deleteByPoIdInt(id);
         return i;
     }

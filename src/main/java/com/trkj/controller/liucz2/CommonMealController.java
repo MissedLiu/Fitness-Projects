@@ -43,7 +43,6 @@ public class CommonMealController {
 
     @GetMapping("/listState")
     public Result selectAllCommonMealState(PageVo pageVo){
-        System.out.println("pageVo="+pageVo);
         return Result.ok(commonMealService.selectAllCommonMealState(pageVo));
     }
     /*删除*/
@@ -65,7 +64,6 @@ public class CommonMealController {
     @PreAuthorize("hasAnyAuthority('sellgood:commonMeal:add')")
     @PostMapping("/add")
     public Result addCommonMeal(@RequestBody CommonMeal commonMeal){
-        System.out.println("commonMeal=="+commonMeal);
         //判断当前输入的套餐名是否存在
         CommonMeal commonMeal1 = commonMealService.checkCommonMeal(commonMeal.getCmName());
         if(commonMeal1 ==null){

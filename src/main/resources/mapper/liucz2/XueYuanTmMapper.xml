@@ -37,10 +37,29 @@
     </select>
     <select id="findjiaolainNUm" resultType="com.trkj.vo.queryLiucz2.JiaolianNumVo">
          select se.emp_name as name,count(distinct mm.member_id)  as value
-from choose_projectname cp
-inner join member_meal mm  on cp.mm_id=mm.mm_id
-inner join sys_emp se on cp.emp_id=se.emp_id
-group by cp.emp_id;
+        from choose_projectname cp
+        inner join member_meal mm  on cp.mm_id=mm.mm_id
+        inner join sys_emp se on cp.emp_id=se.emp_id
+        group by cp.emp_id;
+    </select>
+    <select id="findAllByEmpId" resultType="com.trkj.vo.queryLiucz2.XueYuanTmVo">
+         select distinct   me.member_id ,me.member_age,me.member_name ,me.member_phone,me.member_sex from choose_projectname cp
+        inner join member_meal mm on cp.mm_id=mm.mm_id
+        inner join  `member` me on me.member_id =mm.member_id
+        where cp.emp_id=49 and mm.meal_type="团操" and me.member_state !=1
+        <if test="query.memberName !=null and query.memberName !=''">
+            and me.member_name=#{query.memberName}
+        </if>
+        order by me.member_id desc
+    </select>
+    <select id="findAllTmbymmId" resultType="com.trkj.vo.queryLiucz2.XueYuanTmVo">
+  select cp.* , mm.* , me.*, tm.*, tn.* from choose_projectname cp
+        inner join member_meal mm on cp.mm_id=mm.mm_id
+        inner join  `member` me on me.member_id =mm.member_id
+        inner join team_meal tm on tm.team_id=cp.choose_id
+        inner join team_projectname tn on tn.tp_id = cp.ptp_id
+        where cp.emp_id=#{empId} and me.member_state !=1 and cp.mm_id=#{mmId}  and mm.meal_type="团操"
+
     </select>
 
 

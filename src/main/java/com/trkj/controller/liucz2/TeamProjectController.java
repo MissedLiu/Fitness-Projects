@@ -37,7 +37,6 @@ public class TeamProjectController {
     public Result addTeamProject(@RequestBody TeamProject teamProject) {
         if (teamProjectService.addTeamProject(teamProject)) {
             boolean save = teamProjectService.save(teamProject);
-            System.out.println("save==" + save);
             if (save) {
                 return Result.ok().message("团操项目添加成功");
             }

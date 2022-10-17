@@ -147,7 +147,6 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                         DateUtil dateUtil = new DateUtil();
                         Date date1 = dateUtil.time(commonMeal.getCmTime(), new Date());
                         //修改会员套餐表中到期时间
-                        System.out.println(date1);
                         UpdateWrapper<MemberMeal> wrapper5 = new UpdateWrapper<>();
                         wrapper5.eq("mm_id", memberQueryVo1.getMmId());
                         wrapper5.set("mm_date", date1);
@@ -287,7 +286,6 @@ public class CommonMemberServiceImpll implements CommonMemberService {
                 DateUtil dateUtil = new DateUtil();
                 Date date1 = dateUtil.time(commonMeal.getCmTime(), new Date());
                 //修改会员套餐表中到期时间
-                System.out.println(date1);
                 UpdateWrapper<MemberMeal> wrapper5 = new UpdateWrapper<>();
                 wrapper5.eq("mm_id", memberMeal.getMmId());
                 wrapper5.set("mm_date", date1);

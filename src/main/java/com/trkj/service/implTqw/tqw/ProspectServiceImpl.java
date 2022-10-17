@@ -91,7 +91,6 @@ implements ProspectService {
     //修改潜在用户
     @Override
     public boolean updProspecr(Prospect prospect) {
-        System.out.println("xxxxxxxxxxxxxxxxxx"+prospect);
         //通过电话查询会员
         QueryWrapper<Prospect> wrapper=new QueryWrapper<>();
         wrapper.eq("prospect_phone",prospect.getProspectPhone());

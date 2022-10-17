@@ -98,7 +98,6 @@ public class SalesController {
                 }
             }
         }
-        System.out.println("sales=" + sales);
         Commission commission = salesService.getEmpById(sales);
         if (salesService.save(sales)) {
             commission.setSalesmanId(sales.getSalesmanId());

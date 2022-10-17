@@ -1,10 +1,11 @@
 package com.trkj.service.implLiucz2.liucz2;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.trkj.dao.liucz2.XueYuanPtMapper;
 import com.trkj.dao.liucz2.XueYuanTmMapper;
+import com.trkj.dao.tqw.MemberMealMapper;
+import com.trkj.entity.tqw.MemberMeal;
 import com.trkj.service.implLiucz2.PtMealService;
 import com.trkj.service.implLiucz2.TeamMealService;
 import com.trkj.service.implLiucz2.XueYuanTmService;
@@ -12,7 +13,6 @@ import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz.CountTongJi;
 import com.trkj.vo.queryLiucz2.*;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -35,6 +35,8 @@ public class XueYuanTmServicelmpl  implements XueYuanTmService {
     private PtMealService ptMealService;
     @Resource
     private TeamMealService teamMealService;
+    @Resource
+    private MemberMealMapper memberMealMapper;
     /**
      * @description:
      * 分页动态查询学员列表
@@ -46,7 +48,8 @@ public class XueYuanTmServicelmpl  implements XueYuanTmService {
     @Override
     public IPage<XueYuanTmVo> findAllList(PageVo pageVo) {
         Page<XueYuanTmVo> page=new Page<>(pageVo.getPageNo() ,pageVo.getPageSize());
-        IPage<XueYuanTmVo> all = xueYuanTmMapper.findAll(page, pageVo);
+//        IPage<XueYuanTmVo> all = xueYuanTmMapper.findAll(page, pageVo);
+        IPage<XueYuanTmVo> all = xueYuanTmMapper.findAllByEmpId(page, pageVo);
         return all;
     }
     /**
@@ -104,6 +107,31 @@ public class XueYuanTmServicelmpl  implements XueYuanTmService {
     public List<JiaolianNumVo> findjiaolainNUm() {
         List<JiaolianNumVo> jiaolianNumVos = xueYuanTmMapper.findjiaolainNUm();
         return jiaolianNumVos;
+    }
+    /**
+     * @description:
+     * 根据会员id查询团操套餐和项目信息
+     * @author: Liucz
+     * @date: 2022/10/17 9:36
+     * @param:
+     * @return:
+     **/
+    @Override
+    public List<XueYuanTmVo> findAllTmMeal(PageVo pageVo) {
+        QueryWrapper<MemberMeal> queryWrapper=new QueryWrapper<>();
+        queryWrapper.eq("member_id" ,pageVo.getMemberIds());
+        List<MemberMeal> MemberMeal = memberMealMapper.selectList(queryWrapper);
+        List<XueYuanTmVo> list=new ArrayList<>();
+        //根据每一个套餐id循环查询所选项目以及套餐
+        for (MemberMeal MemberMeals: MemberMeal) {
+            XueYuanTmVo allbymmId = xueYuanTmMapper.findAllTmbymmId(pageVo.getEmpId(), MemberMeals.getMmId());
+            if (allbymmId!=null)
+            {
+                list.add(allbymmId);
+            }
+
+        }
+        return list;
     }
 
 }

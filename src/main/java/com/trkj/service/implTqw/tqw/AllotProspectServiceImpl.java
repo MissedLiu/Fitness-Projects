@@ -42,7 +42,6 @@ implements AllotProspectService {
     //查询所有需要回访的潜在用户
     @Override
     public IPage<ProspectAndAllotQueryVo> findProspectByEmpId(EmpQueryVo empQueryVo) {
-        System.out.println("+++++++++++++++=="+empQueryVo);
         //empId赋值为账户id
         //查询该账户下的员工id
         User user = userMapper.selectById(empQueryVo.getEmpId());

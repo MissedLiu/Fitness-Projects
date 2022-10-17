@@ -122,8 +122,6 @@ public class CommissionController {
      */
     @PostMapping("/updateSpComm")
     public Result updateSpComm(@RequestBody PageVo pageVo) {
-        System.out.println("----------------");
-        System.out.println(pageVo);
         Long allPrice = 0L;
         //调用sumPrice查询总价格 如果不为空则将其赋值给allPrice变量  sumPrice的查询条件为类型type和销售人员id 且状态state需要为1
         if (!ObjectUtils.isEmpty(salesArticleService.sumPrice(pageVo))) {

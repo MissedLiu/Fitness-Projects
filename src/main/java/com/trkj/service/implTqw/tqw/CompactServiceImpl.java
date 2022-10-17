@@ -40,7 +40,6 @@ implements CompactService {
     //查询会员下办了套餐却没有签订合同的套餐
     @Override
     public List<MemberMeal> findMemberMeal(Member member) {
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa"+member);
         //查询该会员办理的套餐
         QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
         wrapper.eq("member_id", member.getMemberId());

@@ -62,7 +62,6 @@ public class TeamProjectServiceImpl extends ServiceImpl<TeamProjectMapper, TeamP
     public Boolean addTeamProject(TeamProject teamProject) {
         //根据项目名查询是否存在
         TeamProject teamProjectBytpName = teamProjectMapper.findTeamProjectBytpName(teamProject.getTpName());
-        System.out.println("teamProjectBytpName=="+teamProjectBytpName);
         if (teamProjectBytpName !=null){
             //不为空则存在,不能添加
             return false;

@@ -48,7 +48,6 @@ public class RoleController {
     @PostMapping("/add")
     @PreAuthorize("hasAuthority('sys:role:add')")
     public Result add(@RequestBody Role role){
-        System.out.println("role=="+role);
         if(roleService.save(role)){
             return Result.ok().message("角色添加成功");
         }
@@ -93,7 +92,6 @@ public class RoleController {
     public Result getRolePermisson(Long userId,Long roleId){
         //调用查询权限树数据的方法
         RolePermissionVo permissionVo=permissionService.findPermissionTree(userId,roleId);
-        System.out.println("1111111111111==="+permissionVo);
         return Result.ok(permissionVo);
     }
     /*

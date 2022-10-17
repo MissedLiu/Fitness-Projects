@@ -69,7 +69,6 @@ public class UserController {
      * */
     @GetMapping("/checkUser")
     public Result getUserByusername( User user){
-        System.out.println("username="+user.getUsername());
         User userByUsername = userService.findUserByUserName(user.getUsername());
         //如果为true则表示不存在
         if (userByUsername==null){
@@ -94,7 +93,6 @@ public class UserController {
         //调用保存用户信息的方法
         user.setIsAdmin(0);
         if (userService.save(user)){
-            System.out.println("user="+user.getPassword());
            return Result.ok().message("账户添加成功");
        }
         return Result.exist().message("账户添加失败");
@@ -105,10 +103,8 @@ public class UserController {
     @PutMapping("/update")
     @PreAuthorize("hasAuthority('sys:account:edit')")
     public  Result update(@RequestBody User user){
-        System.out.println("111111111111111"+user);
         //查询修改的用户名是否已经存在
         User userName = userService.findUserByUserName(user.getUsername());
-        System.out.println("222222222===="+userName);
         //判断对象是否为空,不为空则表示存在
         if(userName !=null &&userName.getId() !=user.getId() ){
             return Result.error().message("该用户名已被使用,请重新输入!");
@@ -200,7 +196,6 @@ public class UserController {
     @GetMapping("/empByUserId/{id}")
     public Result  empByUserId(@PathVariable Long id){
         User userByUserId = userService.findUserEmpByUserId(id);
-        System.out.println("userByUserId=="+userByUserId);
         return Result.ok(userByUserId);
     }
 }

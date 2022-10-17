@@ -43,7 +43,6 @@ public class CommonMemberController {
     @PreAuthorize("hasAuthority('members:ptmember:add')")
     @PostMapping("/addCommonMember")
     public Result addCommonMember(@RequestBody MemberQueryVo memberQueryVo){
-        System.out.println("ssssssssss"+memberQueryVo);
         int res=commonMemberService.addCommonMember(memberQueryVo);
         if(res==0){
             return Result.ok().message("套餐添加成功");
@@ -71,7 +70,6 @@ public class CommonMemberController {
     @PreAuthorize("hasAuthority('members:ptmember:xufei')")
     @PutMapping("/renew")
     public Result RenewCommonMember(@RequestBody MemberQueryVo memberQueryVo){
-        System.out.println("ssssssssss"+memberQueryVo);
         int a=commonMemberService.renewCommonMember(memberQueryVo);
          if(a==0){
              return Result.ok().message("续费成功");
@@ -119,7 +117,6 @@ public class CommonMemberController {
 //    @PreAuthorize("hasAuthority('members:ptmember:xiangqing')")
 //    @GetMapping("/findCommenMealByCmId/{cmId}")
 //    public Result selectCommonMealByMealId(@PathVariable Long cmId){
-//        System.out.println(cmId);
 //        return Result.ok(commonMealService.selectCommonMealByMealId(cmId));
 //    }
 
@@ -130,7 +127,6 @@ public class CommonMemberController {
     */
     @GetMapping("/findCommonByMemberId")
     public Result findCommonByMemberId(Long memberId){
-        System.out.println("-------"+memberId);
         return Result.ok(commonMemberService.findCommonByMemberId(memberId));
     }
 

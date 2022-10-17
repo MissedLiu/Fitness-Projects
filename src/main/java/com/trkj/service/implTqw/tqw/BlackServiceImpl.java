@@ -47,8 +47,6 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
      *
      */
     public boolean goUpdMemberState(long memberId,String why){
-        System.out.println(memberId);
-        System.out.println(why);
         //修改会员状态
         UpdateWrapper<Member> wrapper = new UpdateWrapper<>();
         wrapper.eq("member_id", memberId);
@@ -59,7 +57,6 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
         black.setMemberId(memberId);
         black.setCreateTime(new Date());
         black.setWhy(why);
-        System.out.println(black);
         int b = baseMapper.insert(black);
         //判断
         if(a>0 && b>0){

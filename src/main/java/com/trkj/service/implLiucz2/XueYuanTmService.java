@@ -47,4 +47,14 @@ public interface XueYuanTmService  {
      * @return:
      **/
     List<JiaolianNumVo> findjiaolainNUm();
+
+    /**
+     * @description:
+     * 根据会员id查询团操套餐和项目信息
+     * @author: Liucz
+     * @date: 2022/10/17 9:36
+     * @param:
+     * @return:
+     **/
+    List<XueYuanTmVo> findAllTmMeal(PageVo pageVo);
 }

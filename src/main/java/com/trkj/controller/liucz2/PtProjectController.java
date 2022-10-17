@@ -63,7 +63,6 @@ public class PtProjectController {
     public Result updatePtProject(@RequestBody PtProject ptProject){
         //根据传入的项目名称,查询是否已经存在
         PtProject ptIdByPtpName = ptProjectService.findPtIdByPtpName(ptProject.getPtpName());
-        System.out.println("ptIdByPtpName=="+ptIdByPtpName);
         //判断查询出的id,与当前的id是否相等
         if (ptIdByPtpName !=null){
             if(   ptIdByPtpName.getPtpId() != ptProject.getPtpId()){

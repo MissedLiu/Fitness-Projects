@@ -3,6 +3,7 @@ package com.trkj.dao.liucz2;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.entity.tqw.Member;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryLiucz2.JiaolianNumVo;
 import com.trkj.vo.queryLiucz2.XueYuanPtVo;
@@ -45,7 +46,17 @@ public interface XueYuanTmMapper extends BaseMapper<XueYuanPtVo> {
      * @return:
      **/
     List<JiaolianNumVo> findjiaolainNUm();
+    /**
+     * @description:
+     * 查询当前教练下不重复的会员
+     * @author: Liucz
+     * @date: 2022/10/17 8:59
+     * @param:
+     * @return:
+     **/
+    IPage<XueYuanTmVo> findAllByEmpId(Page<XueYuanTmVo> page ,@Param("query") PageVo pageVo);
 
+    XueYuanTmVo findAllTmbymmId(@Param("empId") Long empId,@Param("mmId") Long mmId);
 }
 
 

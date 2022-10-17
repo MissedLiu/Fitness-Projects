@@ -61,7 +61,6 @@ public class CaiGouShenHeController {
             //根据采购编号查询审核状态
             List<CaigouShenhe> allState = caigouShenheService.findAllState(caigouShenhe.getScheduleId());
             int d = allState.size();
-            System.out.println("ddd=" + d);
             int x = 0;
             for (CaigouShenhe allStates : allState) {
                 if (allStates.getState() == 1) {

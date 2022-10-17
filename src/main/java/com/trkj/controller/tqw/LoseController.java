@@ -22,14 +22,12 @@ public class LoseController {
     //查询失物列表
     @GetMapping("/selectlose")
     public Result selectLose(LoseQueryVo loseQueryVo){
-        System.out.println("----------------"+loseQueryVo);
         return Result.ok(loseService.selectLose(loseQueryVo));
     }
     //新增失物
     @PreAuthorize("hasAuthority('loses:lose:add')")
     @PostMapping("/addlose")
     public Result addLose(@RequestBody Lose lose){
-        System.out.println("++++++++++++++++++="+lose);
         return Result.ok(loseService.addLose(lose));
     }
 

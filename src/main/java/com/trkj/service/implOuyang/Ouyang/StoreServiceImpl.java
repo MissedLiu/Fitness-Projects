@@ -137,7 +137,6 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store>
         queryParamsMap.put("brand", storeQueryVo.getBrand());
         queryWrapper.allEq(queryParamsMap);
         StockOut stockOut = stockOutMapper.selectOne(queryWrapper);
-        System.out.println("stockOut=" + stockOut);
         //当查询出结果不为空时,修改出库商品的数量
         if (stockOut != null) {
             StockOut stockOut1 = new StockOut();

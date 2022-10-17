@@ -85,7 +85,6 @@ public class TeamMemberController {
     @PreAuthorize("hasAuthority('members:tcmember:xufei')")
     @PutMapping("/renew")
     public Result RenewPtMember(@RequestBody MemberQueryVo memberQueryVo){
-        System.out.println("memberQueryVo"+memberQueryVo);
         int a=teamMemberService.renewTeamMember(memberQueryVo);
         if(a==0){
             return Result.ok().message("续费成功");
@@ -148,7 +147,6 @@ public class TeamMemberController {
  */
 @GetMapping("/findTeamByMemberId/{memberId}")
 public Result findTeamByMemberId(@PathVariable Long memberId){
-    System.out.println("-------"+memberId);
     return Result.ok(teamMemberService.findTeamByMemberId(memberId));
 }
 }

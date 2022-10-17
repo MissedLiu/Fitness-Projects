@@ -28,14 +28,12 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
         Calendar rightNow = Calendar.getInstance();
         rightNow.setTime(new Date());
         rightNow.add(Calendar.MONTH ,-6);
-        System.out.println("ttttt"+rightNow.getTime());
         //删除两个月前的数据
         QueryWrapper<Lose> wrapper=new QueryWrapper<>();
         wrapper.le("create_ttime",rightNow.getTime());
         baseMapper.delete(wrapper);
 
         Page<Lose> page=new Page<>(loseQueryVo.getPageNo(),loseQueryVo.getPageSize());
-        System.out.println(loseQueryVo);
         IPage<Lose> iPage=baseMapper.selectLose(page,loseQueryVo);
         return iPage;
     }
@@ -51,7 +49,6 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
 
     @Override
     public int updateLoseState(Lose lose) {
-        System.out.println();
         if(baseMapper.selectById(lose.getId()).getState().equals("已领取")){
             return 0;
         }

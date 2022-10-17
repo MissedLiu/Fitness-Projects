@@ -119,7 +119,6 @@ public class CaigouShenheServiceImpl extends ServiceImpl<CaigouShenheMapper, Cai
 
         //查询出所有的审核人姓名
         caigouShenhes.forEach(caigouShenhe -> {
-            System.out.println("采购审核账户名为="+caigouShenhe.getShenheempId());
             //传入账户id查询出员工信息,
             User user = userMapper.checkEmp(caigouShenhe.getShenheempId());
             caigouShenhe.setEmpName(user.getEmp().getEmpName());

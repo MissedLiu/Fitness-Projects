@@ -67,7 +67,6 @@ public class PtProjectServiceImpl extends ServiceImpl<PtProjectMapper, PtProject
     @Override
     public Boolean addPtProject(PtProject ptProject) {
         PtProject ptAllByPtpName = ptProjectMapper.findPtAllByPtpName(ptProject.getPtpName());
-        System.out.println("ptAllByPtpName=="+ptAllByPtpName);
         if (ptAllByPtpName!=null){
             //不为空则存在,不能添加
             return false;

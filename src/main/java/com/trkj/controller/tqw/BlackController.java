@@ -53,7 +53,6 @@ public class BlackController {
     */
     @GetMapping("/findBlackMemberMeal")
     public Result findBlackMemberMeal(Long memberId){
-        System.out.println("sssssssss"+memberId);
         return Result.ok(blackService.findBlackMemberMeal(memberId));
     }
 
@@ -64,7 +63,6 @@ public class BlackController {
     */
     @PostMapping("/delMemberAllMeal")
     public Result delMemberAllMeal(@RequestBody DisburseAndMemberQueryVo disburseAndMemberQueryVo){
-        System.out.println("ssss"+disburseAndMemberQueryVo);
         if(blackService.delMemberAllMeal(disburseAndMemberQueryVo)){
             return Result.ok().message("退费成功");
         }

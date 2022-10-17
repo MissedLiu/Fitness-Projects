@@ -74,7 +74,6 @@ public class FlyerController {
     @PreAuthorize("hasAnyAuthority('sellgood:activity:edit')")
     @PutMapping("update")
     public Result updateFlyer(@RequestBody Flyer flyer) {
-        System.out.println("====================================" + flyer.getFlyerId());
         if (flyerService.updateById(flyer)) {
 
             return Result.ok().message("套餐修改成功");

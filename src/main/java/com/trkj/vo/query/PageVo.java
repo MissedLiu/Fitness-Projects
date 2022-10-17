@@ -27,12 +27,10 @@ public class PageVo {
     private Long empId;//当前教练id
     private String mealType;//套餐类型
     private String changeTime;//接收前台用于查询的时间值
-
-
-
     private Long allSales;//教练课程销售总额
     private Double commRate;//提成率
     private Double salesComm;//某销售人员单个套餐的提成总和
+    private String memberIds;//会员id
 
 
 }

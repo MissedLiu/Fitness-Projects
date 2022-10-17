@@ -30,7 +30,6 @@ public class DepartmentController {
                 departmentService.findDepartmentList(departmentQueryVo);
         //返回数据
         for (Department department : departmentList) {
-            System.out.println(department);
         }
         return Result.ok(departmentList);
     }
@@ -46,7 +45,6 @@ public class DepartmentController {
         List<Department> departmentList =
                 departmentService.findParentDepartment();
         //返回数据
-        System.out.println(Result.ok(departmentList));
         return Result.ok(departmentList);
     }
 

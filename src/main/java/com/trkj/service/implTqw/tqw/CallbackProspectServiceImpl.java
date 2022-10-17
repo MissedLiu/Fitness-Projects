@@ -45,7 +45,6 @@ implements CallbackProspectService {
     public IPage<ProspectAndCallbackQueryVo> selectCallBackList(ProspectAndCallbackQueryVo prospectAndAllotQueryVo) {
         //empId赋值为账户id
         //查询该账户下的员工id
-        System.out.println("ssssssssssssssssssssssssssss"+prospectAndAllotQueryVo);
         User user = userMapper.selectById(prospectAndAllotQueryVo.getEmpId());
         //判断empId是谁
         //通过empId查询员工

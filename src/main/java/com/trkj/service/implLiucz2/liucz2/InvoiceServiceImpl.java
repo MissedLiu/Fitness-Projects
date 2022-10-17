@@ -79,7 +79,6 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
         QueryWrapper<Invoice > queryWrapper=new QueryWrapper<>();
         queryWrapper.eq("sales_id" ,id);
         Invoice invoice = baseMapper.selectOne(queryWrapper);
-        System.out.println("invoice=="+invoice);
         if (invoice==null){
             return 1;
         }

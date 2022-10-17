@@ -101,7 +101,6 @@ public class PtMealController {
     public Result deleteById(@PathVariable Long ptId) {
         //判断该套餐是否绑定了项目
         List<Long> ptpIdByPtId = ptProjectService.findPtpIdByPtId(ptId);
-        System.out.println("ptpIdByPtId="+ptpIdByPtId);
         if (ptpIdByPtId.size()!=0){
             return  Result.error().message("该套餐绑定了私教项目无法删除,删除失败");
         }
@@ -118,7 +117,6 @@ public class PtMealController {
     @PreAuthorize("hasAnyAuthority('sellgood:ptMeal:xuanze')")
     @GetMapping("/PtProjectList")
     public Result selectPtProject2(PtProjectVo ptProjectVo){
-        System.out.println("ptProjectVo=="+ptProjectVo);
         return  Result.ok(ptProjectService.selectPtProjectState(ptProjectVo));
     }
     /**

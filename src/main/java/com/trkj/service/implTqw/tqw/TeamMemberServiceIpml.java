@@ -161,7 +161,6 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                 //有套餐
                 Date date = new Date();
                 //after 前面时间在后面时间为true
-                System.out.println(memberQueryVo1.getMmDate());
                 if (memberQueryVo1.getMmDate().after(date)) {
                     //到期时间大于现在(未过期)
                     try {
@@ -182,12 +181,10 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                     return 5;
                 } else {
                     //到期时间小于现在(已过期)
-                    System.out.println("ccccc");
                     try {
                         DateUtil dateUtil = new DateUtil();
                         Date date1 = dateUtil.time(teamMeal.getTeamTime(), new Date());
                         //修改会员套餐表中到期时间
-                        System.out.println(date1);
                         UpdateWrapper<MemberMeal> wrapper5 = new UpdateWrapper<>();
                         wrapper5.eq("mm_id", memberQueryVo1.getMmId());
                         wrapper5.set("mm_date", date1);
@@ -300,7 +297,6 @@ public class TeamMemberServiceIpml implements TeamMemberService {
                 DateUtil dateUtil = new DateUtil();
                 Date date1 = dateUtil.time(teamMeall.getTeamTime(), new Date());
                 //修改会员套餐表中到期时间
-                System.out.println(date1);
                 UpdateWrapper<MemberMeal> wrapper5 = new UpdateWrapper<>();
                 wrapper5.eq("mm_id", memberMeal.getMmId());
                 wrapper5.set("mm_date", date1);

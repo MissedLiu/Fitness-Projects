@@ -41,7 +41,6 @@ public class MessageController {
     @PreAuthorize("hasAuthority('services:message:sllotmember')")
     @PostMapping("/allocationMember")
     public Result allocationMember(@RequestBody MemberMessageQueryVo memberMessageQueryVo){
-        System.out.println("empId:"+memberMessageQueryVo);
         if(messageService.allocationMember(memberMessageQueryVo)){
             return Result.ok().message("分配成功");
         }
@@ -73,7 +72,6 @@ public class MessageController {
     @PreAuthorize("hasAuthority('services:message:sllotpotential')")
     @PostMapping("/allocationProspect")
     public Result allocationProspect(@RequestBody MemberMessageQueryVo memberMessageQueryVo){
-        System.out.println("empId:"+memberMessageQueryVo);
         if(messageService.allocationProspect(memberMessageQueryVo)==true){
             return Result.ok().message("分配成功");
         }
