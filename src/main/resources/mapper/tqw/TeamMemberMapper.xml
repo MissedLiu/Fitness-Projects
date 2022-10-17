@@ -34,13 +34,19 @@
         <result column="emil" property="emil" />
     </resultMap>
 
-    <!--    通过电话团操会员或全部-->
+    <!-- 查询团操会员或全部-->
     <select id="findTeamMember" resultType="com.trkj.entity.tqw.Member" >
         select  distinct m.*
         from `member` m left join member_meal mm
         on m.member_id=mm.member_id
         <if test="query.memberPhone != null and query.memberPhone != '' " >
             and m.member_phone=#{query.memberPhone}
+        </if>
+        <if test="query.memberName != null and query.memberName != '' " >
+            and m.member_name=#{query.memberName}
+        </if>
+        <if test="query.mealId != null and query.mealId != '' " >
+            and mm.meal_id=#{query.mealId}
         </if>
         where mm.meal_type="团操"
         and m.member_state!=1

@@ -12,6 +12,7 @@ import com.trkj.entity.tqw.Member;
 import com.trkj.entity.tqw.MemberMeal;
 import com.trkj.service.implTqw.CompactService;
 import com.trkj.vo.queryTqw.CompactAndMemberQueryVo;
+import com.trkj.vo.queryTqw.CompactQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,24 +40,10 @@ implements CompactService {
 
     //查询会员下办了套餐却没有签订合同的套餐
     @Override
-    public List<MemberMeal> findMemberMeal(Member member) {
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa"+member);
-        //查询该会员办理的套餐
-        QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
-        wrapper.eq("member_id", member.getMemberId());
-        wrapper.and(wrapper1 -> wrapper1.eq("meal_type","私教").or().eq("meal_type","团操"));
-        List<MemberMeal> list = memberMealMapper.selectList(wrapper);
-        //通过套餐id查询合同表中是否有数据
-        List<MemberMeal> list1=new LinkedList<>();
-        for (int i=0;i<list.size();i++){
-            QueryWrapper<Compact> wrapper1=new QueryWrapper<>();
-            wrapper1.eq("mm_id",list.get(i).getMmId());
-            //未签订合同
-            if(baseMapper.selectOne(wrapper1)==null){
-                list1.add(list.get(i));
-            }
-        }
-        return list1;
+    public List<CompactQueryVo> findMemberMeal(Member member) {
+        //查询该会员办理的(私教，团操,未到期)套餐
+        List<CompactQueryVo> list = memberMealMapper.selectMemberMeal(member.getMemberId());
+        return list;
     }
 
     //添加合同数据

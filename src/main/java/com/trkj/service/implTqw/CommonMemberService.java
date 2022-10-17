@@ -7,11 +7,8 @@ import com.trkj.vo.queryTqw.MemberQueryVo;
 import java.util.List;
 
 public interface CommonMemberService {
-    /*
-     *
-     *通过套餐类型查询普通会员套餐
-     *
-     */
+
+    //查询普通会员列表
     IPage<Member> findCommentMember(MemberQueryVo memberQueryVo);
 
     /*

@@ -21,12 +21,20 @@
         meal_name,meal_type,ptp_id,
         ptp_name,comsune_price,comsune_date
     </sql>
+
     <select id="selectComsuneList" resultType="com.trkj.vo.queryTqw.ComsuneQueryVo">
         select * from comsune c inner join `member` m on c.member_id = m.member_id
         where 1=1
         <if test="query.memberPhone !=null and query.memberPhone !='' ">
             and m.member_phone=#{query.memberPhone}
         </if>
+        <if test="query.memberName !=null and query.memberName !='' ">
+            and m.member_name=#{query.memberName}
+        </if>
+        <if test="query.mealType !=null and query.mealType !='' ">
+            and c.meal_type=#{query.mealType}
+        </if>
+        order by comsune_date desc
     </select>
 
 

@@ -13,6 +13,7 @@ import com.trkj.service.implTqw.PtMealService;
 import com.trkj.service.implTqw.PtMemberService;
 import com.trkj.utils.DateUtil;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import com.trkj.vo.queryTqw.MemberQueryVo2;
 import com.trkj.vo.queryTqw.PtMealAndEmpQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class PtMemberServiceIpmll implements PtMemberService {
     @Autowired
     private MemberMealMapper memberMealMapper;
     @Autowired
-    private ChooseprojectnameMapper chooseprojectnameMapper;
+    private ChooseProjectNameMapper chooseprojectnameMapper;
     @Autowired
     private PtMemberMapper ptMemberMapper;
     @Autowired
@@ -42,11 +43,14 @@ public class PtMemberServiceIpmll implements PtMemberService {
     private PtProjectnameMapper ptProjectnameMapper;
     @Autowired
     private ProceedsMapper proceedsMapper;
-    /*
-     *
-     *查询私教会员列表
-     *
-     */
+
+    /**
+     * @title:  查询私教会员列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/16 16:19
+    */
     @Override
     public IPage<Member> findPtMember(MemberQueryVo memberQueryVo) {
         Page<Member> pageStr=new Page<>(memberQueryVo.getPageNo(),memberQueryVo.getPageSize());
@@ -61,18 +65,18 @@ public class PtMemberServiceIpmll implements PtMemberService {
      *
      */
     @Override
-    public int addPtMember(MemberQueryVo memberQueryVo) {
+    public int addPtMember(MemberQueryVo2 memberQueryVo2) {
 
         //套餐类型
-        memberQueryVo.setMealType("私教");
+        memberQueryVo2.setMealType("私教");
         //通过id查询私教套餐
-        PtMeall ptMeal = ptMealService.selectPtMealByMealId(memberQueryVo.getMealId());
+        PtMeall ptMeal = ptMealService.selectPtMealByMealId(memberQueryVo2.getMealId());
         //通过id查询私教项目
-        PtProjectname ptProjectname=ptProjectnameMapper.selectById(memberQueryVo.getProjectId());
+        PtProjectname ptProjectname=ptProjectnameMapper.selectById(memberQueryVo2.getProjectId());
         //通过电话和姓名查询会员
         QueryWrapper<Member> wrapper1 = new QueryWrapper<>();
-        wrapper1.eq("member_phone", memberQueryVo.getMemberPhone());
-        wrapper1.eq("member_name", memberQueryVo.getMemberName());
+        wrapper1.eq("member_phone", memberQueryVo2.getMemberPhone());
+        wrapper1.eq("member_name", memberQueryVo2.getMemberName());
         Member member1 = memberMapper.selectOne(wrapper1);
         //判断是否黑名单
         if(member1 != null){
@@ -84,11 +88,11 @@ public class PtMemberServiceIpmll implements PtMemberService {
         }
         //通过电话查会员
         QueryWrapper<Member> wrapper2 = new QueryWrapper<>();
-        wrapper2.eq("member_phone", memberQueryVo.getMemberPhone());
+        wrapper2.eq("member_phone", memberQueryVo2.getMemberPhone());
         Member member2 = memberMapper.selectOne(wrapper2);
         //通过名字查电话
         QueryWrapper<Member> wrapper3 = new QueryWrapper<>();
-        wrapper3.eq("member_name", memberQueryVo.getMemberName());
+        wrapper3.eq("member_name", memberQueryVo2.getMemberName());
         List<Member> member3 = memberMapper.selectList(wrapper3);
         if (member1 != null) {
             //会员存在
@@ -98,7 +102,7 @@ public class PtMemberServiceIpmll implements PtMemberService {
 
                 //判断是否办理过套餐（体验会员只能体验一种套餐）
                 QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
-                wrapper.eq("meal_type",memberQueryVo.getMealType());
+                wrapper.eq("meal_type", memberQueryVo2.getMealType());
                 wrapper.eq("member_id",member1.getMemberId());
                 if(memberMealMapper.selectList(wrapper).size()>0){
                     return 6;
@@ -107,8 +111,8 @@ public class PtMemberServiceIpmll implements PtMemberService {
                 //直接办理套餐
                 MemberMeal memberMeal=new MemberMeal();
                 memberMeal.setMemberId(member1.getMemberId());
-                memberMeal.setMealId(memberQueryVo.getMealId());
-                memberMeal.setMealType(memberQueryVo.getMealType());
+                memberMeal.setMealId(memberQueryVo2.getMealId());
+                memberMeal.setMealType(memberQueryVo2.getMealType());
                 memberMeal.setMmTime(new Date());
                 //获取套餐到期时间
                 Calendar rightNow = Calendar.getInstance();
@@ -117,28 +121,28 @@ public class PtMemberServiceIpmll implements PtMemberService {
                 memberMeal.setMmDate(rightNow.getTime());
                 memberMealMapper.insert(memberMeal);
                 //添加所选项目表  项目编号，教练编号，套餐编号
-                ChooseProject chooseProject=new ChooseProject();
-                chooseProject.setMmId(memberMeal.getMmId());
-                chooseProject.setPtpId(memberQueryVo.getProjectId());
-                chooseProject.setEmpId(memberQueryVo.getEmpId());
-                chooseProject.setChooseId(memberQueryVo.getMealId());
-                chooseprojectnameMapper.insert(chooseProject);
+                ChooseProjectName chooseProjectName =new ChooseProjectName();
+                chooseProjectName.setMmId(memberMeal.getMmId());
+                chooseProjectName.setPtpId(memberQueryVo2.getProjectId());
+                chooseProjectName.setEmpId(memberQueryVo2.getEmpId());
+                chooseProjectName.setChooseId(memberQueryVo2.getMealId());
+                chooseprojectnameMapper.insert(chooseProjectName);
                 return 0;
                 //无需生成消费记录
             }
 
             //套餐办理
             //通过会员电话,套餐id,套餐类型,项目id,教练id查询私教套餐办理记录（唯一一条）
-            MemberQueryVo memberQueryVo1 = ptMemberMapper.findMemberByPtAll(memberQueryVo.getMealType(),
-                    memberQueryVo.getMemberPhone(),memberQueryVo.getMealId(),memberQueryVo.getProjectId(),
-                    memberQueryVo.getEmpId());
+            MemberQueryVo memberQueryVo1 = ptMemberMapper.findMemberByPtAll(memberQueryVo2.getMealType(),
+                    memberQueryVo2.getMemberPhone(), memberQueryVo2.getMealId(), memberQueryVo2.getProjectId(),
+                    memberQueryVo2.getEmpId());
             //判断套餐是否办理
             if(memberQueryVo1==null){
                 //无套餐
                 MemberMeal memberMeal=new MemberMeal();
                 memberMeal.setMemberId(member1.getMemberId());
-                memberMeal.setMealId(memberQueryVo.getMealId());
-                memberMeal.setMealType(memberQueryVo.getMealType());
+                memberMeal.setMealId(memberQueryVo2.getMealId());
+                memberMeal.setMealType(memberQueryVo2.getMealType());
                 memberMeal.setMmTime(new Date());
                 //获取套餐到期时间
                 try {
@@ -150,12 +154,12 @@ public class PtMemberServiceIpmll implements PtMemberService {
                 }
                 memberMealMapper.insert(memberMeal);
                 //添加所选项目表  项目编号，教练编号，套餐编号
-                ChooseProject chooseProject=new ChooseProject();
-                chooseProject.setMmId(memberMeal.getMmId());
-                chooseProject.setPtpId(memberQueryVo.getProjectId());
-                chooseProject.setEmpId(memberQueryVo.getEmpId());
-                chooseProject.setChooseId(memberQueryVo.getMealId());
-                chooseprojectnameMapper.insert(chooseProject);
+                ChooseProjectName chooseProjectName =new ChooseProjectName();
+                chooseProjectName.setMmId(memberMeal.getMmId());
+                chooseProjectName.setPtpId(memberQueryVo2.getProjectId());
+                chooseProjectName.setEmpId(memberQueryVo2.getEmpId());
+                chooseProjectName.setChooseId(memberQueryVo2.getMealId());
+                chooseprojectnameMapper.insert(chooseProjectName);
                 //添加消费记录
                 addComsune(member1.getMemberId(),ptMeal,ptProjectname);
                 //添加收入记录
@@ -332,7 +336,7 @@ public class PtMemberServiceIpmll implements PtMemberService {
     @Override
     public boolean delPtMemberById(long mmId){
         int a=memberMealMapper.deleteById(mmId);
-        QueryWrapper<ChooseProject> wrapper=new QueryWrapper<>();
+        QueryWrapper<ChooseProjectName> wrapper=new QueryWrapper<>();
         wrapper.eq("mm_id",mmId);
         int b = chooseprojectnameMapper.delete(wrapper);
         System.out.println("bbbb="+b);

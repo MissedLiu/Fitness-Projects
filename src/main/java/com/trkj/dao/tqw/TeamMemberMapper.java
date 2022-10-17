@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface TeamMemberMapper extends BaseMapper<Member> {
+    //查询团操会员
     IPage<MemberQueryVo> findTeamMember(Page<MemberQueryVo> page , @Param("query") MemberQueryVo memberQueryVo);
 
     //通过电话和类型和套餐编号和项目编号和教练编号团操会员

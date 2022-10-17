@@ -5,26 +5,27 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.trkj.dao.tqw.ChooseprojectnameMapper;
+import com.trkj.dao.tqw.ChooseProjectNameMapper;
 import com.trkj.dao.tqw.MemberMapper;
 import com.trkj.dao.tqw.MemberMealMapper;
 import com.trkj.entity.tqw.*;
 import com.trkj.service.implTqw.MemberService;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import com.trkj.vo.queryTqw.MemberSelectQueryVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional
 public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> implements MemberService {
     @Resource
     private MemberMealMapper memberMealMapper;
     @Resource
-    private ChooseprojectnameMapper chooseprojectnameMapper;
+    private ChooseProjectNameMapper chooseProjectNameMapper;
 
     /*
      *
@@ -36,16 +37,20 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         return baseMapper.listAllNoPage(member);
     }
 
-    /*
-     *
-     *查询会员信息
-     *
-     */
-    public IPage<Member> findAllMemberByState(MemberQueryVo memberQueryVo ){
-        Page<Member> page=new Page<>(memberQueryVo.getPageNo(),memberQueryVo.getPageSize());
-        IPage<Member> memberAll = baseMapper.findMemberAll(page, memberQueryVo);
+
+    /**
+     * @title:  查询会员信息列表（分页）
+     * @param: MemberSelectQueryVo
+     * @return: Ipage<Member>
+     * @author 15087
+     * @date: 2022/10/14 14:02
+    */
+    public IPage<Member> findAllMember(MemberSelectQueryVo memberSelectQueryVo){
+        Page<Member> page=new Page<>(memberSelectQueryVo.getPageNo(),memberSelectQueryVo.getPageSize());
+        IPage<Member> memberAll = baseMapper.findMemberList(page, memberSelectQueryVo);
         return memberAll;
     }
+
 
     /*
      *
@@ -58,12 +63,15 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         return baseMapper.selectList(wrapper);
     }
 
-    /*
-    *
-    *新增会员ok
-    *
+    /**
+     * @title:  新增会员
+     * @param: member
+     * @return:  boolean
+     * @author 15087
+     * @date: 2022/10/14 16:04
     */
     @Override
+    @Transactional
     public boolean addMember(Member member) {
         //通过电话查询会员是否存在
         QueryWrapper<Member> wrapper=new QueryWrapper<>();
@@ -78,70 +86,61 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         return false;
     }
 
-    //通过会员id删除会员ok
+    /**
+     * @title:  通过会员id删除会员
+     * @param: memberId
+     * @return:  boolean
+     * @author 15087
+     * @date: 2022/10/14 16:49
+    */
     @Override
-    public boolean delMemberByMemberId(long memberId){
+    @Transactional
+    public boolean removeMember(long memberId){
+        //构建删除会员条件
         QueryWrapper<Member> wrapper1=new QueryWrapper<>();
         wrapper1.eq("member_id",memberId);
-        //根据会员编号查询会员办理套餐表信息《list》
+        //构建查询套餐条件
         QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
         wrapper.eq("member_id",memberId);
+        //根据会员编号查询会员办理套餐表信息
         List<MemberMeal> list=memberMealMapper.selectList(wrapper);
-        if(list.size()==0){
-            //会员办理套餐无信息
-            int a=baseMapper.delete(wrapper1);
-            if(a>0){
-                return true;
-            }
-        }else {
-            //套餐是否为普通套餐
-            for(int i=0;i<list.size();i++){
-                if(list.get(i).getMealType().equals("普通")){
-                    //删套餐
-                    QueryWrapper<MemberMeal> wrapper2=new QueryWrapper<>();
-                    wrapper2.eq("mm_id",list.get(i).getMmId());
-                    memberMealMapper.delete(wrapper2);
-                }else {
-                    //删项目
-                    QueryWrapper<ChooseProject> wrapper3=new QueryWrapper<>();
-                    wrapper3.eq("mm_id",list.get(i).getMmId());
-                    chooseprojectnameMapper.delete(wrapper3);
-                    //删套餐
-                    QueryWrapper<MemberMeal> wrapper2=new QueryWrapper<>();
-                    wrapper2.eq("mm_id",list.get(i).getMmId());
-                    memberMealMapper.delete(wrapper2);
-                }
-            }
-            int a=baseMapper.delete(wrapper1);
-            if(a>0){
-                return true;
-            }
+        //删除会员套餐数据
+        int memberMeal = memberMealMapper.delete(wrapper);
+        //删除会员所选项目数据
+        int chooseProject = chooseProjectNameMapper.deleteChooseProject(list);
+        //删除会员
+        int member = baseMapper.delete(wrapper1);
+        if(memberMeal>=0&&chooseProject>=0&&member>0){
+            return true;
         }
-        System.out.println(list);
         return false;
     }
 
-
-    /*
-     *
-     *根据电话修改会员
-     *
-     */
+    /**
+     * @title:  修改会员
+     * @param: Member
+     * @return:  int
+     * @author 15087
+     * @date: 2022/10/14 16:55
+    */
     @Override
+    @Transactional
     public int updataMemberByMemberPhone(Member member) {
-        //通过电话查询会员
+        //构造会员查询条件
         QueryWrapper<Member> wrapper=new QueryWrapper<>();
         wrapper.eq("member_phone",member.getMemberPhone());
+        //通过电话查询会员
         Member member1 =baseMapper.selectOne(wrapper);
-        //判断电话是否被修改
+        //判断是否查询到会员
         if(member1!=null){
-            //电话未修改
+            //查到该会员
             //判断是否由正式会员改为体验会员
             if(member1.getMemberType()==1 && member.getMemberType()==0){
                 return 0;
             }
-            //判断该修改后的电话所属会员是不是此会员
+            //判断该电话所属会员是不是此会员
             if(member1.getMemberId() == member.getMemberId()){
+                //会员id相同，电话为修改
                 //修改会员信息
                 UpdateWrapper<Member> wrapper1=new UpdateWrapper<>();
                 wrapper1.eq("member_id",member.getMemberId());
@@ -149,10 +148,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
                     return 1;
                 }
             }else {
+                //会员id不同，电话已修改
                 return 2;
             }
         }else {
-            //电话被修改
+            //未查到该会员（电话已修改且与其他会员不相同）
             UpdateWrapper<Member> wrapper1=new UpdateWrapper<>();
             wrapper1.eq("member_id",member.getMemberId());
             if(baseMapper.update(member,wrapper1)>0){
@@ -162,6 +162,21 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         return 3;
     }
 
-
+    /**
+     * @title:  通过会员id查询所有套餐
+     * @param: Long
+     * @return:  List<MemberQueryVo>
+     * @author 15087
+     * @date: 2022/10/14 20:12
+     */
+    @Override
+    public List<MemberQueryVo> findMemberMealByMemberId(Long memberId) {
+        //查询三种套餐信息
+        List<MemberQueryVo> list4 = new ArrayList<>();
+        list4.addAll(baseMapper.selectCommon(memberId));
+        list4.addAll(baseMapper.selectPt(memberId));
+        list4.addAll(baseMapper.selectTeam(memberId));
+        return list4;
+    }
 
 }

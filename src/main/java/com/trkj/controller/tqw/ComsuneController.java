@@ -20,7 +20,13 @@ public class ComsuneController {
     @Resource
     private ComsuneService comsuneService;
 
-    //查看消费记录（列表，电话查询，）
+    /**
+     * @title:  查寻消费记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 9:23
+    */
     @GetMapping("/selectComsuneList")
     public Result selectComsuneList(ComsuneQueryVo comsuneQueryVo) {
         return Result.ok(comsuneService.selectComsuneList(comsuneQueryVo));

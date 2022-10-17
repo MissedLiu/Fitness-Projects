@@ -26,8 +26,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1428a1c-c775-4204-8a0b-b2b3b3d171d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/BlackQueryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/CompactQueryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberQueryVo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberSelectQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/liucz/EmpMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/BlackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/BlackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/CommonMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/CommonMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/ComsuneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/ComsuneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/PtMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/PtMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/TeamMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/TeamMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/BlackMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/BlackMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/ChooseprojectnameMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/ChooseProjectNameMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/MemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/MemberMealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/MemberMealMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/TeamMemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/dao/tqw/TeamMemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/tqw/Black.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/tqw/Black.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/tqw/ChooseProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/tqw/ChooseProjectName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/entity/tqw/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/entity/tqw/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/BlackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/BlackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/ChooseprojectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/ChooseprojectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/CommonMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/CommonMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/CompactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/CompactService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/PtMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/PtMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/TeamMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/TeamMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/BlackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/BlackServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/ChooseprojectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/ChooseprojectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/CompactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/CompactServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/PtMemberServiceIpmll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/PtMemberServiceIpmll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/TeamMemberServiceIpml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/service/implTqw/tqw/TeamMemberServiceIpml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/query/PageVo2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberQueryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trkj/vo/queryTqw/MemberQueryVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/tqw/BlackMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/tqw/BlackMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/tqw/CommonMemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/tqw/CommonMemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/tqw/CompactMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/tqw/CompactMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/tqw/ComsuneMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/tqw/ComsuneMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/tqw/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/tqw/MemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/tqw/PtMemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/tqw/PtMemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/tqw/TeamMemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/tqw/TeamMemberMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +135,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
@@ -110,11 +150,11 @@
       <recent name="D:\IdeaProjects\Fitness-Projects\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.trkj.vo.queryTqw" />
       <recent name="com.trkj.vo.query" />
       <recent name="com.trkj.controller.tqw" />
       <recent name="com.trkj.dao.tqw" />
       <recent name="com.trkj.utils" />
-      <recent name="com.trkj.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\idea\Fitness-Projects\src\main\resources\mapper\tqw" />
@@ -238,7 +278,9 @@
       <workItem from="1665238423027" duration="18323000" />
       <workItem from="1665362443542" duration="46267000" />
       <workItem from="1665533976812" duration="34958000" />
-      <workItem from="1665620615689" duration="22429000" />
+      <workItem from="1665620615689" duration="61476000" />
+      <workItem from="1665883543987" duration="6773000" />
+      <workItem from="1665965974102" duration="9157000" />
     </task>
     <task id="LOCAL-00001" summary="欧阳test1">
       <created>1663671260386</created>
@@ -401,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665709957217</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="10.14.1">
+      <created>1665712154702</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1665712154703</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,9 +491,14 @@
     <MESSAGE value="10.11.1" />
     <MESSAGE value="10.12" />
     <MESSAGE value="10.14" />
-    <option name="LAST_COMMIT_MESSAGE" value="10.14" />
+    <MESSAGE value="10.14.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="10.14.1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="747" y="243" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1665718064476">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="747" y="243" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/0.0.1536.864@0.0.1536.864" timestamp="1665718064476" />
     <state x="27" y="90" width="1164" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1665538341819">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -458,32 +512,32 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="137" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1664879646616" />
-    <state x="313" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1665407872218">
+    <state x="313" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1665717641039">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="313" y="319" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.816@0.0.1536.816" timestamp="1664352428161" />
-    <state x="313" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1665407872218" />
-    <state x="499" y="269" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1665141544098">
+    <state x="313" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1665717641039" />
+    <state x="499" y="269" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1665715238749">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="254" width="537" height="319" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.816@0.0.1536.816" timestamp="1664348902220" />
-    <state x="499" y="269" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1665141544098" />
-    <state x="318" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1665142276832">
+    <state x="499" y="269" width="448" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1665715238749" />
+    <state x="318" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1665736975468">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="318" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1665142276832" />
-    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1665217583252">
+    <state x="318" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.864@0.0.1536.864" timestamp="1665736975468" />
+    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1665753144572">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1665217583252" />
+    <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1665753144572" />
     <state x="499" y="178" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1665582988566">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="178" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.864@0.0.1536.864" timestamp="1665582988566" />
-    <state x="367" y="0" key="CommitChangelistDialog2" timestamp="1665709955766">
+    <state x="367" y="0" key="CommitChangelistDialog2" timestamp="1665712154017">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="367" y="0" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1665709955766" />
+    <state x="367" y="0" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1665712154017" />
     <state x="93" y="93" width="1350" height="678" key="DiffContextDialog" timestamp="1665212214756">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -492,46 +546,46 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1665041518294" />
-    <state width="1493" height="251" key="GridCell.Tab.0.bottom" timestamp="1665710879975">
+    <state width="1493" height="252" key="GridCell.Tab.0.bottom" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1665710879975" />
-    <state width="1493" height="251" key="GridCell.Tab.0.center" timestamp="1665710879975">
+    <state width="1493" height="252" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
+    <state width="1493" height="252" key="GridCell.Tab.0.center" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1665710879975" />
-    <state width="1493" height="251" key="GridCell.Tab.0.left" timestamp="1665710879974">
+    <state width="1493" height="252" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
+    <state width="1493" height="252" key="GridCell.Tab.0.left" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1665710879974" />
-    <state width="1493" height="251" key="GridCell.Tab.0.right" timestamp="1665710879975">
+    <state width="1493" height="252" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
+    <state width="1493" height="252" key="GridCell.Tab.0.right" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1665710879975" />
-    <state width="1493" height="251" key="GridCell.Tab.1.bottom" timestamp="1665710879975">
+    <state width="1493" height="252" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
+    <state width="1493" height="252" key="GridCell.Tab.1.bottom" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.1.bottom/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1665710879975" />
-    <state width="1493" height="251" key="GridCell.Tab.1.center" timestamp="1665710879975">
+    <state width="1493" height="252" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
+    <state width="1493" height="252" key="GridCell.Tab.1.center" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.1.center/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1665710879975" />
-    <state width="1493" height="251" key="GridCell.Tab.1.left" timestamp="1665710879975">
+    <state width="1493" height="252" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
+    <state width="1493" height="252" key="GridCell.Tab.1.left" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.1.left/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1665710879975" />
-    <state width="1493" height="251" key="GridCell.Tab.1.right" timestamp="1665710879975">
+    <state width="1493" height="252" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
+    <state width="1493" height="252" key="GridCell.Tab.1.right" timestamp="1665976550484">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1483" height="334" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1664350604141" />
-    <state width="1493" height="251" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1665710879975" />
+    <state width="1493" height="252" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1665976550484" />
     <state width="1493" height="277" key="GridCell.Tab.2.bottom" timestamp="1664872649103">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -560,26 +614,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="396" y="192" key="MultipleFileMergeDialog/0.0.1536.864@0.0.1536.864" timestamp="1665212241365" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1665460027033">
+    <state x="349" y="90" key="SettingsEditor" timestamp="1665718360694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1665460027033" />
+    <state x="349" y="90" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1665718360694" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1665712167912">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1665712167912" />
     <state x="349" y="87" key="com.intellij.database.dbimport.ImportDialog" timestamp="1665538311013">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="349" y="87" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.864@0.0.1536.864" timestamp="1665538311013" />
-    <state x="564" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1665709965351">
+    <state x="564" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1665713342381">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="564" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1665709965351" />
+    <state x="564" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1665713342381" />
     <state x="545" y="188" key="refactoring.ChangeSignatureDialog" timestamp="1665581183604">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="545" y="188" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1665581183604" />
-    <state x="425" y="197" key="run.anything.popup" timestamp="1665535491286">
+    <state x="425" y="197" key="run.anything.popup" timestamp="1665751002367">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1665535491286" />
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1665751002367" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1665625176074">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -598,7 +656,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/trkj/controller/tqw/PtMemberController.java</url>
-          <line>146</line>
+          <line>151</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

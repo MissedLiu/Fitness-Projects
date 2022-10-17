@@ -17,13 +17,13 @@ import com.trkj.service.implTqw.BlackService;
 import com.trkj.vo.queryTqw.BlackMemberMealQueryVo;
 import com.trkj.vo.queryTqw.DisburseAndMemberQueryVo;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
+import com.trkj.vo.queryTqw.MemberSelectQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -33,7 +33,6 @@ import java.util.List;
 *
 */
 @Service
-@Transactional
 public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements BlackService {
     @Autowired
     private MemberMapper memberMapper;
@@ -41,97 +40,98 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
     private MemberMealMapper memberMealMapper;
     @Autowired
     private DisburseMapper disburseMapper;
-    /*
-     *
-     *加入黑名单(新增)
-     *
-     */
-    public boolean goUpdMemberState(long memberId,String why){
-        System.out.println(memberId);
-        System.out.println(why);
-        //修改会员状态
+
+    /**
+     * @title:  加入黑名单
+     * @param: memberId why
+     * @return:  boolean
+     * @author 15087
+     * @date: 2022/10/14 17:18
+    */
+    @Override
+    @Transactional
+    public boolean goBlack(long memberId,String why){
+        //构建修改会员条件
         UpdateWrapper<Member> wrapper = new UpdateWrapper<>();
         wrapper.eq("member_id", memberId);
         wrapper.set("member_state", 1);
-        int a = memberMapper.update(null, wrapper);
+        //修改会员状态
+        int member = memberMapper.update(null, wrapper);
         //添加黑名单表记录
         Black black=new Black();
         black.setMemberId(memberId);
         black.setCreateTime(new Date());
         black.setWhy(why);
-        System.out.println(black);
-        int b = baseMapper.insert(black);
+        int blacks = baseMapper.insert(black);
         //判断
-        if(a>0 && b>0){
+        if(member>0 && blacks>0){
             return true;
         }
         return false;
     }
 
-    /*
-    *
-    *查询会员表（黑名单）
-    *
+
+    /**
+     * @title:  查询会员表（黑名单）
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 14:35
     */
-    public IPage<MemberAndBlackQueryVo> findBlackMember(MemberAndBlackQueryVo memberAndBlackQueryVo){
-        Page<MemberAndBlackQueryVo> page=new Page<>(memberAndBlackQueryVo.getPageNo(),memberAndBlackQueryVo.getPageSize());
-        IPage<MemberAndBlackQueryVo> memberAll = baseMapper.findBlackMemberAll(page,memberAndBlackQueryVo);
+    public IPage<MemberAndBlackQueryVo> findBlackMember(MemberSelectQueryVo memberSelectQueryVo){
+        Page<MemberAndBlackQueryVo> page=new Page<>(memberSelectQueryVo.getPageNo(), memberSelectQueryVo.getPageSize());
+        IPage<MemberAndBlackQueryVo> memberAll = baseMapper.findBlackMemberAll(page, memberSelectQueryVo);
         return memberAll;
     }
-    /*
-     *
-     *移出黑名单
-     *
-     */
+
+    /**
+     * @title:  移出黑名单
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 15:29
+    */
     public boolean outUpdMemberState(long memberId,String why){
         //修改会员状态
         UpdateWrapper<Member> wrapper = new UpdateWrapper<>();
         wrapper.eq("member_id", memberId);
         wrapper.set("member_state", 0);
-        int a = memberMapper.update(null, wrapper);
+        int memberState = memberMapper.update(null, wrapper);
         //删除黑名单表记录
         QueryWrapper<Black> wrapper1=new QueryWrapper<>();
         wrapper1.eq("member_id",memberId);
-        int b = baseMapper.delete(wrapper1);
+        int black = baseMapper.delete(wrapper1);
         //判断
-        if(a>0 && b>0){
+        if(memberState>0 && black>0){
             return true;
         }
         return false;
     }
 
-    /*
-    *
-    *查询黑名单会员下的套餐
-    *
+    /**
+     * @title:  查询黑名单会员下的套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 15:32
     */
     @Override
     public List<BlackMemberMealQueryVo> findBlackMemberMeal(Long memberId) {
-        QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
-        wrapper.eq("member_id",memberId);
-        List<MemberMeal> list=memberMealMapper.selectList(wrapper);
-        List<Long> list1 = new LinkedList<>();
-        List<Long> list2 = new LinkedList<>();
-        List<Long> list3 = new LinkedList<>();
-        //套餐类型分类
-        for(int i=0;i<list.size();i++){
-            if(list.get(i).getMealType().equals("普通")){
-                list1.add(list.get(i).getMealId());
-            }else if(list.get(i).getMealType().equals("私教")){
-                list2.add(list.get(i).getMealId());
-            }else if(list.get(i).getMealType().equals("团操")){
-                list3.add(list.get(i).getMealId());
-            }
-        }
         //查询三种套餐信息
-        List<BlackMemberMealQueryVo> list4 = new ArrayList<>();
-        list4.addAll(baseMapper.selectCommon(list1,memberId));
-        list4.addAll(baseMapper.selectPt(list2,memberId));
-        list4.addAll(baseMapper.selectTeam(list3,memberId));
-        return list4;
+        List<BlackMemberMealQueryVo> list = new ArrayList<>();
+        list.addAll(baseMapper.selectCommon(memberId));
+        list.addAll(baseMapper.selectPt(memberId));
+        list.addAll(baseMapper.selectTeam(memberId));
+        return list;
     }
 
-    //退费
+    /**
+     * @title:  退费
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/15 15:33
+    */
     @Override
     public boolean delMemberAllMeal(DisburseAndMemberQueryVo disburseAndMemberQueryVo) {
         //添加支出记录
@@ -153,14 +153,4 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
         }
         return false;
     }
-
-//    /*
-//     *
-//     *通过电话查询黑名单
-//     *
-//     */
-//    public MemberAndBlackQueryVo findblackMemberByPhone(String memberPhone){
-//        return baseMapper.findMemberByPhone(memberPhone);
-//    }
-
 }

@@ -8,6 +8,7 @@ import com.trkj.entity.tqw.Black;
 import com.trkj.entity.tqw.MemberMeal;
 import com.trkj.vo.queryTqw.BlackMemberMealQueryVo;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
+import com.trkj.vo.queryTqw.MemberSelectQueryVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -19,15 +20,14 @@ import java.util.List;
 */
 public interface BlackMapper extends BaseMapper<Black>{
     //动态条件查询并分页(会员)
-    IPage<MemberAndBlackQueryVo> findBlackMemberAll(Page<MemberAndBlackQueryVo> page , @Param("query") MemberAndBlackQueryVo memberAndBlackQueryVo);
-    //查询黑名单通过电话查询
-    MemberAndBlackQueryVo findMemberByPhone(String memberPhone);
+    IPage<MemberAndBlackQueryVo> findBlackMemberAll(Page<MemberAndBlackQueryVo> page , @Param("query") MemberSelectQueryVo memberSelectQueryVo);
+
     //查询普通套餐
-    List<BlackMemberMealQueryVo> selectCommon(@Param("list1") List<Long> list1, @Param("memberId") long memberId);
+    List<BlackMemberMealQueryVo> selectCommon( @Param("memberId") long memberId);
     //查询私教套餐
-    List<BlackMemberMealQueryVo> selectPt(@Param("list2") List<Long> list2,@Param("memberId") long memberId);
+    List<BlackMemberMealQueryVo> selectPt(@Param("memberId") long memberId);
     //查询团操套餐
-    List<BlackMemberMealQueryVo> selectTeam(@Param("list3") List<Long> list3,@Param("memberId") long memberId);
+    List<BlackMemberMealQueryVo> selectTeam(@Param("memberId") long memberId);
     //删除套餐
     int deleteMemberMeal(@Param("list") List<MemberMeal> list);
 }

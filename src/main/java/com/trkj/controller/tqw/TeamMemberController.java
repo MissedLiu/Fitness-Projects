@@ -3,7 +3,9 @@ package com.trkj.controller.tqw;
 import com.trkj.service.implTqw.*;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import com.trkj.vo.queryTqw.MemberQueryVo2;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,11 +27,13 @@ public class TeamMemberController {
     TeamProjectnameService teamProjectnameService;
     @Resource
     PtMemberService ptMemberService;
-    /*
-     *
-     *通过套餐类型查询团操会员
-     *
-     */
+    /**
+     * @title:  查询团操会员(分页)
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 9:01
+    */
     @GetMapping("/teamMemberList")
     public Result teamListAll(MemberQueryVo memberQueryVo){
         return Result.ok(teamMemberService.findTeamMember(memberQueryVo));
@@ -42,8 +46,8 @@ public class TeamMemberController {
      */
     @PreAuthorize("hasAuthority('members:tcmember:add')")
     @PostMapping("/addTeamMember")
-    public Result addTeamMember(@RequestBody MemberQueryVo memberQueryVo){
-        int res=teamMemberService.addTeamMember(memberQueryVo);
+    public Result addTeamMember(@RequestBody  @Validated MemberQueryVo2 memberQueryVo2){
+        int res=teamMemberService.addTeamMember(memberQueryVo2);
         if(res==0){
             return Result.ok().message("套餐添加成功");
         }else if(res==1){

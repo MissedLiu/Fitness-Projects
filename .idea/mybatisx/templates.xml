@@ -15,55 +15,28 @@
             <option name="ignoreTablePrefix" value="" />
             <option name="ignoreTableSuffix" value="" />
             <option name="moduleName" value="Fitness-Projects" />
-            <option name="modulePath" value="$PROJECT_DIR$" />
+            <option name="modulePath" value="$PROJECT_DIR$/" />
             <option name="moduleUIInfoList">
               <list>
-                <ModuleUIInfo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configName" value="mapperInterface" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}Mapper" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="com.trkj.dao.liucz2" />
-                </ModuleUIInfo>
                 <ModuleUIInfo>
                   <option name="basePath" value="src/main/resources" />
                   <option name="configName" value="mapperXml" />
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Mapper" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
-                  <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="mapper.liucz2" />
-                </ModuleUIInfo>
-                <ModuleUIInfo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configName" value="serviceImpl" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}ServiceImpl" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="com.trkj.service.implLiucz2.liucz2" />
-                </ModuleUIInfo>
-                <ModuleUIInfo>
-                  <option name="basePath" value="${domain.basePath}" />
-                  <option name="configName" value="serviceInterface" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}Service" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$" />
-                  <option name="packageName" value="com.trkj.service.implLiucz2" />
+                  <option name="modulePath" value="$PROJECT_DIR$/" />
+                  <option name="packageName" value="mapper.tqw" />
                 </ModuleUIInfo>
               </list>
             </option>
             <option name="needsComment" value="true" />
-            <option name="relativePackage" value="entity.liucz2" />
+            <option name="relativePackage" value="entity" />
             <option name="superClass" value="" />
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="Interview" />
-                  <option name="tableName" value="interview" />
+                  <option name="className" value="MemberMeal" />
+                  <option name="tableName" value="member_meal" />
                 </TableUIInfo>
               </list>
             </option>

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.entity.tqw.Member;
 import com.trkj.vo.queryTqw.MemberQueryVo;
+import com.trkj.vo.queryTqw.MemberSelectQueryVo;
 
 import java.util.List;
 
@@ -19,19 +20,21 @@ public interface MemberService extends IService<Member> {
     *
     */
     List<Member> listAllNoPage(Member member);
-    /*
-     *
-     *查询会员信息列表
-     *
-     */
-    IPage<Member> findAllMemberByState(MemberQueryVo memberQueryVo);
-    /*
-     *
-     *新增会员ok
-     *
-     */
+
+    //查询会员信息列表(分页)
+    IPage<Member> findAllMember(MemberSelectQueryVo memberSelectQueryVo);
+
+    //新增会员
     boolean addMember(Member member);
 
+    //删除会员
+    boolean removeMember(long memberId);
+
+    //修改会员
+    int updataMemberByMemberPhone(Member member);
+
+    //通过会员id查询所有套餐
+    List<MemberQueryVo> findMemberMealByMemberId(Long memberId);
 
     /*
      *
@@ -40,19 +43,6 @@ public interface MemberService extends IService<Member> {
      */
     List<Member> findMemberByState(long memberstate);
 
-    /*
-     *
-     *通过电话删除会员ok
-     *
-     */
-    boolean delMemberByMemberId(long memberId);
-
-    /*
-     *
-     *根据电话修改会员
-     *
-     */
-    int updataMemberByMemberPhone(Member member);
 
 
 }

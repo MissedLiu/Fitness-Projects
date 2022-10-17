@@ -5,17 +5,17 @@ import com.trkj.entity.tqw.Member;
 import com.trkj.service.implTqw.BlackService;
 import com.trkj.service.implTqw.MemberService;
 import com.trkj.utils.Result;
-import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
-import com.trkj.vo.queryTqw.MemberQueryVo;
+import com.trkj.vo.queryTqw.BlackQueryVo;
+import com.trkj.vo.queryTqw.MemberSelectQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-/**
+/*
  *
  * 会员 前端控制器
- *
  *
  */
 @RestController
@@ -25,83 +25,110 @@ public class MemberController {
     private MemberService memberService;
     @Resource
     private BlackService blackService;
+
     /**
-     * 查询会员列表(phone)无分页
-     *
-     */
-    @GetMapping("/listAllNoPage")
+     * @title:  查询会员列表（无分页）
+     * @param:
+     * @return:
+     * @author 15087
+     * @date: 2022/10/14 11:32
+    */
+    @GetMapping("/listMemberAllNoPage")
     public Result listAllNoPage(Member member) {
         return Result.ok(memberService.listAllNoPage(member));
     }
+
     /**
-     * 查询会员列表(phone)分页
-     *
-     */
-    @GetMapping("/listAll")
-    public Result listAll(MemberQueryVo memberQueryVo) {
-        return Result.ok(memberService.findAllMemberByState(memberQueryVo));
+     * @title:  查询会员列表（分页）
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/14 11:33
+    */
+    @GetMapping("/listMemberAll")
+    public Result listAll(MemberSelectQueryVo memberSelectQueryVo) {
+        return Result.ok(memberService.findAllMember(memberSelectQueryVo));
     }
 
-    /*
-     *
-     *新增会员
-     *
-     */
+    /**
+     * @title:  新增会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/14 11:33
+    */
     @PreAuthorize("hasAuthority('members:refinance:add')")
     @PostMapping("/addMember")
-    public Result addMember(@RequestBody Member member){
+    public Result addMember(@RequestBody @Validated Member member){
         if(memberService.addMember(member)){
             return Result.ok().message("注册成功");
         }
-        return Result.error().message("注册失败,会员已注册");
+        return Result.exist().message("注册失败,会员已注册");
     }
 
-
-    /*
-    *
-    *通过会员id删除会员
-    *
+    /**
+     * @title:  删除会员
+     * @param: memberId(会员id)
+     * @return:
+     * @author 15087
+     * @date: 2022/10/14 11:33
     */
     @PreAuthorize("hasAuthority('members:refinance:delete')")
     @DeleteMapping("/delMemberByMemberId/{memberId}")
     public Result delMemberByMemberId(@PathVariable Long memberId){
-        if(memberService.delMemberByMemberId(memberId)){
+        if(memberService.removeMember(memberId)){
             return Result.ok().message("会员删除成功");
         }
         return Result.error().message("会员删除失败");
     }
 
-    /*
-     *
-     *根据电话修改会员
-     *
-     */
+    /**
+     * @title:  修改会员
+     * @param: member
+     * @return:
+     * @author 15087
+     * @date: 2022/10/14 11:34
+    */
     @PreAuthorize("hasAuthority('members:refinance:edit')")
-    @PutMapping("/updataMemberByMemberPhone")
-    public Result updataMemberByMemberPhone(@RequestBody Member member){
-        int a=memberService.updataMemberByMemberPhone(member);
-        if(a==0){
+    @PutMapping("/updMemberByMemberPhone")
+    public Result updMemberByMemberPhone(@RequestBody Member member){
+        int state=memberService.updataMemberByMemberPhone(member);
+        if(state==0){
             return Result.exist().message("修改失败，无法从正式会员改为体验会员");
-        }else if(a==1){
+        }else if(state==1){
             return Result.ok().message("修改成功");
-        }else if(a==2){
+        }else if(state==2){
             return Result.exist().message("修改失败,修改的电话已注册");
         }
         return Result.error().message("系统错误");
     }
 
-    /*
-    *
-    *加入黑名单
-    *
+    /**
+     * @title:  加入黑名单
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/14 17:03
     */
     @PreAuthorize("hasAuthority('members:refinance:addblack')")
-    @PutMapping("/goUpdMemberState")
-    public Result goUpdMemberState(@RequestBody MemberAndBlackQueryVo memberAndBlackQueryVo){
-        if(blackService.goUpdMemberState(memberAndBlackQueryVo.getMemberId(),memberAndBlackQueryVo.getWhy())){
+    @PutMapping("/goBlack")
+    public Result goBlack(@RequestBody @Validated BlackQueryVo blackQueryVo){
+        if(blackService.goBlack(blackQueryVo.getMemberId(),blackQueryVo.getWhy())){
             return Result.ok().message("拉黑成功");
         }
         return Result.error().message("拉黑失败");
+    }
+
+    /**
+     * @title:  通过会员id查询所有套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/14 19:12
+    */
+    @GetMapping("/listMealByMemberId")
+    public Result listMealByMemberId(Long memberId){
+          return Result.ok( memberService.findMemberMealByMemberId(memberId));
     }
 
 }
