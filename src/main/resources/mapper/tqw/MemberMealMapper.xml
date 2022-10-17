@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.MemberMealMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.MemberMeal">
+            <id property="mmId" column="mm_id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+            <result property="mealId" column="meal_id" jdbcType="BIGINT"/>
+            <result property="mealType" column="meal_type" jdbcType="VARCHAR"/>
+            <result property="mmTime" column="mm_time" jdbcType="TIMESTAMP"/>
+            <result property="mmDate" column="mm_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        mm_id,member_id,meal_id,
+        meal_type,mm_time,mm_date
+    </sql>
+
+
+    <resultMap id="ptMeal" type="com.trkj.vo.queryTqw.CompactQueryVo">
+        <id property="mmId" column="mm_id" />
+        <result property="mealType" column="meal_type" />
+        <result property="mmTime" column="mm_time" />
+        <result property="mmDate" column="mm_date" />
+        <result property="compactId" column="compact_id"/>
+        <result property="mealName" column="pt_name"/>
+        <result property="projectName" column="ptp_name"/>
+        <result property="empName" column="emp_name"/>
+    </resultMap>
+<!--查询会员下办了套餐却没有签订合同的套餐-->
+    <select id="selectMemberMeal" resultMap="ptMeal">
+        select mm.*,c.*,cp.*,pm.pt_name,ptp.ptp_name,se.emp_name from member_meal mm
+            left join compact c on mm.mm_id=c.mm_id
+            inner join choose_projectname cp on cp.mm_id=mm.mm_id
+            inner join pt_meal pm on cp.choose_id=pm.pt_id
+            inner join pt_projectname ptp on cp.ptp_id=ptp.ptp_id
+            inner join sys_emp se on se.emp_id = cp.emp_id
+            where mm.member_id=#{memberId}
+            and mm.meal_type='私教'
+            and mm.mm_date>now()
+            and c.mm_id is null
+    </select>
+</mapper>
