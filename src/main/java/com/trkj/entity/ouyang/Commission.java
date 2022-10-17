@@ -9,6 +9,10 @@ import java.util.Date;
 
 import lombok.Data;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 /**
  * 提成统计表
  * @TableName commission
@@ -26,26 +30,33 @@ public class Commission implements Serializable {
     /**
      * 销售人id
      */
+    @Min(0)
+    @NotNull(message="销售人编号不能为空")
     private Long salesmanId;
 
     /**
      * 销售人员姓名
      */
+    @NotNull(message="销售人员姓名不能为空")
     private String empName;
 
     /**
      * 销售人员电话
      */
+    @NotNull(message = "电话不能为空")
+    @Pattern(regexp = "^1[3456789]\\d{9}$",message = "电话输入有误")
     private String empPhone;
 
     /**
-     * 
+     * 部门名
      */
+    @NotNull(message="部门名称不能为空")
     private String departmentName;
 
     /**
      * 总提成
      */
+
     private Double commissionPrice;
 
     /**

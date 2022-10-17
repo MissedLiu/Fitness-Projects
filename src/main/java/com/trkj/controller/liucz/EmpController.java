@@ -81,6 +81,17 @@ public class EmpController {
     }
 
     /*
+     * 修改用户
+     * */
+    @PutMapping("/update2")
+    public Result update2(@RequestBody @Validated Emp emp) {
+        System.out.println("emp===" + emp);
+        if (empService.updateById(emp)) {
+            return Result.ok().message("修改成功");
+        }
+        return Result.error().message("修改失败");
+    }
+    /*
      *删除员工
      */
     @DeleteMapping("/delete/{id}")

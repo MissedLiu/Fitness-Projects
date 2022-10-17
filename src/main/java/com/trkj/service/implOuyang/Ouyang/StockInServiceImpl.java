@@ -33,15 +33,20 @@ public class StockInServiceImpl extends ServiceImpl<StockInMapper, StockIn>
 
     //添加入库记录
     @Override
+    @Transactional
     public boolean toStock(PoQueryVo poQueryVo) {
         return stockInMapper.toInStock(poQueryVo);
     }
 
+    /**
+     * 获取入库记录
+     * @param stockInQueryVo
+     * @return
+     */
     @Override
-    public IPage<StockInQueryVo> findAllStockIn( StockInQueryVo stockInQueryVo) {
-        Page<StockInQueryVo> page=new Page<>(stockInQueryVo.getPageNo(),stockInQueryVo.getPageSize());
-
-        return stockInVoMapper.findStockInAllAndLoseOrMore(page,stockInQueryVo);
+    public IPage<StockInQueryVo> findAllStockIn(StockInQueryVo stockInQueryVo) {
+        Page<StockInQueryVo> page = new Page<>(stockInQueryVo.getPageNo(), stockInQueryVo.getPageSize());
+        return stockInVoMapper.findStockInAllAndLoseOrMore(page, stockInQueryVo);
     }
 
 

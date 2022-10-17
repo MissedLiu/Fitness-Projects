@@ -40,7 +40,7 @@ public interface StoreMapper extends BaseMapper<Store> {
     @Select(value = "select store_id from store where stockin_name=#{poName} AND brand=#{brand}")
     public Long FindStoreIdByNameAndBrand(PoQueryVo poQueryVo);
 
-    //通过id
+    //通过id查询库存数
     @Select(value = "select store_num from store where store_id=#{id}")
     public Long FindStoreNumByID(Long id);
 
@@ -60,6 +60,13 @@ public interface StoreMapper extends BaseMapper<Store> {
     //通过物品品牌和名字获取物品ID
     @Select(value = "select po_id from store where brand=#{brand} and stockin_name=#{edName}")
     Long getStockinIdByStockinNameAndBrand(Edetails edetails);
+
+    @Select(value = "select count(*) from sys_emp where emp_name=#{empName}")
+    Long getEmpByName(StoreQueryVo storeQueryVo);
+
+    @Insert(value = "insert into stock_out_record (store_id, stockin_id, stockin_name,  out_num,stockin_type,brand,emp_name)" +
+            " VALUES (#{storeId},#{poId},#{stockinName},#{outStockNum},#{stockinType},#{brand},#{empName})")
+    public boolean toOutStockRecord(StoreQueryVo storeQueryVo);
 }
 
 

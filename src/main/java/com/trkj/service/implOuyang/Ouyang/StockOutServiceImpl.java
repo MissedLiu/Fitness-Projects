@@ -75,14 +75,12 @@ public class StockOutServiceImpl extends ServiceImpl<StockOutMapper, StockOut>
      * @param: [stockinId, storeNum]
      * @return: int
      **/
+    @Transactional
     @Override
     public int updateStockStoerNum(Long stockinId, Long storeNum) {
         QueryWrapper<StockOut> queryWrapper=new QueryWrapper<>();
         queryWrapper.eq("stockin_id" ,stockinId);
         StockOut stockOut = baseMapper.selectOne(queryWrapper);
-        System.out.println("wwwwwwwwwwwwwwww"+stockOut);
-        System.out.println("stockinId=="+stockinId);
-        System.out.println("storeNum=="+storeNum);
         int i = stockOutMapper.updateOutNum(stockinId, stockOut.getStoreNum()-storeNum);
         return i;
     }
@@ -94,6 +92,7 @@ public class StockOutServiceImpl extends ServiceImpl<StockOutMapper, StockOut>
      * @param: [stockinId, storeNum]
      * @return: int
      **/
+    @Transactional
     @Override
     public int updateStockStoerNum2(Long outId, Long storeNum) {
         QueryWrapper<StockOut> queryWrapper=new QueryWrapper<>();
@@ -110,14 +109,19 @@ public class StockOutServiceImpl extends ServiceImpl<StockOutMapper, StockOut>
      * @param: [stockinId, storeNum]
      * @return: int
      **/
+    @Transactional
     @Override
     public int updateAddStockStoerNum(Long outId, Long storeNum) {
-
         int i = stockOutMapper.updateOutNum2(outId, storeNum);
         return i;
 
     }
 
+    /**
+     * 根据器材使用记录的物品id查询出库数
+     * @param edetails
+     * @return
+     */
     @Override
     public Long getOutNum(Edetails edetails) {
         return stockOutMapper.getOutNumByNameAndBrand(edetails);

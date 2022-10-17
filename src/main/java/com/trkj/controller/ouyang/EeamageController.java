@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * 报修管理
+ */
 @RestController
 @RequestMapping("/api/repair")
 public class EeamageController {
@@ -34,14 +37,7 @@ public class EeamageController {
     @Resource
     private EdetailsService edetailsService;
 
-    //    @GetMapping("/list")
-//    public Result getRepairList(EeamageQueryVo eeamageQueryVo) {
-//        //创建分页插件对象
-//        IPage<Eeamage> page = new Page<>(eeamageQueryVo.getPageNo(), eeamageQueryVo.getPageSize());
-//        //调用分页查询方法
-//        eeamageService.findRepairList(page, eeamageQueryVo);
-//        return Result.ok(page);
-//    }
+
     @GetMapping("/list")
     public Result getRepairList(EeamageQueryVo eeamageQueryVo) {
         //调用分页查询方法
@@ -108,6 +104,10 @@ public class EeamageController {
         if (i != 1) {
             return Result.exist().message("结果处理失败!");
         }
+        if (!eeamageService.updateDetailsState(eeamageQueryVo)){
+            return Result.exist().message("结果处理失败!");
+        }
+
         //将记录添加进维修记录表中
         Emaintenance emaintenance = new Emaintenance();
         emaintenance.setEeId(eeamageQueryVo.getEeId());

@@ -74,7 +74,6 @@ public class Emp implements Serializable {
      */
 
     @Email(message="邮箱格式错误")
-
     private String emil;
 
     /**

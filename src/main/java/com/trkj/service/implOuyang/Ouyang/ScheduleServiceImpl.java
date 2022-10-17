@@ -33,18 +33,19 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
     private ScheduleMapper scheduleMapper;
     @Resource
     private CaigouShenheMapper caigouShenheMapper;
+
     /**
      * 分页查询采购计划
+     *
      * @param page
      * @param scheduleQueryVo
      * @return
      */
     @Override
     public IPage<Schedule> findPlanList(IPage<Schedule> page, ScheduleQueryVo scheduleQueryVo) {
-
         //创建条件构造器对象
         QueryWrapper<Schedule> queryWrapper = new QueryWrapper<Schedule>();
-        queryWrapper.eq("scheduleemp_id",scheduleQueryVo.getScheduleempId());
+        queryWrapper.eq("scheduleemp_id", scheduleQueryVo.getScheduleempId());
         //添加条件
         queryWrapper.like(!ObjectUtils.isEmpty(scheduleQueryVo.getScheduleName()), "schedule_name", scheduleQueryVo.getScheduleName());
         //根据日期降序
@@ -60,6 +61,7 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
      * @param schedule
      * @return
      */
+    @Transactional
     @Override
     public boolean addPlan(Schedule schedule) {
         if (scheduleMapper.addPlan(schedule)) {
@@ -71,9 +73,11 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
 
     /**
      * 完成采购计划，把数据插入已购物品表
+     *
      * @param schedule
      * @return
      */
+    @Transactional
     @Override
     public boolean toPo(Schedule schedule) {
         return scheduleMapper.toPo(schedule);
@@ -81,9 +85,11 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
 
     /**
      * 修改采购计划状态
+     *
      * @param schedule
      * @return
      */
+    @Transactional
     @Override
     public boolean updatePlanState(Schedule schedule) {
         return scheduleMapper.updatePlanState(schedule);
@@ -91,19 +97,21 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
 
     /**
      * 获取所有未执行的计划
+     *
      * @param page
      * @param scheduleQueryVo
      * @return
      */
     @Override
-    public IPage<Schedule> getNotExecuted(IPage<Schedule> page,ScheduleQueryVo scheduleQueryVo) {
+    public IPage<Schedule> getNotExecuted(IPage<Schedule> page, ScheduleQueryVo scheduleQueryVo) {
         QueryWrapper<Schedule> queryWrapper = new QueryWrapper();
-        queryWrapper.eq("schedule_state","未执行");
-        return baseMapper.selectPage(page,queryWrapper);
+        queryWrapper.eq("schedule_state", "未执行");
+        return baseMapper.selectPage(page, queryWrapper);
     }
 
     /**
      * 根据ID查询计划采购的数量
+     *
      * @param schedule
      * @return
      */
@@ -113,8 +121,7 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
     }
 
     /**
-     * @description:
-     * 添加进采购审核
+     * @description: 添加进采购审核
      * @author: Liucz
      * @date: 2022/10/5 14:26
      * @param:
@@ -123,35 +130,40 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
     @Override
     public int addCaiGouShenHe(CaiGouShenHeDTO caiGouShenHeDTO) {
 
-        return  caigouShenheMapper.addCaigouSh(caiGouShenHeDTO.getScheduleId(),caiGouShenHeDTO.getId());
+        return caigouShenheMapper.addCaigouSh(caiGouShenHeDTO.getScheduleId(), caiGouShenHeDTO.getId());
     }
+
     //修改采购计划表的状态为待审核
+    @Transactional
     @Override
     public int updateState(Long id) {
         return scheduleMapper.updateState(id);
     }
+
     //查询当前人采购计划状态为1-待审核的记录
     @Override
     public IPage<CaigouShenhe> findCaiGouStateByState(PageVo pageVo) {
-        Page<CaigouShenhe> page=new Page<>(pageVo.getPageNo(),pageVo.getPageSize());
+        Page<CaigouShenhe> page = new Page<>(pageVo.getPageNo(), pageVo.getPageSize());
         IPage<CaigouShenhe> caiGouStateByState = scheduleMapper.findCaiGouStateByState(page, pageVo.getShenheempId());
         return caiGouStateByState;
     }
+
     //根据状态不为0-已审核的查询该审核人id下的所有信息
     @Override
     public IPage<CaigouShenhe> findCaiGouStateByStatetrue(PageVo pageVo) {
-        Page<CaigouShenhe> page=new Page<>(pageVo.getPageNo(),pageVo.getPageSize());
+        Page<CaigouShenhe> page = new Page<>(pageVo.getPageNo(), pageVo.getPageSize());
         IPage<CaigouShenhe> caiGouStateByStatetrue = scheduleMapper.findCaiGouStateByStatetrue(page, pageVo.getShenheempId());
         return caiGouStateByStatetrue;
     }
+
     /**
-     * @description:
-     * 修改采购计划表中的状态为3-审核不通过
+     * @description: 修改采购计划表中的状态为3-审核不通过
      * @author: Liucz
      * @date: 2022/10/5 18:55
      * @param:
      * @return:
      **/
+    @Transactional
     @Override
     public int updateSchduleSteta(Long id) {
         int i = scheduleMapper.updateSchduleSteta(id);
@@ -159,21 +171,21 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
     }
 
     /**
-     * @description:
-     * 修改采购计划表中的状态为2-审核通过
+     * @description: 修改采购计划表中的状态为2-审核通过
      * @author: Liucz
      * @date: 2022/10/5 18:55
      * @param:
      * @return:
      **/
+    @Transactional
     @Override
     public int updateSchduleSteta2(Long id) {
         int i = scheduleMapper.updateSchduleSteta2(id);
         return i;
     }
+
     /**
-     * @description:
-     * 根据采购编号查询状态
+     * @description: 根据采购编号查询状态
      * @author: Liucz
      * @date: 2022/10/5 21:00
      * @param:
@@ -181,32 +193,34 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper, Schedule>
      **/
     @Override
     public int findState(Long id) {
-        QueryWrapper<Schedule> queryWrapper=new QueryWrapper<>();
-        queryWrapper.eq("schedule_id" ,id);
+        QueryWrapper<Schedule> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("schedule_id", id);
         Schedule schedule = baseMapper.selectOne(queryWrapper);
         return schedule.getScheduleState();
     }
+
     /**
-     * @description:
-     * 修改采购计划表中的状态为4-已执行
+     * @description: 修改采购计划表中的状态为4-已执行
      * @author: Liucz
      * @date: 2022/10/5 18:55
      * @param:
      * @return:
      **/
+    @Transactional
     @Override
     public int updateSchduleSteta4(Long id) {
         int i = scheduleMapper.updateSchduleSteta4(id);
         return i;
     }
+
     /**
-     * @description:
-     * 修改采购计划表中的状态为5-已撤销
+     * @description: 修改采购计划表中的状态为5-已撤销
      * @author: Liucz
      * @date: 2022/10/5 18:55
      * @param:
      * @return:
      **/
+    @Transactional
     @Override
     public int updateSchduleSteta5(Long id) {
         int i = scheduleMapper.updateSchduleSteta5(id);

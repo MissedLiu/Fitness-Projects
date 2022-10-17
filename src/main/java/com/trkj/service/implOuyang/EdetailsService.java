@@ -41,5 +41,10 @@ public interface EdetailsService extends IService<Edetails> {
      */
     Long CountDetailsByEdCode(Edetails edetails);
 
+    /**
+     * 判断是否有相同标识编码
+     * @param edetails
+     * @return
+     */
     Long CountDetailsByEdCodeAndName(Edetails edetails);
 }

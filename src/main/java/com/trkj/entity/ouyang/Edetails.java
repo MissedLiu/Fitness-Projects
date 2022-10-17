@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 /**
  * 
  * @TableName equipment_details
@@ -24,16 +27,20 @@ public class Edetails implements Serializable {
     /**
      * 物品id
      */
+    @NotNull(message = "物品id不能为空")
+    @Min(value = 0,message = "物品id不能小于0")
     private Long stockinId;
 
     /**
      * 器材名
      */
+    @NotNull(message = "器材名不能为空")
     private String edName;
 
     /**
      * 器材编码
      */
+    @NotNull(message = "器材编码不能为空")
     private String edCode;
 
     /**

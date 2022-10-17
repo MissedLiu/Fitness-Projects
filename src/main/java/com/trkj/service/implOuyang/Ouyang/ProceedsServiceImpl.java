@@ -9,6 +9,7 @@ import com.trkj.dao.ouyang.ProceedsMapper;
 import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryOuyang.ProceedsQueryVo;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -28,30 +29,40 @@ public class ProceedsServiceImpl extends ServiceImpl<ProceedsMapper, Proceeds>
 
     @Override
     public IPage<Proceeds> getList(IPage page, PageVo pageVo) {
-        return proceedsMapper.selectPage(page, new QueryWrapper<>());
+        QueryWrapper queryWrapper = new QueryWrapper();
+        //根据只有年月的时间模糊查询
+        queryWrapper.like(!ObjectUtils.isEmpty(pageVo.getChangeTime()),
+                "proceeds_time", pageVo.getChangeTime());
+        //根据时间降序
+        queryWrapper.orderByDesc("proceeds_time");
+        return proceedsMapper.selectPage(page, queryWrapper);
     }
 
+    /**
+     * 根据前端不同的参数获取不同的时间段的收入总和
+     * @param pageVo
+     * @return
+     */
     @Override
     public Long sumPrice(PageVo pageVo) {
-        Long sump=0l;
-        switch (pageVo.getTypee()){
+        Long sump = 0l;
+        switch (pageVo.getTypee()) {
             case "近七天":
-                sump=proceedsMapper.SumWeekPrice(pageVo);
+                sump = proceedsMapper.SumWeekPrice(pageVo);
                 break;
             case "近一个月":
-                sump=proceedsMapper.SumMonthPrice(pageVo);
+                sump = proceedsMapper.SumMonthPrice(pageVo);
                 break;
             case "本季度":
-                sump=proceedsMapper.SumQuarterPrice(pageVo);
+                sump = proceedsMapper.SumQuarterPrice(pageVo);
                 break;
             case "上季度":
-                sump=proceedsMapper.SumLastQuarterPrice(pageVo);
+                sump = proceedsMapper.SumLastQuarterPrice(pageVo);
                 break;
             case "本年":
-                sump=proceedsMapper.SumYearPrice(pageVo);
+                sump = proceedsMapper.SumYearPrice(pageVo);
                 break;
         }
-        System.out.println("--------------------"+sump);
         return sump;
     }
 }

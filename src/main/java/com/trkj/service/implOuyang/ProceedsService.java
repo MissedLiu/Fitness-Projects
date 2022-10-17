@@ -14,5 +14,10 @@ import com.trkj.vo.queryOuyang.ProceedsQueryVo;
 public interface ProceedsService extends IService<Proceeds> {
     IPage<Proceeds> getList(IPage page,PageVo pageVo);
 
+    /**
+     * 根据前端不同的参数获取不同的时间段的收入总和
+     * @param pageVo
+     * @return
+     */
     Long sumPrice(PageVo pageVo);
 }
