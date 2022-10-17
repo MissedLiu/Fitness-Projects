@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.trkj.dao.tqw.ChooseProjectNameMapper">
+
+    <resultMap id="BaseResultMap" type="com.trkj.entity.tqw.ChooseProjectName">
+            <id property="cpId" column="cp_id" jdbcType="BIGINT"/>
+            <result property="mmId" column="mm_id" jdbcType="BIGINT"/>
+            <result property="ptpId" column="ptp_id" jdbcType="BIGINT"/>
+            <result property="empId" column="emp_id" jdbcType="BIGINT"/>
+            <result property="chooseId" column="choose_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cp_id,mm_id,ptp_id,
+        emp_id,choose_id
+    </sql>
+    <!--删除项目表数据-->
+    <delete id="deleteChooseProject">
+        delete from choose_projectname cp where 1=1
+        <foreach collection="list" item="item" index="index" separator="">
+            or cp.mm_id = #{item.mmId}
+        </foreach>
+    </delete>
+</mapper>
