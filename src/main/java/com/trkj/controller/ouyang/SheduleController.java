@@ -65,7 +65,8 @@ public class SheduleController {
     public Result daletePlan(@PathVariable Long id) {
         //根据当前计划id查询出状态
         int state = scheduleService.findState(id);
-        if (state != 0&& state!=5) {
+        System.out.println("state=="+state);
+        if (state != 0&& state!=5 && state!=4) {
             return Result.exist().message("删除失败,该状态下无法删除");
         }
 

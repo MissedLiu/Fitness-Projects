@@ -170,8 +170,8 @@ public class EmpController {
         if (user.getEmpId() != null) {
             //如果有就删除该员工
             if (user.getEmp().getEmpName() != null) {
-                //删除该员工
-                empService.removeById(user.getEmp().getEmpId());
+//                //删除该员工
+//                empService.removeById(user.getEmp().getEmpId());
                 //修改账户表中empid为空
                 if (userService.updateUser(id, null) == 1) {
                     return Result.ok().message("解绑成功");
