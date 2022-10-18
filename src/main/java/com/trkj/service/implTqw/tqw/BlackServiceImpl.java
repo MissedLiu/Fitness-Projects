@@ -18,10 +18,10 @@ import com.trkj.vo.queryTqw.BlackMemberMealQueryVo;
 import com.trkj.vo.queryTqw.DisburseAndMemberQueryVo;
 import com.trkj.vo.queryTqw.MemberAndBlackQueryVo;
 import com.trkj.vo.queryTqw.MemberSelectQueryVo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,11 +34,11 @@ import java.util.List;
 */
 @Service
 public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements BlackService {
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
-    @Autowired
+    @Resource
     private MemberMealMapper memberMealMapper;
-    @Autowired
+    @Resource
     private DisburseMapper disburseMapper;
 
     /**

@@ -19,7 +19,13 @@ import java.util.List;
 @Transactional
 public class TeamCoachServiceImpl extends ServiceImpl<TeamCoachMapper, TeamCoach>
 implements TeamCoachService {
-    //新增私教套餐教练关系表数据
+    /**
+     * @title:  新增团操套餐教练关系表数据
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 9:13
+    */
     @Override
     public boolean addEmpAndTeamMeal(EmpAndTeamMealQueryVo empAndTeamMealQueryVo) {
         //删除原来的
@@ -33,7 +39,13 @@ implements TeamCoachService {
         return false;
     }
 
-    //通过员工id查询私教关系表数据
+    /**
+     * @title:  通过员工id查询团操关系表数据
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 9:13
+    */
     @Override
     public List<TeamCoach> findTeamAndEmpByEmpId(Long empId) {
         QueryWrapper<TeamCoach> wrapper=new QueryWrapper<>();

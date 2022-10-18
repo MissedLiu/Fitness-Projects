@@ -15,19 +15,22 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
-*
-*/
 @Service
 @Transactional
 public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements LoseService {
-    //查询
+    /**
+     * @title:  查询
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:58
+    */
     public IPage<Lose> selectLose(LoseQueryVo loseQueryVo){
-        //删除半年前的失物招领记录
+        //删除两个月前的失物招领记录
         //两个月前时间
         Calendar rightNow = Calendar.getInstance();
         rightNow.setTime(new Date());
-        rightNow.add(Calendar.MONTH ,-6);
+        rightNow.add(Calendar.MONTH ,-2);
         System.out.println("ttttt"+rightNow.getTime());
         //删除两个月前的数据
         QueryWrapper<Lose> wrapper=new QueryWrapper<>();
@@ -39,7 +42,14 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
         IPage<Lose> iPage=baseMapper.selectLose(page,loseQueryVo);
         return iPage;
     }
-    //新增
+
+    /**
+     * @title:  新增
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:57
+    */
     @Override
     public boolean addLose(Lose lose) {
         lose.setState("未领取");
@@ -49,6 +59,13 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
         return false;
     }
 
+    /**
+     * @title:  新增领取人
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:57
+    */
     @Override
     public int updateLoseState(Lose lose) {
         System.out.println();
@@ -62,5 +79,20 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
             return 1;
         }
         return 2;
+    }
+
+    /**
+     * @title:  删除
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 9:38
+    */
+    @Override
+    public boolean deleteLose(Long id) {
+        if(baseMapper.deleteById(id)>0){
+            return true;
+        }
+        return false;
     }
 }

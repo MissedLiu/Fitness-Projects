@@ -9,6 +9,8 @@ import java.util.Date;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * 
  * @TableName compact
@@ -27,6 +29,7 @@ public class Compact implements Serializable {
     *会员编号
     *
     */
+    @NotNull(message = "会员编号不能为空")
     private Long memberId;
 
     /*
@@ -34,6 +37,7 @@ public class Compact implements Serializable {
     *签订日期
     *
     */
+    @NotNull(message = "签订日期不能为空")
     private Date createDate;
 
     /*
@@ -41,32 +45,38 @@ public class Compact implements Serializable {
     *结束日期
     *
     */
+    @NotNull(message = "结束日期不能为空")
     private Date endDate;
     /*
     *
     *合同类型
     *
     */
+    @NotNull(message = "合同类型不能为空")
     private String compactType;
 
     /**
      * 签订套餐编号
      */
+    @NotNull(message = "套餐签订编号不能为空")
     private Long mmId;
 
     /**
      * 合同原件图片地址
      */
+    @NotNull(message = "原件图片1不能为空")
     private String photoAddress;
 
     /**
      * 合同原件图片地址2
      */
+    @NotNull(message = "原件图片2不能为空")
     private String photoAddress2;
 
     /**
      * 合同原件图片地址3
      */
+    @NotNull(message = "原件图片3不能为空")
     private String photoAddress3;
 
     /**
@@ -82,6 +92,7 @@ public class Compact implements Serializable {
     /**
      * 业务员
      */
+    @NotNull(message = "业务员不能为空")
     private String salesman;
 
     @TableField(exist = false)

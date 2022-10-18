@@ -1,11 +1,11 @@
 package com.trkj.controller.tqw;
 
 
+import com.trkj.entity.tqw.Black;
 import com.trkj.entity.tqw.Member;
 import com.trkj.service.implTqw.BlackService;
 import com.trkj.service.implTqw.MemberService;
 import com.trkj.utils.Result;
-import com.trkj.vo.queryTqw.BlackQueryVo;
 import com.trkj.vo.queryTqw.MemberSelectQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 
 /*
  *
- * 会员 前端控制器
+ * 会员列表管理
  *
  */
 @RestController
@@ -34,14 +34,14 @@ public class MemberController {
      * @date: 2022/10/14 11:32
     */
     @GetMapping("/listMemberAllNoPage")
-    public Result listAllNoPage(Member member) {
-        return Result.ok(memberService.listAllNoPage(member));
+    public Result listAllNoPage(MemberSelectQueryVo memberSelectQueryVo) {
+        return Result.ok(memberService.listAllNoPage(memberSelectQueryVo));
     }
 
     /**
-     * @title:  查询会员列表（分页）
-     * @param: null
-     * @return:
+     * @title:  查询会员列表（分页）ok
+     * @param: MemberSelectQueryVo
+     * @return: null
      * @author 15087
      * @date: 2022/10/14 11:33
     */
@@ -51,9 +51,9 @@ public class MemberController {
     }
 
     /**
-     * @title:  新增会员
-     * @param: null
-     * @return:
+     * @title:  新增会员ok
+     * @param: Member
+     * @return: null
      * @author 15087
      * @date: 2022/10/14 11:33
     */
@@ -67,9 +67,9 @@ public class MemberController {
     }
 
     /**
-     * @title:  删除会员
+     * @title:  删除会员ok
      * @param: memberId(会员id)
-     * @return:
+     * @return: null
      * @author 15087
      * @date: 2022/10/14 11:33
     */
@@ -83,9 +83,9 @@ public class MemberController {
     }
 
     /**
-     * @title:  修改会员
-     * @param: member
-     * @return:
+     * @title:  修改会员ok
+     * @param: Member
+     * @return: null
      * @author 15087
      * @date: 2022/10/14 11:34
     */
@@ -105,24 +105,24 @@ public class MemberController {
 
     /**
      * @title:  加入黑名单
-     * @param: null
-     * @return:
+     * @param: Black
+     * @return: null
      * @author 15087
      * @date: 2022/10/14 17:03
     */
     @PreAuthorize("hasAuthority('members:refinance:addblack')")
     @PutMapping("/goBlack")
-    public Result goBlack(@RequestBody @Validated BlackQueryVo blackQueryVo){
-        if(blackService.goBlack(blackQueryVo.getMemberId(),blackQueryVo.getWhy())){
+    public Result goBlack(@RequestBody @Validated Black black){
+        if(blackService.goBlack(black.getMemberId(),black.getWhy())){
             return Result.ok().message("拉黑成功");
         }
         return Result.error().message("拉黑失败");
     }
 
     /**
-     * @title:  通过会员id查询所有套餐
-     * @param: null
-     * @return:
+     * @title:  通过会员id查询所有套餐ok
+     * @param: Long
+     * @return: null
      * @author 15087
      * @date: 2022/10/14 19:12
     */

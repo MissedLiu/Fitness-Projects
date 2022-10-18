@@ -11,26 +11,13 @@ public interface CommonMemberService {
     //查询普通会员列表
     IPage<Member> findCommentMember(MemberQueryVo memberQueryVo);
 
-    /*
-     *
-     *新增普通会员
-     *
-     */
+    //新增普通会员
     int addCommonMember(MemberQueryVo memberQueryVo);
 
-
-    /*
-     *
-     *删除普通会员套餐
-     *
-     */
+    //删除普通会员套餐
     boolean delCommonMemberById(long mmId);
 
-    /*
-    *
-    *续费
-    *
-    */
+    //续费
     int renewCommonMember(MemberQueryVo memberQueryVo);
 
     //通过会员id查询办理的普通套餐

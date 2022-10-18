@@ -20,7 +20,13 @@ import java.util.List;
 public class PtCoachServiceImpl extends ServiceImpl<PtCoachMapper, PtCoach>
 implements PtCoachService {
 
-    //新增私教套餐教练关系表数据
+    /**
+     * @title:  新增私教套餐教练关系表数据
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 9:12
+    */
     @Override
     public boolean addEmpAndPtMeal(EmpAndPtMealQueryVo empAndPtMealQueryVo) {
         //删除原来的
@@ -34,7 +40,13 @@ implements PtCoachService {
         return false;
     }
 
-    //通过员工id查询私教关系表数据
+    /**
+     * @title:  通过员工id查询私教关系表数据
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 9:12
+    */
     @Override
     public List<PtCoach> findPtAndEmpByEmpId(Long empId) {
         QueryWrapper<PtCoach> wrapper=new QueryWrapper<>();

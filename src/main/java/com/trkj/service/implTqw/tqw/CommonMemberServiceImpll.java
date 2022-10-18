@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,24 +28,26 @@ import java.util.List;
 @Service
 @Transactional
 public class CommonMemberServiceImpll implements CommonMemberService {
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
-    @Autowired
+    @Resource
     private MemberMealMapper memberMealMapper;
-    @Autowired
+    @Resource
     private CommonMealService commonMealService;
-    @Autowired
+    @Resource
     private CommonMemberMapper commonMemberMapper;
-    @Autowired
+    @Resource
     private ComsuneMapper comsuneMapper;
-    @Autowired
+    @Resource
     private ProceedsMapper proceedsMapper;
 
-    /*
-     *
-     *通过套餐类型查询会员套餐列表(普通)
-     *
-     */
+    /**
+     * @title:  通过套餐类型查询会员套餐列表(普通)
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:14
+    */
     @Override
     public IPage<Member> findCommentMember(MemberQueryVo memberQueryVo) {
         Page<Member> pageStr = new Page<>(memberQueryVo.getPageNo(), memberQueryVo.getPageSize());
@@ -52,11 +55,13 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         return Page;
     }
 
-    /*
-     *
-     *新增普通会员
-     *
-     */
+    /**
+     * @title:  新增普通会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:14
+    */
     @Override
     public int addCommonMember(MemberQueryVo memberQueryVo) {
         //套餐类型
@@ -201,7 +206,13 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         return 7;
     }
 
-    //添加充值记录方法
+    /**
+     * @title:  添加充值记录方法
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:14
+    */
     public void addComsune(Long memberId, CommonMeall commonMeal) {
         Comsune comsune = new Comsune();
         comsune.setMemberId(memberId);
@@ -222,7 +233,13 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         proceedsMapper.insert(proceeds);
     }
 
-    //删除普通会员套餐
+    /**
+     * @title:  删除普通会员套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:15
+    */
     @Override
     public boolean delCommonMemberById(long mmId) {
         int a = memberMealMapper.deleteById(mmId);
@@ -232,7 +249,13 @@ public class CommonMemberServiceImpll implements CommonMemberService {
         return false;
     }
 
-    //续费
+    /**
+     * @title:  续费
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:15
+    */
     @Override
     public int renewCommonMember(MemberQueryVo memberQueryVo) {
         //通过套餐办理编号查询办理的套餐信息
@@ -302,7 +325,13 @@ public class CommonMemberServiceImpll implements CommonMemberService {
 
     }
 
-    //通过会员id查询办理的普通套餐
+    /**
+     * @title:  通过会员id查询办理的普通套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:15
+    */
     @Override
     public List<MemberQueryVo> findCommonByMemberId(Long memberId) {
         return commonMemberMapper.findCommonByMemberId(memberId);

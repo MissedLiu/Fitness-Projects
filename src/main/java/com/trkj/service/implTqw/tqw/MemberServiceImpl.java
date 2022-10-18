@@ -27,14 +27,17 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     @Resource
     private ChooseProjectNameMapper chooseProjectNameMapper;
 
-    /*
-     *
-     *查询会员信息无分页
-     *
-     */
+    /**
+     * @title:  查询会员信息无分页
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:02
+     * @param memberSelectQueryVo
+    */
     @Override
-    public List<Member> listAllNoPage(Member member) {
-        return baseMapper.listAllNoPage(member);
+    public List<Member> listAllNoPage(MemberSelectQueryVo memberSelectQueryVo) {
+        return baseMapper.listAllNoPage(memberSelectQueryVo);
     }
 
 
@@ -65,7 +68,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
 
     /**
      * @title:  新增会员
-     * @param: member
+     * @param: Member
      * @return:  boolean
      * @author 15087
      * @date: 2022/10/14 16:04

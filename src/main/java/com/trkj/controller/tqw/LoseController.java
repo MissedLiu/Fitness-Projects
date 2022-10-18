@@ -5,13 +5,14 @@ import com.trkj.service.implTqw.LoseService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.LoseQueryVo;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 /*
 *
-*储物柜
+*失物招领
 *
 */
 @RestController
@@ -19,21 +20,39 @@ import javax.annotation.Resource;
 public class LoseController {
     @Resource
     private LoseService loseService;
-    //查询失物列表
+
+    /**
+     * @title:  查询失物列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:56
+    */
     @GetMapping("/selectlose")
     public Result selectLose(LoseQueryVo loseQueryVo){
-        System.out.println("----------------"+loseQueryVo);
         return Result.ok(loseService.selectLose(loseQueryVo));
     }
-    //新增失物
+
+    /**
+     * @title:  新增失物
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:57
+    */
     @PreAuthorize("hasAuthority('loses:lose:add')")
     @PostMapping("/addlose")
     public Result addLose(@RequestBody Lose lose){
-        System.out.println("++++++++++++++++++="+lose);
         return Result.ok(loseService.addLose(lose));
     }
 
-    //新增领取人，修改失物状态
+    /**
+     * @title:  新增领取人，修改失物状态
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:57
+    */
     @PreAuthorize("hasAuthority('loses:lose:get')")
     @PostMapping("/updateLoseState")
     public Result updateLoseState(@RequestBody Lose lose){
@@ -44,5 +63,20 @@ public class LoseController {
             return Result.ok().message("物品领取成功");
         }
         return Result.exist().message("领取失败");
+    }
+
+    /**
+     * @title:  删除
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 9:35
+    */
+    @DeleteMapping("/deleteLose/{id}")
+    public Result deleteLose(@PathVariable Long id){
+        if(loseService.deleteLose(id)){
+            return Result.ok().message("删除成功");
+        }
+        return Result.exist().message("删除失败");
     }
 }

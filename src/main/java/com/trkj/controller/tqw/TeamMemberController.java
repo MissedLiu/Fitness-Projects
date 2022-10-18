@@ -39,11 +39,13 @@ public class TeamMemberController {
         return Result.ok(teamMemberService.findTeamMember(memberQueryVo));
     }
 
-    /*
-     *
-     *新增团操会员
-     *
-     */
+    /**
+     * @title:  新增团操会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:24
+    */
     @PreAuthorize("hasAuthority('members:tcmember:add')")
     @PostMapping("/addTeamMember")
     public Result addTeamMember(@RequestBody  @Validated MemberQueryVo2 memberQueryVo2){
@@ -66,12 +68,13 @@ public class TeamMemberController {
         return Result.error().message("系统错误");
     }
 
-
-    /*
-     *
-     *通过会员办理套餐表id删除私教会员套餐表，项目表数据
-     *
-     */
+    /**
+     * @title:  通过会员办理套餐表id删除私教会员套餐表，项目表数据
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:24
+    */
     @PreAuthorize("hasAuthority('members:tcmember:delete')")
     @DeleteMapping("/delTeamMealById/{mmId}")
     public Result delTeamMealById(@PathVariable long mmId){
@@ -81,15 +84,16 @@ public class TeamMemberController {
         return Result.error().message("会员删除失败");
     }
 
-    /*
-     *
-     *续费
-     *
-     */
+    /**
+     * @title:  续费
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:25
+    */
     @PreAuthorize("hasAuthority('members:tcmember:xufei')")
     @PutMapping("/renew")
     public Result RenewPtMember(@RequestBody MemberQueryVo memberQueryVo){
-        System.out.println("memberQueryVo"+memberQueryVo);
         int a=teamMemberService.renewTeamMember(memberQueryVo);
         if(a==0){
             return Result.ok().message("续费成功");
@@ -101,58 +105,51 @@ public class TeamMemberController {
         return Result.exist();
     }
 
-
-    /*
-     *
-     *通过是否禁用查询团操套餐
-     *
-     */
+    /**
+     * @title:  通过是否禁用查询团操套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:26
+    */
     @GetMapping("/selectTeamMealByTeamis")
     public Result selectTeamMealByTeamis(){
         return Result.ok(teamMealService.selectTeamMeal());
     }
 
-
-    /*
-     *
-     *通过选择的团操套餐id查询该套餐下的私教教练列表
-     *
-     */
+    /**
+     * @title:  通过选择的团操套餐id查询该套餐下的私教教练列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:26
+    */
     @GetMapping("/teamCoachListByTeamId")
     public Result teamCoachListByTeamId(long mealId){
         return Result.ok(teamMealService.selectEmpByTeamId(mealId));
     }
 
-
-    /*
-     *
-     *通过团操套餐id查询私教项目(项目未禁用)
-     *
-     */
+    /**
+     * @title:  通过团操套餐id查询私教项目(项目未禁用)
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:26
+    */
     @GetMapping("/selectTeamProjectByPtId")
     public Result selectTeamProjectByPtId(long mealId){
         return Result.ok(teamProjectnameService.selectTeamProject(mealId));
     }
 
-
-//    /*
-//     *
-//     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
-//     *
-//     */
-//    @PreAuthorize("hasAuthority('members:tcmember:xiangqing')")
-//    @GetMapping("/selectTeamMealByMealId/{mmId}")
-//    public Result selectTeamMealByMealId(@PathVariable Long mmId){
-//        return Result.ok(teamMemberService.selectTeamMealAndEmpByMmId(mmId));
-//    }
-/*
- *
- *通过会员id查询办理的私教套餐
- *
- */
-@GetMapping("/findTeamByMemberId/{memberId}")
-public Result findTeamByMemberId(@PathVariable Long memberId){
-    System.out.println("-------"+memberId);
-    return Result.ok(teamMemberService.findTeamByMemberId(memberId));
-}
+    /**
+     * @title:  通过会员id查询办理的私教套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:26
+    */
+    @GetMapping("/findTeamByMemberId/{memberId}")
+    public Result findTeamByMemberId(@PathVariable Long memberId){
+        return Result.ok(teamMemberService.findTeamByMemberId(memberId));
+    }
 }

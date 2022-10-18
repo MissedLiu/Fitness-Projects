@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -23,9 +24,16 @@ import java.util.List;
 @Service
 @Transactional
 public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> implements LockerService {
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
 
+    /**
+     * @title:  查询方法（包含分页）
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:49
+    */
     @Override
     public IPage<LockerQueryVo> findLockerList(LockerQueryVo lockerQueryVo) {
         Page<LockerQueryVo> Page=new Page<>(lockerQueryVo.getPageNo(),lockerQueryVo.getPageSize());
@@ -33,7 +41,13 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
         return iPage;
     }
 
-    //新增储物柜
+    /**
+     * @title:  新增储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:49
+    */
     @Override
     public int addLocker(long lockerId){
         //判断储物柜是否存在
@@ -50,7 +64,13 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
         return 1;
     }
 
-    //添加会员储物柜
+    /**
+     * @title:  添加会员储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:50
+    */
     @Override
     public int addLockerByMemberId(LockerQueryVo lockerQueryVo){
         //判断参数是否齐全
@@ -118,7 +138,13 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
 
     }
 
-    //删除会员储物柜
+    /**
+     * @title:  删除会员储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:50
+    */
     @Override
     public boolean deleteLockerByMemberId(long memberId, long lockerId){
         //删除关系表记录
@@ -133,7 +159,13 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
         return false;
     }
 
-    //删除储物柜
+    /**
+     * @title:  删除储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:50
+    */
     @Override
     public int deleteLocker(long lockerId){
         //查询该储物柜是否拥有会员
@@ -147,7 +179,14 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
         }
         return 2;
     }
-    //修改储物柜
+
+    /**
+     * @title:  修改储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:50
+    */
     @Override
     public boolean updateLocker(LockerQueryVo lockerQueryVo){
         //判断储物柜状态

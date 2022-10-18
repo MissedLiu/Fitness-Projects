@@ -21,7 +21,7 @@ public interface MemberMapper extends BaseMapper<Member> {
     IPage<Member> findMemberList(Page<Member> page ,@Param("query") MemberSelectQueryVo memberSelectQueryVo);
 
     //动态条件查询无分页
-    List<Member> listAllNoPage(@Param("query") Member member);
+    List<Member> listAllNoPage(@Param("query") MemberSelectQueryVo memberSelectQueryVo);
 
     int updateByMemberIs(List<Long> memberId);
     //修改潜在用户状态为1
