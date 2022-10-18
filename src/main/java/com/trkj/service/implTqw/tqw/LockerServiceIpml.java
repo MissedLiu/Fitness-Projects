@@ -22,7 +22,6 @@ import java.util.List;
 
 
 @Service
-@Transactional
 public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> implements LockerService {
     @Resource
     private MemberMapper memberMapper;
@@ -49,6 +48,7 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
      * @date: 2022/10/18 8:49
     */
     @Override
+    @Transactional
     public int addLocker(long lockerId){
         //判断储物柜是否存在
         QueryWrapper<Locker> wrapper=new QueryWrapper<>();
@@ -72,6 +72,7 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
      * @date: 2022/10/18 8:50
     */
     @Override
+    @Transactional
     public int addLockerByMemberId(LockerQueryVo lockerQueryVo){
         //判断参数是否齐全
         if(lockerQueryVo.getMemberPhone()==null || lockerQueryVo.getMemberName() == null
@@ -146,6 +147,7 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
      * @date: 2022/10/18 8:50
     */
     @Override
+    @Transactional
     public boolean deleteLockerByMemberId(long memberId, long lockerId){
         //删除关系表记录
         if (baseMapper.deleteLockerByMemberId(memberId, lockerId)>0){
@@ -167,6 +169,7 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
      * @date: 2022/10/18 8:50
     */
     @Override
+    @Transactional
     public int deleteLocker(long lockerId){
         //查询该储物柜是否拥有会员
         LockerQueryVo lockerQueryVo = baseMapper.selectMemberLocker(lockerId);
@@ -188,6 +191,7 @@ public class LockerServiceIpml extends ServiceImpl<LockerMapper, Locker> impleme
      * @date: 2022/10/18 8:50
     */
     @Override
+    @Transactional
     public boolean updateLocker(LockerQueryVo lockerQueryVo){
         //判断储物柜状态
         if(lockerQueryVo.getLockerState().equals("1")){

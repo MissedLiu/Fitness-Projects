@@ -78,6 +78,7 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
      * @author 15087
      * @date: 2022/10/15 14:35
     */
+    @Override
     public IPage<MemberAndBlackQueryVo> findBlackMember(MemberSelectQueryVo memberSelectQueryVo){
         Page<MemberAndBlackQueryVo> page=new Page<>(memberSelectQueryVo.getPageNo(), memberSelectQueryVo.getPageSize());
         IPage<MemberAndBlackQueryVo> memberAll = baseMapper.findBlackMemberAll(page, memberSelectQueryVo);
@@ -91,6 +92,8 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
      * @author 15087
      * @date: 2022/10/15 15:29
     */
+    @Override
+    @Transactional
     public boolean outUpdMemberState(long memberId,String why){
         //修改会员状态
         UpdateWrapper<Member> wrapper = new UpdateWrapper<>();
@@ -133,6 +136,7 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
      * @date: 2022/10/15 15:33
     */
     @Override
+    @Transactional
     public boolean delMemberAllMeal(DisburseAndMemberQueryVo disburseAndMemberQueryVo) {
         //添加支出记录
         Disburse disburse=new Disburse();

@@ -20,21 +20,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
-/**
-*
-*/
 @Service
-@Transactional
 public class AllotMemberServiceImpl extends ServiceImpl<AllotMemberMapper, AllotMember> implements AllotMemberService {
-    @Autowired
+    @Resource
     private EmpMapper empMapper;
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
-    //查询所有需要回访会员
+
+    /**
+     * @title:  查询所有需要回访会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:32
+    */
     @Override
     public IPage<MemberAndAllotQueryVo> findMemberByEmpId(EmpQueryVo empQueryVo) {
         //empId赋值为账户id
@@ -52,15 +56,28 @@ public class AllotMemberServiceImpl extends ServiceImpl<AllotMemberMapper, Allot
         return IPage;
     }
 
-    //通过员工id查询该员工下的会员
+    /**
+     * @title:  通过员工id查询该员工下的会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:32
+    */
     @Override
     public List<MemberAndAllotQueryVo> findMemberByEmpIds(Long empId) {
         return baseMapper.findMemberByEmpIds(empId);
     }
 
 
-    //移除会员分配
+    /**
+     * @title:  移除会员分配
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:32
+    */
     @Override
+    @Transactional
     public boolean deleteAllocationMember(Long empId, Long memberId) {
         //修改会员状态为0
         UpdateWrapper<Member> wrapper=new UpdateWrapper<>();

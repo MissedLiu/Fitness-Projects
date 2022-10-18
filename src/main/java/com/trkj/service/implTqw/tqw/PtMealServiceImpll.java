@@ -12,13 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class PtMealServiceImpll extends ServiceImpl<PtMealMapperl, PtMeall> implements PtMealService {
-    /*
-     *
-     *通过是否禁用查询普通套餐
-     *
-     */
+
+    /**
+     * @title:  通过是否禁用查询普通套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:50
+    */
     @Override
     public List<PtMeall> selectPtMeal() {
         QueryWrapper<PtMeall> queryWrapper=new QueryWrapper<>();
@@ -26,20 +28,25 @@ public class PtMealServiceImpll extends ServiceImpl<PtMealMapperl, PtMeall> impl
         return baseMapper.selectList(queryWrapper);
     }
 
-    /*
-     *
-     *通过选择的私教套餐id查询该套餐下的私教教练列表
-     *
-     */
+    /**
+     * @title:  通过选择的私教套餐id查询该套餐下的私教教练列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:50
+    */
     @Override
     public List<Emp> selectEmpByPtId(Long ptId) {
         return baseMapper.selectEmpByPtId(ptId);
     }
-    /*
-     *
-     *通过套餐办理id查询套餐信息
-     *
-     */
+
+    /**
+     * @title:  通过套餐办理id查询套餐信息
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:50
+    */
     @Override
     public PtMeall selectPtMealByMealId(long mealId) {
         QueryWrapper<PtMeall> wrapper=new QueryWrapper<>();

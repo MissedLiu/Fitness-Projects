@@ -26,7 +26,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional
 public class CommonMemberServiceImpll implements CommonMemberService {
     @Resource
     private MemberMapper memberMapper;
@@ -63,6 +62,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
      * @date: 2022/10/17 19:14
     */
     @Override
+    @Transactional
     public int addCommonMember(MemberQueryVo memberQueryVo) {
         //套餐类型
         memberQueryVo.setMealType("普通");
@@ -241,6 +241,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
      * @date: 2022/10/17 19:15
     */
     @Override
+    @Transactional
     public boolean delCommonMemberById(long mmId) {
         int a = memberMealMapper.deleteById(mmId);
         if (a > 0) {
@@ -257,6 +258,7 @@ public class CommonMemberServiceImpll implements CommonMemberService {
      * @date: 2022/10/17 19:15
     */
     @Override
+    @Transactional
     public int renewCommonMember(MemberQueryVo memberQueryVo) {
         //通过套餐办理编号查询办理的套餐信息
         MemberMeal memberMeal = memberMealMapper.selectById(memberQueryVo.getMmId());

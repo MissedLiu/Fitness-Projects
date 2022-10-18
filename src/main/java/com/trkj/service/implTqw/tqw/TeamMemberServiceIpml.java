@@ -25,7 +25,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional
 public class TeamMemberServiceIpml implements TeamMemberService {
     @Resource
     private MemberMapper memberMapper;
@@ -65,6 +64,8 @@ public class TeamMemberServiceIpml implements TeamMemberService {
      * @author 15087
      * @date: 2022/10/17 19:29
     */
+    @Override
+    @Transactional
     public int addTeamMember(MemberQueryVo2 memberQueryVo2) {
         //套餐类型
         memberQueryVo2.setMealType("团操");
@@ -259,6 +260,7 @@ public class TeamMemberServiceIpml implements TeamMemberService {
      * @date: 2022/10/17 19:29
     */
     @Override
+    @Transactional
     public int renewTeamMember(MemberQueryVo memberQueryVo) {
         //通过套餐办理编号查询办理的套餐信息
         MemberMeal memberMeal=memberMealMapper.selectById(memberQueryVo.getMmId());

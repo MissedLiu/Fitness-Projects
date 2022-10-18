@@ -25,7 +25,6 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional
 public class PtMemberServiceIpmll implements PtMemberService {
     @Resource
     private MemberMapper memberMapper;
@@ -66,6 +65,7 @@ public class PtMemberServiceIpmll implements PtMemberService {
      * @date: 2022/10/17 19:22
     */
     @Override
+    @Transactional
     public int addPtMember(MemberQueryVo2 memberQueryVo2) {
         //套餐类型
         memberQueryVo2.setMealType("私教");
@@ -259,6 +259,7 @@ public class PtMemberServiceIpmll implements PtMemberService {
      * @date: 2022/10/17 19:22
     */
     @Override
+    @Transactional
     public int renewPtMember(MemberQueryVo memberQueryVo) {
         //通过套餐办理编号查询办理的套餐信息
         MemberMeal memberMeal=memberMealMapper.selectById(memberQueryVo.getMmId());
@@ -343,6 +344,7 @@ public class PtMemberServiceIpmll implements PtMemberService {
      * @date: 2022/10/17 19:23
     */
     @Override
+    @Transactional
     public boolean delPtMemberById(long mmId){
         int a=memberMealMapper.deleteById(mmId);
         QueryWrapper<ChooseProjectName> wrapper=new QueryWrapper<>();

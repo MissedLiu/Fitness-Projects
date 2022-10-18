@@ -25,7 +25,6 @@ import java.util.List;
 *
 */
 @Service
-@Transactional
 public class CompactServiceImpl extends ServiceImpl<CompactMapper, Compact>
 implements CompactService {
     @Resource
@@ -67,6 +66,7 @@ implements CompactService {
      * @date: 2022/10/17 19:54
     */
     @Override
+    @Transactional
     public boolean addCompact(Compact compact) {
         if(baseMapper.insert(compact)>0){
             return true;
@@ -81,6 +81,7 @@ implements CompactService {
      * @date: 2022/10/17 19:54
     */
     @Override
+    @Transactional
     public boolean delDetial(Long compactId) {
         QueryWrapper<Compact> wrapper=new QueryWrapper<>();
         wrapper.eq("compact_id", compactId);

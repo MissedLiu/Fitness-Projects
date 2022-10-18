@@ -16,7 +16,6 @@ import java.util.List;
 *
 */
 @Service
-@Transactional
 public class TeamCoachServiceImpl extends ServiceImpl<TeamCoachMapper, TeamCoach>
 implements TeamCoachService {
     /**
@@ -27,6 +26,7 @@ implements TeamCoachService {
      * @date: 2022/10/18 9:13
     */
     @Override
+    @Transactional
     public boolean addEmpAndTeamMeal(EmpAndTeamMealQueryVo empAndTeamMealQueryVo) {
         //删除原来的
         QueryWrapper<TeamCoach> wrapper=new QueryWrapper<>();

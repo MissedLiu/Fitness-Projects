@@ -16,17 +16,20 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
-*
-*/
 @Service
-@Transactional
 public class ComsuneServiceImpl extends ServiceImpl<ComsuneMapper, Comsune>
 implements ComsuneService {
 
     @Resource
     private ComsuneMapper comsuneMapper;
-    //查询
+
+    /**
+     * @title:  查询
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:45
+    */
     @Override
     public IPage<Comsune> selectComsuneList(ComsuneQueryVo comsuneQueryVo) {
         Page<Comsune> page = new Page<>(comsuneQueryVo.getPageNo(),comsuneQueryVo.getPageSize());

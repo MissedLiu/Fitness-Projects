@@ -11,13 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class CommonMealServiceImpll extends ServiceImpl<CommonMealMapperl, CommonMeall> implements CommonMealService {
-    /*
-     *
-     *通过是否禁用查询普通套餐
-     *
-     */
+
+    /**
+     * @title:  通过是否禁用查询普通套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:44
+    */
     @Override
     public List<CommonMeall> selectPtMeal() {
         QueryWrapper<CommonMeall> queryWrapper=new QueryWrapper<>();
@@ -25,11 +27,13 @@ public class CommonMealServiceImpll extends ServiceImpl<CommonMealMapperl, Commo
         return baseMapper.selectList(queryWrapper);
     }
 
-    /*
-     *
-     *通过id查普通套餐
-     *
-     */
+    /**
+     * @title:  通过id查普通套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:44
+    */
     @Override
     public CommonMeall selectCommonMealByMealId(Long cmId) {
         return baseMapper.selectById(cmId);

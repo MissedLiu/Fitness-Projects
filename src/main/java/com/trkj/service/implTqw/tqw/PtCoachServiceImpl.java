@@ -12,11 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
-*
-*/
 @Service
-@Transactional
 public class PtCoachServiceImpl extends ServiceImpl<PtCoachMapper, PtCoach>
 implements PtCoachService {
 
@@ -28,6 +24,7 @@ implements PtCoachService {
      * @date: 2022/10/18 9:12
     */
     @Override
+    @Transactional
     public boolean addEmpAndPtMeal(EmpAndPtMealQueryVo empAndPtMealQueryVo) {
         //删除原来的
         QueryWrapper<PtCoach> wrapper=new QueryWrapper<>();

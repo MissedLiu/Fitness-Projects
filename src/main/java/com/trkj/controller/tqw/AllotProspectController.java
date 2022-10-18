@@ -17,12 +17,26 @@ public class AllotProspectController {
     private AllotProspectService allotProspectService;
     @Resource
     private CallbackProspectService callbackProspectService;
-    //查询需要回访潜在用户
+
+    /**
+     * @title:  查询需要回访潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:34
+    */
     @GetMapping("/findProspectByEmpId")
     public Result findProspectByEmpId(EmpQueryVo empQueryVo){
         return Result.ok(allotProspectService.findProspectByEmpId(empQueryVo));
     }
-    //新增潜在用户回访记录
+
+    /**
+     * @title:  新增潜在用户回访记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:34
+    */
     @PreAuthorize("hasAuthority('pay:prospect:payprospect')")
     @PostMapping("/addCallbackProspect")
     public Result addCallbackProspect(@RequestBody CallbackProspect callbackProspect){

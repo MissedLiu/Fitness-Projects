@@ -48,6 +48,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
      * @author 15087
      * @date: 2022/10/14 14:02
     */
+    @Override
     public IPage<Member> findAllMember(MemberSelectQueryVo memberSelectQueryVo){
         Page<Member> page=new Page<>(memberSelectQueryVo.getPageNo(),memberSelectQueryVo.getPageSize());
         IPage<Member> memberAll = baseMapper.findMemberList(page, memberSelectQueryVo);
@@ -60,6 +61,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
      *查询会员状态为0的信息
      *
      */
+    @Override
     public List<Member> findMemberByState(long memberstate){
         QueryWrapper<Member> wrapper=new QueryWrapper<>();
         wrapper.eq("member_state",memberstate);

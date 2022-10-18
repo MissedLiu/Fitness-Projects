@@ -16,7 +16,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Service
-@Transactional
 public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements LoseService {
     /**
      * @title:  查询
@@ -25,6 +24,8 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
      * @author 15087
      * @date: 2022/10/18 8:58
     */
+    @Override
+    @Transactional
     public IPage<Lose> selectLose(LoseQueryVo loseQueryVo){
         //删除两个月前的失物招领记录
         //两个月前时间
@@ -51,6 +52,7 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
      * @date: 2022/10/18 8:57
     */
     @Override
+    @Transactional
     public boolean addLose(Lose lose) {
         lose.setState("未领取");
         if(baseMapper.insert(lose)>0){
@@ -67,6 +69,7 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
      * @date: 2022/10/18 8:57
     */
     @Override
+    @Transactional
     public int updateLoseState(Lose lose) {
         System.out.println();
         if(baseMapper.selectById(lose.getId()).getState().equals("已领取")){
@@ -89,6 +92,7 @@ public class LoseServiceImpl extends ServiceImpl<LoseMapper, Lose> implements Lo
      * @date: 2022/10/18 9:38
     */
     @Override
+    @Transactional
     public boolean deleteLose(Long id) {
         if(baseMapper.deleteById(id)>0){
             return true;

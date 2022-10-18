@@ -10,33 +10,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
 @Service
-@Transactional
 public class MessageServiceIpml implements MessageService {
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
-    @Autowired
-    private ProspectMapper prospectMapper;
-    @Autowired
+    @Resource
     private AllotMemberMapper allotMemberMapper;
-    @Autowired
-    private AllotProspectMapper allotProspectMapper;
-    //分配会员
+
+
+    /**
+     * @title:  分配会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:32
+    */
     @Override
+    @Transactional
     public boolean allocationMember(MemberMessageQueryVo memberMessageQueryVo) {
         //修改会员状态为2
         int a = memberMapper.updateByMemberIs(memberMessageQueryVo.getMemberId());
         //添加会员客服关系表
         int b = allotMemberMapper.addMemberAndEmp(memberMessageQueryVo.getEmpId(),memberMessageQueryVo.getMemberId());
-
         if(a>0 && b>0){
             return true;
         }
         return false;
     }
 
-    //分配潜在用户
+    /**
+     * @title:  分配潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:32
+    */
     @Override
+    @Transactional
     public boolean allocationProspect(MemberMessageQueryVo memberMessageQueryVo) {
         //修改潜在用户状态为1
         int a = memberMapper.updateByProspectIs(memberMessageQueryVo.getMemberId());
