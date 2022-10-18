@@ -111,7 +111,6 @@ public interface SalesMapper extends BaseMapper<Sales> {
 
     /**
      * 修改统计后的记录状态
-     *
      * @param pageVo
      * @return
      */
@@ -126,6 +125,14 @@ public interface SalesMapper extends BaseMapper<Sales> {
      * @return: 
      **/
     List<CountEmpVo> findAllCount();
+
+    /**
+     * 刷新页面时重新查询会员表、消费记录表、如果在这些表中存在了该会员的信息 则修改其状态为1（已购买）
+     * @param sales
+     * @return
+     */
+    @Update(value = "update sales set state = 1 where sales_id=#{salesId} and state!=2")
+    Boolean updateStateSetOne(Sales sales);
 }
 
 

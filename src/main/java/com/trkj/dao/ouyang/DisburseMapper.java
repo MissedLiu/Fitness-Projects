@@ -1,13 +1,12 @@
 package com.trkj.dao.ouyang;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.trkj.entity.ouyang.Disburse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.trkj.entity.ouyang.Schedule;
-import com.trkj.vo.queryOuyang.DisburseQueryVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.ScheduleQueryVo;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
 * @author oyzz
@@ -21,6 +20,9 @@ public interface DisburseMapper extends BaseMapper<Disburse> {
             " value (#{scheduleType},#{scheduleNum}*#{schedulePrice},#{disburseBeizhu})")
     Boolean toDisburse(ScheduleQueryVo scheduleQueryVo);
 
+    List<CountQueryVo> getCountPrice();
+
+    List<CountQueryVo> getCountPriceYear();
 }
 
 

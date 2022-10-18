@@ -45,6 +45,7 @@ public class SalesController {
      **/
     @GetMapping("/list")
     public Result findAllSalesIpage(PageVo pageVo) {
+        System.out.println("?????"+pageVo);
         List<Sales> list=salesService.list();
         Long MbId = 0L, MmId = 0L;
         for (int i = 0; i < list.size(); i++) {
@@ -56,13 +57,13 @@ public class SalesController {
                     MmId = salesService.getMmIdByMemberIdAndMlId(MbId, list.get(i).getMealId());
                     if ("普通".equals(list.get(i).getType())) {
                         list.get(i).setState((byte) 1);
-                        salesService.updateById(list.get(i));
+                        salesService.updateStateSetOne(list.get(i));
                     }
                     //判断getCpIdByMmIdAndprojectId（通过套餐办理编号和项目编号查询所选项目表编号）是否为空
                     if (!ObjectUtils.isEmpty(salesService.getCpIdByMmIdAndprojectId(MmId, list.get(i).getProjectId()))) {
                         //如果三重判断通过 则修改课程销售状态为1
                         list.get(i).setState((byte) 1);
-                        salesService.updateById(list.get(i));
+                        salesService.updateStateSetOne(list.get(i));
                     }
                 }
             }

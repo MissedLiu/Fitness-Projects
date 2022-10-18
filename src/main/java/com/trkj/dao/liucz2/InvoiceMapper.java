@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.trkj.entity.liucz2.Invoice;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -48,6 +49,10 @@ public interface InvoiceMapper extends BaseMapper<Invoice> {
 
     @Select(value = "select SUM(price) from invoice where YEAR(create_time)=YEAR(NOW());")
     Long SumYearPrice();
+
+    List<CountQueryVo> getCountPrice();
+
+    List<CountQueryVo> getCountPriceYear();
 }
 
 

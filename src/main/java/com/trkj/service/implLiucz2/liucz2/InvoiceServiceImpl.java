@@ -7,6 +7,7 @@ import com.trkj.dao.liucz2.InvoiceMapper;
 import com.trkj.entity.liucz2.Invoice;
 import com.trkj.service.implLiucz2.InvoiceService;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -118,6 +119,16 @@ public class InvoiceServiceImpl extends ServiceImpl<InvoiceMapper, Invoice>
             SumPrice=invoiceMapper.SumYearPrice();
         }
         return SumPrice;
+    }
+
+    @Override
+    public List<CountQueryVo> getCountPrice() {
+        return invoiceMapper.getCountPrice();
+    }
+
+    @Override
+    public List<CountQueryVo> getCountPriceYear() {
+        return invoiceMapper.getCountPriceYear();
     }
 
 }

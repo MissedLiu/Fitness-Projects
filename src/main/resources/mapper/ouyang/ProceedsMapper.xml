@@ -5,12 +5,12 @@
 <mapper namespace="com.trkj.dao.ouyang.ProceedsMapper">
 
     <resultMap id="BaseResultMap" type="com.trkj.entity.liucz2.Proceeds">
-            <id property="proceedsId" column="proceeds_id" jdbcType="BIGINT"/>
-            <result property="mealName" column="meal_name" jdbcType="VARCHAR"/>
-            <result property="pName" column="p_name" jdbcType="VARCHAR"/>
-            <result property="mealType" column="meal_type" jdbcType="VARCHAR"/>
-            <result property="proceedsPrice" column="proceeds_price" jdbcType="BIGINT"/>
-            <result property="proceedsTime" column="proceeds_time" jdbcType="TIMESTAMP"/>
+        <id property="proceedsId" column="proceeds_id" jdbcType="BIGINT"/>
+        <result property="mealName" column="meal_name" jdbcType="VARCHAR"/>
+        <result property="pName" column="p_name" jdbcType="VARCHAR"/>
+        <result property="mealType" column="meal_type" jdbcType="VARCHAR"/>
+        <result property="proceedsPrice" column="proceeds_price" jdbcType="BIGINT"/>
+        <result property="proceedsTime" column="proceeds_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -21,7 +21,7 @@
     <select id="SumWeekPrice" resultType="java.lang.Long">
         SELECT SUM(proceeds_price)
         FROM proceeds
-        where  DATE_SUB(CURDATE(), INTERVAL 7 DAY) <![CDATA[ <= ]]> date(proceeds_time)
+        where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <![CDATA[ <= ]]> date(proceeds_time)
         <if test="query.type!=null and query.type!='' ">
             and meal_type=#{query.type}
         </if>
@@ -61,5 +61,25 @@
         <if test="query.type!=null and query.type!='' ">
             and meal_type=#{query.type}
         </if>
+    </select>
+
+    <select id="getCountPrice" resultType="com.trkj.vo.queryOuyang.CountQueryVo">
+        select DATE_FORMAT(proceeds_time, '%m月')
+                   as date,
+               SUM(proceeds_price)
+                   as value
+        from proceeds
+        WHERE YEAR(proceeds_time) = YEAR(CURDATE())
+        GROUP BY MONTH(proceeds_time)
+        order by proceeds_time asc
+    </select>
+    <select id="getCountPriceYear" resultType="com.trkj.vo.queryOuyang.CountQueryVo">
+        select DATE_FORMAT(proceeds_time, '%Y年')
+                   as date,
+               SUM(proceeds_price)
+                   as value
+        from proceeds
+        GROUP BY YEAR(proceeds_time)
+        order by proceeds_time asc
     </select>
 </mapper>

@@ -1,29 +1,20 @@
-package com.trkj.controller.ouyang;/**
- * @ClassName ProceedsController
- * @Description TODO
- * @Author Ouyang
- * @Date 2022/10/11 10:13
- * @since JDK 8
- **/
+package com.trkj.controller.ouyang;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.trkj.entity.liucz2.Proceeds;
 import com.trkj.service.implOuyang.ProceedsService;
 import com.trkj.utils.Result;
 import com.trkj.vo.query.PageVo;
-import com.trkj.vo.queryOuyang.ProceedsQueryVo;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 /**
- *@ClassName ProceedsController
- *@Description TODO
- *@Author Ouyang
- *@Date 2022/10/11 10:13
- *@Version 1.0
+ * @ClassName ProceedsController
+ * *@Author Ouyang
+ * @Date 2022/10/11 10:13
+ * @Version 1.0
  **/
 @RestController
 @RequestMapping("/api/proceeds")
@@ -33,10 +24,10 @@ public class ProceedsController {
     private ProceedsService proceedsService;
 
     @GetMapping("/list")
-    public Result getList(PageVo pageVo){
-        System.out.println("aaaaa"+pageVo.getChangeTime());
-        IPage page=new Page(pageVo.getPageNo(),pageVo.getPageSize());
-        return Result.ok(proceedsService.getList(page,pageVo));
+    public Result getList(PageVo pageVo) {
+        System.out.println("aaaaa" + pageVo.getChangeTime());
+        IPage page = new Page(pageVo.getPageNo(), pageVo.getPageSize());
+        return Result.ok(proceedsService.getList(page, pageVo));
     }
 
     //根据时间段统计和套餐类型销售总额
@@ -57,4 +48,15 @@ public class ProceedsController {
         }
         return Result.error().message("删除失败");
     }
+
+    @GetMapping("/CountPrice")
+    public Result toCountPrice() {
+        return Result.ok(proceedsService.getCountPrice());
+    }
+
+    @GetMapping("/CountPriceYear")
+    public Result toCountPriceYear() {
+        return Result.ok(proceedsService.getCountPriceYear());
+    }
+
 }

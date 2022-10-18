@@ -1,9 +1,14 @@
 package com.trkj.service.implOuyang;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.ouyang.OnFile;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.OnFileQueryVo;
+
+import java.util.List;
 
 /**
 * @author oyzz
@@ -47,4 +52,10 @@ public interface OnFileService extends IService<OnFile> {
      * @return
      */
     boolean toOnFile(OnFileQueryVo onFileQueryVo);
+
+    /**
+     * 统计支出的归档记录
+     * @return
+     */
+    IPage<CountQueryVo> getOnFile(IPage page, PageVo pageVo);
 }

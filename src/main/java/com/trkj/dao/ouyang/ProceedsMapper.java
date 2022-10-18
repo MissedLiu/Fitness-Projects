@@ -6,8 +6,11 @@ import com.trkj.entity.tqw.CommonMeall;
 import com.trkj.entity.tqw.PtMeall;
 import com.trkj.entity.tqw.TeamMeall;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author oyzz
@@ -26,6 +29,10 @@ public interface ProceedsMapper extends BaseMapper<Proceeds> {
     Long SumLastQuarterPrice(@Param("query") PageVo pageVo);
 
     Long SumYearPrice(@Param("query") PageVo pageVo);
+
+    List<CountQueryVo> getCountPrice();
+
+    List<CountQueryVo> getCountPriceYear();
 }
 
 

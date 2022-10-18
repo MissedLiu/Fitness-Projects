@@ -6,13 +6,9 @@ import com.trkj.entity.ouyang.Edetails;
 import com.trkj.service.implOuyang.DisburseService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryOuyang.DisburseQueryVo;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
  * @ClassName DisburseController
@@ -54,6 +50,16 @@ public class DisburseController {
             return Result.ok().message("删除成功");
         }
         return Result.error().message("删除失败");
+    }
+
+    @GetMapping("/CountPrice")
+    public Result toCountPrice() {
+        return Result.ok(disburseService.getCountPrice());
+    }
+
+    @GetMapping("/CountPriceYear")
+    public Result toCountPriceYear() {
+        return Result.ok(disburseService.getCountPriceYear());
     }
 
 }

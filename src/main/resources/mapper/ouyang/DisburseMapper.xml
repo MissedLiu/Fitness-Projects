@@ -5,11 +5,31 @@
 <mapper namespace="com.trkj.dao.ouyang.DisburseMapper">
 
     <resultMap id="BaseResultMap" type="com.trkj.entity.ouyang.Disburse">
-            <id property="disburseId" column="disburse_id" jdbcType="BIGINT"/>
-            <result property="disburseType" column="disburse_type" jdbcType="VARCHAR"/>
-            <result property="disburseTime" column="disburse_time" jdbcType="TIMESTAMP"/>
-            <result property="disbursePrice" column="disburse_price" jdbcType="BIGINT"/>
-            <result property="beizhu" column="beizhu" jdbcType="VARCHAR"/>
+        <id property="disburseId" column="disburse_id" jdbcType="BIGINT"/>
+        <result property="disburseType" column="disburse_type" jdbcType="VARCHAR"/>
+        <result property="disburseTime" column="disburse_time" jdbcType="TIMESTAMP"/>
+        <result property="disbursePrice" column="disburse_price" jdbcType="BIGINT"/>
+        <result property="beizhu" column="beizhu" jdbcType="VARCHAR"/>
     </resultMap>
+    <select id="getCountPrice" resultType="com.trkj.vo.queryOuyang.CountQueryVo">
+        select DATE_FORMAT(disburse_time, '%m月')
+                   as date,
+               SUM(disburse_price)
+                   as value
+        from disburse
+        WHERE YEAR(disburse_time) = YEAR(CURDATE())
+        GROUP BY MONTH(disburse_time)
+        order by disburse_time asc
+    </select>
+    <select id="getCountPriceYear" resultType="com.trkj.vo.queryOuyang.CountQueryVo">
+        select DATE_FORMAT(disburse_time, '%Y年')
+                   as date,
+               SUM(disburse_price)
+                   as value
+        from disburse
+        GROUP BY YEAR(disburse_time)
+        order by disburse_time asc
+    </select>
+
 
 </mapper>

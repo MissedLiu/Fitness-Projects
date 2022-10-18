@@ -7,12 +7,14 @@ import com.trkj.entity.liucz2.Proceeds;
 import com.trkj.service.implOuyang.ProceedsService;
 import com.trkj.dao.ouyang.ProceedsMapper;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.ProceedsQueryVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author oyzz
@@ -64,6 +66,16 @@ public class ProceedsServiceImpl extends ServiceImpl<ProceedsMapper, Proceeds>
                 break;
         }
         return sump;
+    }
+
+    @Override
+    public List<CountQueryVo> getCountPrice() {
+        return proceedsMapper.getCountPrice();
+    }
+
+    @Override
+    public List<CountQueryVo> getCountPriceYear() {
+        return proceedsMapper.getCountPriceYear();
     }
 }
 
