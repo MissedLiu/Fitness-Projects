@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 /**
@@ -24,14 +25,21 @@ import java.util.Date;
 @Transactional
 public class CallbackProspectServiceImpl extends ServiceImpl<CallbackProspectMapper, CallbackProspect>
 implements CallbackProspectService {
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    @Autowired
+    @Resource
     private EmpMapper empMapper;
 
 
-    //新增回访潜在用户记录
+    /**
+     * @title:  新增回访潜在用户记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:36
+    */
     @Override
+    @Transactional
     public Boolean addCallbackProspect(CallbackProspect callbackProspect) {
         callbackProspect.setColumnTime(new Date());
         if(baseMapper.insert(callbackProspect)>0){
@@ -40,7 +48,13 @@ implements CallbackProspectService {
         return false;
     }
 
-    //查询回访潜在用户记录
+    /**
+     * @title:  查询回访潜在用户记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:36
+    */
     @Override
     public IPage<ProspectAndCallbackQueryVo> selectCallBackList(ProspectAndCallbackQueryVo prospectAndAllotQueryVo) {
         //empId赋值为账户id
@@ -58,8 +72,15 @@ implements CallbackProspectService {
         return IPage;
     }
 
-//    删除回访记录
+    /**
+     * @title:  删除回访记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:36
+    */
     @Override
+    @Transactional
     public boolean deleteProspectCord(Long callbackId) {
         if(baseMapper.deleteById(callbackId)>0){
             return true;

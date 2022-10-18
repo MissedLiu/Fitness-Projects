@@ -3,9 +3,11 @@ package com.trkj.service.implOuyang;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.ouyang.Disburse;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.trkj.entity.ouyang.Schedule;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.ScheduleQueryVo;
+
+import java.util.List;
 
 /**
  * @author oyzz
@@ -28,7 +30,7 @@ public interface DisburseService extends IService<Disburse> {
      */
     boolean toDisburse(ScheduleQueryVo scheduleQueryVo);
 
+    List<CountQueryVo> getCountPrice();
 
-
-
+    List<CountQueryVo> getCountPriceYear();
 }

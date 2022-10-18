@@ -21,11 +21,10 @@ public class BlackController {
     @Resource
     private BlackService blackService;
 
-
     /**
      * @title:  查询黑名单列表
-     * @param: null
-     * @return:
+     * @param: MemberSelectQueryVo
+     * @return: null
      * @author 15087
      * @date: 2022/10/15 14:24
     */
@@ -36,8 +35,8 @@ public class BlackController {
 
     /**
      * @title:  移出黑名单
-     * @param: null
-     * @return:
+     * @param: MemberAndBlackQueryVo
+     * @return: null
      * @author 15087
      * @date: 2022/10/15 15:28
     */
@@ -52,7 +51,7 @@ public class BlackController {
 
     /**
      * @title:  查询黑名单会员的套餐
-     * @param: null
+     * @param: Long
      * @return:
      * @author 15087
      * @date: 2022/10/15 15:31

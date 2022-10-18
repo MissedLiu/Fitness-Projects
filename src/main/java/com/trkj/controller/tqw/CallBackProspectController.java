@@ -13,13 +13,27 @@ import javax.annotation.Resource;
 public class CallBackProspectController {
     @Resource
     private CallbackProspectService callbackProspectService;
-    //查询列表
+
+    /**
+     * @title:  查询列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:34
+    */
     @GetMapping("/selectCallBackList")
     public Result selectCallBackList(ProspectAndCallbackQueryVo prospectAndAllotQueryVo){
 
         return Result.ok(callbackProspectService.selectCallBackList(prospectAndAllotQueryVo));
     }
-    //删除咨询记录
+
+    /**
+     * @title:  删除咨询记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:34
+    */
     @PreAuthorize("hasAuthority('pay:prospectrecord:delete')")
     @DeleteMapping("/deleteProspectCord/{callbackId}")
     public Result deleteCounsult(@PathVariable Long callbackId){

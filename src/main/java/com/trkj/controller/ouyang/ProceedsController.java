@@ -56,4 +56,15 @@ public class ProceedsController {
         }
         return Result.error().message("删除失败");
     }
+
+    @GetMapping("/CountPrice")
+    public Result toCountPrice() {
+        return Result.ok(proceedsService.getCountPrice());
+    }
+
+    @GetMapping("/CountPriceYear")
+    public Result toCountPriceYear() {
+        return Result.ok(proceedsService.getCountPriceYear());
+    }
+
 }

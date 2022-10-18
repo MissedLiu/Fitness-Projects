@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 
 /**
  *
- * 普通会员 前端控制器
+ * 普通会员管理
  *
  *
  */
@@ -22,9 +22,9 @@ import javax.annotation.Resource;
 @RequestMapping("/api/commonMember")
 public class CommonMemberController {
     @Resource
-    CommonMemberService commonMemberService;
+    private CommonMemberService commonMemberService;
     @Resource
-    CommonMealService commonMealService;
+    private CommonMealService commonMealService;
    /**
     * @title:  查询普通套餐会员
     * @param: null
@@ -48,7 +48,6 @@ public class CommonMemberController {
     @PreAuthorize("hasAuthority('members:ptmember:add')")
     @PostMapping("/addCommonMember")
     public Result addCommonMember(@RequestBody @Validated MemberQueryVo memberQueryVo){
-        System.out.println("ssssssssss"+memberQueryVo);
         int res=commonMemberService.addCommonMember(memberQueryVo);
         if(res==0){
             return Result.ok().message("套餐添加成功");
@@ -78,7 +77,6 @@ public class CommonMemberController {
     @PreAuthorize("hasAuthority('members:ptmember:xufei')")
     @PutMapping("/renew")
     public Result RenewCommonMember(@RequestBody MemberQueryVo memberQueryVo){
-        System.out.println("ssssssssss"+memberQueryVo);
         int a=commonMemberService.renewCommonMember(memberQueryVo);
          if(a==0){
              return Result.ok().message("续费成功");

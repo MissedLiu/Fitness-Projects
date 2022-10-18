@@ -18,13 +18,25 @@ import javax.annotation.Resource;
 public class LockerController {
     @Resource
     private LockerService lockerService;
-   //查询储物柜列表（1，所有列表 2，电话参数 3，储物柜状态参数）
+    /**
+     * @title:  查询储物柜列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:48
+    */
     @GetMapping("/lockerList")
     public Result lockerList(LockerQueryVo lockerQueryVo){
         return Result.ok(lockerService.findLockerList(lockerQueryVo));
     }
 
-    //新增储物柜
+    /**
+     * @title:  新增储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:48
+    */
     @PreAuthorize("hasAuthority('members:locker:add')")
     @PostMapping("/addLocker")
     public Result addLocker(@RequestBody LockerQueryVo lockerQueryVo){
@@ -35,7 +47,13 @@ public class LockerController {
             return Result.error().message("添加失败,储物柜已存在");
         }
     }
-    //删除储物柜
+    /**
+     * @title:  删除储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:48
+    */
     @PreAuthorize("hasAuthority('members:locker:delete')")
     @DeleteMapping("/deleteLocker/{lockerId}")
     public Result deleteLocker(@PathVariable long lockerId){
@@ -48,7 +66,13 @@ public class LockerController {
         return Result.error().message("删除失败，储物柜下有会员");
     }
 
-    //修改储物柜
+    /**
+     * @title:  修改储物柜
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:48
+    */
     @PutMapping("/updateLocker")
     public Result updateLocker(@RequestBody LockerQueryVo lockerQueryVo){
         if(lockerService.updateLocker(lockerQueryVo)){
@@ -57,7 +81,13 @@ public class LockerController {
         return Result.error().message("失败");
     }
 
-    //储物柜添加会员
+    /**
+     * @title:  储物柜添加会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:49
+    */
     @PreAuthorize("hasAuthority('members:locker:addmember')")
     @PostMapping("/addLockerByMemberId")
     public Result addLockerByMemberId(@RequestBody LockerQueryVo lockerQueryVo){
@@ -78,14 +108,20 @@ public class LockerController {
         return Result.error().message("系统错误");
     }
 
-    //储物柜移除会员
+    /**
+     * @title:  储物柜移除会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 8:49
+    */
     @PreAuthorize("hasAuthority('members:locker:deletemember')")
     @DeleteMapping("/deleteLockerByMemberId/{memberId}/{lockerId}")
     public Result deleteLockerByMemberId(@PathVariable long memberId,@PathVariable long lockerId){
         if(lockerService.deleteLockerByMemberId(memberId,lockerId)){
-            return Result.ok().message("删除成功");
+            return Result.ok().message("会员移除成功");
         }
-        return Result.error().message("删除失败");
+        return Result.error().message("会员移除失败");
     }
 
 }

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -26,9 +27,15 @@ import java.util.List;
 public class ProspectServiceImpl extends ServiceImpl<ProspectMapper, Prospect>
 implements ProspectService {
 
-    @Autowired
+    @Resource
     private AllotProspectMapper allotProspectMapper;
-    //通过分配状态查询潜在用户
+    /**
+     * @title:  通过分配状态查询潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:29
+    */
     @Override
     public List<Prospect> findProspectByProspectIs(long pros) {
         QueryWrapper<Prospect> wrapper=new QueryWrapper<>();
@@ -36,7 +43,13 @@ implements ProspectService {
         return baseMapper.selectList(wrapper);
     }
 
-    //分页查询潜在用户
+    /**
+     * @title:  分页查询潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:29
+    */
     @Override
     public IPage<ProspectQueryVo> findProspectList(ProspectQueryVo prospectQueryVo) {
         Page<ProspectQueryVo> page=new Page<>(prospectQueryVo.getPageNo(),prospectQueryVo.getPageSize());
@@ -44,12 +57,16 @@ implements ProspectService {
         return iPage;
     }
 
-
-
-    //新增潜在用户
+    /**
+     * @title:  新增潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:30
+    */
     @Override
+    @Transactional
     public boolean addProspect(Prospect prospect) {
-
         //查询潜在用户列表是否有数据
         QueryWrapper<Prospect> wrapper=new QueryWrapper<>();
         wrapper.eq("prospect_name",prospect.getProspectName())
@@ -70,8 +87,15 @@ implements ProspectService {
         return false;
     }
 
-    //删除潜在用户
+    /**
+     * @title:  删除潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:30
+    */
     @Override
+    @Transactional
     public boolean deleteProspect(Long prospectId) {
         //查询该潜在用户的状态
         if(baseMapper.selectById(prospectId).getType().equals("无意向")){
@@ -88,8 +112,15 @@ implements ProspectService {
         return false;
     }
 
-    //修改潜在用户
+    /**
+     * @title:  修改潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:30
+    */
     @Override
+    @Transactional
     public boolean updProspecr(Prospect prospect) {
         //通过电话查询会员
         QueryWrapper<Prospect> wrapper=new QueryWrapper<>();
@@ -118,8 +149,16 @@ implements ProspectService {
         }
         return false;
     }
-    //通过id修改潜在用户状态
+
+    /**
+     * @title:  通过id修改潜在用户状态
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:30
+    */
     @Override
+    @Transactional
     public boolean updProspectById(Prospect prospect) {
         UpdateWrapper<Prospect> wrapper=new UpdateWrapper<>();
         wrapper.set("type",prospect.getType()).eq("prospect_id",prospect.getProspectId());

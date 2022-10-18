@@ -18,29 +18,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional
 public class TeamMemberServiceIpml implements TeamMemberService {
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
-    @Autowired
+    @Resource
     private TeamMealService teamMealService;
-    @Autowired
+    @Resource
     private MemberMealMapper memberMealMapper;
-    @Autowired
+    @Resource
     private ChooseProjectNameMapper chooseprojectnameMapper;
-    @Autowired
+    @Resource
     private TeamMemberMapper teamMemberMapper;
-    @Autowired
+    @Resource
     private ComsuneMapper comsuneMapper;
-    @Autowired
+    @Resource
     private TeamProjectnameMapper teamProjectnameMapper;
-    @Autowired
+    @Resource
     private ProceedsMapper proceedsMapper;
 
     /**
@@ -57,11 +57,15 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         return iPage;
     }
 
-    /*
-     *
-     *新增团操会员
-     *
-     */
+    /**
+     * @title:  新增团操会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:29
+    */
+    @Override
+    @Transactional
     public int addTeamMember(MemberQueryVo2 memberQueryVo2) {
         //套餐类型
         memberQueryVo2.setMealType("团操");
@@ -95,7 +99,6 @@ public class TeamMemberServiceIpml implements TeamMemberService {
             //判断是否为体验会员
             if(member1.getMemberType()==0){
                 //体验会员
-
                 //判断是否办理过套餐（体验会员只能体验一种套餐）
                 QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
                 wrapper.eq("meal_type", memberQueryVo2.getMealType());
@@ -219,7 +222,13 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         return 5;
     }
 
-    //添加充值记录方法
+    /**
+     * @title:  添加充值记录方法
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:29
+    */
     public void addComsune(Long ptMemberId, TeamMeall teamMeal, TeamProjectname teamProjectname){
         Comsune comsune=new Comsune();
         comsune.setMemberId(ptMemberId);
@@ -243,12 +252,15 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         proceedsMapper.insert(proceeds);
     }
 
-    /*
-     *
-     *续费
-     *
-     */
+    /**
+     * @title:  续费
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:29
+    */
     @Override
+    @Transactional
     public int renewTeamMember(MemberQueryVo memberQueryVo) {
         //通过套餐办理编号查询办理的套餐信息
         MemberMeal memberMeal=memberMealMapper.selectById(memberQueryVo.getMmId());
@@ -313,17 +325,25 @@ public class TeamMemberServiceIpml implements TeamMemberService {
         }
     }
 
-    //通过会员id查询办理的团操套餐
+    /**
+     * @title:  通过会员id查询办理的团操套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:30
+    */
     @Override
     public List<MemberQueryVo> findTeamByMemberId(Long memberId) {
         return teamMemberMapper.findTeamByMemberId(memberId);
     }
 
-    /*
-     *
-     *根据所选项目表套餐办理编号查询教练，套餐信息（团操）
-     *
-     */
+    /**
+     * @title:  根据所选项目表套餐办理编号查询教练，套餐信息（团操）
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:30
+    */
     @Override
     public PtMealAndEmpQueryVo selectTeamMealAndEmpByMmId(long mmId){
         return teamMemberMapper.selectTeamMealAndEmpByMmId(mmId);

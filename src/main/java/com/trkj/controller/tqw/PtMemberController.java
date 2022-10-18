@@ -41,11 +41,13 @@ public class PtMemberController {
         return Result.ok(ptmemberService.findPtMember(memberQueryVo));
     }
 
-    /*
-     *
-     *新增私教会员
-     *
-     */
+    /**
+     * @title:  新增私教会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:16
+    */
     @PreAuthorize("hasAuthority('members:sjmember:add')")
     @PostMapping("/addPtMember")
     public Result addPtMember(@RequestBody @Validated MemberQueryVo2 memberQueryVo2){
@@ -68,11 +70,13 @@ public class PtMemberController {
         return Result.error().message("系统错误");
     }
 
-    /*
-     *
-     *续费
-     *
-     */
+    /**
+     * @title:  续费
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:16
+    */
     @PreAuthorize("hasAuthority('members:sjmember:xufei')")
     @PutMapping("/renew")
     public Result RenewPtMember(@RequestBody MemberQueryVo memberQueryVo){
@@ -88,11 +92,13 @@ public class PtMemberController {
     }
 
 
-    /*
-     *
-     *通过会员办理套餐表id删除私教会员套餐表，项目表数据
-     *
-     */
+    /**
+     * @title:  通过会员办理套餐表id删除私教会员套餐表，项目表数据
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:16
+    */
     @PreAuthorize("hasAuthority('members:sjmember:delete')")
     @DeleteMapping("/delPtMealById/{mmId}")
     public Result delPtMealById(@PathVariable long mmId){
@@ -103,56 +109,49 @@ public class PtMemberController {
         return Result.error().message("会员套餐删除失败");
     }
 
-    /*
-     *
-     *通过是否禁用查询私教套餐
-     *
-     */
+    /**
+     * @title:  通过是否禁用查询私教套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:16
+    */
     @GetMapping("/selectPtMealByPtis")
     public Result selectPtMealByPtis(){
         return Result.ok(ptMealService.selectPtMeal());
     }
 
-
-    /*
-     *
-     *通过选择的私教套餐id查询该套餐下的私教教练列表
-     *
-     */
+    /**
+     * @title:  通过选择的私教套餐id查询该套餐下的私教教练列表
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:16
+    */
     @GetMapping("/ptCoachListByPtId")
     public Result ptCoachListByMealId(long ptId){
         return Result.ok(ptMealService.selectEmpByPtId(ptId));
     }
 
-
-    /*
-     *
-     *通过套餐id查询私教项目(项目未禁用)
-     *
-     */
+    /**
+     * @title:  通过套餐id查询私教项目(项目未禁用)
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:16
+    */
     @GetMapping("/selectPtProjectByPtId")
     public Result selectPtProjectByPtId(long ptId){
         return Result.ok(ptProjectnameService.selectPtProject(ptId));
     }
 
-
-
-//    /*
-//     *
-//     *根据所选项目表套餐办理编号查询教练，套餐信息(套餐详情)
-//     *
-//     */
-//    @PreAuthorize("hasAuthority('members:sjmember:xiangqing')")
-//    @GetMapping("/selectPtMealByMealId/{mmId}")
-//    public Result selectCommonMealByMealId(@PathVariable Long mmId){
-//        return Result.ok(ptmemberService.selectPtMealAndEmpByMmId(mmId));
-//    }
-
-    /*
-     *
-     *通过会员id查询办理的私教套餐
-     *
-     */
+    /**
+     * @title:  通过会员id查询办理的私教套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:17
+    */
     @GetMapping("/findPtByMemberId/{memberId}")
     public Result findPtByMemberId(@PathVariable Long memberId){
         return Result.ok(ptmemberService.findPtByMemberId(memberId));

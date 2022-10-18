@@ -17,12 +17,26 @@ public class AllotMemberController {
     private AllotMemberService allotMemberService;
     @Resource
     private CallbackMemberService callbackMemberService;
-    //查询需要回访会员
+
+    /**
+     * @title:  查询需要回访会员
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:33
+    */
     @GetMapping("/findMemberByEmpId")
     public Result findMemberByEmpId(EmpQueryVo empQueryVo){
         return Result.ok(allotMemberService.findMemberByEmpId(empQueryVo));
     }
-    //新增回访记录
+
+    /**
+     * @title:  新增回访记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:33
+    */
     @PreAuthorize("hasAuthority('pay:member:paymember')")
     @PostMapping("/addCallbackMember")
     public Result addCallbackMember(@RequestBody CallbackMember callbackMember){

@@ -1,7 +1,11 @@
 package com.trkj.controller.ouyang;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.entity.ouyang.OnFile;
 import com.trkj.service.implOuyang.OnFileService;
 import com.trkj.utils.Result;
+import com.trkj.vo.query.PageVo;
 import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.OnFileQueryVo;
 import org.springframework.util.ObjectUtils;
@@ -23,10 +27,6 @@ public class OnFileController {
     @Resource
     private OnFileService onFileService;
 
-    @GetMapping("/list")
-    public Result getList(OnFileQueryVo onFileQueryVo) {
-        return null;
-    }
 
     @PostMapping("/toFile")
     public Result toFile(@RequestBody OnFileQueryVo onFileQueryVo) {
@@ -61,7 +61,12 @@ public class OnFileController {
             return Result.exist().message("该月没有任何支出！");
         }
         return Result.exist().message("该月的支出数据已归档！");
+    }
 
-
+    @GetMapping("/getOnFile")
+    public Result getOnFile(PageVo pageVo){
+        IPage <OnFile>page=new Page(pageVo.getPageNo(),pageVo.getPageSize());
+        onFileService.getOnFile(page,pageVo);
+        return Result.ok(page);
     }
 }

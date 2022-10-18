@@ -13,7 +13,6 @@ import java.util.List;
 *私教项目
 */
 @Service
-@Transactional
 public class PtProjectnameServiceImpl extends ServiceImpl<PtProjectnameMapper, PtProjectname>
 implements PtProjectnameService {
     //通过套餐id查询私教项目(项目未禁用)

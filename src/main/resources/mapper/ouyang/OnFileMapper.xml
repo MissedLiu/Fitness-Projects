@@ -15,4 +15,14 @@
         id,money,type,
         date
     </sql>
+    <select id="getOnFileZc" resultType="com.trkj.vo.queryOuyang.CountQueryVo">
+        select DATE_FORMAT(date, '%m月')
+                   as date,
+               SUM(money)
+                   as value
+        from on_file
+        WHERE YEAR(date) = YEAR(CURDATE())
+        GROUP BY MONTH(date)
+        order by date asc
+    </select>
 </mapper>

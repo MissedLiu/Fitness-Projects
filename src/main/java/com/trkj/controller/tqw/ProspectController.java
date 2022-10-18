@@ -14,12 +14,26 @@ import javax.annotation.Resource;
 public class ProspectController {
     @Resource
     private ProspectService prospectService;
-    //分页查询潜在用户列表（电话查询）
+
+    /**
+     * @title:  分页查询潜在用户列表（电话查询）
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:29
+    */
     @GetMapping("/findProspect")
     public Result findProspect(ProspectQueryVo prospectQueryVo){
         return Result.ok(prospectService.findProspectList(prospectQueryVo));
     }
-    //新增潜在用户
+
+    /**
+     * @title:  新增潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:29
+    */
     @PreAuthorize("hasAuthority('prospects:prospects:add')")
     @PostMapping("/addProspect")
     public Result addProspect(@RequestBody Prospect prospect){
@@ -28,7 +42,14 @@ public class ProspectController {
         }
         return Result.error().message("添加失败");
     }
-    //删除潜在用户
+
+    /**
+     * @title:  删除潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:29
+    */
     @PreAuthorize("hasAuthority('prospects:prospects:delete')")
     @DeleteMapping("/deleteProspect/{prospectId}")
     public Result deleteProspect(@PathVariable Long prospectId){
@@ -38,7 +59,13 @@ public class ProspectController {
         return Result.error().message("删除失败,用户为重点或普通对象");
     }
 
-    //修改潜在用户
+    /**
+     * @title:  修改潜在用户
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:29
+    */
     @PreAuthorize("hasAuthority('prospects:prospects:edit')")
     @PutMapping("/updProspect")
     public Result updProspect(@RequestBody Prospect prospect){
@@ -48,7 +75,13 @@ public class ProspectController {
         return Result.error().message("修改失败");
     }
 
-    //通过id修改潜在用户状态
+    /**
+     * @title:  通过id修改潜在用户状态
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:29
+    */
     @PreAuthorize("hasAuthority('prospects:prospects:editById')")
     @PutMapping("/updProspectById")
     public Result updProspectById(@RequestBody Prospect prospect){

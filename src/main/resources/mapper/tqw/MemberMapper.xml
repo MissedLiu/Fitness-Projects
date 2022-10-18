@@ -42,7 +42,6 @@
         else prospect_is end
     </update>
 
-
     <resultMap id="commentMap" type="com.trkj.vo.queryTqw.MemberQueryVo">
         <result column="meal_id" property="mealId" />
         <result column="meal_type" property="mealType"/>

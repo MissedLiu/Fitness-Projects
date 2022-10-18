@@ -62,6 +62,14 @@ public class InvoiceController {
         }return Result.error().message("删除失败");
     }
 
+    @GetMapping("/CountPrice")
+    public Result toCountPrice() {
+        return Result.ok(invoiceService.getCountPrice());
+    }
 
+    @GetMapping("/CountPriceYear")
+    public Result toCountPriceYear() {
+        return Result.ok(invoiceService.getCountPriceYear());
+    }
 
 }

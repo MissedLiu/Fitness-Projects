@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,13 +25,18 @@ import java.util.List;
 *
 */
 @Service
-@Transactional
 public class CompactServiceImpl extends ServiceImpl<CompactMapper, Compact>
 implements CompactService {
-    @Autowired
+    @Resource
     private MemberMealMapper memberMealMapper;
 
-    //分页查询
+    /**
+     * @title:  分页查询
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:53
+    */
     @Override
     public IPage<CompactAndMemberQueryVo> findCompactList(CompactAndMemberQueryVo compactAndMemberQueryVo) {
         Page<CompactAndMemberQueryVo> page=new Page<>(compactAndMemberQueryVo.getPageNo(),compactAndMemberQueryVo.getPageSize());
@@ -38,7 +44,13 @@ implements CompactService {
         return iPage;
     }
 
-    //查询会员下办了套餐却没有签订合同的套餐
+    /**
+     * @title:  查询会员下办了套餐却没有签订合同的套餐
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:53
+    */
     @Override
     public List<CompactQueryVo> findMemberMeal(Member member) {
         //查询该会员办理的(私教，团操,未到期)套餐
@@ -46,16 +58,30 @@ implements CompactService {
         return list;
     }
 
-    //添加合同数据
+    /**
+     * @title:  添加合同数据
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:54
+    */
     @Override
+    @Transactional
     public boolean addCompact(Compact compact) {
         if(baseMapper.insert(compact)>0){
             return true;
         }
         return false;
     }
-    //删除记录
+    /**
+     * @title:  删除记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:54
+    */
     @Override
+    @Transactional
     public boolean delDetial(Long compactId) {
         QueryWrapper<Compact> wrapper=new QueryWrapper<>();
         wrapper.eq("compact_id", compactId);

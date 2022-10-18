@@ -4,17 +4,17 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.entity.ouyang.Disburse;
-import com.trkj.entity.ouyang.Schedule;
 import com.trkj.service.implOuyang.DisburseService;
 import com.trkj.dao.ouyang.DisburseMapper;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.ScheduleQueryVo;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author oyzz
@@ -68,7 +68,15 @@ public class DisburseServiceImpl extends ServiceImpl<DisburseMapper, Disburse>
         return disburseMapper.toDisburse(scheduleQueryVo);
     }
 
+    @Override
+    public List<CountQueryVo> getCountPrice() {
+        return disburseMapper.getCountPrice();
+    }
 
+    @Override
+    public List<CountQueryVo> getCountPriceYear() {
+        return disburseMapper.getCountPriceYear();
+    }
 
 
 }

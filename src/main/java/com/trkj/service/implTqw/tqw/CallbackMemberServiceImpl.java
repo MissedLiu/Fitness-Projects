@@ -15,22 +15,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
-/**
-*
-*/
+
 @Service
-@Transactional
 public class CallbackMemberServiceImpl extends ServiceImpl<CallbackMemberMapper, CallbackMember>
 implements CallbackMemberService {
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    @Autowired
+    @Resource
     private EmpMapper empMapper;
 
-    //新增会员回访记录
+    /**
+     * @title:  新增会员回访记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:35
+    */
     @Override
+    @Transactional
     public Boolean addCallbackMember(CallbackMember callbackMember) {
         callbackMember.setColumnTime(new Date());
         if(baseMapper.insert(callbackMember)>0){
@@ -39,7 +44,13 @@ implements CallbackMemberService {
         return false;
     }
 
-    //查询回访记录
+    /**
+     * @title:  查询回访记录
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 10:35
+    */
     @Override
     public IPage<MemberAndCallbackQueryVo> selectCallbackMember(MemberAndCallbackQueryVo memberAndCallbackQueryVo) {
         //empId赋值为账户id
@@ -59,6 +70,7 @@ implements CallbackMemberService {
 
     //删除会员回访记录
     @Override
+    @Transactional
     public boolean deleteMemberCord(Long callbackId) {
         if(baseMapper.deleteById(callbackId)>0){
             return true;

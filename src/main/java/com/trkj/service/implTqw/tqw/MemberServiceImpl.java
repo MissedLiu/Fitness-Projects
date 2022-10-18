@@ -27,14 +27,17 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     @Resource
     private ChooseProjectNameMapper chooseProjectNameMapper;
 
-    /*
-     *
-     *查询会员信息无分页
-     *
-     */
+    /**
+     * @title:  查询会员信息无分页
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/17 19:02
+     * @param memberSelectQueryVo
+    */
     @Override
-    public List<Member> listAllNoPage(Member member) {
-        return baseMapper.listAllNoPage(member);
+    public List<Member> listAllNoPage(MemberSelectQueryVo memberSelectQueryVo) {
+        return baseMapper.listAllNoPage(memberSelectQueryVo);
     }
 
 
@@ -45,6 +48,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
      * @author 15087
      * @date: 2022/10/14 14:02
     */
+    @Override
     public IPage<Member> findAllMember(MemberSelectQueryVo memberSelectQueryVo){
         Page<Member> page=new Page<>(memberSelectQueryVo.getPageNo(),memberSelectQueryVo.getPageSize());
         IPage<Member> memberAll = baseMapper.findMemberList(page, memberSelectQueryVo);
@@ -57,6 +61,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
      *查询会员状态为0的信息
      *
      */
+    @Override
     public List<Member> findMemberByState(long memberstate){
         QueryWrapper<Member> wrapper=new QueryWrapper<>();
         wrapper.eq("member_state",memberstate);
@@ -65,7 +70,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
 
     /**
      * @title:  新增会员
-     * @param: member
+     * @param: Member
      * @return:  boolean
      * @author 15087
      * @date: 2022/10/14 16:04

@@ -1,7 +1,5 @@
 package com.trkj.service.implTqw.tqw;
 
-
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -18,18 +16,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
-/**
-*
-*/
 @Service
-@Transactional
 public class MemberConsultServiceImpl extends ServiceImpl<MemberConsultMapper, MemberConsult>
 implements MemberConsultService {
-    @Autowired
+    @Resource
     private ProspectMapper prospectMapper;
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
 
     //分页查询列表
@@ -42,6 +37,7 @@ implements MemberConsultService {
 
     //新增咨询记录
     @Override
+    @Transactional
     public int addMmeberConsult( MemberConsult memberConsult) {
         //新增咨询记录
         memberConsult.setConsultTime(new Date());
@@ -74,6 +70,7 @@ implements MemberConsultService {
 
     //删除记录
     @Override
+    @Transactional
     public Boolean deletecounsult(Long consultId) {
         if(baseMapper.deleteById(consultId)>0){
             return true;
