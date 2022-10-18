@@ -30,6 +30,24 @@
         update invoice set invoice_name=#{invoicedName} ,stockIn_num=#{stockInNum} ,price=#{salesPrice} where sales_id=#{saId}
     </update>
 
-
+    <select id="getCountPrice" resultType="com.trkj.vo.queryOuyang.CountQueryVo">
+        select DATE_FORMAT(create_time, '%m月')
+                   as date,
+               SUM(price)
+                   as value
+        from invoice
+        WHERE YEAR(create_time) = YEAR(CURDATE())
+        GROUP BY MONTH(create_time)
+        order by create_time asc
+    </select>
+    <select id="getCountPriceYear" resultType="com.trkj.vo.queryOuyang.CountQueryVo">
+        select DATE_FORMAT(create_time, '%Y年')
+                   as date,
+               SUM(price)
+                   as value
+        from invoice
+        GROUP BY YEAR(create_time)
+        order by create_time asc
+    </select>
 
 </mapper>

@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.liucz2.Proceeds;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.ProceedsQueryVo;
+
+import java.util.List;
 
 /**
 * @author oyzz
@@ -20,4 +23,8 @@ public interface ProceedsService extends IService<Proceeds> {
      * @return
      */
     Long sumPrice(PageVo pageVo);
+
+    List<CountQueryVo> getCountPrice();
+
+    List<CountQueryVo> getCountPriceYear();
 }

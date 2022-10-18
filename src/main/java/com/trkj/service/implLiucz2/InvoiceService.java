@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.trkj.entity.liucz2.Invoice;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.trkj.vo.queryLiucz2.SalesArticleAndInvoiceVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.InvoiceQueryVo;
 
 import java.util.List;
@@ -49,4 +50,9 @@ public interface InvoiceService extends IService<Invoice> {
 
 
     Long SumInvoicePrice(Long tjType);
+
+
+    List<CountQueryVo> getCountPrice();
+
+    List<CountQueryVo> getCountPriceYear();
 }

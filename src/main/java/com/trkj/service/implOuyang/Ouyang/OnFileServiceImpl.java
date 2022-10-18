@@ -1,9 +1,13 @@
 package com.trkj.service.implOuyang.Ouyang;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.trkj.entity.ouyang.OnFile;
 import com.trkj.service.implOuyang.OnFileService;
 import com.trkj.dao.ouyang.OnFileMapper;
+import com.trkj.vo.query.PageVo;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.OnFileQueryVo;
 import org.springframework.stereotype.Service;
@@ -11,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
+import javax.management.Query;
+import java.util.List;
 
 /**
  * @author oyzz
@@ -94,6 +100,15 @@ public class OnFileServiceImpl extends ServiceImpl<OnFileMapper, OnFile>
     @Override
     public boolean toOnFile(OnFileQueryVo onFileQueryVo) {
         return onFileMapper.toOnFile(onFileQueryVo);
+    }
+
+    @Override
+    public IPage<CountQueryVo> getOnFile(IPage page, PageVo pageVo) {
+        QueryWrapper queryWrapper=new QueryWrapper();
+        queryWrapper.eq(!ObjectUtils.isEmpty(pageVo.getType()),"type", pageVo.getType());
+        queryWrapper.like(!ObjectUtils.isEmpty(pageVo.getChangeTime()),"date",pageVo.getChangeTime());
+        queryWrapper.orderByDesc("date");
+        return baseMapper.selectPage(page,queryWrapper);
     }
 }
 

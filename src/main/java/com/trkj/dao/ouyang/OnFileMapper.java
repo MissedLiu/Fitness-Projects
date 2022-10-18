@@ -2,10 +2,13 @@ package com.trkj.dao.ouyang;
 
 import com.trkj.entity.ouyang.OnFile;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.trkj.vo.queryOuyang.CountQueryVo;
 import com.trkj.vo.queryOuyang.DisburseQueryVo;
 import com.trkj.vo.queryOuyang.OnFileQueryVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
 * @author oyzz
@@ -33,6 +36,8 @@ public interface OnFileMapper extends BaseMapper<OnFile> {
     //添加归档记录
     @Insert(value = "insert into on_file(money, type, date)values(#{sumPrice},#{onFileType},#{changeTime}) ")
     boolean toOnFile(OnFileQueryVo onFileQueryVo);
+
+    List<CountQueryVo> getOnFileZc();
 }
 
 
