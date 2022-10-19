@@ -1,5 +1,6 @@
 package com.trkj.controller.tqw;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.trkj.service.implTqw.LockerService;
 import com.trkj.utils.Result;
 import com.trkj.vo.queryTqw.LockerQueryVo;
@@ -91,6 +92,7 @@ public class LockerController {
     @PreAuthorize("hasAuthority('members:locker:addmember')")
     @PostMapping("/addLockerByMemberId")
     public Result addLockerByMemberId(@RequestBody LockerQueryVo lockerQueryVo){
+        System.out.println("---------------"+lockerQueryVo);
         int a = lockerService.addLockerByMemberId(lockerQueryVo);
         if(a==0){
             return Result.error().message("会员已拉黑，无法添加储物柜");

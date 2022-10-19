@@ -15,7 +15,9 @@ import java.util.List;
 *
 */
 public interface MemberMealMapper extends BaseMapper<MemberMeal> {
-    //查询会员下办了套餐却没有签订合同的套餐
-    List<CompactQueryVo> selectMemberMeal(Long memberId);
+    //查询会员下办了套餐却没有签订合同的私教套餐
+    List<CompactQueryVo> selectMemberPtMeal(Long memberId);
 
+    //查询会员下办了套餐却没有签订合同的团操套餐
+    List<CompactQueryVo> selectMemberTeamMeal(Long memberId);
 }

@@ -16,11 +16,13 @@ import java.util.List;
 */
 public interface CompactService extends IService<Compact> {
     //分页查询
-    IPage<CompactAndMemberQueryVo> findCompactList(CompactAndMemberQueryVo compactAndMemberQueryVo);
+    IPage<Member> findCompactList(CompactAndMemberQueryVo compactAndMemberQueryVo);
     //查询会员下办了套餐却没有签订合同的套餐
     List<CompactQueryVo> findMemberMeal(Member member);
     //添加合同数据
     boolean addCompact(Compact compact);
     //删除记录
     boolean delDetial(Long compactId);
+    //根据会员id查询已签订的合同套餐信息
+    List<CompactQueryVo> findCompact(Long memberId);
 }

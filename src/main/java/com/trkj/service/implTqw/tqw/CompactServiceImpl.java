@@ -38,9 +38,9 @@ implements CompactService {
      * @date: 2022/10/17 19:53
     */
     @Override
-    public IPage<CompactAndMemberQueryVo> findCompactList(CompactAndMemberQueryVo compactAndMemberQueryVo) {
-        Page<CompactAndMemberQueryVo> page=new Page<>(compactAndMemberQueryVo.getPageNo(),compactAndMemberQueryVo.getPageSize());
-        IPage<CompactAndMemberQueryVo> iPage=baseMapper.selectCompactList(page,compactAndMemberQueryVo);
+    public IPage<Member> findCompactList(CompactAndMemberQueryVo compactAndMemberQueryVo) {
+        Page<Member> page=new Page<>(compactAndMemberQueryVo.getPageNo(),compactAndMemberQueryVo.getPageSize());
+        IPage<Member> iPage=baseMapper.selectCompactList(page,compactAndMemberQueryVo);
         return iPage;
     }
 
@@ -53,8 +53,13 @@ implements CompactService {
     */
     @Override
     public List<CompactQueryVo> findMemberMeal(Member member) {
-        //查询该会员办理的(私教，团操,未到期)套餐
-        List<CompactQueryVo> list = memberMealMapper.selectMemberMeal(member.getMemberId());
+        //查询该会员办理的(私教,未到期)套餐
+        List<CompactQueryVo> list1 = memberMealMapper.selectMemberPtMeal(member.getMemberId());
+        //查询该会员办理的(团操,未到期)套餐
+        List<CompactQueryVo> list2 = memberMealMapper.selectMemberTeamMeal(member.getMemberId());
+        List<CompactQueryVo> list=new LinkedList<>();
+        list.addAll(list1);
+        list.addAll(list2);
         return list;
     }
 
@@ -90,5 +95,22 @@ implements CompactService {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @title:  根据会员id查询已签订的合同
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/19 8:28
+    */
+    @Override
+    public List<CompactQueryVo> findCompact(Long memberId) {
+        List<CompactQueryVo> list1 = baseMapper.findPtCompact(memberId);
+        List<CompactQueryVo> list2 = baseMapper.findTeamCompact(memberId);
+        List<CompactQueryVo> list=new LinkedList<>();
+        list.addAll(list1);
+        list.addAll(list2);
+        return list;
     }
 }

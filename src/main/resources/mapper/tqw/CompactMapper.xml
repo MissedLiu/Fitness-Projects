@@ -16,8 +16,8 @@
         salesman
     </sql>
 <!--    分页查询列表-->
-    <select id="selectCompactList" resultType="com.trkj.vo.queryTqw.CompactAndMemberQueryVo">
-        select * from compact c inner join `member` m on c.member_id=m.member_id
+    <select id="selectCompactList" resultType="com.trkj.entity.tqw.Member">
+        select distinct m.* from compact c inner join `member` m on c.member_id=m.member_id
             where 1=1
         <if test="query.memberPhone != null and query.memberPhone !=''">
             and m.member_phone=#{query.memberPhone}
@@ -27,4 +27,60 @@
         </if>
     </select>
 
+    <resultMap id="ptMeal" type="com.trkj.vo.queryTqw.CompactQueryVo">
+        <id property="mmId" column="mm_id" />
+        <result property="mealType" column="meal_type" />
+        <result property="createDate" column="create_date" />
+        <result property="endDate" column="end_date" />
+        <result property="compactId" column="compact_id"/>
+        <result property="mealName" column="pt_name"/>
+        <result property="projectName" column="ptp_name"/>
+        <result property="empName" column="emp_name"/>
+        <result property="salesman" column="salesman"/>
+        <result property="photoAddress" column="photo_address"/>
+        <result property="photoAddress2" column="photo_address2"/>
+        <result property="photoAddress3" column="photo_address3"/>
+        <result property="photoAddress4" column="photo_address4"/>
+        <result property="photoAddress5" column="photo_address5"/>
+    </resultMap>
+
+    <!--根据会员id查询已签订的私教合同-->
+    <select id="findPtCompact" resultMap="ptMeal">
+        select mm.*,c.*,cp.*,pm.pt_name,ptp.ptp_name,se.emp_name from member_meal mm
+            inner join compact c on mm.mm_id=c.mm_id
+            inner join choose_projectname cp on cp.mm_id=mm.mm_id
+            inner join pt_meal pm on cp.choose_id=pm.pt_id
+            inner join pt_projectname ptp on cp.ptp_id=ptp.ptp_id
+            inner join sys_emp se on se.emp_id = cp.emp_id
+            where mm.member_id=#{memberId}
+            and mm.meal_type='私教'
+    </select>
+
+    <resultMap id="teamMeal" type="com.trkj.vo.queryTqw.CompactQueryVo">
+        <id property="mmId" column="mm_id" />
+        <result property="mealType" column="meal_type" />
+        <result property="createDate" column="create_date" />
+        <result property="endDate" column="end_date" />
+        <result property="compactId" column="compact_id"/>
+        <result property="mealName" column="team_name"/>
+        <result property="projectName" column="tp_name"/>
+        <result property="empName" column="emp_name"/>
+        <result property="salesman" column="salesman"/>
+        <result property="photoAddress" column="photo_address"/>
+        <result property="photoAddress2" column="photo_address2"/>
+        <result property="photoAddress3" column="photo_address3"/>
+        <result property="photoAddress4" column="photo_address4"/>
+        <result property="photoAddress5" column="photo_address5"/>
+    </resultMap>
+    <!--根据会员id查询已签订的团操合同-->
+    <select id="findTeamCompact" resultMap="teamMeal">
+        select mm.*,c.*,cp.*,tm.team_name,tp.tp_name,se.emp_name from member_meal mm
+            inner join compact c on mm.mm_id=c.mm_id
+            inner join choose_projectname cp on cp.mm_id=mm.mm_id
+            inner join team_meal tm on cp.choose_id=tm.team_id
+            inner join team_projectname tp on cp.ptp_id=tp.tp_id
+            inner join sys_emp se on se.emp_id = cp.emp_id
+            where mm.member_id=#{memberId}
+            and mm.meal_type='团操'
+    </select>
 </mapper>

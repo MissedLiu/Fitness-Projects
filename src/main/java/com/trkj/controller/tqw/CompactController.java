@@ -71,4 +71,17 @@ public class CompactController {
         }
         return Result.exist().message("删除失败");
     }
+
+    /**
+     * @title:  根据会员id查询已签订的合同
+     * @param: null
+     * @return:
+     * @author 15087
+     * @date: 2022/10/18 23:43
+    */
+    @GetMapping("/findCompact")
+    public Result findCompact(Long memberId){
+        return Result.ok(compactService.findCompact(memberId));
+    }
+
 }
