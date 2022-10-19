@@ -149,6 +149,7 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
         QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
         wrapper.eq("member_id",disburseAndMemberQueryVo.getMemberId());
         List<MemberMeal> list = memberMealMapper.selectList(wrapper);
+        System.out.println("list"+list);
         //删除会员套餐数据
         memberMealMapper.delete(wrapper);
         //删除会员项目数据

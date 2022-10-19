@@ -197,4 +197,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         User user = userMapper.findUserEmpByUserId(id);
         return user;
     }
+    //根据id删除
+    @Override
+    public int delete(Long id) {
+        int delete = userMapper.deleteById2(id);
+        System.out.println("delete="+delete);
+        return delete;
+    }
 }

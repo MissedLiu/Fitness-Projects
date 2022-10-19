@@ -46,7 +46,7 @@ public class Member {
     private int memberAge;
     //住址
     @NotNull(message = "住址不能为空")
-    @Pattern(regexp = "^[\u4e00-\u9fa5]{0,20}$",message = "地址输入有误")
+    @Pattern(regexp = "^[\u4e00-\u9fa5|0-9]{0,30}$",message = "地址输入有误")
     private String memberAddress;
     //会员状态(是否禁用)
     private int memberState;

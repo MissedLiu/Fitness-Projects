@@ -133,7 +133,8 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasAuthority('sys:account:delete')")
     public Result delete(@PathVariable Long id){
-        if (userService.removeById(id)){
+        System.out.println("=="+id);
+        if (userService.delete(id)>0){
             return Result.ok().message("删除成功");
         }
         return Result.error().message("删除失败");

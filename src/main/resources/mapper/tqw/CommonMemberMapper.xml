@@ -69,6 +69,7 @@
         select * from member_meal mm inner join common_meal cm
             on mm.meal_id = cm.cm_id
             where mm.member_id=#{memberId}
+            and mm.meal_type="普通"
     </select>
     
 </mapper>

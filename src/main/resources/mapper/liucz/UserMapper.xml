@@ -97,4 +97,7 @@
 
     </select>
 
+    <delete id="deleteById2">
+        delete from sys_user  where id=#{id}
+    </delete>
 </mapper>
