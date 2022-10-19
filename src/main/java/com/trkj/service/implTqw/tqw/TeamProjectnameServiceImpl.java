@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
-*
-*/
+
 @Service
 public class TeamProjectnameServiceImpl extends ServiceImpl<TeamProjectnameMapper, TeamProjectname>
 implements TeamProjectnameService {

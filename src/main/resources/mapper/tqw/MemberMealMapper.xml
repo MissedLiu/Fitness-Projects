@@ -29,8 +29,8 @@
         <result property="projectName" column="ptp_name"/>
         <result property="empName" column="emp_name"/>
     </resultMap>
-<!--查询会员下办了套餐却没有签订合同的套餐-->
-    <select id="selectMemberMeal" resultMap="ptMeal">
+<!--查询会员下办了套餐却没有签订合同的私教套餐-->
+    <select id="selectMemberPtMeal" resultMap="ptMeal">
         select mm.*,c.*,cp.*,pm.pt_name,ptp.ptp_name,se.emp_name from member_meal mm
             left join compact c on mm.mm_id=c.mm_id
             inner join choose_projectname cp on cp.mm_id=mm.mm_id
@@ -39,6 +39,30 @@
             inner join sys_emp se on se.emp_id = cp.emp_id
             where mm.member_id=#{memberId}
             and mm.meal_type='私教'
+            and mm.mm_date>now()
+            and c.mm_id is null
+    </select>
+
+    <resultMap id="teamMeal" type="com.trkj.vo.queryTqw.CompactQueryVo">
+        <id property="mmId" column="mm_id" />
+        <result property="mealType" column="meal_type" />
+        <result property="mmTime" column="mm_time" />
+        <result property="mmDate" column="mm_date" />
+        <result property="compactId" column="compact_id"/>
+        <result property="mealName" column="team_name"/>
+        <result property="projectName" column="tp_name"/>
+        <result property="empName" column="emp_name"/>
+    </resultMap>
+    <!--查询会员下办了套餐却没有签订合同的团操套餐-->
+    <select id="selectMemberTeamMeal" resultMap="teamMeal">
+        select mm.*,c.*,cp.*,tm.team_name,tp.tp_name,se.emp_name from member_meal mm
+            left join compact c on mm.mm_id=c.mm_id
+            inner join choose_projectname cp on cp.mm_id=mm.mm_id
+            inner join team_meal tm on cp.choose_id=tm.team_id
+            inner join team_projectname tp on cp.ptp_id=tp.tp_id
+            inner join sys_emp se on se.emp_id = cp.emp_id
+            where mm.member_id=#{memberId}
+            and mm.meal_type='团操'
             and mm.mm_date>now()
             and c.mm_id is null
     </select>
