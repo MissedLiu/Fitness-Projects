@@ -76,7 +76,7 @@ public class EdetailsController {
         }
         //判断使用记录表中该器材的数量是否大于出库的数量
         if (stockOutService.getOutNum(edetails)<=edetailsService.getSumDetails(edetails)){
-            return Result.error().message("记录条数不能大于出库数！");
+            return Result.error().message("该物品已被使用完！");
         }else {
             if (edetailsService.addDetails(edetails)){
                 return Result.ok().message("添加成功");
