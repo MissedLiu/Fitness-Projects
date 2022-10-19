@@ -69,4 +69,7 @@ public interface UserMapper extends BaseMapper<User> {
     //根据账户id查询员工所有信息
     User findUserEmpByUserId(Long id);
 
+    //根据id删除
+    int deleteById2(Long id);
+
 }

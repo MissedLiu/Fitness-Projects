@@ -72,9 +72,12 @@
 
 <!--    删除套餐数据-->
     <delete id="deleteMemberMeal">
-        delete from choose_projectname cp where 1=1
+        delete from choose_projectname cp where
         <foreach collection="list" item="item" index="index" separator="">
-            or cp.mm_id = #{item.mmId}
+            <if test="index != 0 ">
+                or
+            </if>
+             cp.mm_id = #{item.mmId}
         </foreach>
     </delete>
 </mapper>

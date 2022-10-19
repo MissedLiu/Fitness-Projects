@@ -113,4 +113,7 @@ public interface UserService extends IService<User> {
     List<User> findWeiXiu();
     //根据账户id查询员工所有信息
     User findUserEmpByUserId(Long id);
+
+    //根据id删除
+    int delete(Long id);
 }
