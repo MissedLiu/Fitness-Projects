@@ -66,7 +66,7 @@ public class SheduleController {
         //根据当前计划id查询出状态
         int state = scheduleService.findState(id);
         System.out.println("state=="+state);
-        if (state != 0&& state!=5 && state!=4) {
+        if (state == 1) {
             return Result.exist().message("删除失败,该状态下无法删除");
         }
 

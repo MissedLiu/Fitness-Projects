@@ -40,6 +40,10 @@ public class CaiGouShenHeController {
     @GetMapping("/truelist")
     public Result findListByEmpIdtrue(PageVo pageVo) {
         IPage<CaigouShenhe> caiGouStateByState = scheduleService.findCaiGouStateByStatetrue(pageVo);
+
+            System.out.println("=="+caiGouStateByState.getRecords());
+
+        System.out.println( "条数=="+  caiGouStateByState.getTotal());
         return Result.ok(caiGouStateByState);
     }
 
