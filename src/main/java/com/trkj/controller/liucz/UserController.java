@@ -82,6 +82,7 @@ public class UserController {
     @PostMapping("/addUser")
     @PreAuthorize("hasAuthority('sys:account:add')")
     public  Result addUser(@RequestBody User user){
+        System.out.println("user="+user);
         //查询添加的用户名是否已经存在
         User user1 = userService.findUserByUserName(user.getUsername());
         //判断存在则抛出错误提示

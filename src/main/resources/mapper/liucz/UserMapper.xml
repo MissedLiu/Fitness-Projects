@@ -15,6 +15,7 @@
         <result column="department_id" property="departmentId" />
         <result column="department_name" property="departmentName" />
         <result column="is_admin" property="isAdmin" />
+        <result column="create_user" property="createUser"/>
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
         <result column="is_delete" property="isDelete" />
@@ -50,7 +51,7 @@
     </update>
 
     <select id="selectXmlPage3" resultMap="BaseResultMap">
-        select u.emp_id,u.id,u.username,u.department_name,e.emp_name  from sys_user u left join sys_emp e on u.emp_id=e.emp_id where 1=1
+        select u.emp_id,u.id,u.username,u.department_name,e.emp_name  from sys_user u left join sys_emp e on u.emp_id=e.emp_id where u.create_user=#{query.createUser}
         <!-- 条件参数 -->
         <if test="query.username != '' and query.username != null">
             and u.username like "%"#{query.username}"%"

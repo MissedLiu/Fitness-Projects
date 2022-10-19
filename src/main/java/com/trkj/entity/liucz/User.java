@@ -85,7 +85,15 @@ public class User implements Serializable , UserDetails {
      * 是否是管理员(1-管理员)
      */
     private Integer isAdmin;
-
+    /**
+     * @description:
+     * 创建账户id
+     * @author: Liucz
+     * @date: 2022/10/19 20:07
+     * @param:
+     * @return:
+     **/
+    private  Long createUser;
     /**
      * 创建时间
      */

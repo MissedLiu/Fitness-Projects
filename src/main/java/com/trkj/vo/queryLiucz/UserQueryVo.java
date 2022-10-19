@@ -11,5 +11,6 @@ public class UserQueryVo extends PageVo {
     private String departmentName;
     private String departmentId;
     private String empName;
+    private Long createUser;
 
 }
