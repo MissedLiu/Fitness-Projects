@@ -37,6 +37,19 @@ public class HealthformController {
     }
     /**
      * @description:
+     * 查询所有体检列表，教练经理
+     * @author: Liucz
+     * @date: 2022/10/8 23:02
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/listAllStation")
+    public Result listAllStation( PageVo pageVo){
+        IPage<Healthform> allIpage = healthformService.findAllIpageStation(pageVo);
+        return  Result.ok(allIpage);
+    }
+    /**
+     * @description:
      * 根据体检id查询数据
      * @author: Liucz
      * @date: 2022/10/13 18:56

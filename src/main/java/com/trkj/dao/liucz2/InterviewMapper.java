@@ -19,6 +19,15 @@ public interface InterviewMapper extends BaseMapper<Interview> {
      * @return:
      **/
     IPage<Interview> findAllByEmpIdInterviewIPage(Page<Interview> page , @Param("query")PageVo pageVo);
+    /**
+     * @description:
+     * 根据教练编号查询所有并且分页
+     * @author: Liucz
+     * @date: 2022/10/9 8:44
+     * @param:
+     * @return:
+     **/
+    IPage<Interview> findAllByEmpIdInterviewIPageStation(Page<Interview> page , @Param("query")PageVo pageVo);
  }
 
 

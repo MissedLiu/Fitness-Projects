@@ -20,6 +20,15 @@ public interface HealthformMapper extends BaseMapper<Healthform> {
      * @return:
      **/
     IPage<Healthform> findAllIpage(Page<Healthform> page,@Param("query") PageVo pageVo);
+    /**
+     * @description:
+     * 查询所有体检列表
+     * @author: Liucz
+     * @date: 2022/10/8 23:05
+     * @param:
+     * @return:
+     **/
+    IPage<Healthform> findAllIpageStation(Page<Healthform> page,@Param("query") PageVo pageVo);
 }
 
 

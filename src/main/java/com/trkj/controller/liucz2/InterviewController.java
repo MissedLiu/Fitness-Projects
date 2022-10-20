@@ -51,6 +51,18 @@ public class InterviewController {
     public  Result listInterview(PageVo pageVo){
         return Result.ok(interviewService.findAllByEmpId(pageVo));
     }
+    /**
+     * @description:
+     * 分页并且动态查询
+     * @author: Liucz
+     * @date: 2022/10/9 8:55
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/listInterviewStation")
+    public  Result listInterviewStation(PageVo pageVo){
+        return Result.ok(interviewService.findAllByEmpIdStation(pageVo));
+    }
 /**
  * @description:
  * 删除

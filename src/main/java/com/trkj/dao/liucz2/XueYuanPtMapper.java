@@ -34,6 +34,15 @@ public interface XueYuanPtMapper extends BaseMapper<XueYuanPtVo> {
     IPage<XueYuanPtVo> findAllbyEmpId(Page<XueYuanPtVo> page, @Param("query") PageVo pageVo);
     /**
      * @description:
+     * 动态查询所有信息并分页,去重,所有私教
+     * @author: Liucz
+     * @date: 2022/10/8 17:02
+     * @param:
+     * @return:
+     **/
+    IPage<XueYuanPtVo> findAllbyEmpIdAll(Page<XueYuanPtVo> page, @Param("query") PageVo pageVo);
+    /**
+     * @description:
      * 动态查询所有套餐信息
      * @author: Liucz
      * @date: 2022/10/8 17:02

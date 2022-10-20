@@ -39,6 +39,20 @@ public class HealthformServiceImpl extends ServiceImpl<HealthformMapper, Healthf
     }
     /**
      * @description:
+     * 查询所有体检列表
+     * @author: Liucz
+     * @date: 2022/10/8 23:05
+     * @param:
+     * @return:
+     **/
+    @Override
+    public IPage<Healthform> findAllIpageStation(PageVo pageVo) {
+        Page<Healthform> page=new Page<>(pageVo.getPageNo(),pageVo.getPageSize());
+        IPage<Healthform> allIpage = healthformMapper.findAllIpageStation(page, pageVo);
+        return allIpage;
+    }
+    /**
+     * @description:
      * 根据会员编号查询
      * @author: Liucz
      * @date: 2022/10/8 23:37

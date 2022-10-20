@@ -18,5 +18,14 @@ public interface InterviewService extends IService<Interview> {
      * @return:
      **/
     IPage<Interview> findAllByEmpId(PageVo pageVo);
+    /**
+     * @description:
+     * 分页并且动态查询
+     * @author: Liucz
+     * @date: 2022/10/9 8:55
+     * @param:
+     * @return:
+     **/
+    IPage<Interview> findAllByEmpIdStation(PageVo pageVo);
 
 }

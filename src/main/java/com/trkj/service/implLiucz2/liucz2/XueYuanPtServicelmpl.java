@@ -44,8 +44,21 @@ public class XueYuanPtServicelmpl extends ServiceImpl<XueYuanPtMapper, XueYuanPt
     @Override
     public IPage<XueYuanPtVo> findAllList(PageVo pageVo) {
         Page<XueYuanPtVo> page=new Page<>(pageVo.getPageNo() ,pageVo.getPageSize());
-//        IPage<XueYuanPtVo> all = xueYuanMapper.findAll(page, pageVo);
         IPage<XueYuanPtVo> all = xueYuanMapper.findAllbyEmpId(page, pageVo);
+        return all;
+    }
+    /**
+     * @description:
+     * 分页动态查询学员列表所有
+     * @author: Liucz
+     * @date: 2022/10/8 17:17
+     * @param:
+     * @return:
+     **/
+    @Override
+    public IPage<XueYuanPtVo> findAllListAll(PageVo pageVo) {
+        Page<XueYuanPtVo> page=new Page<>(pageVo.getPageNo() ,pageVo.getPageSize());
+        IPage<XueYuanPtVo> all = xueYuanMapper.findAllbyEmpIdAll(page, pageVo);
         return all;
     }
     /**
