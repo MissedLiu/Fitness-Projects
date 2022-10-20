@@ -40,8 +40,8 @@
 <!--    通过电话查询私教会员或全部-->
     <select id="findPtMember" resultType="com.trkj.entity.tqw.Member" >
         select  distinct m.*
-        from `member` m left join member_meal mm
-        on m.member_id=mm.member_id
+        from `member` m left join member_meal mm on m.member_id=mm.member_id
+        inner join choose_projectname cp on mm.mm_id=cp.mm_id
         <if test="query.memberPhone != null and query.memberPhone != '' " >
             and m.member_phone=#{query.memberPhone}
         </if>
