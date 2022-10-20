@@ -76,8 +76,11 @@ public class CoachController {
     */
     @PostMapping("addEmpAndPtMeal")
     public Result addEmpAndPtMeal(@RequestBody EmpAndPtMealQueryVo empAndPtMealQueryVo){
-        if(ptCoachService.addEmpAndPtMeal(empAndPtMealQueryVo)){
+        int a=ptCoachService.addEmpAndPtMeal(empAndPtMealQueryVo);
+        if(a==0){
             return Result.ok().message("添加成功");
+        }else if(a==2){
+            return Result.exist().message("套餐不能为空");
         }
         return Result.exist().message("添加失败");
     }
@@ -104,8 +107,11 @@ public class CoachController {
     */
     @PostMapping("addEmpAndTeamMeal")
     public Result addEmpAndTeamMeal(@RequestBody EmpAndTeamMealQueryVo empAndTeamMealQueryVo){
-        if(teamCoachService.addEmpAndTeamMeal(empAndTeamMealQueryVo)){
+        int a = teamCoachService.addEmpAndTeamMeal(empAndTeamMealQueryVo);
+        if(a==0){
             return Result.ok().message("添加成功");
+        }else if(a==2){
+            return Result.exist().message("套餐不能为空");
         }
         return Result.exist().message("添加失败");
     }

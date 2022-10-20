@@ -25,16 +25,21 @@ implements PtCoachService {
     */
     @Override
     @Transactional
-    public boolean addEmpAndPtMeal(EmpAndPtMealQueryVo empAndPtMealQueryVo) {
-        //删除原来的
-        QueryWrapper<PtCoach> wrapper=new QueryWrapper<>();
-        wrapper.eq("emp_id",empAndPtMealQueryVo.getEmpId());
-        baseMapper.delete(wrapper);
-        //添加新的
-        if(baseMapper.insertPtCoachs(empAndPtMealQueryVo.getEmpId(),empAndPtMealQueryVo.getPtMealId())>0){
-            return true;
+    public int addEmpAndPtMeal(EmpAndPtMealQueryVo empAndPtMealQueryVo) {
+        //判断选择的套餐是否为空
+        if(empAndPtMealQueryVo.getPtMealId().size()>0){
+            //删除原来的
+            QueryWrapper<PtCoach> wrapper=new QueryWrapper<>();
+            wrapper.eq("emp_id",empAndPtMealQueryVo.getEmpId());
+            baseMapper.delete(wrapper);
+            if(baseMapper.insertPtCoachs(empAndPtMealQueryVo.getEmpId(),empAndPtMealQueryVo.getPtMealId())>0){
+                return 0;
+            }else {
+                return 1;
+            }
+        }else {
+            return 2;
         }
-        return false;
     }
 
     /**

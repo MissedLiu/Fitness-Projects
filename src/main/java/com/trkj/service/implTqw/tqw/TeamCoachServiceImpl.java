@@ -27,16 +27,21 @@ implements TeamCoachService {
     */
     @Override
     @Transactional
-    public boolean addEmpAndTeamMeal(EmpAndTeamMealQueryVo empAndTeamMealQueryVo) {
-        //删除原来的
-        QueryWrapper<TeamCoach> wrapper=new QueryWrapper<>();
-        wrapper.eq("emp_id",empAndTeamMealQueryVo.getEmpId());
-        baseMapper.delete(wrapper);
-        //添加新的
-        if(baseMapper.insertTeamCoachs(empAndTeamMealQueryVo.getEmpId(),empAndTeamMealQueryVo.getTeamMealId())>0){
-            return true;
+    public int addEmpAndTeamMeal(EmpAndTeamMealQueryVo empAndTeamMealQueryVo) {
+        //判断选择的套餐是否为空
+        if(empAndTeamMealQueryVo.getTeamMealId().size()>0) {
+            //删除原来的
+            QueryWrapper<TeamCoach> wrapper=new QueryWrapper<>();
+            wrapper.eq("emp_id",empAndTeamMealQueryVo.getEmpId());
+            baseMapper.delete(wrapper);
+            if(baseMapper.insertTeamCoachs(empAndTeamMealQueryVo.getEmpId(),empAndTeamMealQueryVo.getTeamMealId())>0){
+                return 0;
+            }else {
+                return 1;
+            }
+        }else {
+            return 2;
         }
-        return false;
     }
 
     /**

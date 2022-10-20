@@ -12,7 +12,7 @@ import java.util.List;
 */
 public interface PtCoachService extends IService<PtCoach> {
     //新增私教套餐教练关系表数据
-    boolean addEmpAndPtMeal(EmpAndPtMealQueryVo empAndPtMealQueryVo);
+    int addEmpAndPtMeal(EmpAndPtMealQueryVo empAndPtMealQueryVo);
 
     //通过员工id查询私教关系表数据
     List<PtCoach> findPtAndEmpByEmpId(Long empId);
