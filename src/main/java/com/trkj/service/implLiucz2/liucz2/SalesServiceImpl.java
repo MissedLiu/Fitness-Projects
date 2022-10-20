@@ -52,13 +52,13 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
                     MmId = salesMapper.getMmIdByMemberIdAndMlId(MbId, salesList.get(i).getMealId());
                     if (salesList.get(i).getType()=="普通"){
                         salesList.get(i).setState((byte) 1);
-                        baseMapper.updateById(salesList.get(i));
+                        baseMapper.updateStateSetOne(salesList.get(i));
                     }
                     //判断getCpIdByMmIdAndprojectId（通过套餐办理编号和项目编号查询所选项目表编号）是否为空
                     if (!ObjectUtils.isEmpty(salesMapper.getCpIdByMmIdAndprojectId(MmId, salesList.get(i).getProjectId()))) {
                         //如果三重判断通过 则修改课程销售状态为1
                         salesList.get(i).setState((byte) 1);
-                        baseMapper.updateById(salesList.get(i));
+                        baseMapper.updateStateSetOne(salesList.get(i));
                     }
                 }
             }
@@ -85,8 +85,8 @@ public class SalesServiceImpl extends ServiceImpl<SalesMapper, Sales>
     }
 
     @Override
-    public Commission getEmpById(Sales sales) {
-        return salesMapper.getEmpById(sales);
+    public Commission getEmpById(Long salesmanId) {
+        return salesMapper.getEmpById(salesmanId);
     }
 
     @Override

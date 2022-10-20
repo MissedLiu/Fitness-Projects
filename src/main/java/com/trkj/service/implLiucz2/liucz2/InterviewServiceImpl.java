@@ -36,6 +36,20 @@ public class InterviewServiceImpl extends ServiceImpl<InterviewMapper, Interview
         IPage<Interview> allByEmpIdInterviewIPage = interviewMapper.findAllByEmpIdInterviewIPage(page, pageVo);
         return allByEmpIdInterviewIPage;
     }
+    /**
+     * @description:
+     * 分页并且动态查询
+     * @author: Liucz
+     * @date: 2022/10/9 8:55
+     * @param:
+     * @return:
+     **/
+    @Override
+    public IPage<Interview> findAllByEmpIdStation(PageVo pageVo) {
+        Page<Interview> page=new Page<>(pageVo.getPageNo(),pageVo.getPageSize());
+        IPage<Interview> allByEmpIdInterviewIPage = interviewMapper.findAllByEmpIdInterviewIPageStation(page, pageVo);
+        return allByEmpIdInterviewIPage;
+    }
 }
 
 

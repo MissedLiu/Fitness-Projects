@@ -20,6 +20,15 @@ public interface XueYuanPtService extends IService<XueYuanPtVo> {
     IPage<XueYuanPtVo> findAllList(PageVo pageVo);
     /**
      * @description:
+     * 分页动态查询学员列表所有
+     * @author: Liucz
+     * @date: 2022/10/8 17:17
+     * @param:
+     * @return:
+     **/
+    IPage<XueYuanPtVo> findAllListAll(PageVo pageVo);
+    /**
+     * @description:
      * 根据会员id查询私教套餐和项目信息
      * @author: Liucz
      * @date: 2022/10/17 9:36

@@ -20,6 +20,15 @@ public interface HealthformService extends IService<Healthform> {
     IPage<Healthform> findAllIpage(PageVo pageVo);
     /**
      * @description:
+     * 查询所有体检列表
+     * @author: Liucz
+     * @date: 2022/10/8 23:05
+     * @param:
+     * @return:
+     **/
+    IPage<Healthform> findAllIpageStation(PageVo pageVo);
+    /**
+     * @description:
      * 根据会员编号查询
      * @author: Liucz 
      * @date: 2022/10/8 23:37

@@ -53,6 +53,27 @@ public class XueYuanController {
         return Result.error().message("出错啦亲!");
 
     }
+    /**
+     * @description: 分页动态查询学员列表
+     * @author: Liucz
+     * @date: 2022/10/8 17:17
+     * @param:
+     * @return:
+     **/
+    @GetMapping("/xueyuanlistAll")
+    public Result xueyuanlistAll(PageVo pageVo) {
+        //判断是私教还是团操
+        if (pageVo.getMealType().equals("私教")) {
+            IPage<XueYuanPtVo> allList = xueYuanService.findAllListAll(pageVo);
+            return Result.ok(allList);
+        } else if (pageVo.getMealType().equals("团操")) {
+            IPage<XueYuanTmVo> allList = xueYuanTmService.findAllListAll(pageVo);
+            return Result.ok(allList);
+        }
+
+        return Result.error().message("出错啦亲!");
+
+    }
 
     /**
      * @description: 添加体检记录单

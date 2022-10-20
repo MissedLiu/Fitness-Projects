@@ -3,9 +3,11 @@ package com.trkj.controller.liucz2;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.trkj.entity.liucz.User;
 import com.trkj.entity.liucz2.Sales;
 import com.trkj.entity.liucz2.SalesArticle;
 import com.trkj.entity.ouyang.Commission;
+import com.trkj.service.implLiucz.UserService;
 import com.trkj.service.implLiucz2.SalesArticleService;
 import com.trkj.service.implLiucz2.SalesService;
 import com.trkj.service.implOuyang.CommissionService;
@@ -33,7 +35,8 @@ import java.util.List;
 public class SalesController {
     @Resource
     private SalesService salesService;
-
+    @Resource
+    private UserService userService;
 
 
     /**
@@ -45,25 +48,30 @@ public class SalesController {
      **/
     @GetMapping("/list")
     public Result findAllSalesIpage(PageVo pageVo) {
-        System.out.println("?????"+pageVo);
-        List<Sales> list=salesService.list();
+        System.out.println("?????" + pageVo);
+        List<Sales> list = salesService.list();
         Long MbId = 0L, MmId = 0L;
         for (int i = 0; i < list.size(); i++) {
             //判断getMemberIdByNameAndPhone（通过名字电话查询会员id）是否为空
-            if (!ObjectUtils.isEmpty(salesService.getMemberIdByNameAndPhone(list.get(i)))) {
-                MbId = salesService.getMemberIdByNameAndPhone(list.get(i));
-                //判断getMmIdByMemberIdAndMlId（通过会员id和套餐编号查询套餐办理编号）是否为空
-                if (!ObjectUtils.isEmpty(salesService.getMmIdByMemberIdAndMlId(MbId, list.get(i).getMealId()))) {
-                    MmId = salesService.getMmIdByMemberIdAndMlId(MbId, list.get(i).getMealId());
-                    if ("普通".equals(list.get(i).getType())) {
-                        list.get(i).setState((byte) 1);
-                        salesService.updateStateSetOne(list.get(i));
-                    }
-                    //判断getCpIdByMmIdAndprojectId（通过套餐办理编号和项目编号查询所选项目表编号）是否为空
-                    if (!ObjectUtils.isEmpty(salesService.getCpIdByMmIdAndprojectId(MmId, list.get(i).getProjectId()))) {
-                        //如果三重判断通过 则修改课程销售状态为1
-                        list.get(i).setState((byte) 1);
-                        salesService.updateStateSetOne(list.get(i));
+            System.out.println("iiiiiii="+list.get(i).getState());
+            if (list.get(i).getState() != 2) {
+                System.out.println("sssss="+list.get(i).getState());
+                if (!ObjectUtils.isEmpty(salesService.getMemberIdByNameAndPhone(list.get(i)))) {
+                    MbId = salesService.getMemberIdByNameAndPhone(list.get(i));
+                    //判断getMmIdByMemberIdAndMlId（通过会员id和套餐编号查询套餐办理编号）是否为空
+                    if (!ObjectUtils.isEmpty(salesService.getMmIdByMemberIdAndMlId(MbId, list.get(i).getMealId()))) {
+                        MmId = salesService.getMmIdByMemberIdAndMlId(MbId, list.get(i).getMealId());
+                        if ("普通".equals(list.get(i).getType())) {
+                            list.get(i).setState((byte) 1);
+                            salesService.updateStateSetOne(list.get(i));
+                        }
+                        //判断getCpIdByMmIdAndprojectId（通过套餐办理编号和项目编号查询所选项目表编号）是否为空
+                        if (!ObjectUtils.isEmpty(salesService.getCpIdByMmIdAndprojectId(MmId, list.get(i).getProjectId()))) {
+
+                            //如果三重判断通过 则修改课程销售状态为1
+                            list.get(i).setState((byte) 1);
+                            salesService.updateStateSetOne(list.get(i));
+                        }
                     }
                 }
             }
@@ -82,6 +90,7 @@ public class SalesController {
     @PreAuthorize("hasAnyAuthority('sellgood:classSell:getMeal')")
     @PostMapping("/addSales")
     public Result addSales(@RequestBody Sales sales) {
+        System.out.println("sales=" + sales);
         Long MbId = 0L, MmId = 0L;
         //判断getMemberIdByNameAndPhone（通过名字电话查询会员id）是否为空
         if (!ObjectUtils.isEmpty(salesService.getMemberIdByNameAndPhone(sales))) {
@@ -99,7 +108,9 @@ public class SalesController {
                 }
             }
         }
-        Commission commission = salesService.getEmpById(sales);
+        //sales.getSalesmanId()账号id
+        User userByUserId = userService.findUserEmpByUserId(sales.getSalesmanId());
+        Commission commission = salesService.getEmpById(userByUserId.getEmpId());
         if (salesService.save(sales)) {
             commission.setSalesmanId(sales.getSalesmanId());
             if (salesService.CountEmp(sales) == 0) {
@@ -135,19 +146,20 @@ public class SalesController {
     @GetMapping("/getSales")
     public Result getPt(PageVo pageVo) {
         IPage page = new Page(pageVo.getPageNo(), pageVo.getPageSize());
-        salesService.findSalesPageByTypeAndId(page, pageVo);
-        return Result.ok(page);
+        IPage<Sales> salesPageByTypeAndId = salesService.findSalesPageByTypeAndId(page, pageVo);
+        System.out.println("===+" + salesPageByTypeAndId.getRecords());
+        return Result.ok(salesPageByTypeAndId);
     }
+
     /**
-     * @description:
-     * 查询每个销售的业绩
+     * @description: 查询每个销售的业绩
      * @author: Liucz
      * @date: 2022/10/14 9:30
      * @param:
      * @return:
      **/
     @GetMapping("/findSalesCount")
-    public Result findSalesCount(){
+    public Result findSalesCount() {
         return Result.ok(salesService.findAllCount());
     }
 }

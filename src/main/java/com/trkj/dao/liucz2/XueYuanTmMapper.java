@@ -55,6 +55,16 @@ public interface XueYuanTmMapper extends BaseMapper<XueYuanPtVo> {
      * @return:
      **/
     IPage<XueYuanTmVo> findAllByEmpId(Page<XueYuanTmVo> page ,@Param("query") PageVo pageVo);
+    /**
+     * @description:
+     * 查询当前教练下不重复的会员，所有团操
+     * @author: Liucz
+     * @date: 2022/10/17 8:59
+     * @param:
+     * @return:
+     **/
+    IPage<XueYuanTmVo> findAllByEmpIdAll(Page<XueYuanTmVo> page ,@Param("query") PageVo pageVo);
+
 
     XueYuanTmVo findAllTmbymmId(@Param("empId") Long empId,@Param("mmId") Long mmId);
 }

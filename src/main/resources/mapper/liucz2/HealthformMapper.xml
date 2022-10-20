@@ -48,4 +48,11 @@
         </if>
         order by healthForm_id desc
     </select>
+    <select id="findAllIpageStation" resultType="com.trkj.entity.liucz2.Healthform">
+        select * from healthForm where 1=1
+        <if test="query.memberName !=null and query.memberName !='' ">
+            and member_name=#{query.memberName}
+        </if>
+        order by healthForm_id desc
+    </select>
 </mapper>

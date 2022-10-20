@@ -25,5 +25,12 @@
         </if>
         order by interview_id desc
     </select>
+    <select id="findAllByEmpIdInterviewIPageStation" resultType="com.trkj.entity.liucz2.Interview">
+        select * from interview where 1=1
+        <if test="query.memberName !=null and query.memberName !=''">
+            and member_name=#{query.memberName}
+        </if>
+        order by interview_id desc
+    </select>
 
 </mapper>
