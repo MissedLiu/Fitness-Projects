@@ -54,7 +54,7 @@ public interface SalesService extends IService<Sales> {
      * @param sales
      * @return
      */
-    Commission getEmpById(Sales sales);
+    Commission getEmpById(Long salesmanId);
 
     /**
      * 当套餐销售记录表有新数据时 同时更新提成表的数据

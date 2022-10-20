@@ -41,7 +41,7 @@ public interface SalesMapper extends BaseMapper<Sales> {
      * @param sales
      * @return
      */
-    @Select(value = "select member_id from member where member_name = #{memberName} and member_phone=#{memberPhone}")
+
     Long getMemberIdByNameAndPhone(Sales sales);
 
     /**
@@ -71,7 +71,7 @@ public interface SalesMapper extends BaseMapper<Sales> {
      * @return
      */
     @Select(value = "select emp_name,emp_phone,department_name from sys_emp where emp_id=#{salesmanId}")
-    Commission getEmpById(Sales sales);
+    Commission getEmpById(Long salesmanId);
 
     /**
      * 将销售人员信息插入提成统计表中

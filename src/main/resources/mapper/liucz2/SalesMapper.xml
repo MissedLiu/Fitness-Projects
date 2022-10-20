@@ -59,7 +59,14 @@
         from sales
     </select>
     <select id="findAllCount" resultType="com.trkj.vo.queryLiucz.CountEmpVo">
-          select e.emp_name as name,count(*) as value from sales s LEFT JOIN sys_emp e on s.salesman_id=e.emp_id where s.state !=0 group by e.emp_id ;
+
+
+        select e.emp_name as name,count(*) as value from sales s
+                                                             INNER JOIN sys_user u on u.id=s.salesman_id INNER JOIN sys_emp e on e.emp_id=u.emp_id GROUP BY s.salesman_id ;
     </select>
+    <select id="getMemberIdByNameAndPhone" resultType="java.lang.Long">
+        select member_id from member where member_name = #{memberName} and member_phone=#{memberPhone} and member_type=1
+    </select>
+
 
 </mapper>
