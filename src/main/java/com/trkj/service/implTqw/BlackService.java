@@ -25,6 +25,6 @@ public interface BlackService extends IService<Black> {
     List<BlackMemberMealQueryVo> findBlackMemberMeal(Long memberId);
 
     //退费
-    boolean delMemberAllMeal(DisburseAndMemberQueryVo disburseAndMemberQueryVo);
+    int delMemberAllMeal(DisburseAndMemberQueryVo disburseAndMemberQueryVo);
 
 }

@@ -137,25 +137,29 @@ public class BlackServiceImpl extends ServiceImpl<BlackMapper,Black> implements 
     */
     @Override
     @Transactional
-    public boolean delMemberAllMeal(DisburseAndMemberQueryVo disburseAndMemberQueryVo) {
+    public int delMemberAllMeal(DisburseAndMemberQueryVo disburseAndMemberQueryVo) {
+        //查询会员套餐
+        QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
+        wrapper.eq("member_id",disburseAndMemberQueryVo.getMemberId());
+        List<MemberMeal> list = memberMealMapper.selectList(wrapper);
+        //判断会员套餐是否为空
+        if(list.size()==0){
+            return 0;
+        }
+        //删除会员套餐数据
+        int memberMeal = memberMealMapper.delete(wrapper);
+        //删除会员项目数据
+        int project =  baseMapper.deleteMemberMeal(list);
         //添加支出记录
         Disburse disburse=new Disburse();
         disburse.setDisburseType("退费");
         disburse.setDisburseTime(new Date());
         disburse.setDisbursePrice(disburseAndMemberQueryVo.getDisbursePrice());
         disburse.setBeizhu(disburseAndMemberQueryVo.getBeizhu());
-        disburseMapper.insert(disburse);
-        //查询会员套餐
-        QueryWrapper<MemberMeal> wrapper=new QueryWrapper<>();
-        wrapper.eq("member_id",disburseAndMemberQueryVo.getMemberId());
-        List<MemberMeal> list = memberMealMapper.selectList(wrapper);
-        System.out.println("list"+list);
-        //删除会员套餐数据
-        memberMealMapper.delete(wrapper);
-        //删除会员项目数据
-        if(baseMapper.deleteMemberMeal(list)>0){
-            return true;
+        int dis = disburseMapper.insert(disburse);
+        if(memberMeal>0 && project>=0 && dis>0){
+            return 1;
         }
-        return false;
+        return 2;
     }
 }

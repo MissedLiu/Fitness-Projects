@@ -26,5 +26,6 @@
         <if test="query.prospectPhone !=null and query.prospectPhone !='' ">
             and prospect_phone=#{query.prospectPhone}
         </if>
+        ORDER BY prospect_id DESC
     </select>
 </mapper>

@@ -23,5 +23,6 @@
         <if test="query.consultPhone !=null and query.consultPhone !='' ">
             and consult_phone=#{query.consultPhone}
         </if>
+        ORDER BY consult_id DESC
     </select>
 </mapper>

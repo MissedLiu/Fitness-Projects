@@ -99,6 +99,9 @@ public class RoleController {
      * */@PostMapping("/saveRoleAssign")
     @PreAuthorize("hasAuthority('sys:role:assign')")
     public Result saveRoleAssign(@RequestBody RolePermissionDTO rolePermissionDTO) {
+         if(rolePermissionDTO.getList().size()==0){
+             return Result.exist().message("请选择权限");
+         }
         //调用保存角色权限关系方法
         if (roleService.saveRolePermission(rolePermissionDTO.getRoleId(), rolePermissionDTO.getList())) {
             return Result.ok().message("权限分配成功");

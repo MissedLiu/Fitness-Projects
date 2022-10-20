@@ -70,7 +70,10 @@ public class BlackController {
     */
     @PostMapping("/delMemberAllMeal")
     public Result delMemberAllMeal(@RequestBody DisburseAndMemberQueryVo disburseAndMemberQueryVo){
-        if(blackService.delMemberAllMeal(disburseAndMemberQueryVo)){
+        int message=blackService.delMemberAllMeal(disburseAndMemberQueryVo);
+        if(message==0){
+            return Result.exist().message("退费失败,该黑名单用户无套餐");
+        }else if(message==1){
             return Result.ok().message("退费成功");
         }
         return Result.error().message("退费失败");
